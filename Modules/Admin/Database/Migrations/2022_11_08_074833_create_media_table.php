@@ -17,12 +17,17 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->timestamps();
-            
+
             $table->foreignId('phone')
-            ->references('phone')
-            ->on('users')
-            ->cascadeOnDelete()
-            ->cascadeOnUpdate();
+                ->references('phone')
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+            $table->foreignId('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 

@@ -4,7 +4,7 @@ namespace Modules\Admin\Transformers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class StoreResource extends JsonResource
+class StoreWithProductsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -16,9 +16,9 @@ class StoreResource extends JsonResource
     {
         return [
             'store_name' => $this->store_name,
-            'store_link' => $this->store_link,
-            'store_desc' => $this->store_desc,
-            'categories' => new CategoriesShowResource($this->categories),
+            'store_link' => $this->store_name,
+            'categories' => CategoriesWithProductsResource::collection($this->categories),
+            'media' => MediaResource::collection($this->media)
         ];
     }
 }

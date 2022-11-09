@@ -2,8 +2,12 @@
 
 namespace Modules\Store\Providers;
 
+use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Modules\Admin\Entities\Category;
+use Modules\Admin\Entities\Store;
+use Modules\Admin\Transformers\CategoriesShowResource;
 
 class StoreServiceProvider extends ServiceProvider
 {
@@ -28,9 +32,6 @@ class StoreServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
-        $fullDomain = $this->app->request->server->all()["HTTP_HOST"];
-        $storeName = explode('.', $fullDomain)[0];
-        
     }
 
     /**

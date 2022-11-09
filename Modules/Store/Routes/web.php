@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Modules\Store\Http\Controllers\StoreController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,10 @@
 |
 */
 
-Route::prefix('store')->group(function() {
-    Route::get('/', 'StoreController@index');
+Route::prefix('{storeLink}')->name('store .')->group(function () {
+    route::get('/',[StoreController::class,'index']);
+    route::get('/products',[StoreController::class,'products']);
+    route::get('/product/{id}/details/{productName}',[StoreController::class,'index']);
+
+    route::get('/category/{id}/products',[StoreController::class,'categoryProducts']);
 });

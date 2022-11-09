@@ -10,6 +10,7 @@ use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
 use Modules\Admin\Entities\Category;
+use Modules\Admin\Entities\Media;
 use Modules\Admin\Entities\Store;
 
 class User extends Authenticatable
@@ -51,5 +52,10 @@ class User extends Authenticatable
     function store()
     {
         return $this->hasOne(Store::class);
+    }
+
+    public function media()
+    {
+        return $this->hasMany(Media::class);
     }
 }

@@ -4,7 +4,7 @@ namespace Modules\Admin\Transformers;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductsResource extends JsonResource
+class MediaResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,11 +15,7 @@ class ProductsResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'title' => $this->title,
-            'sku' => $this->sku,
-            'quantity' => $this->quantity,
-            'price' => $this->price,
-            'on_store' => $this->on_store,
+            'name' => $this->name
         ];
     }
 }
