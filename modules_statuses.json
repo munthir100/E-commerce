@@ -1,0 +1,7 @@
+{
+    "Acl": true,
+    "Admin": true,
+    "Client": true,
+    "Shipping": true,
+    "Store": true
+}
