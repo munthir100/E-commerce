@@ -23,6 +23,7 @@ return new class extends Migration
             $table->timestamps();
 
             $table->foreignId('city_id')
+                ->nullable()
                 ->references('id')
                 ->on('cities')
                 ->nullOnDelete();

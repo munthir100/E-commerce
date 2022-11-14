@@ -19,11 +19,13 @@ return new class extends Migration
             $table->string('store_name');
             $table->string('store_link')->unique();
             $table->string('store_desc');
-            $table->foreignId('city_id')
-                ->references('id')
-                ->on('cities')
-                ->nullOnDelete();
+            
 
+            $table->foreignId('city_id')
+            ->nullable()
+            ->references('id')
+            ->on('cities')
+            ->nullOnDelete();
             $table->timestamps();
         });
     }

@@ -2,11 +2,10 @@
 
 namespace Modules\Store\Http\Controllers;
 
-use Illuminate\Http\Request;
+
 use Modules\Admin\Entities\Store;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Contracts\Support\Renderable;
 use Modules\Admin\Entities\Category;
 use Modules\Admin\Transformers\CategoriesWithProductsResource;
 use Modules\Admin\Transformers\StoreWithProductsResource;
@@ -16,11 +15,12 @@ class StoreController extends Controller
 {
     protected $store;
 
-    public function __construct(){
+    public function __construct()
+    {
         $storeLink = Route::current()->getParameter('storeLink');
-        $this->store = Store::where('store_link',$this->$storeLink);
+        $this->store = Store::where('store_link', $this->$storeLink);
     }
-    
+
     public function index()
     {
         $storeWithCategories = new storeWithCategoriesResource($this->store);

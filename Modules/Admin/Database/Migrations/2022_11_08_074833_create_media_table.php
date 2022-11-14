@@ -18,11 +18,12 @@ return new class extends Migration
             $table->string('name');
             $table->timestamps();
 
-            $table->foreignId('phone')
+            $table->integer('phone')
                 ->references('phone')
                 ->on('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+                
             $table->foreignId('user_id')
                 ->references('id')
                 ->on('users')
