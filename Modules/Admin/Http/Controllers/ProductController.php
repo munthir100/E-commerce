@@ -2,9 +2,9 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Illuminate\Contracts\Support\Renderable;
 use Modules\Admin\Entities\Product;
 use Modules\Admin\Http\Requests\ProducRequest;
 
@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin::index');
+        return view('admin::products.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin::create');
+        return view('admin::products.create');
     }
 
     /**
@@ -36,47 +36,52 @@ class ProductController extends Controller
     public function store(ProducRequest $request)
     {
         Product::create($request->validated());
+
         return redirect()->route('admin.products.index');
     }
 
     /**
      * Show the specified resource.
-     * @param int $id
+     * @param int Product $product
      * @return Renderable
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        return view('admin::show');
+        return view('admin::products.show');
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     * @param int Product $product
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Product $product)
     {
-        return view('admin::edit');
+        return view('admin::products.edit');
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
-     * @param int $id
+     * @param int Product $product
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Product $product)
     {
-        //
+        $product->update($request->validated());
+
+        return redirect()->route('admin.products.index');
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     * @param int Product $product
      * @return Renderable
      */
-    public function destroy($id)
+    public function destroy(Product $product)
     {
-        //
+        $product->delete();
+
+        return redirect()->route('admin.products.index');
     }
 }

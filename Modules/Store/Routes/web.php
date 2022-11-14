@@ -14,10 +14,10 @@ use Modules\Store\Http\Controllers\StoreController;
 |
 */
 
-Route::prefix('{storeLink}')->name('store .')->group(function () {
-    route::get('/',[StoreController::class,'index']);
-    route::get('/products',[StoreController::class,'products']);
-    route::get('/product/{id}/details/{productName}',[StoreController::class,'index']);
+// Route::prefix('{storeLink}')->name('store .')->group(function () {
+//     route::get('/',[StoreController::class,'index']);
+//     route::get('/products',[StoreController::class,'products']);
+//     route::get('/product/{id}/details/{productName}',[StoreController::class,'index']);
 
-    route::get('/category/{id}/products',[StoreController::class,'categoryProducts']);
-});
+//     route::get('/category/{id}/products',[StoreController::class,'categoryProducts']);
+// });
