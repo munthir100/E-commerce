@@ -1,8 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Acl\Http\Livewire\Auth\LoginLivewire;
-use Modules\Acl\Http\Livewire\Auth\Register;
+
 
 
 /*
@@ -17,14 +16,4 @@ use Modules\Acl\Http\Livewire\Auth\Register;
 */
 
 Route::prefix('acl')->group(function () {
-    Route::get('/', 'AclController@index');
 });
-Route::get('/register', [Register::class, '__invoke']);
-
-Route::post('/register', [Register::class, 'register']);
-
-Route::get('/login', [LoginLivewire::class, '__invoke'])->name('login');
-
-Route::post('/login', [LoginLivewire::class, 'login']);
-
-Route::get('/logout', [LoginLivewire::class, 'logout']);
