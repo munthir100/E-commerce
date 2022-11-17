@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('user_types', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('store_id')->references('id')->on('stores')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('title');
-            $table->integer('parent_id')->nullable();
-            $table->boolean('is_active')->default(true);
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('categories');
+        Schema::dropIfExists('user_types');
     }
 };

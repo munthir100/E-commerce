@@ -23,7 +23,7 @@ class User extends Authenticatable
      * @var array<int, string>
      */
     protected $fillable = [
-        'role_id',
+        'user_type_id',
         'name',
         'email',
         'phone',
@@ -49,6 +49,11 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    function userType()
+    {
+        return $this->belongsTo(UserTypes::class);
+    }
+    
     function store()
     {
         return $this->hasOne(Store::class);

@@ -16,9 +16,11 @@ return new class extends Migration
         Schema::create('stores', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
-            $table->string('store_name');
             $table->string('store_link')->unique();
-            $table->string('store_desc');
+            $table->string('store_name');
+
+            
+            $table->string('store_desc')->nullable();
             
 
             $table->foreignId('city_id')

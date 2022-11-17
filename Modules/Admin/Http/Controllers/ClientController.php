@@ -5,10 +5,8 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Admin\Entities\Category;
-use Modules\Admin\Http\Requests\CategoryRequest;
 
-class CategoriesController extends Controller
+class ClientController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,7 +14,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        return view('admin::Categories.index');
+        return view('admin::index');
     }
 
     /**
@@ -25,7 +23,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin::Categories.create');
+        return view('admin::create');
     }
 
     /**
@@ -33,53 +31,49 @@ class CategoriesController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(CategoryRequest $request)
+    public function store(Request $request)
     {
-        Category::create($request->validated());
-
-        return redirect()->route('admin::Categories.index');
+        //
     }
 
     /**
      * Show the specified resource.
-     * @param int Category $category
+     * @param int $id
      * @return Renderable
      */
-    public function show(Category $category)
+    public function show($id)
     {
-        return view('admin::Categories.show');
+        return view('admin::show');
     }
 
     /**
      * Show the form for editing the specified resource.
-     * @param int Category $category
+     * @param int $id
      * @return Renderable
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        return view('admin::Categories.edit');
+        return view('admin::edit');
     }
 
     /**
      * Update the specified resource in storage.
      * @param Request $request
-     * @param int Category $category
+     * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, $id)
     {
         //
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int Category $category
+     * @param int $id
      * @return Renderable
      */
-    public function destroy(Category $category)
+    public function destroy($id)
     {
-        $category->delete();
-
-        return redirect()->route('admin::categories.index');
+        //
     }
 }

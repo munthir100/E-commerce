@@ -24,10 +24,14 @@ return new class extends Migration
             $table->string('price');
             $table->string('cost')->nullable();
             $table->string('discount')->nullable();
-            $table->string('on_store')->default(true);
             $table->string('free_shipping')->default(false);
             $table->string('is_active')->default(true);
             $table->timestamps();
+
+            $table->foreignId('category_id')
+                ->references('id')
+                ->on('categories')
+                ->restrictOnDelete();
         });
     }
 
