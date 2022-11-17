@@ -34,6 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/charts/chart-apex.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
+    @yield('styles')
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -489,8 +490,7 @@
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="../../../app-assets/vendors/js/charts/apexcharts.min.js"></script>
-    <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
+    @yield('scripts')
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
@@ -498,9 +498,7 @@
     <script src="../../../app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
 
-    <!-- BEGIN: Page JS-->
-    <script src="../../../app-assets/js/scripts/pages/dashboard-ecommerce.js"></script>
-    <!-- END: Page JS-->
+
 
     <script>
         $(window).on('load', function() {
