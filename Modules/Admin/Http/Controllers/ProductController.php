@@ -16,7 +16,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        return view('admin::products.index');
+        return view('admin::Products.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-        return view('admin::products.create');
+        return view('admin::Products.create');
     }
 
     /**
@@ -37,7 +37,7 @@ class ProductController extends Controller
     {
         Product::create($request->validated());
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.Products.index');
     }
 
     /**
@@ -47,7 +47,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        return view('admin::products.show');
+        return view('admin::Products.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin::products.edit');
+        return view('admin::Products.edit');
     }
 
     /**
@@ -70,7 +70,7 @@ class ProductController extends Controller
     {
         $product->update($request->validated());
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.Products.index');
     }
 
     /**
@@ -82,6 +82,6 @@ class ProductController extends Controller
     {
         $product->delete();
 
-        return redirect()->route('admin.products.index');
+        return redirect()->route('admin.Products.index');
     }
 }

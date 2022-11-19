@@ -11,7 +11,11 @@ class Category extends Model
 
     protected $fillable = ['store_id', 'title', 'parent_id'];
 
-
+    public function store()
+    {
+        return $this->belongsTo(Store::class);
+    }
+    
     public function products()
     {
         return $this->hasMany(Product::class);
@@ -19,5 +23,9 @@ class Category extends Model
     public function brands()
     {
         return $this->hasMany(Brand::class);
+    }
+    public function childs()
+    {
+        return $this->hasMany(Category::class, 'parent_id')->with('childs');
     }
 }

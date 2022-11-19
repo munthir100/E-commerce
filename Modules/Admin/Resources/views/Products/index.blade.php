@@ -1,5 +1,6 @@
 @extends('admin::Layouts.adminlayout')
-@section('title','My store | Categories')
+@section('title','My store | Products')
+
 @section('content')
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -48,9 +49,9 @@
                             </div>
                             <div class="dt-action-buttons text-end">
                                 <div class="dt-buttons d-inline-flex">
-                                    <button data-bs-toggle="modal" data-bs-target="#addCategory" class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#modals-slide-in"><span>
+                                    <a href="{{route('admin.products.create')}}" class="dt-button create-new btn btn-primary"><span>
                                             <i data-feather="plus"></i>
-                                            Add New Record</span></button>
+                                            Add New Product</span></a>
                                 </div>
                             </div>
                         </div>
@@ -67,9 +68,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($categories as $category)
+
                                     <tr>
-                                        <td>{{$category->title}}</td>
+                                        <td>hgggg</td>
                                         <td>sub categore</td>
                                         <td>sub categore sub categore</td>
                                         <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
@@ -90,7 +91,7 @@
                                                 </div>
                                             </div>
                                         </td>
-                                        @endforeach
+
 
                                 </tbody>
                             </table>
@@ -102,33 +103,13 @@
         </div>
     </div>
 </div>
-<!-- Add new Category modal  -->
-<div class="modal fade" id="addCategory" tabindex="-1" aria-labelledby="addCategoryTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-header bg-transparent">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body px-sm-5 mx-50 pb-5">
-                <h1 class="text-center mb-1" id="addCategoryTitle">Add new Category</h1>
-                <p class="text-center">Add your Categories for your store</p>
-
-                <!-- form -->
-                <livewire:admin::categories.store-category-livewire />
-                <!-- End form -->
-
-            </div>
-        </div>
-    </div>
-</div>
-<!--/ Add new Category modal  -->
 @endsection
 
+
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
+
 @endsection
 
 @section('scripts')
-<script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
-<script src="../../../app-assets/js/scripts/forms/form-select2.js"></script>
+
 @endsection
