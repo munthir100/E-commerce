@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('sku')->nullable();
-            $table->string('quantity');
+            $table->string('quantity')->nullable();
             $table->string('wheight')->nullable();
             $table->string('short_description', 20)->nullable();
             $table->string('description')->nullable();
