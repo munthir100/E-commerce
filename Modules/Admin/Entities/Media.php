@@ -9,7 +9,7 @@ use Modules\Acl\Entities\User;
 class Media extends Model
 {
     use HasFactory;
-
+    public $table = 'social_media';
     protected $fillable = [];
 
     public function store()

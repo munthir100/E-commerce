@@ -14,10 +14,10 @@
         "livewire/livewire": "^2.10",
         "mhmiton/laravel-modules-livewire": "^1.5",
         "nwidart/laravel-modules": "^9.0",
+        "spatie/laravel-medialibrary": "^10.7",
         "spatie/laravel-permission": "^5.5",
         "staudenmeir/belongs-to-through": "^2.5",
-        "staudenmeir/eloquent-has-many-deep": "^1.7",
-        "tonysm/turbo-laravel": "^1.6"
+        "staudenmeir/eloquent-has-many-deep": "^1.7"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.7",
