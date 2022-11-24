@@ -1,9 +1,6 @@
 <div>
     <form class="form" wire:submit.prevent="save">
         <div class="row">
-
-        <input type="text" wire:model="store_id" />
-
             <div class="col-md-6 col-12">
                 <div class="mb-1">
                     <label class="form-label" for="first-name-column">product title <span class="text-danger">*</span> </label>

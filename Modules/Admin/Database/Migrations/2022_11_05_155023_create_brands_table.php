@@ -16,9 +16,9 @@ return new class extends Migration
         Schema::create('brands', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->integer('number_of_products');
+            $table->integer('number_of_products')->default(0);
             $table->foreignId('category_id')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
-            $table->boolean('sataus')->default(true);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

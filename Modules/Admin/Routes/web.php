@@ -10,7 +10,7 @@ use Modules\Admin\Http\Controllers\ProductController;
 use Modules\Admin\Http\Controllers\CategoriesController;
 use Modules\Admin\Http\Controllers\ReportController;
 
-Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
     Route::get('/', [AdminController::class,'index'])->name('index');
     Route::resource('categories', CategoriesController::class,);
     Route::resource('products', ProductController::class,);

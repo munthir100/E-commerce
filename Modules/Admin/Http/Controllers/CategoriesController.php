@@ -16,7 +16,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $store_id = session()->get('store')->id;
-        $categories = Category::whereNull('parent_id')->where('store_id', $store_id)->with('childs')->get();
+        $categories = Category::where('store_id', $store_id)->with('childs')->get();
         return view('admin::Categories.index', compact('categories'));
     }
 

@@ -23,6 +23,7 @@ class Product extends Model
         'discount',
         'is_active',
         'category_id',
+        'store_id',
     ];
 
     public function category()

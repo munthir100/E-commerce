@@ -2,14 +2,15 @@
 
 namespace Modules\Admin\Http\Livewire\Products;
 
-use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Modules\Admin\Entities\Category;
+use Illuminate\Support\Facades\Session;
 use Modules\Admin\Entities\Product;
 
-class CreateProductLivewire extends Component
+class UpdateProductLivewire extends Component
 {
     public
+        $product,
         $title,
         $sku,
         $quantity,
@@ -20,14 +21,25 @@ class CreateProductLivewire extends Component
         $cost,
         $discount,
         $free_shipping,
-        $is_active = true,
-        $store_id,
-        $category_id = null;
+        $is_active,
+        $category_id;
 
-    public function mount()
+    function mount()
     {
-        $this->store_id = Session::get('store')->id;
+        $this->title = $this->product->title;
+        $this->sku = $this->product->sku;
+        $this->quantity = $this->product->quantity;
+        $this->wheight = $this->product->wheight;
+        $this->short_description = $this->product->short_description;
+        $this->description = $this->product->description;
+        $this->price = $this->product->price;
+        $this->cost = $this->product->cost;
+        $this->discount = $this->product->discount;
+        $this->free_shipping = $this->product->free_shipping;
+        $this->is_active = $this->product->is_active;
+        $this->category_id = $this->product->category_id;
     }
+
     protected $rules = [
         'title' => 'required',
         'sku' => 'sometimes',
@@ -39,9 +51,8 @@ class CreateProductLivewire extends Component
         'cost' => 'sometimes',
         'discount' => 'sometimes',
         'free_shipping' => 'sometimes',
-        'is_active' => 'required|boolean',
+        'is_active' => 'required',
         'category_id' => 'sometimes',
-        'store_id' => 'required|integer|exists:stores,id',
     ];
 
     public function updated($data)
@@ -51,14 +62,15 @@ class CreateProductLivewire extends Component
 
     public function render()
     {
+        $product = $this->product;
         $categories = Category::with('childs')->where('store_id', Session::get('store')->id)->get();
-        return view('admin::livewire.products.create-product-livewire', compact('categories'));
+        return view('admin::livewire.products.update-product-livewire', compact('product', 'categories'));
     }
 
-    public function save()
+    function save()
     {
-        $data = $this->validate();
-        Product::create($data);
+        dd($this->validate());
+        $this->product->update($this->validate());
         return redirect()->route('admin.products.index');
     }
 }

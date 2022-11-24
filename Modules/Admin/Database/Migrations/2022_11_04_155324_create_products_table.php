@@ -17,21 +17,29 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->string('sku')->nullable();
-            $table->string('quantity')->nullable();
-            $table->string('wheight')->nullable();
+            $table->integer('quantity')->nullable();
+            $table->float('wheight')->nullable();
             $table->string('short_description', 20)->nullable();
             $table->string('description')->nullable();
-            $table->string('price');
-            $table->string('cost')->nullable();
-            $table->string('discount')->nullable();
-            $table->string('free_shipping')->default(false);
-            $table->string('is_active')->default(true);
+            $table->float('price');
+            $table->float('cost')->nullable();
+            $table->float('discount')->nullable();
+            $table->boolean('free_shipping')->default(false);
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
 
             $table->foreignId('category_id')
+                ->nullable()
                 ->references('id')
                 ->on('categories')
-                ->restrictOnDelete();
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->foreignId('store_id')
+                ->references('id')
+                ->on('stores')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 

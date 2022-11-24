@@ -23,6 +23,11 @@ class Store extends Model
         return $this->hasMany(Category::class);
     }
 
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
     public function media()
     {
         return $this->hasManyThrough(Media::class, User::class);

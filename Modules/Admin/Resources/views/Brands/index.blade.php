@@ -49,9 +49,11 @@
                             </div>
                             <div class="dt-action-buttons text-end">
                                 <div class="dt-buttons d-inline-flex">
-                                    <a href="{{route('admin.products.create')}}" class="dt-button create-new btn btn-primary"><span>
-                                            <i data-feather="plus"></i>
-                                            Add New Product</span></a>
+                                    <a data-bs-toggle="modal" data-bs-target="#addNewBrand" href="#" class="dt-button create-new btn btn-primary">
+                                        <span>
+                                            <i data-feather="plus"></i>Add New Product
+                                        </span>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -61,43 +63,25 @@
                                 <thead>
                                     <tr>
                                         <th>name</th>
-                                        <th>produt sku</th>
-                                        <th>quantity</th>
-                                        <th>price</th>
-                                        <th>publish on store</th>
+                                        <th>number of products</th>
+                                        <th>category</th>
+                                        <th>status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($products as $product)
                                     <tr>
-                                        <td>{{$product->title}}</td>
-                                        @isset($product->sku)
-                                        <td>
-                                            {{$product->sku}}
-                                        </td>
-                                        @endisset
-
-                                        @empty($product->sku)
-                                        <td>
-                                            -
-                                        </td>
-                                        @endempty
-                                        <td>{{$product->quantity}}</td>
-                                        <td>{{$product->price}}</td>
-
-                                        @if($product->is_active != 0)
+                                        <td>jjjj</td>
+                                        <td>product->quantity</td>
+                                        <td>product->price</td>
                                         <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
-                                        @else
-                                        <td><span class="badge rounded-pill badge-light-secondary me-1">Not Active</span></td>
-                                        @endif
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
                                                     <i data-feather="more-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="{{route('admin.products.edit',[$product->id])}}">
+                                                    <a class="dropdown-item" href="#">
                                                         <i data-feather="edit-2" class="me-50"></i>
                                                         <span>Edit</span>
                                                     </a>
@@ -109,8 +93,6 @@
                                             </div>
                                         </td>
                                     </tr>
-                                    @endforeach
-
                                 </tbody>
                             </table>
                         </div>
@@ -118,6 +100,18 @@
                 </div>
             </div>
             <!-- Basic Tables end -->
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addNewBrand" tabindex="-1" aria-labelledby="addNewBrandTitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addNewBrandTitle">Modal title</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <livewire:admin::brands.create-brand-livewire />
         </div>
     </div>
 </div>
