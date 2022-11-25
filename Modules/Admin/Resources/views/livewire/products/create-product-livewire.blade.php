@@ -2,7 +2,8 @@
     <form class="form" wire:submit.prevent="save">
         <div class="row">
 
-        <input type="text" wire:model="store_id" />
+            <input type="hidden" wire:model="store_id" />
+            <input type="hidden" wire:model="user_id" />
 
             <div class="col-md-6 col-12">
                 <div class="mb-1">
@@ -89,6 +90,17 @@
                     @error('description') <small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
+
+
+            <!-- <div class="col-12">
+                <div class="mb-1">
+                    <label class="form-label" for="city-column">short description</label>
+                    <input type="file" class="form-control" wire:model="image" />
+                    @error('image') <small class="text-danger">{{$message}}</small>@enderror
+                </div>
+            </div> -->
+
+
 
             <div class="col-md-12">
                 <div class="form-check form-check-inline">

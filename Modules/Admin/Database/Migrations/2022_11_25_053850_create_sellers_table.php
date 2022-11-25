@@ -13,14 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('clients', function (Blueprint $table) {
+        Schema::create('sellers', function (Blueprint $table) {
             $table->id();
-            $table->date('birth_date')->nullable();
-            $table->string('city')->nullable();
-            $table->boolean('sex')->nullable();
-            $table->string('note')->nullable();
-            $table->integer('number_of_orders')->default(0);
-            $table->timestamps();
 
             $table->foreignId('user_id')
                 ->references('id')
@@ -33,6 +27,7 @@ return new class extends Migration
                 ->on('stores')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+            $table->timestamps();
         });
     }
 
@@ -43,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clients');
+        Schema::dropIfExists('sellers');
     }
 };

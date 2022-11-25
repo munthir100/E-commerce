@@ -69,8 +69,7 @@ class UpdateProductLivewire extends Component
 
     function save()
     {
-        dd($this->validate());
         $this->product->update($this->validate());
-        return redirect()->route('admin.products.index');
+        return to_route('admin.products.index');
     }
 }

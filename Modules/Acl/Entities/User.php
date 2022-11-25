@@ -5,13 +5,18 @@ namespace Modules\Acl\Entities;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Admin\Entities\Brand;
 use Modules\Admin\Entities\Category;
 use Modules\Admin\Entities\Media;
+use Modules\Admin\Entities\Product;
+use Modules\Admin\Entities\Seller;
 use Modules\Admin\Entities\Store;
+use Modules\Client\Entities\Client;
 
 class User extends Authenticatable
 {
@@ -53,14 +58,38 @@ class User extends Authenticatable
     {
         return $this->belongsTo(UserTypes::class);
     }
-    
+
     public function store()
     {
         return $this->hasOne(Store::class);
     }
 
+    public function categories()
+    {
+        return $this->hasMany(Category::class);
+    }
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function brands()
+    {
+        return $this->hasMany(Brand::class);
+    }
+
+    public function sellers()
+    {
+        return $this->HasMany(Seller::class);
+    }
+
     public function media()
     {
         return $this->hasMany(Media::class);
+    }
+
+    public function clients(){
+        return $this->hasMany(Client::class);
     }
 }

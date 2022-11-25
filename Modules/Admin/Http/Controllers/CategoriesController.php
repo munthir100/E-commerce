@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Modules\Admin\Entities\Category;
 
 class CategoriesController extends Controller
@@ -15,8 +16,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $store_id = session()->get('store')->id;
-        $categories = Category::where('store_id', $store_id)->with('childs')->get();
+        $categories = Category::where('user_id', Auth::user()->id)->with('childs')->get();
         return view('admin::Categories.index', compact('categories'));
     }
 

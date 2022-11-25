@@ -5,6 +5,9 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Modules\Admin\Entities\Brand;
+use Modules\Admin\Entities\Category;
 
 class BrandController extends Controller
 {
@@ -14,7 +17,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        return view('admin::Brands.index');
+        $brands = Brand::with('category')->where('user_id', Auth::user()->id)->get();
+        return view('admin::Brands.index', compact('brands'));
     }
 
     /**
@@ -51,9 +55,10 @@ class BrandController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Brand $brand)
     {
-        return view('admin::edit');
+        $categories = Category::where('user_id', Auth::user()->id)->get();
+        return view('admin::Brands.edit', compact('brand', 'categories'));
     }
 
     /**
@@ -72,8 +77,9 @@ class BrandController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return back();
     }
 }

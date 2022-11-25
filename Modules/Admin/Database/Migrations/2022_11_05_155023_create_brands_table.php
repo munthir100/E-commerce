@@ -17,9 +17,26 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('number_of_products')->default(0);
-            $table->foreignId('category_id')->references('id')->on('categories')->cascadeOnDelete()->cascadeOnUpdate();
             $table->boolean('is_active')->default(true);
             $table->timestamps();
+
+            $table->foreignId('category_id')
+                ->references('id')
+                ->on('categories')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->foreignId('store_id')
+                ->references('id')
+                ->on('stores')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->foreignId('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
         });
     }
 

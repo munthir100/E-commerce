@@ -33,18 +33,21 @@ class CustomSeederTableSeeder extends Seeder
         Category::create([
             'title' => 'test',
             'store_id' => 1,
+            'user_id' => 1,
         ]);
 
         Category::create([
             'title' => 'test child',
             'store_id' => 1,
             'parent_id' => 1,
+            'user_id' => 1,
         ]);
 
         Category::create([
             'title' => 'child test child',
             'store_id' => 1,
             'parent_id' => 2,
+            'user_id' => 1,
         ]);
     }
 }

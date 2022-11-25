@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Http\Livewire\Products;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Modules\Admin\Entities\Category;
@@ -22,11 +23,13 @@ class CreateProductLivewire extends Component
         $free_shipping,
         $is_active = true,
         $store_id,
+        $user_id,
         $category_id = null;
 
     public function mount()
     {
         $this->store_id = Session::get('store')->id;
+        $this->user_id = Auth::user()->id;
     }
     protected $rules = [
         'title' => 'required',
@@ -42,6 +45,7 @@ class CreateProductLivewire extends Component
         'is_active' => 'required|boolean',
         'category_id' => 'sometimes',
         'store_id' => 'required|integer|exists:stores,id',
+        'user_id' => 'required|integer|exists:users,id',
     ];
 
     public function updated($data)
@@ -51,7 +55,7 @@ class CreateProductLivewire extends Component
 
     public function render()
     {
-        $categories = Category::with('childs')->where('store_id', Session::get('store')->id)->get();
+        $categories = Category::with('childs')->where('user_id', Auth::user()->id)->get();
         return view('admin::livewire.products.create-product-livewire', compact('categories'));
     }
 

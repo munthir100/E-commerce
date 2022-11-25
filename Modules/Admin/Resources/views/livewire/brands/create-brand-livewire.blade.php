@@ -1,5 +1,7 @@
 <div>
     <form method="post" wire:submit.prevent="save">
+        <input type="hidden" wire:model="store_id">
+        <input type="hidden" wire:model="user_id">
         <div class="modal-body">
             <div class="mb-1">
                 <label class="form-label" for="selectLarge">Select Category</label>

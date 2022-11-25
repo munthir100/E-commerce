@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Product;
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Support\Facades\Auth;
 use Modules\Admin\Http\Requests\ProducRequest;
 
 class ProductController extends Controller
@@ -16,8 +17,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::where('store_id',session()->get('store')->id)->get();
-        return view('admin::Products.index',compact('products'));
+        $products = Product::where('user_id', Auth::user()->id)->get();
+        return view('admin::Products.index', compact('products'));
     }
 
     /**
@@ -58,7 +59,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return view('admin::Products.edit',compact('product'));
+        return view('admin::Products.edit', compact('product'));
     }
 
     /**
@@ -81,8 +82,11 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
+        if ($product->dosentHave('orders')) {
+            return redirect()->back()->with('error', 'please delete orders first');
+        }
         $product->delete();
 
-        return redirect()->route('admin.Products.index');
+        return to_route('admin.Products.index');
     }
 }

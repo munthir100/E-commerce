@@ -28,6 +28,16 @@ class Store extends Model
         return $this->hasMany(Product::class);
     }
 
+    public function brands()
+    {
+        return $this->hasMany(Brand::class);
+    }
+
+    public function sellers()
+    {
+        return $this->HasMany(Seller::class);
+    }
+    
     public function media()
     {
         return $this->hasManyThrough(Media::class, User::class);
