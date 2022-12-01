@@ -23,6 +23,13 @@ class Store extends Model
         return $this->hasMany(Category::class);
     }
 
+    public function mainCategories()
+    {
+        return $this->hasMany(Category::class)->where(function ($query) {
+            $query->where('parent_id', null);
+        });
+    }
+
     public function products()
     {
         return $this->hasMany(Product::class);
@@ -37,7 +44,7 @@ class Store extends Model
     {
         return $this->HasMany(Seller::class);
     }
-    
+
     public function media()
     {
         return $this->hasManyThrough(Media::class, User::class);

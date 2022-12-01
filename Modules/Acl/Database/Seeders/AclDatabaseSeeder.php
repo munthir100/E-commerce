@@ -5,6 +5,7 @@ namespace Modules\Acl\Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Modules\Acl\Database\Seeders\RolesSeeder;
+use Modules\Shipping\Database\Seeders\CitiesSeederTableSeeder;
 
 class AclDatabaseSeeder extends Seeder
 {
@@ -20,5 +21,6 @@ class AclDatabaseSeeder extends Seeder
         $this->call(RolesSeeder::class);
         $this->call(UserTypesSeederTableSeeder::class);
         $this->call(CustomSeederTableSeeder::class);
+        $this->call(CitiesSeederTableSeeder::class);
     }
 }

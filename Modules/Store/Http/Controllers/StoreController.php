@@ -7,6 +7,7 @@ use Modules\Admin\Entities\Store;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Route;
 use Modules\Admin\Entities\Category;
+use Modules\Admin\Entities\Product;
 use Modules\Admin\Transformers\CategoriesWithProductsResource;
 use Modules\Admin\Transformers\StoreWithProductsResource;
 use Modules\Admin\Transformers\storeWithCategoriesResource;
@@ -17,25 +18,27 @@ class StoreController extends Controller
 
     public function __construct()
     {
-        $storeLink = Route::current()->getParameter('storeLink');
-        $this->store = Store::where('store_link', $this->$storeLink);
+        if (!is_null(request()->route('storeLink'))) {
+            $storeLink = Route::current()->parameter('storeLink');
+            $this->store = Store::where('store_link', $storeLink)->with('mainCategories')->first();
+        }
     }
 
     public function index()
     {
-        $storeWithCategories = new storeWithCategoriesResource($this->store);
-        return $storeWithCategories;
+        return view('store::index', ['store' => $this->store]);
     }
 
-    public function products()
+    public function productDetails()
     {
-        $StoreWithProducts = new StoreWithProductsResource($this->store);
-        return $StoreWithProducts;
+        $id = Route::current()->parameter('product');
+        $product = Product::findOrFail($id);
+        dd($product);
     }
 
     public function categoryProducts(Category $category)
     {
-        $categoryWithProducts = new CategoriesWithProductsResource($category);
-        return $categoryWithProducts;
+        // $categoryWithProducts = new CategoriesWithProductsResource($category);
+        // return $categoryWithProducts;
     }
 }

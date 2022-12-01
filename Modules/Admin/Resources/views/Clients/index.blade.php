@@ -60,27 +60,34 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>Title</th>
-                                        <th>Sub client</th>
-                                        <th>Sub-Sub client</th>
-                                        <th>Status</th>
+                                        <th>name</th>
+                                        <th>date of registerd</th>
+                                        <th>phone</th>
+                                        <th>email</th>
+                                        <th>number of orders</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach($clients as $client)
                                     <tr>
-                                        <td>{{$client->title}}</td>
-                                        <td>sub categore</td>
-                                        <td>sub categore sub categore</td>
-                                        <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                                        <td>{{$client->user->name}}</td>
+                                        <td>{{$client->created_at->diffForhumans()}}</td>
+                                        <td>{{$client->user->phone}}</td>
+                                        <td>{{$client->user->email}}</td>
+                                        <td>{{$client->number_of_orders}}</td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
                                                     <i data-feather="more-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="#">
+                                                    <a class="dropdown-item" href="{{route('admin.clients.show',$client->id)}}">
+                                                        <i data-feather="eye" class="me-50"></i>
+                                                        <span>Show</span>
+                                                    </a>
+
+                                                    <a class="dropdown-item" href="{{route('admin.clients.edit',$client->id)}}">
                                                         <i data-feather="edit-2" class="me-50"></i>
                                                         <span>Edit</span>
                                                     </a>
@@ -112,46 +119,10 @@
             </div>
             <div class="modal-body pb-5 px-sm-5 pt-50">
                 <div class="text-center mb-2">
-                    <h1 class="mb-1">Edit User Information</h1>
-                    <p>Updating user details will receive a privacy audit.</p>
+                    <h1 class="mb-1">Add Client Information</h1>
+                    <p>Adding client details will receive a privacy audit.</p>
                 </div>
-                <form id="editUserForm" class="row gy-1 pt-75" onsubmit="return false" novalidate="novalidate">
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="modalEditUserFirstName">First Name</label>
-                        <input type="text" id="modalEditUserFirstName" name="modalEditUserFirstName" class="form-control" placeholder="John" value="Gertrude" data-msg="Please enter your first name">
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="modalEditUserLastName">Last Name</label>
-                        <input type="text" id="modalEditUserLastName" name="modalEditUserLastName" class="form-control" placeholder="Doe" value="Barton" data-msg="Please enter your last name">
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="modalEditUserEmail">Billing Email:</label>
-                        <input type="text" id="modalEditUserEmail" name="modalEditUserEmail" class="form-control" value="gertrude@gmail.com" placeholder="example@domain.com">
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="modalEditUserEmail">Billing Email:</label>
-                        <input type="text" id="modalEditUserEmail" name="modalEditUserEmail" class="form-control" value="gertrude@gmail.com" placeholder="example@domain.com">
-                    </div>
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="modalEditUserEmail">Billing Email:</label>
-                        <input type="text" id="modalEditUserEmail" name="modalEditUserEmail" class="form-control" value="gertrude@gmail.com" placeholder="example@domain.com">
-                    </div>
-
-                    <div class="col-12 col-md-6">
-                        <label class="form-label" for="modalEditUserEmail">Billing Email:</label>
-                        <input type="text" id="modalEditUserEmail" name="modalEditUserEmail" class="form-control" value="gertrude@gmail.com" placeholder="example@domain.com">
-                    </div>
-
-
-                    <div class="col-12 text-center mt-2 pt-50">
-                        <button type="submit" class="btn btn-primary me-1 waves-effect waves-float waves-light">Submit</button>
-                        <button type="reset" class="btn btn-outline-secondary waves-effect" data-bs-dismiss="modal" aria-label="Close">
-                            Discard
-                        </button>
-                    </div>
-                </form>
+                <livewire:admin::clients.store-client-livewire />
             </div>
         </div>
     </div>
