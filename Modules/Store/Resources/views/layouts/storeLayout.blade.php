@@ -44,7 +44,7 @@
 <!-- BEGIN: Body-->
 
 <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="">
-
+    @livewireScripts
     <!-- BEGIN: Header-->
     <nav class="header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center" data-nav="brand-center">
         <div class="navbar-header d-xl-block d-none">
@@ -116,78 +116,45 @@
                         <ul class="search-list search-list-main"></ul>
                     </div>
                 </li>
-                <li class="nav-item dropdown dropdown-cart me-25"><a class="nav-link" href="#" data-bs-toggle="dropdown"><i class="ficon" data-feather="shopping-cart"></i><span class="badge rounded-pill bg-primary badge-up cart-item-count">6</span></a>
+                <li class="nav-item dropdown dropdown-cart me-25">
+                    <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                        <i class="ficon" data-feather="shopping-cart"></i>
+                        <span class="badge rounded-pill bg-primary badge-up cart-item-count">
+                            <livewire:client::cart-counter />
+                        </span>
+                    </a>
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
                                 <h4 class="notification-title mb-0 me-auto">My Cart</h4>
-                                <div class="badge rounded-pill badge-light-primary">4 Items</div>
+                                <div class="badge rounded-pill badge-light-primary" style="display:inherit;">
+                                    items
+                                    (
+                                    <livewire:client::cart-counter />)
+                                </div>
                             </div>
                         </li>
                         <li class="scrollable-container media-list">
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="../../../app-assets/images/pages/eCommerce/1.png" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
+                            <div class="list-item align-items-center">
+                                <img class="d-block rounded me-1" src="../../../app-assets/images/pages/eCommerce/1.png" alt="donuts" width="62">
+
+                                <div class="list-item-body flex-grow-1">
+                                    <i class="ficon cart-item-remove" data-feather="x"></i>
                                     <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> Apple watch 5</a></h6><small class="cart-item-by">By Apple</small>
+                                        <h6 class="cart-item-title">
+                                            <a class="text-body" href="app-ecommerce-details.html">
+                                                Apple watch 5
+                                            </a>
+                                        </h6>
+                                        <small class="cart-item-by">By Apple</small>
                                     </div>
                                     <div class="cart-item-qty">
                                         <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
+
+                                            <input class="touchspin-cart" type="number" wire:model="quantity">
                                         </div>
                                     </div>
                                     <h5 class="cart-item-price">$374.90</h5>
-                                </div>
-                            </div>
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="../../../app-assets/images/pages/eCommerce/7.png" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> Google Home Mini</a></h6><small class="cart-item-by">By Google</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="3">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$129.40</h5>
-                                </div>
-                            </div>
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="../../../app-assets/images/pages/eCommerce/2.png" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> iPhone 11 Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="2">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$699.00</h5>
-                                </div>
-                            </div>
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="../../../app-assets/images/pages/eCommerce/3.png" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> iMac Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$4,999.00</h5>
-                                </div>
-                            </div>
-                            <div class="list-item align-items-center"><img class="d-block rounded me-1" src="../../../app-assets/images/pages/eCommerce/5.png" alt="donuts" width="62">
-                                <div class="list-item-body flex-grow-1"><i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title"><a class="text-body" href="app-ecommerce-details.html"> MacBook Pro</a></h6><small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group">
-                                            <input class="touchspin-cart" type="number" value="1">
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">$2,999.00</h5>
                                 </div>
                             </div>
                         </li>
@@ -425,7 +392,7 @@
                             <span data-i18n="Apps">{{$category->title}}</span>
                         </a>
                         <ul class="dropdown-menu" data-bs-popper="none">
-                           
+
                             <a class="dropdown-toggle  nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown">
                                 <i data-feather='circle'></i>
                                 <span data-i18n="Apps">title</span>
@@ -456,8 +423,24 @@
     <div class="drag-target"></div>
 
     <!-- BEGIN: Footer-->
-    <footer class="footer footer-static footer-light">
-        <p class="clearfix mb-0"><span class="float-md-start d-block d-md-inline-block mt-25">COPYRIGHT &copy; 2021<a class="ms-25" href="https://1.envato.market/pixinvent_portfolio" target="_blank">Pixinvent</a><span class="d-none d-sm-inline-block">, All rights Reserved</span></span><span class="float-md-end d-none d-md-block">Hand-crafted & Made with<i data-feather="heart"></i></span></p>
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+        <p class="col-md-4 mb-0 text-muted">© 2022 Company, Inc</p>
+
+        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <button type="button" class="btn btn-icon btn-icon rounded-circle btn-warning waves-effect waves-float waves-light">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox">
+                    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
+                    <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
+                </svg>
+            </button>
+        </a>
+
+        <ul class="nav col-md-4 justify-content-end">
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
+            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
+        </ul>
     </footer>
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->

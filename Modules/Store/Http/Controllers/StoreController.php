@@ -31,9 +31,10 @@ class StoreController extends Controller
 
     public function productDetails()
     {
-        $id = Route::current()->parameter('product');
-        $product = Product::findOrFail($id);
-        dd($product);
+        $product_id = Route::current()->parameter('product');
+        $product = Product::findOrFail($product_id);
+
+        return view('store::products.productDetails', ['store' => $this->store, 'product' => $product]);
     }
 
     public function categoryProducts(Category $category)
