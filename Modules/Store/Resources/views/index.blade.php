@@ -89,10 +89,16 @@
                 <!-- E-commerce Products Starts -->
                 <section id="ecommerce-products" class="grid-view">
                     @foreach($store->products as $product)
+                    <?php
+                    $mediaCollection = $product->getMedia('images');
+                    $mediaItems = $mediaCollection->all();
+                    ?>
                     <div class="card ecommerce-card">
                         <div class="item-img text-center">
                             <a href="{{route('store.product-details',[$store->store_link,$product->id])}}">
-                                <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/1.png" alt="img-placeholder" /></a>
+                                @foreach ($mediaItems as $mediaItem)
+                                <img class="img-fluid card-img-top" src="{{ $mediaItem->url }}" alt="img-placeholder" /></a>
+                            @endforeach
                         </div>
                         <div class="card-body">
                             <div class="item-wrapper">

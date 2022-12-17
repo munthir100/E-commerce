@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Store\Http\Controllers\StoreController;
+use Modules\Store\Http\Controllers\WishlistController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +21,6 @@ Route::prefix('{storeLink}')->name('store.')->group(function () {
     route::get('/product/{product}/details',[StoreController::class,'productDetails'])->name('product-details');
 
     route::get('/category/{category}/products',[StoreController::class,'categoryProducts']);
+
+    route::resource('/wishlist',WishlistController::class);
 });

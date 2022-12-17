@@ -5,12 +5,15 @@ namespace Modules\Admin\Http\Livewire\Products;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Livewire\Component;
+use Livewire\WithFileUploads;
 use Modules\Admin\Entities\Category;
 use Modules\Admin\Entities\Product;
 
 class CreateProductLivewire extends Component
 {
+    use WithFileUploads;
     public
+        $image,
         $title,
         $sku,
         $quantity,
@@ -62,7 +65,13 @@ class CreateProductLivewire extends Component
     public function save()
     {
         $data = $this->validate();
-        Product::create($data);
+        $product = Product::create($data);
+        if($this->image){
+            $product->addMedia($this->image)->toMediaCollection('images');
+        }else{
+            dd('d');
+        }
+
         return redirect()->route('admin.products.index');
     }
 }

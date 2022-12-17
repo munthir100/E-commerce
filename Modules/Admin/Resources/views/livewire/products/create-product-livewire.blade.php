@@ -83,6 +83,15 @@
             </div>
 
 
+            <div class="col-md-4 col-6">
+                <div class="mb-1">
+                    <label class="form-label" for="city-column">quantity</label>
+                    <input type="file" wire:model="image">
+                    @error('image') <small class="text-danger">{{$message}}</small>@enderror
+                </div>
+            </div>
+
+
             <div class="col-md-12">
                 <div class="mb-1">
                     <label class="form-label" for="exampleFormControlTextarea1">description</label>
