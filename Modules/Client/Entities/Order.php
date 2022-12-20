@@ -10,9 +10,9 @@ class Order extends Model
     use HasFactory;
 
     protected $fillable = [];
-    
-    protected static function newFactory()
+
+    function client()
     {
-        return \Modules\Client\Database\factories\OrderFactory::new();
+        return $this->belongsTo(Client::class);
     }
 }

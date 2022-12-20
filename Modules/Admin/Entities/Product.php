@@ -29,11 +29,6 @@ class Product extends Model implements HasMedia
         'user_id',
     ];
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
     public function orders()
     {
         return $this->hasMany(Order::class);

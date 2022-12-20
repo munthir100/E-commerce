@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('title');
             $table->integer('parent_id')->nullable();
             $table->boolean('is_active')->default(true);
-            $table->timestamps();
             
             $table->foreignId('store_id')->references('id')->on('stores')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

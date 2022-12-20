@@ -22,12 +22,8 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->foreignId('store_id')
-                ->references('id')
-                ->on('stores')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -21,18 +21,21 @@ return new class extends Migration
             $table->integer('number_of_products');
             $table->integer('status')->default(0);
             $table->boolean('is_active')->default(0);
-            $table->timestamps();
-            
+
+
             $table->foreignId('client_id')
                 ->references('id')
                 ->on('clients')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-                $table->foreignId('product_id')
+            $table->foreignId('product_id')
                 ->references('id')
                 ->on('products')
                 ->restrictOnDelete();
+
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

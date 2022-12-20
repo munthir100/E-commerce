@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('name');
             $table->integer('number_of_products')->default(0);
             $table->boolean('is_active')->default(true);
-            $table->timestamps();
 
             $table->foreignId('category_id')
                 ->references('id')
@@ -26,17 +25,8 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->foreignId('store_id')
-                ->references('id')
-                ->on('stores')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
-
-            $table->foreignId('user_id')
-                ->references('id')
-                ->on('users')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

@@ -5,6 +5,8 @@ namespace Modules\Store\Http\Controllers;
 use Illuminate\Http\Request;
 use Modules\Admin\Entities\Store;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Modules\Store\Entities\Wishlist;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Contracts\Support\Renderable;
 
@@ -25,7 +27,12 @@ class WishlistController extends Controller
      */
     public function index()
     {
-        return view('store::index');
+        $wishlistProducts = Wishlist::where('user_id', Auth::user()->id)->with('products')->get();
+
+        return view('store::Wishlist.index', [
+            'store' => $this->store,
+            'wishlistProducts' => $wishlistProducts
+        ]);
     }
 
     /**

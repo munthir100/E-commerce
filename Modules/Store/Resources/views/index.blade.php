@@ -133,14 +133,9 @@
                                     <h4 class="item-price">$339.99</h4>
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-light btn-wishlist">
-                                <i data-feather="heart"></i>
-                                <span>Wishlist</span>
-                            </a>
-                            <a href="#" class="btn btn-primary btn-cart">
-                                <i data-feather="shopping-cart"></i>
-                                <span class="add-to-cart">Add to cart</span>
-                            </a>
+                            <livewire:store::wishlist.add-to-wishlist :product="$product" />
+
+                            <livewire:client::add-to-cart :product="$product" />
                         </div>
                     </div>
                     @endforeach
@@ -176,6 +171,9 @@
 
     </div>
 </div>
+
+
+
 @endsection
 
 

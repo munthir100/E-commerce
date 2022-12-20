@@ -10,6 +10,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Admin\Entities\Admin;
 use Modules\Admin\Entities\Brand;
 use Modules\Admin\Entities\Category;
 use Modules\Admin\Entities\Media;
@@ -59,37 +60,18 @@ class User extends Authenticatable
         return $this->belongsTo(UserTypes::class);
     }
 
-    public function store()
+    function admin()
     {
-        return $this->hasOne(Store::class);
+        return $this->hasOne(Admin::class);
     }
 
-    public function categories()
+    public function seller()
     {
-        return $this->hasMany(Category::class);
+        return $this->hasOne(Seller::class);
     }
 
-    public function products()
+    public function client()
     {
-        return $this->hasMany(Product::class);
-    }
-
-    public function brands()
-    {
-        return $this->hasMany(Brand::class);
-    }
-
-    public function sellers()
-    {
-        return $this->HasMany(Seller::class);
-    }
-
-    public function media()
-    {
-        return $this->hasMany(Media::class);
-    }
-
-    public function clients(){
-        return $this->hasMany(Client::class);
+        return $this->hasOne(Client::class);
     }
 }

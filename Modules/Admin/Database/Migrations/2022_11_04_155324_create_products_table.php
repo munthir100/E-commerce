@@ -26,7 +26,6 @@ return new class extends Migration
             $table->float('discount')->nullable();
             $table->boolean('free_shipping')->default(false);
             $table->boolean('is_active')->default(true);
-            $table->timestamps();
 
             $table->foreignId('category_id')
                 ->nullable()
@@ -40,12 +39,8 @@ return new class extends Migration
                 ->on('stores')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-
-            $table->foreignId('user_id')
-                ->references('id')
-                ->on('users')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

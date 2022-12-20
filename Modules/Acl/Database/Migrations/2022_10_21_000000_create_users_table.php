@@ -23,7 +23,6 @@ return new class extends Migration
             $table->string('password')->nullable();
             $table->boolean('is_active')->default(true);
             $table->rememberToken();
-            $table->timestamps();
 
 
             $table->foreignId('user_type_id')
@@ -31,6 +30,9 @@ return new class extends Migration
                 ->on('user_types')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

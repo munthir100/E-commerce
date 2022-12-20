@@ -11,7 +11,7 @@ class AddToCart extends Component
     public $product;
     public function render()
     {
-        $cart = Cart::content();
+        $cart = session()->get('cart');
         return view('client::livewire.add-to-cart', compact('cart'));
     }
     public function addToCart($product_id)
@@ -25,5 +25,6 @@ class AddToCart extends Component
             $product->price,
         );
         $this->emit('cart_updated');
+        return redirect()->back()->with('success', 'product added to cart');
     }
 }

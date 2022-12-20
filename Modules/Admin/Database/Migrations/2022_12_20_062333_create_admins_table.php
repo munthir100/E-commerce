@@ -13,24 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('envoys', function (Blueprint $table) {
+        Schema::create('admins', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->float('shipping_cost');
-            $table->boolean('cash_on_delivery_cost')->default(false);
-            $table->date('expected_delivery_time');
-            $table->boolean('in_store')->default(true);
 
-
-            $table->foreignId('city_id')
-                ->nullable()
+            $table->foreignId('store_id')
                 ->references('id')
-                ->on('cities')
-                ->nullOnDelete();
+                ->on('stores')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
 
             $table->foreignId('user_id')
                 ->references('id')
-                ->on('users')
+                ->on('stores')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
@@ -46,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('envoys');
+        Schema::dropIfExists('admins');
     }
 };
