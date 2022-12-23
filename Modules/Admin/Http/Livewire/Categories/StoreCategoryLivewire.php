@@ -2,18 +2,21 @@
 
 namespace Modules\Admin\Http\Livewire\Categories;
 
+use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Modules\Admin\Entities\Category;
 
+use function Symfony\Component\String\b;
+
 class StoreCategoryLivewire extends Component
 {
-    public $title, $parent_id, $is_active, $store_id;
+    public $categories, $title, $parent_id, $is_active = true;
 
 
     protected $rules = [
         'title' => 'required',
         'parent_id' => 'sometimes',
-        'is_active' => 'sometimes'
+        'is_active' => 'boolean|sometimes'
     ];
 
     public function updated($data)
@@ -29,8 +32,10 @@ class StoreCategoryLivewire extends Component
     public function save()
     {
         $data = $this->validate();
-        $data['store_id'] = $this->store->id;
+        $data['store_id'] = Auth::id();
         Category::create($data);
-        return redirect()->back();
+        $this->dispatchBrowserEvent('closeModal');
+        session()->flash('success', 'category created successfull');
+        return to_route('admin.categories.index');
     }
 }

@@ -20,7 +20,7 @@ class StoreController extends Controller
     {
         if (!is_null(request()->route('storeLink'))) {
             $storeLink = Route::current()->parameter('storeLink');
-            $this->store = Store::where('store_link', $storeLink)->with('mainCategories')->first();
+            $this->store = Store::where('store_link', $storeLink)->with('Categories')->first();
         }
     }
 

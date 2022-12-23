@@ -6,6 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Modules\Acl\Entities\User;
+use Modules\Admin\Entities\Admin;
 use Modules\Admin\Entities\Category;
 use Modules\Admin\Entities\Store;
 
@@ -25,29 +26,30 @@ class CustomSeederTableSeeder extends Seeder
             'phone' => '1',
             'password' => Hash::make('aaa'),
         ]);
+        Admin::create([
+            'user_id' => 1
+        ]);
+        
         Store::create([
-            'user_id' => 1,
+            'admin_id' => 1,
             'store_name' => 'aaa',
             'store_link' => 'aaa'
         ]);
         Category::create([
             'title' => 'test',
             'store_id' => 1,
-            'user_id' => 1,
         ]);
 
         Category::create([
             'title' => 'test child',
             'store_id' => 1,
             'parent_id' => 1,
-            'user_id' => 1,
         ]);
 
         Category::create([
             'title' => 'child test child',
             'store_id' => 1,
             'parent_id' => 2,
-            'user_id' => 1,
         ]);
     }
 }

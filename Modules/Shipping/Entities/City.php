@@ -16,8 +16,5 @@ class City extends Model
     {
         return $this->hasMany(Envoy::class);
     }
-    public function client()
-    {
-        return $this->hasMany(Client::class);
-    }
+    
 }

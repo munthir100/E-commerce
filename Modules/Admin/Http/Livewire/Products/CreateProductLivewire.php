@@ -3,7 +3,6 @@
 namespace Modules\Admin\Http\Livewire\Products;
 
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Session;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Modules\Admin\Entities\Category;
@@ -25,15 +24,9 @@ class CreateProductLivewire extends Component
         $discount,
         $free_shipping,
         $is_active = true,
-        $store_id,
-        $user_id,
-        $category_id = null;
+        $category_id = null,
+        $categories;
 
-    public function mount()
-    {
-        $this->store_id = Session::get('store')->id;
-        $this->user_id = Auth::user()->id;
-    }
     protected $rules = [
         'title' => 'required',
         'sku' => 'sometimes',
@@ -46,9 +39,7 @@ class CreateProductLivewire extends Component
         'discount' => 'sometimes',
         'free_shipping' => 'sometimes',
         'is_active' => 'required|boolean',
-        'category_id' => 'sometimes',
-        'store_id' => 'required|integer|exists:stores,id',
-        'user_id' => 'required|integer|exists:users,id',
+        'category_id' => 'required',
     ];
 
     public function updated($data)
@@ -58,17 +49,20 @@ class CreateProductLivewire extends Component
 
     public function render()
     {
-        $categories = Category::with('childs')->where('user_id', Auth::user()->id)->get();
-        return view('admin::livewire.products.create-product-livewire', compact('categories'));
+        $userId = Auth::id();
+        $this->categories = Category::with('children')->whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+        return view('admin::livewire.products.create-product-livewire');
     }
 
     public function save()
     {
         $data = $this->validate();
         $product = Product::create($data);
-        if($this->image){
+        if ($this->image) {
             $product->addMedia($this->image)->toMediaCollection('images');
-        }else{
+        } else {
             dd('d');
         }
 

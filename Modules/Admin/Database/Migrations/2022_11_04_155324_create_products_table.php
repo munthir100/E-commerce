@@ -28,17 +28,12 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
 
             $table->foreignId('category_id')
-                ->nullable()
                 ->references('id')
                 ->on('categories')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->foreignId('store_id')
-                ->references('id')
-                ->on('stores')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
+
             $table->timestamps();
             $table->softDeletes();
         });

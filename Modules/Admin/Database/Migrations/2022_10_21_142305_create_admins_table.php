@@ -16,15 +16,9 @@ return new class extends Migration
         Schema::create('admins', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('store_id')
-                ->references('id')
-                ->on('stores')
-                ->cascadeOnDelete()
-                ->cascadeOnUpdate();
-
             $table->foreignId('user_id')
                 ->references('id')
-                ->on('stores')
+                ->on('users')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 

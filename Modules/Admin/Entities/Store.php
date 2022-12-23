@@ -3,14 +3,19 @@
 namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Dyrynda\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
 
 class Store extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes, CascadeSoftDeletes;
+
+    protected $cascadeDeletes = ['categories','media'];
+
 
     protected $fillable = ['admin_id', 'store_name', 'store_link'];
+
 
     public function categories()
     {
@@ -21,4 +26,16 @@ class Store extends Model
     {
         return $this->hasMany(Media::class);
     }
+
+    public function envoyes()
+    {
+        return $this->hasMany(Envoy::class);
+    }
+
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
+    
 }

@@ -28,9 +28,9 @@ return new class extends Migration
                 ->on('cities')
                 ->nullOnDelete();
 
-            $table->foreignId('user_id')
+            $table->foreignId('store_id')
                 ->references('id')
-                ->on('users')
+                ->on('stores')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 

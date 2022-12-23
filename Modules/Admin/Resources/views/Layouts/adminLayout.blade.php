@@ -502,7 +502,11 @@
     <script src="../../../app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
 
-
+    <script>
+        window.addEventListener('closeModal', event => {
+            $('.modal').modal('hide');
+        })
+    </script>
 
     <script>
         $(window).on('load', function() {

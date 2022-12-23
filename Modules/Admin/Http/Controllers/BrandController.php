@@ -17,7 +17,11 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $brands = Brand::with('category')->where('user_id', Auth::user()->id)->get();
+        $userId = Auth::id();
+        $brands = Brand::with('category')->whereHas('category.store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+   
         return view('admin::Brands.index', compact('brands'));
     }
 
@@ -57,7 +61,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        $categories = Category::where('user_id', Auth::user()->id)->get();
+        $categories = Category::where('store_id', Auth::user()->id)->get();
         return view('admin::Brands.edit', compact('brand', 'categories'));
     }
 

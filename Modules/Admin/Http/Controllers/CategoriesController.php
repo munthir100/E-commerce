@@ -16,8 +16,14 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = Category::where('user_id', Auth::user()->id)->with('childs')->get();
-        return view('admin::Categories.index', compact('categories'));
+        $userId = Auth::id();
+        $allCategories = Category::whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+
+        $categories = Category::buildCategoryTree($allCategories);
+
+        return view('admin::Categories.index', compact('categories','allCategories'));
     }
 
 
@@ -36,9 +42,15 @@ class CategoriesController extends Controller
      * @param int Category $category
      * @return Renderable
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        return view('admin::Categories.edit');
+        $category = Category::with('parent')->find($id);
+        $userId = Auth::id();
+        $categories = Category::whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+
+        return view('admin::Categories.edit',compact('category','categories'));
     }
 
     /**

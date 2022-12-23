@@ -2,15 +2,17 @@
 
 namespace Modules\Client\Entities;
 
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Dyrynda\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Modules\Acl\Entities\User;
-use Modules\Shipping\Entities\City;
-use Modules\Store\Entities\Wishlist;
 
 class Client extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes, CascadeSoftDeletes;
+
+    protected $cascadeDeletes = ['orders'];
 
     protected $fillable = [
         'birth_date',
@@ -22,8 +24,13 @@ class Client extends Model
         'store_id',
         'created_by',
     ];
-    public function user()
+    public function city()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(City::class);
+    }
+
+    public function orders()
+    {
+        return $this->hasMany(Order::class);
     }
 }

@@ -3,8 +3,9 @@
 namespace Modules\Shipping\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Illuminate\Database\Eloquent\Model;
 use Modules\Shipping\Entities\City;
+use Modules\Shipping\Entities\Country;
+use Illuminate\Database\Eloquent\Model;
 
 class CitiesSeederTableSeeder extends Seeder
 {
@@ -15,19 +16,21 @@ class CitiesSeederTableSeeder extends Seeder
      */
     public function run()
     {
-        Model::unguard();
-        
+        Country::create([
+            'name' => 'Sudan',
+        ]);
+
         City::create([
-            'name' => 'jedda',
+            'name' => 'khartoum',
+            'country_id' => 1,
         ]);
         City::create([
-            'name' => 'al-riad',
+            'name' => 'edduiem',
+            'country_id' => 1,
         ]);
         City::create([
-            'name' => 'mekka',
-        ]);
-        City::create([
-            'name' => 'ararr',
+            'name' => 'kosti',
+            'country_id' => 1,
         ]);
     }
 }

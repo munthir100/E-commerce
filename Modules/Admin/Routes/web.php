@@ -11,7 +11,7 @@ use Modules\Admin\Http\Controllers\CategoriesController;
 use Modules\Admin\Http\Controllers\ReportController;
 
 Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () {
-    Route::get('/', [AdminController::class,'index'])->name('index');
+    Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::resource('categories', CategoriesController::class,);
     Route::resource('products', ProductController::class,);
     Route::resource('brands', BrandController::class,);
@@ -19,5 +19,5 @@ Route::prefix('admin')->middleware(['auth'])->name('admin.')->group(function () 
     Route::resource('clients', ClientController::class,);
     Route::resource('reports', ReportController::class,);
 });
-Route::get('login',[AuthController::class,'adminLoginForm'])->name('login');
-Route::get('register',[AuthController::class,'adminRegisterForm'])->name('register');
+Route::get('login', [AuthController::class, 'adminLoginForm'])->name('login');
+Route::get('register', [AuthController::class, 'adminRegisterForm'])->name('register');

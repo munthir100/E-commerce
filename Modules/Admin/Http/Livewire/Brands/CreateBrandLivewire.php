@@ -12,20 +12,12 @@ class CreateBrandLivewire extends Component
 {
     public
         $name,
-        $category_id,
-        $store_id,
-        $user_id;
+        $category_id;
 
-    public function mount()
-    {
-        $this->store_id = Session::get('store')->id;
-        $this->user_id = Auth::user()->id;
-    }
+
     protected $rules = [
         'name' => 'required',
         'category_id' => 'required',
-        'store_id' => 'required',
-        'user_id' => 'required',
     ];
 
     public function updated($data)
@@ -34,7 +26,10 @@ class CreateBrandLivewire extends Component
     }
     public function render()
     {
-        $categories = Category::where('user_id', Auth::user()->id)->get();
+        $userId = Auth::id();
+        $categories = Category::whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
         return view('admin::livewire.brands.create-brand-livewire', compact('categories'));
     }
     function save()

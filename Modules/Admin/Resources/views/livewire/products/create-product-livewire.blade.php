@@ -1,9 +1,6 @@
 <div>
-    <form class="form" wire:submit.prevent="save">
+    <form class="form" wire:submit.prevent="save" enctype="multipart/form-data">
         <div class="row">
-
-            <input type="hidden" wire:model="store_id" />
-            <input type="hidden" wire:model="user_id" />
 
             <div class="col-md-6 col-12">
                 <div class="mb-1">

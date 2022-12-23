@@ -2,22 +2,27 @@
 
 namespace Modules\Admin\Entities;
 
+use Modules\Acl\Entities\User;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+use Dyrynda\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Admin extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes, CascadeSoftDeletes;
+
+    protected $cascadeDeletes = ['store'];
 
     protected $fillable = ['store_id'];
-
-    // protected static function newFactory()
-    // {
-    //     return \Modules\Admin\Database\factories\AdminFactory::new();
-    // }
 
     function store()
     {
         return $this->hasOne(Store::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
