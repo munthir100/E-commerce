@@ -12,7 +12,7 @@ class CreateProductLivewire extends Component
 {
     use WithFileUploads;
     public
-        $image,
+        $images,
         $title,
         $sku,
         $quantity,
@@ -58,14 +58,8 @@ class CreateProductLivewire extends Component
 
     public function save()
     {
-        $data = $this->validate();
-        $product = Product::create($data);
-        if ($this->image) {
-            $product->addMedia($this->image)->toMediaCollection('images');
-        } else {
-            dd('d');
-        }
-
+        Product::create($this->validate());
+        session()->flash('success', 'product created successfully');
         return redirect()->route('admin.products.index');
     }
 }

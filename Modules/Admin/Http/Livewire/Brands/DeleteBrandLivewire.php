@@ -14,6 +14,7 @@ class DeleteBrandLivewire extends Component
     function delete()
     {
         $this->brand->delete();
+        session()->flash('success','brand deleted successfully');
         return to_route('admin.brands.index');
     }
 }

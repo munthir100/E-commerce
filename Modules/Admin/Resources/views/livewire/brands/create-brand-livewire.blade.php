@@ -1,5 +1,6 @@
 <div>
     <form method="post" wire:submit.prevent="save">
+
         <div class="modal-body">
             <div class="mb-1">
                 <label class="form-label" for="selectLarge">Select Category</label>
@@ -16,9 +17,21 @@
                 <input type="text" wire:model="name" class="form-control" id="basicInput" placeholder="Enter email">
                 @error('name')<small class="text-danger">{{$message}}</small>@enderror
             </div>
+            <div class="col-12">
+                <div class="d-flex align-items-center">
+                    <div class="form-check form-switch form-check-primary me-25">
+                        <input type="checkbox" class="form-check-input" id="saveCard" wire:model.lazy="is_active" />
+                        <label class="form-check-label" for="saveCard">
+                            <span class="switch-icon-left"><i data-feather="check"></i></span>
+                            <span class="switch-icon-right"><i data-feather="x"></i></span>
+                        </label>
+                    </div>
+                    <label class="form-check-label fw-bolder" for="saveCard">save brand in store</label>
+                </div>
+            </div>
         </div>
         <div class="modal-footer">
-            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal">Save</button>
+            <button type="submit" class="btn btn-primary">Save</button>
         </div>
     </form>
 </div>

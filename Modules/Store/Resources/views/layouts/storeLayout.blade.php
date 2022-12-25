@@ -231,27 +231,37 @@
                 <!-- include ../../../includes/mixins-->
                 <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
                     <li class="dropdown nav-item">
-                        <a class="nav-link d-flex align-items-center" href="{{route('store.index',$store->store_link)}}">
+                        <a class="nav-link d-flex align-items-center" href="{{route('store.index',$storeLink)}}">
                             <i data-feather="home"></i>
                             <span data-i18n="Home">Home</span>
                         </a>
                     </li>
-                    @foreach($store->mainCategories as $category)
-                    @if($category->has('childs'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+                    @foreach($categories as $category)
+                    
+                    @if($category->has('children'))
 
                     <li class="dropdown nav-item" data-menu="dropdown">
                         <a class="dropdown-toggle  nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown">
                             <i data-feather='circle'></i>
                             <span data-i18n="Apps">{{$category->title}}</span>
                         </a>
-                        <ul class="dropdown-menu" data-bs-popper="none">
-
-                            <a class="dropdown-toggle  nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown">
-                                <i data-feather='circle'></i>
-                                <span data-i18n="Apps">title</span>
-                            </a>
-
-                        </ul>
+                        
+                            @include('store::Categories.subcategories', ['subcategories' => $category->children])
+                        
                     </li>
                     @else
                     <li class="nav-item">

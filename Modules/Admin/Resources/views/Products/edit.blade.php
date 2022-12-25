@@ -34,21 +34,22 @@
             </div>
         </div>
         <div class="content-body">
+            <livewire:alerts.alert>
 
-            <section id="multiple-column-form">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Multiple Column</h4>
-                            </div>
-                            <div class="card-body">
-                                <livewire:admin::products.update-product-livewire :product="$product"/>
+                <section id="multiple-column-form">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title">Multiple Column</h4>
+                                </div>
+                                <div class="card-body">
+                                    <livewire:admin::products.update-product-livewire :product="$product" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
+                </section>
 
         </div>
     </div>

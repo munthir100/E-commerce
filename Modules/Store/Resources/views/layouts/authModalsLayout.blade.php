@@ -46,7 +46,7 @@
                     <p class="card-text mb-2">Make your app management easy and fun!</p>
 
 
-                    <livewire:acl::client-register :storeLink="$store->store_link" />
+                    <livewire:acl::client-register :storeLink="$storeLink" />
                     <p class="text-center mt-2">
                         <span>Already have an account?</span>
                         <a href="#" onclick="$('#userRegisterModal').modal('hide'); $('#userLoginModal').modal('show');">

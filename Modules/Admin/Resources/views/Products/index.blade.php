@@ -32,92 +32,91 @@
             </div>
         </div>
         <div class="content-body">
-            <!-- Basic Tables start -->
-            <div class="row" id="basic-table">
-                <div class="col-12">
-                    <div class="card">
-                        <div class="card-header border-bottom p-1">
-                            <div class="head-label">
-                                <form action="#soon">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2">
-                                        <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
-                                            <i data-feather='search'></i>
-                                        </button>
+            <livewire:alerts.alert>
+
+                <!-- Basic Tables start -->
+                <div class="row" id="basic-table">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header border-bottom p-1">
+                                <div class="head-label">
+                                    <form action="#soon">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2">
+                                            <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
+                                                <i data-feather='search'></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="dt-action-buttons text-end">
+                                    <div class="dt-buttons d-inline-flex">
+                                        <a href="{{route('admin.products.create')}}" class="dt-button create-new btn btn-primary"><span>
+                                                <i data-feather="plus"></i>
+                                                Add New Product</span></a>
                                     </div>
-                                </form>
-                            </div>
-                            <div class="dt-action-buttons text-end">
-                                <div class="dt-buttons d-inline-flex">
-                                    <a href="{{route('admin.products.create')}}" class="dt-button create-new btn btn-primary"><span>
-                                            <i data-feather="plus"></i>
-                                            Add New Product</span></a>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="table-responsive">
-                            <table class="table">
-                                <thead>
-                                    <tr>
-                                        <th>name</th>
-                                        <th>produt sku</th>
-                                        <th>quantity</th>
-                                        <th>price</th>
-                                        <th>publish on store</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach($products as $product)
-                                    <tr>
-                                        <td>{{$product->title}}</td>
-                                        @isset($product->sku)
-                                        <td>
-                                            {{$product->sku}}
-                                        </td>
-                                        @endisset
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>name</th>
+                                            <th>produt sku</th>
+                                            <th>quantity</th>
+                                            <th>price</th>
+                                            <th>publish on store</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($products as $product)
+                                        <tr>
+                                            <td>{{$product->title}}</td>
+                                            @isset($product->sku)
+                                            <td>
+                                                {{$product->sku}}
+                                            </td>
+                                            @endisset
 
-                                        @empty($product->sku)
-                                        <td>
-                                            -
-                                        </td>
-                                        @endempty
-                                        <td>{{$product->quantity}}</td>
-                                        <td>{{$product->price}}</td>
+                                            @empty($product->sku)
+                                            <td>
+                                                -
+                                            </td>
+                                            @endempty
+                                            <td>{{$product->quantity}}</td>
+                                            <td>{{$product->price}}</td>
 
-                                        @if($product->is_active != 0)
-                                        <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
-                                        @else
-                                        <td><span class="badge rounded-pill badge-light-secondary me-1">Not Active</span></td>
-                                        @endif
-                                        <td>
-                                            <div class="dropdown">
-                                                <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
-                                                    <i data-feather="more-vertical"></i>
-                                                </button>
-                                                <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="{{route('admin.products.edit',[$product->id])}}">
-                                                        <i data-feather="edit-2" class="me-50"></i>
-                                                        <span>Edit</span>
-                                                    </a>
-                                                    <a class="dropdown-item" href="#">
-                                                        <i data-feather="trash" class="me-50"></i>
-                                                        <span>Delete</span>
-                                                    </a>
+                                            @if($product->is_active != 0)
+                                            <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                                            @else
+                                            <td><span class="badge rounded-pill badge-light-secondary me-1">Not Active</span></td>
+                                            @endif
+                                            <td>
+                                                <div class="dropdown">
+                                                    <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
+                                                        <i data-feather="more-vertical"></i>
+                                                    </button>
+                                                    <div class="dropdown-menu dropdown-menu-end">
+                                                        <a class="dropdown-item" href="{{route('admin.products.edit',[$product->id])}}">
+                                                            <i data-feather="edit-2" class="me-50"></i>
+                                                            <span>Edit</span>
+                                                        </a>
+                                                        <livewire:admin::delete-product-livewire :product="$product" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    @endforeach
+                                            </td>
+                                        </tr>
+                                        @endforeach
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <!-- Basic Tables end -->
+                <!-- Basic Tables end -->
         </div>
     </div>
 </div>

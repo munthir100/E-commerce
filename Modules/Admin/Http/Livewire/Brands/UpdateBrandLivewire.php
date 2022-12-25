@@ -7,14 +7,17 @@ use Modules\Admin\Entities\Brand;
 
 class UpdateBrandLivewire extends Component
 {
-    public $categories, $brand, $name,$category_id;
+    public $categories, $brand, $name, $category_id, $is_active;
     function mount()
     {
         $this->name = $this->brand->name;
+        $this->is_active = $this->brand->is_active;
+        $this->category_id = $this->brand->category_id;
     }
     protected $rules = [
         'name' => 'required',
         'category_id' => 'sometimes',
+        'is_active' => 'sometimes|boolean',
     ];
     public function updated($data)
     {
@@ -27,6 +30,7 @@ class UpdateBrandLivewire extends Component
     public function save()
     {
         $this->brand->update($this->validate());
+        session()->flash('success', 'brand created successfull');
         return to_route('admin.brands.index');
     }
 }

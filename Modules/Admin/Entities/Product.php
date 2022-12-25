@@ -15,7 +15,7 @@ class Product extends Model implements HasMedia
     use HasFactory, InteractsWithMedia, SoftDeletes, CascadeSoftDeletes;
     use \Znck\Eloquent\Traits\BelongsToThrough;
 
-    protected $cascadeDeletes = ['orders'];
+    protected $cascadeDeletes = ['images'];
 
 
     protected $fillable = [
@@ -30,6 +30,7 @@ class Product extends Model implements HasMedia
         'cost',
         'discount',
         'is_active',
+        'image',
         'category_id',
         'store_id',
         'user_id',
@@ -47,5 +48,9 @@ class Product extends Model implements HasMedia
     function store()
     {
         return $this->belongsToThrough(Store::class, Category::class);
+    }
+    function images()
+    {
+        return $this->hasMany(ProductImage::class);
     }
 }

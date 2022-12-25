@@ -43,7 +43,10 @@
                                     <button class="navbar-toggler shop-sidebar-toggler" type="button" data-bs-toggle="collapse">
                                         <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
                                     </button>
-                                    <div class="search-results">16285 results found</div>
+                                    @php
+                                    $totalProductCount = $categories->sum('products_count');
+                                    @endphp
+                                    <div class="search-results">{{$totalProductCount}} results found</div>
                                 </div>
                                 <div class="view-options d-flex">
                                     <div class="btn-group dropdown-sort">
@@ -88,17 +91,13 @@
 
                 <!-- E-commerce Products Starts -->
                 <section id="ecommerce-products" class="grid-view">
-                    @foreach($store->products as $product)
-                    <?php
-                    $mediaCollection = $product->getMedia('images');
-                    $mediaItems = $mediaCollection->all();
-                    ?>
+                    @foreach($categories as $category)
+                    @foreach($category->products as $product)
                     <div class="card ecommerce-card">
                         <div class="item-img text-center">
-                            <a href="{{route('store.product-details',[$store->store_link,$product->id])}}">
-                                @foreach ($mediaItems as $mediaItem)
-                                <img class="img-fluid card-img-top" src="{{ $mediaItem->url }}" alt="img-placeholder" /></a>
-                            @endforeach
+                            <a href="{{route('store.product-details',[$storeLink,$product->id])}}">
+                                <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/1.png" alt="img-placeholder" />
+                            </a>
                         </div>
                         <div class="card-body">
                             <div class="item-wrapper">
@@ -112,25 +111,21 @@
                                     </ul>
                                 </div>
                                 <div>
-                                    <h6 class="item-price">$339.99</h6>
+                                    <h6 class="item-price">{{$product->price}}</h6>
                                 </div>
                             </div>
                             <h6 class="item-name">
-                                <a class="text-body" href="app-ecommerce-details.html">Apple Watch Series 5</a>
+                                <a class="text-body" href="app-ecommerce-details.html">{{$product->title}}</a>
                                 <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
                             </h6>
                             <p class="card-text item-description">
-                                On Retina display that never sleeps, so it’s easy to see the time and other important information, without
-                                raising or tapping the display. New location features, from a built-in compass to current elevation, help users
-                                better navigate their day, while international emergency calling1 allows customers to call emergency services
-                                directly from Apple Watch in over 150 countries, even without iPhone nearby. Apple Watch Series 5 is available
-                                in a wider range of materials, including aluminium, stainless steel, ceramic and an all-new titanium.
+                                {{$product->description}}
                             </p>
                         </div>
                         <div class="item-options text-center">
                             <div class="item-wrapper">
                                 <div class="item-cost">
-                                    <h4 class="item-price">$339.99</h4>
+                                    <h4 class="item-price">{{$product->price}}</h4>
                                 </div>
                             </div>
                             <livewire:store::wishlist.add-to-wishlist :product="$product" />
@@ -138,6 +133,7 @@
                             <livewire:client::add-to-cart :product="$product" />
                         </div>
                     </div>
+                    @endforeach
                     @endforeach
 
 

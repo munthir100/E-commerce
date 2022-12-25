@@ -26,6 +26,7 @@ return new class extends Migration
             $table->float('discount')->nullable();
             $table->boolean('free_shipping')->default(false);
             $table->boolean('is_active')->default(true);
+            $table->string('image');
 
             $table->foreignId('category_id')
                 ->references('id')

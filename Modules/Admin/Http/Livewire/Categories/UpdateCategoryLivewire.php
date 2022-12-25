@@ -16,6 +16,7 @@ class UpdateCategoryLivewire extends Component
     protected $rules = [
         'title' => 'required',
         'parent_id' => 'sometimes',
+        'is_active' => 'sometimes|boolean',
     ];
 
     public function updated($data)

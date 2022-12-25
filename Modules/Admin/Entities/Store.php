@@ -11,7 +11,7 @@ class Store extends Model
 {
     use HasFactory, SoftDeletes, CascadeSoftDeletes;
 
-    protected $cascadeDeletes = ['categories','media'];
+    protected $cascadeDeletes = ['categories', 'media'];
 
 
     protected $fillable = ['admin_id', 'store_name', 'store_link'];
@@ -19,8 +19,9 @@ class Store extends Model
 
     public function categories()
     {
-        return $this->hasMany(Category::class);
+        return $this->hasMany(Category::class)->where('is_active', true);
     }
+    
 
     public function media()
     {
@@ -37,5 +38,4 @@ class Store extends Model
     {
         return $this->belongsTo(Admin::class);
     }
-    
 }

@@ -57,7 +57,6 @@
                 <div class="input-group mb-1">
 
                     <select class="form-select form-select-lg" id="selectLarge" wire:model="category_id">
-                        <option value="">Open this select menu</option>
                         @forelse($categories as $category)
                         <option value="{{$category->id}}">{{$category->title}}</option>
                         @empty

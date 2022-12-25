@@ -13,9 +13,11 @@
             <label class="form-label" for="select2-multiple">Parent Category</label>
             <select wire:model.lazy="parent_id" class="form-select" id="basicSelect">
                 <option value="">Select a parent</option>
-                @foreach($categories as $category)
-                <option value="{{ $category->id }}">{{ $category->title }}</option>
-                @endforeach
+                @forelse($categories as $category)
+                <option value="{{$category->id}}">{{$category->title}}</option>
+                @empty
+                <option>no category found</option>
+                @endforelse
             </select>
             @error('parent_id') <small class="text-danger"> {{$message}} </small> @enderror
         </div>
@@ -37,7 +39,7 @@
 
         <div class="col-12 text-center">
             <button type="submit" class="btn btn-primary me-1 mt-1" wire:loading.class="btn-secondary">Submit</button>
-            
+
             <button type="reset" class="btn btn-outline-secondary mt-1" data-bs-dismiss="modal" aria-label="Close">
                 Cancel
             </button>

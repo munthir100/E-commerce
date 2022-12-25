@@ -81,11 +81,8 @@
 
 
             <div class="col-md-4 col-6">
-                <div class="mb-1">
-                    <label class="form-label" for="city-column">quantity</label>
-                    <input type="file" wire:model="image">
-                    @error('image') <small class="text-danger">{{$message}}</small>@enderror
-                </div>
+                <label for="formFile" class="form-label">Simple file input</label>
+                <input class="form-control" type="file" wire:model="images" wire:ignore multiple>
             </div>
 
 

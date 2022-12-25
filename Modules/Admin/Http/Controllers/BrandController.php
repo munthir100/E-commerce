@@ -59,9 +59,13 @@ class BrandController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit(Brand $brand)
+    public function edit($id)
     {
-        $categories = Category::where('store_id', Auth::user()->id)->get();
+        $brand = Brand::with('category')->find($id);
+        $userId = Auth::id();
+        $categories = Category::whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
         return view('admin::Brands.edit', compact('brand', 'categories'));
     }
 

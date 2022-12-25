@@ -3,30 +3,30 @@
 namespace Modules\Store\Http\Controllers;
 
 
+use Illuminate\Http\Request;
 use Modules\Admin\Entities\Store;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Route;
-use Modules\Admin\Entities\Category;
 use Modules\Admin\Entities\Product;
-use Modules\Admin\Transformers\CategoriesWithProductsResource;
-use Modules\Admin\Transformers\StoreWithProductsResource;
-use Modules\Admin\Transformers\storeWithCategoriesResource;
+use Modules\Admin\Entities\Category;
+use Illuminate\Support\Facades\Route;
 
 class StoreController extends Controller
 {
     protected $store;
 
-    public function __construct()
+    public function __construct(Request $request)
     {
-        if (!is_null(request()->route('storeLink'))) {
-            $storeLink = Route::current()->parameter('storeLink');
-            $this->store = Store::where('store_link', $storeLink)->with('Categories')->first();
-        }
+        $this->storeLink = $request->route('storeLink');
     }
 
     public function index()
     {
-        return view('store::index', ['store' => $this->store]);
+        $storeCategories = Category::with('products')->withCount('products')->whereHas('store', function ($query) {
+            $query->where('store_link', $this->storeLink);
+        })->get();
+        $categories = Category::buildCategoryTree($storeCategories);
+
+        return view('store::index', ['categories' => $categories, 'storeLink' => $this->storeLink]);
     }
 
     public function productDetails()

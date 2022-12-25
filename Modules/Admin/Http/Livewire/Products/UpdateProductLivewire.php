@@ -3,15 +3,17 @@
 namespace Modules\Admin\Http\Livewire\Products;
 
 use Livewire\Component;
+use Modules\Admin\Entities\Product;
+use Illuminate\Support\Facades\Auth;
 use Modules\Admin\Entities\Category;
 use Illuminate\Support\Facades\Session;
-use Modules\Admin\Entities\Product;
 
 class UpdateProductLivewire extends Component
 {
     public
         $product,
         $title,
+        $categories,
         $sku,
         $quantity,
         $wheight,
@@ -63,13 +65,21 @@ class UpdateProductLivewire extends Component
     public function render()
     {
         $product = $this->product;
-        $categories = Category::with('childs')->where('store_id', Session::get('store')->id)->get();
-        return view('admin::livewire.products.update-product-livewire', compact('product', 'categories'));
+        $userId = Auth::id();
+        $this->categories = Category::with('children')->whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+        return view('admin::livewire.products.update-product-livewire');
     }
 
     function save()
     {
-        $this->product->update($this->validate());
+        $this->product->fill($this->validate());
+        if ($this->product->is_active == '') {
+            $this->product->is_active = false;
+        }
+        $this->product->save();
+        session()->flash('success', 'product data updated');
         return to_route('admin.products.index');
     }
 }
