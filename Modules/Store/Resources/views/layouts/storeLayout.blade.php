@@ -249,19 +249,19 @@
 
 
 
-                    
+
                     @foreach($categories as $category)
-                    
-                    @if($category->has('children'))
+
+                    @if(count($category->children) > 0 )
 
                     <li class="dropdown nav-item" data-menu="dropdown">
                         <a class="dropdown-toggle  nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown">
                             <i data-feather='circle'></i>
                             <span data-i18n="Apps">{{$category->title}}</span>
                         </a>
-                        
-                            @include('store::Categories.subcategories', ['subcategories' => $category->children])
-                        
+
+                        @include('store::Categories.subcategories', ['subcategories' => $category->children])
+
                     </li>
                     @else
                     <li class="nav-item">

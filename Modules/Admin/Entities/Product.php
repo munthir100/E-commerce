@@ -53,4 +53,9 @@ class Product extends Model implements HasMedia
     {
         return $this->hasMany(ProductImage::class);
     }
+    
+    public function scopeIsActive($query)
+    {
+        return $query->where('is_active', 1);
+    }
 }

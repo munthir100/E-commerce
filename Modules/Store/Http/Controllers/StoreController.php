@@ -25,8 +25,12 @@ class StoreController extends Controller
             $query->where('store_link', $this->storeLink);
         })->get();
         $categories = Category::buildCategoryTree($storeCategories);
-
-        return view('store::index', ['categories' => $categories, 'storeLink' => $this->storeLink]);
+        $products = $storeCategories->pluck('products')->flatten();
+        return view('store::index', [
+            'categories' => $categories,
+            'storeLink' => $this->storeLink,
+            'products' => $products
+        ]);
     }
 
     public function productDetails()
