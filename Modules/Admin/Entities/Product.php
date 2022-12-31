@@ -5,6 +5,7 @@ namespace Modules\Admin\Entities;
 use Spatie\MediaLibrary\HasMedia;
 use Modules\Client\Entities\Order;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
@@ -53,9 +54,16 @@ class Product extends Model implements HasMedia
     {
         return $this->hasMany(ProductImage::class);
     }
-    
+
     public function scopeIsActive($query)
     {
         return $query->where('is_active', 1);
+    }
+    // scope 
+    public function scopeForStoreLink(Builder $query, $storeLink)
+    {
+        return $query->whereHas('category.store', function ($query) use ($storeLink) {
+            $query->where('store_link', $storeLink);
+        });
     }
 }

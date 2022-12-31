@@ -2,48 +2,40 @@
 
 namespace Modules\Store\Http\Controllers;
 
-
-use Illuminate\Http\Request;
-use Modules\Admin\Entities\Store;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Product;
 use Modules\Admin\Entities\Category;
-use Illuminate\Support\Facades\Route;
 
 class StoreController extends Controller
 {
-    protected $store;
 
-    public function __construct(Request $request)
+    public function index($storeLink)
     {
-        $this->storeLink = $request->route('storeLink');
+        $categories = Category::forStoreLink($storeLink)->with('products')->get();
+        $categories = Category::buildCategoryTree($categories);
+        $products = $categories->pluck('products')->flatten();
+
+        return view('store::index', compact('categories', 'storeLink', 'products'));
     }
 
-    public function index()
+
+    public function productDetails($storeLink, $productId)
     {
-        $storeCategories = Category::with('products')->withCount('products')->whereHas('store', function ($query) {
-            $query->where('store_link', $this->storeLink);
-        })->get();
-        $categories = Category::buildCategoryTree($storeCategories);
-        $products = $storeCategories->pluck('products')->flatten();
-        return view('store::index', [
-            'categories' => $categories,
-            'storeLink' => $this->storeLink,
-            'products' => $products
-        ]);
+        $product = Product::with('category')->findOrFail($productId);
+        $categories = $product->category->forStoreLink($storeLink)->get();
+        $categories = Category::buildCategoryTree($categories);
+
+        return view('store::products.productDetails', compact('storeLink', 'product', 'categories'));
     }
 
-    public function productDetails()
-    {
-        $product_id = Route::current()->parameter('product');
-        $product = Product::findOrFail($product_id);
 
-        return view('store::products.productDetails', ['store' => $this->store, 'product' => $product]);
-    }
-
-    public function categoryProducts(Category $category)
+    public function categoryProducts($storeLink, $categoryTitle)
     {
-        // $categoryWithProducts = new CategoriesWithProductsResource($category);
-        // return $categoryWithProducts;
+        $category = Category::where('title', $categoryTitle)->forStoreLink($storeLink)->with('products')->first();
+        $categories = Category::forStoreLink($storeLink)->get();
+        $categories = Category::buildCategoryTree($categories);
+        $products = $category->products;
+
+        return view('store::categories.categoryProducts', compact('storeLink', 'category', 'products', 'categories'));
     }
 }

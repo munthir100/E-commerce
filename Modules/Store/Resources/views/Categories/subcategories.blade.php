@@ -2,14 +2,14 @@
     @foreach($subcategories as $subcategory)
     @if(!$subcategory->children->count())
     <li>
-        <a class="dropdown-item d-flex align-items-center" href="#">
+        <a class="dropdown-item d-flex align-items-center" href="{{route('store.shopCategory',[$storeLink,$subcategory->title])}}">
             <i data-feather="circle"></i>
             <span>{{$subcategory->title}}</span>
         </a>
     </li>
     @else
     <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
-        <a class="dropdown-item d-flex align-items-center dropdown-toggle" href="#">
+        <a class="dropdown-item d-flex align-items-center dropdown-toggle" href="{{route('store.shopCategory',[$storeLink,$subcategory->title])}}">
             <i data-feather='circle'></i>
             <span>{{$subcategory->title}}</span>
         </a>

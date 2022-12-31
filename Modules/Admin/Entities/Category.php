@@ -3,6 +3,7 @@
 namespace Modules\Admin\Entities;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -66,4 +67,14 @@ class Category extends Model
     {
         return $this->belongsTo(Store::class);
     }
+
+    //scope
+
+    public function scopeForStoreLink(Builder $query, $storeLink)
+    {
+        return $query->whereHas('store', function ($query) use ($storeLink) {
+            $query->where('store_link', $storeLink);
+        });
+    }
+
 }

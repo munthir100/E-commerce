@@ -255,7 +255,7 @@
                     @if(count($category->children) > 0 )
 
                     <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle  nav-link d-flex align-items-center" href="#" data-bs-toggle="dropdown">
+                        <a class="dropdown-toggle  nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$storeLink,$category->title])}}">
                             <i data-feather='circle'></i>
                             <span data-i18n="Apps">{{$category->title}}</span>
                         </a>
@@ -265,7 +265,7 @@
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center" href="#">
+                        <a class="nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$storeLink,$category->title])}}">
                             <i data-feather='circle'></i>
                             <span data-i18n="Apps">{{$category->title}}</span>
                         </a>

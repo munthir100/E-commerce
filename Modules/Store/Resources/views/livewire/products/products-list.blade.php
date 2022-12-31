@@ -24,7 +24,7 @@
                     </div>
                 </div>
                 <h6 class="item-name">
-                    <a class="text-body" href="app-ecommerce-details.html">{{$product->title}}</a>
+                    <a class="text-body" href="{{route('store.product-details',[$storeLink,$product->id])}}">{{$product->title}}</a>
                     <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
                 </h6>
                 <p class="card-text item-description">

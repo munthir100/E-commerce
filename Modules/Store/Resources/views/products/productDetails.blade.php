@@ -307,3 +307,12 @@
 <script src="../../../app-assets/js/scripts/pages/app-ecommerce-details.js"></script>
 <script src="../../../app-assets/js/scripts/forms/form-number-input.js"></script>
 @endsection
+
+
+
+
+
+
+
+
+
