@@ -110,7 +110,7 @@
                     </a>
                 </li>
                 <li class="nav-item nav-search">
-                    <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                    <a class="nav-link" href="{{route('store.wishlist.index',$storeLink)}}">
                         <i class="ficon" data-feather="heart"></i>
                         <span class="badge rounded-pill bg-primary badge-up cart-item-count">
                             <livewire:store::wishlist.wishlist-counter>
@@ -118,7 +118,7 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown dropdown-cart me-25">
-                    <a class="nav-link" href="#" data-bs-toggle="dropdown">
+                    <a class="nav-link" href="#">
                         <i class="ficon" data-feather="shopping-cart"></i>
                         <span class="badge rounded-pill bg-primary badge-up cart-item-count">
                             <livewire:client::cart-counter />
@@ -135,39 +135,7 @@
                                 </div>
                             </div>
                         </li>
-                        @foreach(Cart::content() as $row)
-                        <li class="scrollable-container media-list">
-                            <div class="list-item align-items-center">
-                                <img class="d-block rounded me-1" src="../../../app-assets/images/pages/eCommerce/1.png" alt="donuts" width="62">
 
-                                <div class="list-item-body flex-grow-1">
-                                    <i class="ficon cart-item-remove" data-feather="x"></i>
-                                    <div class="media-heading">
-                                        <h6 class="cart-item-title">
-                                            <a class="text-body" href="app-ecommerce-details.html">
-                                                {{$row->name}}
-                                            </a>
-                                        </h6>
-                                        <small class="cart-item-by">By Apple</small>
-                                    </div>
-                                    <div class="cart-item-qty">
-                                        <div class="input-group input-group input-group-xs bootstrap-touchspin">
-                                            <button class="badge btn-primary bootstrap-touchspin-up" type="button">
-                                                <i data-feather="minus"></i>
-                                            </button>
-                                            <span class="badge text-dark">
-                                                {{$row->qty}}
-                                            </span>
-                                            <button class="badge btn-primary bootstrap-touchspin-up" type="button">
-                                                <i data-feather="plus"></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <h5 class="cart-item-price">{{$row->price * $row->qty}}</h5>
-                                </div>
-                            </div>
-                        </li>
-                        @endforeach
 
 
                         <li class="dropdown-menu-footer">
@@ -181,7 +149,12 @@
                     </ul>
                 </li>
 
-                <livewire:store::store-layout-livewire />
+                <li class="nav-item dropdown dropdown-notification me-25">
+                    <a class="nav-link" href="#" data-bs-target="#userLoginModal" data-bs-toggle="modal">
+                        <i class="ficon" data-feather="user"></i>
+                    </a>
+                </li>
+
 
             </ul>
         </div>

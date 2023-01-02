@@ -36,7 +36,7 @@
         <div class="content-body">
             <!-- Wishlist Starts -->
             <section id="wishlist" class="grid-view wishlist-items">
-                @foreach($wishlistProducts as $item)
+                @foreach($wishlistProducts as $product)
                 <div class="card ecommerce-card">
                     <div class="item-img text-center">
                         <a href="app-ecommerce-details.html">
@@ -55,14 +55,14 @@
                                 </ul>
                             </div>
                             <div class="item-cost">
-                                <h6 class="item-price">{{$item->products->price}}</h6>
+                                <h6 class="item-price">{{$product->price}}</h6>
                             </div>
                         </div>
                         <div class="item-name">
-                            <a href="app-ecommerce-details.html">{{$item->products->title}}</a>
+                            <a href="app-ecommerce-details.html">{{$product->title}}</a>
                         </div>
                         <p class="card-text item-description">
-                            {{$item->products->description}}
+                            {{$product->description}}
                         </p>
                     </div>
                     <div class="item-options text-center">

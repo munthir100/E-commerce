@@ -3,42 +3,23 @@
 namespace Modules\Store\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Modules\Admin\Entities\Store;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Auth;
-use Modules\Store\Entities\Wishlist;
-use Illuminate\Support\Facades\Route;
+use Modules\Admin\Entities\Product;
+use Modules\Admin\Entities\Category;
 use Illuminate\Contracts\Support\Renderable;
 
 class WishlistController extends Controller
 {
-    protected $store;
 
-    public function __construct()
+    public function index($storeLink)
     {
-        if (!is_null(request()->route('storeLink'))) {
-            $storeLink = Route::current()->parameter('storeLink');
-            $this->store = Store::where('store_link', $storeLink)->with('mainCategories')->first();
-        }
-    }
-    /**
-     * Display a listing of the resource.
-     * @return Renderable
-     */
-    public function index()
-    {
-        $wishlistProducts = Wishlist::where('user_id', Auth::user()->id)->with('products')->get();
-
-        return view('store::Wishlist.index', [
-            'store' => $this->store,
-            'wishlistProducts' => $wishlistProducts
-        ]);
+        $wishlist = session()->get('wishlist', []);
+        $wishlistProducts = Product::whereIn('id', $wishlist)->get();
+        $categories = Category::forStoreLink($storeLink)->get();
+        $categories = Category::buildCategoryTree($categories);
+        return view('store::Wishlist.index', compact('storeLink','wishlistProducts','categories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
     public function create()
     {
         return view('store::create');

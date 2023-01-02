@@ -25,6 +25,5 @@ class AddToCart extends Component
             $product->price,
         );
         $this->emit('cart_updated');
-        return redirect()->back()->with('success', 'product added to cart');
     }
 }

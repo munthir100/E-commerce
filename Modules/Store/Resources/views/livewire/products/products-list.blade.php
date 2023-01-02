@@ -39,7 +39,7 @@
                 </div>
                 <livewire:store::wishlist.add-to-wishlist :product="$product" />
 
-                <livewire:client::add-to-cart :product="$product" />
+                <livewire:store::cart.add-to-cart :product="$product" />
             </div>
         </div>
         @endforeach
