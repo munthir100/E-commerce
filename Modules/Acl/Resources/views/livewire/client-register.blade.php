@@ -1,5 +1,6 @@
 <div>
     <form class="auth-register-form mt-2" method="POST" wire:submit.prevent="register">
+        <input type="hidden" value="{{$storeLink}}">
         <div class="mb-1">
             <label for="register-username" class="form-label">name</label>
             <input type="text" class="form-control" wire:model="name" placeholder="johndoe" aria-describedby="register-username" tabindex="1" autofocus />

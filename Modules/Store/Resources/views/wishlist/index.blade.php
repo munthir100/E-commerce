@@ -66,14 +66,10 @@
                         </p>
                     </div>
                     <div class="item-options text-center">
-                        <button type="button" class="btn btn-light btn-wishlist remove-wishlist">
-                            <i data-feather="x"></i>
-                            <span>Remove</span>
-                        </button>
-                        <button type="button" class="btn btn-primary btn-cart move-cart">
-                            <i data-feather="shopping-cart"></i>
-                            <span class="add-to-cart">Move to cart</span>
-                        </button>
+                        <livewire:store::wishlist.wishlist :product="$product" source="index" />
+
+                        <livewire:store::cart.add-to-cart :product="$product" source="index"/>
+                        
                     </div>
 
                 </div>

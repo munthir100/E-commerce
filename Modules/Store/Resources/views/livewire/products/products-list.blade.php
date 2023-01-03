@@ -37,9 +37,9 @@
                         <h4 class="item-price">{{$product->price}}</h4>
                     </div>
                 </div>
-                <livewire:store::wishlist.add-to-wishlist :product="$product" />
+                <livewire:store::wishlist.wishlist :product="$product" source="product-list"/>
 
-                <livewire:store::cart.add-to-cart :product="$product" />
+                <livewire:store::cart.add-to-cart :product="$product" source="product-list"/>
             </div>
         </div>
         @endforeach

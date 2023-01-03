@@ -41,12 +41,11 @@
             <!-- Register basic -->
             <div class="card mb-0">
                 <div class="card-body">
-
                     <h4 class="card-title mb-1">Adventure starts here 🚀</h4>
                     <p class="card-text mb-2">Make your app management easy and fun!</p>
 
-
                     <livewire:acl::client-register :storeLink="$storeLink" />
+                    
                     <p class="text-center mt-2">
                         <span>Already have an account?</span>
                         <a href="#" onclick="$('#userRegisterModal').modal('hide'); $('#userLoginModal').modal('show');">

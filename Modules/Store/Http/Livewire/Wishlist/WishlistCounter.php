@@ -6,7 +6,10 @@ use Livewire\Component;
 
 class WishlistCounter extends Component
 {
-    protected $listeners = ['wishlist-updated' => 'render'];
+    protected $listeners = [
+        'added-to-wishlist' => 'render',
+        'removed-from-wishlist' => 'render',
+    ];
     public function render()
     {
         $wishlist = session()->get('wishlist', []);

@@ -148,12 +148,22 @@
                         </li>
                     </ul>
                 </li>
+                @if (Auth::check())
+                <li class="nav-item dropdown dropdown-notification me-25">
+                    <div class="avatar bg-light-success">
+                        <span class="avatar-content">{{ucfirst(Auth::user()->name[0])}}</span>
+                        <span class="avatar-status-online"></span>
+                    </div>
+                </li>
 
+                @else
                 <li class="nav-item dropdown dropdown-notification me-25">
                     <a class="nav-link" href="#" data-bs-target="#userLoginModal" data-bs-toggle="modal">
                         <i class="ficon" data-feather="user"></i>
                     </a>
                 </li>
+
+                @endif
 
 
             </ul>
@@ -286,12 +296,13 @@
     <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
+    <script src="../../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
     <!-- BEGIN: Page Vendor JS-->
     @yield('scripts')
     <!-- END: Page Vendor JS-->
 
     @section('modals')
-    @extends('store::layouts.authModalsLayout')
+    @extends('store::layouts.authModalsLayout',['storeLink' => $storeLink])
     @endsection
 
     <!-- BEGIN: Theme JS-->
