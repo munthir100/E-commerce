@@ -1,0 +1,172 @@
+/*================================================================================
+	Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+	Version: 2.0
+	Author: PIXINVENT
+	Author URL: http://www.themeforest.net/user/pixinvent
+================================================================================
+
+NOTE:
+------
+PLACE HERE YOUR OWN SCSS CODES AND IF NEEDED, OVERRIDE THE STYLES FROM THE OTHER STYLESHEETS.
+WE WILL RELEASE FUTURE UPDATES SO IN ORDER TO NOT OVERWRITE YOUR STYLES IT'S BETTER LIKE THIS.  */
+
+*{
+    font-family: 'Tajawal', sans-serif;
+    transition: all 0.3s;
+}
+
+body {
+
+	font-family: 'Tajawal', sans-serif;
+}
+.btn.btn-sm.btn-icon {
+    line-height: normal;
+}
+div.dataTables_wrapper div.dataTables_filter{
+	text-align: right !important;
+}
+div.dataTables_wrapper div.dataTables_length{
+	text-align: left !important;
+}
+button.close {
+    top: 7px;
+    left: 20px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  font-family: 'Tajawal', sans-serif;}
+
+p {
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  font-family: 'Tajawal', sans-serif;}
+  a{
+	font-family: 'Tajawal', sans-serif;
+  }
+
+
+  .invoice-add .invoice-preview-card .invoice-product-details, .invoice-edit .invoice-preview-card .invoice-product-details {
+    background-color: #FCFCFC;
+}
+.invoice-add .invoice-preview-card .invoice-product-details .product-details-border, .invoice-edit .invoice-preview-card .invoice-product-details .product-details-border
+{
+    border:none !important;
+}
+.order .swiper-slide{
+    width:180px !important;
+}
+.profile-title{
+    font-size: 16px;
+    font-weight: bold;
+    color: #7473f0;
+}
+.profile-img img{
+    width:100% !important;
+}
+.container {
+    max-width: 100%;
+}
+.edit-category{
+    width: 100%;
+    height: 95px;
+    object-fit: contain;
+}
+.bs-stepper .bs-stepper-header .line {
+    padding: 0 5px;
+  }
+  .invoice-add .invoice-preview-card .invoice-edit-input, .invoice-add .invoice-preview-card .invoice-edit-input-group, .invoice-edit .invoice-preview-card .invoice-edit-input, .invoice-edit .invoice-preview-card .invoice-edit-input-group{
+           max-width: 100%;
+  }
+
+span.active::before{
+    background-color: #7367F0;
+    border-radius: 1px;
+    content: "";
+    display: inline-block;
+    height: 13px;
+    margin-left: 5px;
+    transform: translateY(-2px);
+    vertical-align: middle;
+    width: 13px;
+}
+span.overdue::before{
+    background-color: #f55157;;
+    border-radius: 1px;
+    content: "";
+    display: inline-block;
+    height: 13px;
+    margin-left: 5px;
+    transform: translateY(-2px);
+    vertical-align: middle;
+    width: 13px;
+}
+
+element.style {
+}
+.main-menu.menu-light .navigation .navigation-header {
+
+    margin: 0.7rem 2.2rem 0.8rem 0; !important}
+span.inactive::before{
+    background-color: #ddd;
+    border-radius: 1px;
+    content: "";
+    display: inline-block;
+    height: 13px;
+    margin-left: 5px;
+    transform: translateY(-2px);
+    vertical-align: middle;
+    width: 13px;
+}
+span.text-small {
+    font-size: 10px;
+}
+.card-header{
+    background-color: #e3e0ff !important;
+}
+.btn{
+    font-size: 12px !important;
+}
+.card .card-title {
+    font-size: 1rem !important;
+}
+.partnership-img{
+    width: 100px !important;
+    height: 100px !important;
+}
+.card .card-title {
+    font-size: 16px !important;
+    font-weight: 600;
+}
+@media (max-width: 767px) {
+
+    .card-title{
+        font-size: 12px !important;
+    }
+    .btn{
+        font-size: 10px !important;
+    }
+
+    .table{
+        display: block;
+    width: 100%;
+    overflow-x: auto;
+    }
+    .content-header-title{
+        font-size: 12px !important;
+
+    }
+    .breadcrumb-right button {
+        padding: 0.5rem !important;
+    }
+    .product-small div a small{
+        font-size: 7px !important;
+    }
+}

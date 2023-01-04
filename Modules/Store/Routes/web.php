@@ -16,8 +16,10 @@ use Modules\Store\Http\Controllers\WishlistController;
 */
 
 Route::prefix('{storeLink}')->name('store.')->group(function () {
-    route::get('/', [StoreController::class, 'index'])->name('index');
-    route::get('/product/{productId}/details', [StoreController::class, 'productDetails'])->name('product-details');
+    Route::get('/', [StoreController::class, 'index'])->name('index');
+    Route::get('/product/{productId}/details', [StoreController::class, 'productDetails'])->name('product-details');
+   
+    Route::get('/checkout', [StoreController::class,'checkout'])->name('checkout');
 
     route::get('/category/{title}/products', [StoreController::class, 'categoryProducts'])->name('shopCategory');
 

@@ -13,13 +13,11 @@
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
-
     <!-- BEGIN: Vendor CSS-->
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors-rtl.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/charts/apexcharts.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
     <!-- END: Vendor CSS-->
-
     <!-- BEGIN: Theme CSS-->
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/bootstrap-extended.css">
@@ -28,19 +26,15 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/themes/dark-layout.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/themes/bordered-layout.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/themes/semi-dark-layout.css">
-
     <!-- BEGIN: Page CSS-->
     @yield('styles')
     <!-- END: Page CSS-->
-
     <!-- BEGIN: Custom CSS-->
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/custom-rtl.css">
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style-rtl.css">
     <!-- END: Custom CSS-->
-
 </head>
 <!-- END: Head-->
-
 <!-- BEGIN: Body-->
 
 <body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="">
@@ -118,7 +112,7 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown dropdown-cart me-25">
-                    <a class="nav-link" href="#">
+                    <a class="nav-link" href="{{route('store.checkout',$storeLink)}}">
                         <i class="ficon" data-feather="shopping-cart"></i>
                         <span class="badge rounded-pill bg-primary badge-up cart-item-count">
                             <livewire:client::cart-counter />
@@ -135,9 +129,6 @@
                                 </div>
                             </div>
                         </li>
-
-
-
                         <li class="dropdown-menu-footer">
                             <div class="d-flex justify-content-between mb-1">
                                 <h6 class="fw-bolder mb-0">Total:</h6>
@@ -150,30 +141,22 @@
                 </li>
                 @if (Auth::check())
                 <li class="nav-item dropdown dropdown-notification me-25">
-                    <div class="avatar bg-light-success">
+                    <a href="{{route('client.dashboard',$storeLink)}}" class="avatar bg-light-success" target="__blank">
                         <span class="avatar-content">{{ucfirst(Auth::user()->name[0])}}</span>
                         <span class="avatar-status-online"></span>
-                    </div>
+                    </a>
                 </li>
-
                 @else
                 <li class="nav-item dropdown dropdown-notification me-25">
                     <a class="nav-link" href="#" data-bs-target="#userLoginModal" data-bs-toggle="modal">
                         <i class="ficon" data-feather="user"></i>
                     </a>
                 </li>
-
                 @endif
-
-
             </ul>
         </div>
     </nav>
-
-
     <!-- END: Header-->
-
-
     <!-- BEGIN: Main Menu-->
     <div class="horizontal-menu-wrapper">
         <div class="header-navbar navbar-expand-sm navbar navbar-horizontal floating-nav navbar-light navbar-shadow menu-border container-xxl" role="navigation" data-menu="menu-wrapper" data-menu-type="floating-nav">
@@ -219,32 +202,14 @@
                             <span data-i18n="Home">Home</span>
                         </a>
                     </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     @foreach($categories as $category)
-
                     @if(count($category->children) > 0 )
-
                     <li class="dropdown nav-item" data-menu="dropdown">
                         <a class="dropdown-toggle  nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$storeLink,$category->title])}}">
                             <i data-feather='circle'></i>
                             <span data-i18n="Apps">{{$category->title}}</span>
                         </a>
-
                         @include('store::Categories.subcategories', ['subcategories' => $category->children])
-
                     </li>
                     @else
                     <li class="nav-item">
@@ -260,14 +225,11 @@
         </div>
     </div>
     <!-- END: Main Menu-->
-
     <!-- BEGIN: Content-->
     @yield('content')
     <!-- END: Content-->
-
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
-
     <!-- BEGIN: Footer-->
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
         <p class="col-md-4 mb-0 text-muted">© 2022 Company, Inc</p>
@@ -280,7 +242,6 @@
                 </svg>
             </button>
         </a>
-
         <ul class="nav col-md-4 justify-content-end">
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
             <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
@@ -290,27 +251,20 @@
     </footer>
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->
-
-
     <!-- BEGIN: Vendor JS-->
     <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
-
     <script src="../../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
     <!-- BEGIN: Page Vendor JS-->
     @yield('scripts')
     <!-- END: Page Vendor JS-->
-
     @section('modals')
     @extends('store::layouts.authModalsLayout',['storeLink' => $storeLink])
     @endsection
-
     <!-- BEGIN: Theme JS-->
     <script src="../../../app-assets/js/core/app-menu.js"></script>
     <script src="../../../app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
-
-
     <script>
         $(window).on('load', function() {
             if (feather) {

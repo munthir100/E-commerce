@@ -103,7 +103,7 @@
                                 </div>
                                 <hr />
                                 <div class="d-flex flex-column flex-sm-row pt-1">
-                                    <livewire:client::add-to-cart :product="$product"/>
+                                    <livewire:store::cart.add-to-cart :product="$product"/>
                                     <a href="#" class="btn btn-outline-secondary btn-wishlist me-0 me-sm-1 mb-1 mb-sm-0">
                                         <i data-feather="heart" class="me-50"></i>
                                         <span>Wishlist</span>

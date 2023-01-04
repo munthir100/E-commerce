@@ -24,24 +24,25 @@ class ClientLogin extends Component
     {
         $this->validate();
 
-        $credantials = [
-            'username' => $this->username,
-            'password' => $this->password,
-        ];
-
         if (is_numeric($this->username)) {
             $user = User::where('phone', $this->username)
-                ->where('password', Hash::make($this->password))
                 ->where('user_type_id', 3)->first();
         } else {
             $user = User::where('email', $this->username)
-                ->where('password', Hash::make($this->password))
                 ->where('user_type_id', 3)->first();
         }
-        if ($user) {
-            Auth::login($user);
-        } else {
-            $this->addError('username', 'invaild credantials');
+
+        if (!$user) {
+            $this->addError('username', 'invalid username');
+            return;
         }
+
+        if (!Hash::check($this->password, $user->password)) {
+            $this->addError('password', 'invalid password');
+            return;
+        }
+
+        Auth::login($user);
+        return redirect()->refresh();
     }
 }
