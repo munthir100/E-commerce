@@ -41,7 +41,7 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->foreign('store_link')->references('store_link')->on('stores')->onDelete('cascade');
+            $table->foreign('store_link')->references('store_link')->on('stores')->onDelete('cascade')->nullable();
 
 
 

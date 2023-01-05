@@ -61,15 +61,11 @@
                             <li class="{{ request()->is('/') ? 'active' :'' }}">
                                 <a href="/">الرئيسية</a>
                             </li>
-                            <li class="{{ request()->is('blogs') ? 'active' :'' }}">
-                                <a href="#">المدونة</a>
-                            </li>
+                            
                             <li class="{{ request()->is('price') ? 'active' :'' }}">
                                 <a href="#">الاسعار</a>
                             </li>
-                            <li class="{{ request()->is('dashboard') ? 'active' :'' }}">
-                                <a href="/admin">تجربة المنصة</a>
-                            </li>
+                            
 
                             @if (Route::has('login'))
                             @auth
@@ -78,11 +74,11 @@
                             </li>
                             @else
                             <li>
-                                <a href="#" class=""> تسجيل دخول </a>
+                                <a href="{{route('login')}}" class=""> تسجيل دخول </a>
                             </li>
                             @if (Route::has('register'))
                             <li>
-                                <a href="#" class=""> متجر جديد </a>
+                                <a href="{{route('register')}}" class=""> متجر جديد </a>
                             </li>
                             @endif
                             @endauth

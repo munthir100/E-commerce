@@ -1,5 +1,5 @@
 @extends('admin::Layouts.adminlayout')
-@section('title','My store | Clients')
+@section('title','My store | Orders')
 
 @section('content')
 <div class="app-content content ">
@@ -49,9 +49,11 @@
                             </div>
                             <div class="dt-action-buttons text-end">
                                 <div class="dt-buttons d-inline-flex">
-                                    <button data-bs-toggle="modal" data-bs-target="#addclient" class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#modals-slide-in"><span>
+                                    <button id="new-order" class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button"><span>
                                             <i data-feather="plus"></i>
-                                            Add New Record</span></button>
+                                            Add New Order
+                                        </span>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -60,16 +62,18 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>name</th>
-                                        <th>date of registerd</th>
-                                        <th>phone</th>
-                                        <th>email</th>
-                                        <th>number of orders</th>
+                                        <th>Order number</th>
+                                        <th>Client</th>
+                                        <th>Date</th>
+                                        <th>Payment</th>
+                                        <th>Shipping</th>
+                                        <th>Total</th>
+                                        <th>Status</th>
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach($clients as $client)
+                                    @foreach($orders as $order)
                                     <tr>
                                         <td>{{$client->user->name}}</td>
                                         <td>{{$client->created_at->diffForhumans()}}</td>
@@ -91,7 +95,7 @@
                                                         <i data-feather="edit-2" class="me-50"></i>
                                                         <span>Edit</span>
                                                     </a>
-                                                    <a class="dropdown-item disabled" href="#">
+                                                    <a class="dropdown-item" href="#">
                                                         <i data-feather="trash" class="me-50"></i>
                                                         <span>Delete</span>
                                                     </a>
@@ -100,6 +104,13 @@
                                         </td>
                                         @endforeach
                                     </tr>
+                                    <div class="alert alert-danger">
+                                        <span class="text-alert">
+                                            <p>
+                                                There Is No Orders Yet
+                                            </p>
+                                        </span>
+                                    </div>
                                 </tbody>
                             </table>
                         </div>
@@ -132,6 +143,28 @@
 
 
 @section('styles')
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
 @endsection
 @section('scripts')
+<script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+<script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
+<script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+<script>
+    var warning = $('#new-order');
+    if (warning.length) {
+        warning.on('click', function() {
+            Swal.fire({
+                title: 'Warning!',
+                text: ' Please upgrade your package becouse this feature is not available in your package!',
+                icon: 'warning',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        });
+    }
+</script>
 @endsection

@@ -3,6 +3,8 @@
 namespace Modules\Acl\Entities;
 
 use Laravel\Sanctum\HasApiTokens;
+use Modules\Admin\Entities\Admin;
+use Modules\Client\Entities\Client;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\SoftDeletes;

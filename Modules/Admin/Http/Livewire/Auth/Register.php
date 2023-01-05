@@ -41,10 +41,14 @@ class Register extends Component
         $data = $this->validate();
         $data['password'] = Hash::make($data['password']);
         $data['user_type_id'] = 1;
+
         $user = User::create($data);
-        $user->store()->create($data);
+        $admin = $user->admin()->create([]);
+        $admin->store()->create($data);
+
         $user->assignRole('admin');
         Auth::login($user);
+
         return redirect()->route('admin.index');
     }
 }

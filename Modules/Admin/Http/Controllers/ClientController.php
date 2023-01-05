@@ -2,23 +2,82 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+
 use Illuminate\Http\Request;
-use App\Traits\HasCategoriesTrait;
 use Illuminate\Routing\Controller;
-use Modules\Admin\Entities\Product;
-use Modules\Client\Entities\Client;
 use Illuminate\Support\Facades\Auth;
-use Modules\Admin\Entities\Category;
-use Gloudemans\Shoppingcart\Facades\Cart;
-use Illuminate\Contracts\Support\Renderable;
+use Modules\Client\Entities\Client;
+use Modules\Shipping\Entities\City;
 
 class ClientController extends Controller
 {
-    use HasCategoriesTrait;
-
-    function dashboard($storeLink)
+    /**
+     * Display a listing of the resource.
+     * @return Renderable
+     */
+    public function index()
     {
-        return view('client::dashboard', compact('storeLink'));
+        $clients = Client::where('created_by',Auth::id())->with('user')->get();
+        return view('admin::clients.index',compact('clients'));
     }
 
+    /**
+     * Show the form for creating a new resource.
+     * @return Renderable
+     */
+    public function create()
+    {
+        return view('admin::clients.create');
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     * @param Request $request
+     * @return Renderable
+     */
+    public function store(Request $request)
+    {
+        //
+    }
+
+    /**
+     * Show the specified resource.
+     * @param int $id
+     * @return Renderable
+     */
+    public function show(Client $client)
+    {
+        return view('admin::clients.show',compact('client'));
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     * @param int $id
+     * @return Renderable
+     */
+    public function edit(Client $client)
+    {
+        return view('admin::clients.edit',compact('client'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     * @param Request $request
+     * @param int $id
+     * @return Renderable
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     * @param int $id
+     * @return Renderable
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

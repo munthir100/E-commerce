@@ -103,7 +103,6 @@ $wishlist = session()->get('wishlist', []);
                                             <h6 class="mb-0">
                                                 <a href="app-ecommerce-details.html" class="text-body">{{$product->title}}</a>
                                             </h6>
-                                            <span class="item-company">By <a href="#" class="company-name">Apple</a></span>
                                             <div class="item-rating">
                                                 <ul class="unstyled-list list-inline">
                                                     <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
@@ -114,15 +113,13 @@ $wishlist = session()->get('wishlist', []);
                                                 </ul>
                                             </div>
                                         </div>
-                                        <span class="text-success mb-1">In Stock</span>
-                                        <div class="item-quantity">
-                                            <span class="quantity-title">Qty:</span>
-                                            <div class="quantity-counter-wrapper">
-                                                <div class="input-group">
-                                                    <input type="text" class="quantity-counter" value="{{ $itemsById[$product->id]->qty }}" />
-                                                </div>
-                                            </div>
-                                        </div>
+                                        <span class="text-success mb-1">Available</span>
+
+                                        <livewire:store::cart.update-quantity :productId="$product->id" :quantity="$itemsById[$product->id]->qty" />
+
+
+
+
                                         <span class="delivery-date text-muted">Date of creation, {{$product->created_at->diffForHumans()}}</span>
                                         <span class="text-success">{{$product->short_description}}</span>
                                     </div>
@@ -133,11 +130,11 @@ $wishlist = session()->get('wishlist', []);
                                             </div>
                                         </div>
                                         <livewire:store::cart.remove-from-cart :productId="$product->id" />
-                                        
-                                       
-                                        
+
+
+
                                         <livewire:store::wishlist.wishlist :product="$product" source="checkout" />
-                                        
+
                                     </div>
                                 </div>
                                 @endforeach
@@ -159,19 +156,17 @@ $wishlist = session()->get('wishlist', []);
                                             <ul class="list-unstyled">
                                                 <li class="price-detail">
                                                     <div class="detail-title">Products Cost</div>
-                                                    <div class="detail-amt">$598</div>
+                                                    <div class="detail-amt">
+                                                        <livewire:client::cart.total />
+                                                    </div>
                                                 </li>
                                                 <li class="price-detail">
                                                     <div class="detail-title">Shipping Cost</div>
-                                                    <div class="detail-amt discount-amt text-success">-25$</div>
+                                                    <div class="detail-amt discount-amt text-success">0</div>
                                                 </li>
                                                 <li class="price-detail">
                                                     <div class="detail-title">Cash on Delivary</div>
-                                                    <div class="detail-amt">$1.3</div>
-                                                </li>
-                                                <li class="price-detail">
-                                                    <div class="detail-title">EMI Eligibility</div>
-                                                    <a href="#" class="detail-amt text-primary">Details</a>
+                                                    <div class="detail-amt">0</div>
                                                 </li>
                                                 <li class="price-detail">
                                                     <div class="detail-title">Delivery Charges</div>
@@ -182,10 +177,16 @@ $wishlist = session()->get('wishlist', []);
                                             <ul class="list-unstyled">
                                                 <li class="price-detail">
                                                     <div class="detail-title detail-total">Total</div>
-                                                    <div class="detail-amt fw-bolder">$574</div>
+                                                    <div class="detail-amt fw-bolder">
+                                                        <livewire:client::cart.total />
+                                                    </div>
                                                 </li>
                                             </ul>
-                                            <button type="button" class="btn btn-primary w-100 btn-next place-order">Place Order</button>
+                                            @if (Auth::check())
+                                            <button type="button" class="btn btn-primary w-100 btn-next place-order" disabled>Place Order</button>
+                                            @else
+                                            <button data-bs-toggle="modal" data-bs-target="#userLoginModal" type="button" class="btn btn-primary w-100">Place Order</button>
+                                            @endif
                                         </div>
                                     </div>
                                 </div>

@@ -266,14 +266,13 @@
     <script src="../../../app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
     <script>
-        $(window).on('load', function() {
-            if (feather) {
-                feather.replace({
-                    width: 14,
-                    height: 14
-                });
-            }
-        })
+        window.addEventListener('livewire:loading', function() {
+            alert('d')
+        });
+
+        window.addEventListener('livewire:done-loading', function() {
+            alert('ds')
+        });
     </script>
 </body>
 <!-- END: Body-->

@@ -122,6 +122,7 @@
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
 @endsection
 @section('scripts')
+
 <script src="../../../app-assets/vendors/js/ui/jquery.sticky.js"></script>
 <script src="../../../app-assets/vendors/js/extensions/wNumb.min.js"></script>
 <script src="../../../app-assets/vendors/js/extensions/nouislider.min.js"></script>

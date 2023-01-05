@@ -2,9 +2,11 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Support\Renderable;
+use Modules\Client\Entities\Order;
 
 class OrderController extends Controller
 {
@@ -14,7 +16,12 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('admin::index');
+        $userId = Auth::id();
+        $orders = Order::whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
+
+        return view('admin::orders.index',compact('orders'));
     }
 
     /**

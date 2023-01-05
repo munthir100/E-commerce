@@ -3,6 +3,9 @@
 namespace Modules\Client\Entities;
 
 
+use Modules\Acl\Entities\User;
+use Modules\Admin\Entities\Admin;
+use Modules\Shipping\Entities\City;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
@@ -23,6 +26,7 @@ class Client extends Model
         'user_id',
         'store_id',
         'created_by',
+        'store_link',
     ];
     public function city()
     {
@@ -32,5 +36,14 @@ class Client extends Model
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+
+    public function admin()
+    {
+        return $this->belongsTo(Admin::class);
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
