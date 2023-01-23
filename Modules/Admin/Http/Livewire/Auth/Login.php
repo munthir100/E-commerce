@@ -4,11 +4,9 @@ namespace Modules\Admin\Http\Livewire\Auth;
 
 use Livewire\Component;
 use Modules\Acl\Entities\User;
-use Modules\Admin\Entities\Admin;
-use Modules\Admin\Entities\Store;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Session;
+use Spatie\Permission\Models\Role;
 
 class Login extends Component
 {
@@ -48,6 +46,7 @@ class Login extends Component
             $this->addError('password', 'password not match');
         } else {
             Auth::login($user);
+            $user->assignRole('admin');
             return redirect()->route('admin.index');
         }
     }

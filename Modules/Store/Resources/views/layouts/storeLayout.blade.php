@@ -141,7 +141,7 @@
                 </li>
                 @if (Auth::check())
                 <li class="nav-item dropdown dropdown-notification me-25">
-                    <a href="{{route('client.dashboard',$storeLink)}}" class="avatar bg-light-success" target="__blank">
+                    <a href="{{ Auth::user()->hasRole('admin') ? route('admin.index') : route('client.dashboard',$storeLink) }}" class="avatar bg-light-success" target="__blank">
                         <span class="avatar-content">{{ucfirst(Auth::user()->name[0])}}</span>
                         <span class="avatar-status-online"></span>
                     </a>

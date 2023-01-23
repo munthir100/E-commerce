@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 
 class ClientLogin extends Component
 {
-    public $username, $password;
+    public $username, $password,$storeLink;
 
     protected $rules = [
         'username' => ['required'],
@@ -41,8 +41,8 @@ class ClientLogin extends Component
             $this->addError('password', 'invalid password');
             return;
         }
-
         Auth::login($user);
-        return redirect()->refresh();
+        
+        return redirect()->route('store.index',$this->storeLink);
     }
 }

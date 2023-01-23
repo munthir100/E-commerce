@@ -53,4 +53,9 @@ class StoreController extends Controller
 
         return view('store::checkout.index', compact('categories', 'storeLink'))->with('items', $items)->with('products', $products);
     }
+
+    public function shipping()
+    {
+        dd('soon');
+    }
 }

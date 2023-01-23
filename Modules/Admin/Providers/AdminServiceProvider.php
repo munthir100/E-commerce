@@ -4,9 +4,11 @@ namespace Modules\Admin\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Illuminate\Support\Facades\Route;
 
 class AdminServiceProvider extends ServiceProvider
 {
+    protected $namespace = 'Modules\Admin\Http\Controllers';
     /**
      * @var string $moduleName
      */
@@ -28,6 +30,10 @@ class AdminServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+
+        Route::middleware(['web'])
+             ->namespace($this->namespace)
+             ->group(module_path($this->moduleName, 'Routes/settings.php'));
     }
 
     /**

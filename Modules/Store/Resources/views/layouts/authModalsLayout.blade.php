@@ -76,7 +76,7 @@
                     <p class="card-text mb-2">Please sign-in to your account and start the adventure</p>
 
 
-                    <livewire:acl::client-login />
+                    <livewire:acl::client-login :storeLink="$storeLink"/>
                     <p class="text-center mt-2">
                         <span>New on our platform?</span>
                         <a href="#" onclick="$('#userLoginModal').modal('hide');$('#userRegisterModal').modal('show');">

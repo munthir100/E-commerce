@@ -38,6 +38,6 @@ class ClientRegister extends Component
         $user->assignRole('client');
         Auth::login($user);
         
-        return back();
+        return redirect()->route('store.index',$this->storeLink);
     }
 }

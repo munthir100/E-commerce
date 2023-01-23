@@ -24,4 +24,6 @@ Route::prefix('{storeLink}')->name('store.')->group(function () {
     route::get('/category/{title}/products', [StoreController::class, 'categoryProducts'])->name('shopCategory');
 
     route::resource('/wishlist', WishlistController::class);
+
+    Route::get('/shipping', [StoreController::class,'shipping'])->name('shipping');
 });
