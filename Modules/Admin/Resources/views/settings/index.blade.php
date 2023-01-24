@@ -43,11 +43,11 @@
                 <div class="row">
 
 
-                    <div class="col-xl-3 col-md-4 col-sm-6">
+                    <div class="col-md-6 col-md-4 col-sm-6">
                         <a href="{{route('admin.settings.subscriptions')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <div class="avatar bg-light-secondary p-50 mb-1">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
                                         <div class="avatar-content">
                                             <i data-feather='unlock'></i>
                                         </div>
@@ -59,11 +59,11 @@
                         </a>
                     </div>
 
-                    <div class="col-xl-3 col-md-4 col-sm-6">
+                    <div class="col-md-6 col-md-4 col-sm-6">
                         <a href="{{route('admin.settings.profile')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <div class="avatar bg-light-secondary p-50 mb-1">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
                                         <div class="avatar-content">
                                             <i data-feather='user'></i>
                                         </div>
@@ -74,221 +74,242 @@
                             </div>
                         </a>
                     </div>
+                </div>
 
 
 
+                <h5> Basic Settings</h5>
 
-                    <h5> Basic Settings</h5>
+                <!-- Stats Vertical Card -->
+                <div class="row">
 
-                    <!-- Stats Vertical Card -->
-                    <div class="row">
-
-                        <div class="col-xl-3 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <div class="avatar bg-light-info p-50 mb-1">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
                                         <div class="avatar-content">
-                                            <i data-feather="eye" class="font-medium-5"></i>
+                                            <i data-feather='shopping-bag'></i>
                                         </div>
                                     </div>
-                                    <h2 class="fw-bolder">36.9k</h2>
-                                    <p class="card-text">Views</p>
+                                    <h6 class="fw-bolder">Store Settings</h6>
+                                    <p class="card-text">Store information</p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                    </div>
 
-                        <div class="col-xl-3 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <div class="avatar bg-light-warning p-50 mb-1">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
                                         <div class="avatar-content">
-                                            <i data-feather="message-square" class="font-medium-5"></i>
+                                            <i data-feather='credit-card'></i>
                                         </div>
                                     </div>
-                                    <h2 class="fw-bolder">12k</h2>
-                                    <p class="card-text">Comments</p>
+                                    <h6 class="fw-bolder">payment methods</h6>
+                                    <p class="card-text">e-Payment gateways</p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                    </div>
 
-                        <div class="col-xl-3 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <div class="avatar bg-light-warning p-50 mb-1">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
                                         <div class="avatar-content">
-                                            <i data-feather="message-square" class="font-medium-5"></i>
+                                            <i data-feather='truck'></i>
                                         </div>
                                     </div>
-                                    <h2 class="fw-bolder">12k</h2>
-                                    <p class="card-text">Comments</p>
+                                    <h6 class="fw-bolder">Shipping</h6>
+                                    <p class="card-text">Active shipping options</p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                    </div>
 
-                        <div class="col-xl-3 col-md-4 col-sm-6">
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
-                                    <div class="avatar bg-light-warning p-50 mb-1">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
                                         <div class="avatar-content">
-                                            <i data-feather="message-square" class="font-medium-5"></i>
+                                            <i data-feather='layout'></i>
                                         </div>
                                     </div>
-                                    <h2 class="fw-bolder">12k</h2>
-                                    <p class="card-text">Comments</p>
+                                    <h6 class="fw-bolder">Store Design</h6>
+                                    <p class="card-text">edit in store Design</p>
                                 </div>
                             </div>
-                        </div>
+                        </a>
+                    </div>
+
+                </div>
 
 
+                <h5> Other Settings</h5>
 
-                        <h5> Other Settings</h5>
+                <!-- Stats Vertical Card -->
+                <div class="row">
 
-                        <!-- Stats Vertical Card -->
-                        <div class="row">
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-info p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="eye" class="font-medium-5"></i>
-                                            </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='file-text'></i>
                                         </div>
-                                        <h2 class="fw-bolder">36.9k</h2>
-                                        <p class="card-text">Views</p>
                                     </div>
+                                    <h6 class="fw-bolder">Tax</h6>
+                                    <p class="card-text">Tax Settings</p>
                                 </div>
                             </div>
+                        </a>
+                    </div>
 
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='users'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">Teamwork</h6>
+                                    <p class="card-text">Manage your teamwork</p>
                                 </div>
                             </div>
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='type'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">Definition pages</h6>
+                                    <p class="card-text">Terms and Conditions </p>
                                 </div>
                             </div>
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='globe'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">Domain</h6>
+                                    <p class="card-text">Domain reservation</p>
                                 </div>
                             </div>
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='link'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">Services</h6>
+                                    <p class="card-text">Link a services</p>
                                 </div>
                             </div>
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='star'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">Ratings</h6>
+                                    <p class="card-text">Products and store</p>
                                 </div>
                             </div>
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='map-pin'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">Countries and currencies</h6>
+                                    <p class="card-text">Manage Countries and currencies</p>
                                 </div>
                             </div>
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                        </a>
+                    </div>
+                    <div class="col-xl-3 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='search'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">SEO</h6>
+                                    <p class="card-text">Address and other</p>
                                 </div>
                             </div>
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='tool'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">Additional Settings</h6>
+                                    <p class="card-text">Mantinance and more</p>
                                 </div>
                             </div>
-
-                            <div class="col-xl-3 col-md-4 col-sm-6">
-                                <div class="card text-center">
-                                    <div class="card-body">
-                                        <div class="avatar bg-light-warning p-50 mb-1">
-                                            <div class="avatar-content">
-                                                <i data-feather="message-square" class="font-medium-5"></i>
-                                            </div>
+                        </a>
+                    </div>
+                    <div class="col-md-6 col-md-4 col-sm-6">
+                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                            <div class="card text-center">
+                                <div class="card-body">
+                                    <div class="avatar bg-light-primary p-50 mb-1">
+                                        <div class="avatar-content">
+                                            <i data-feather='trash'></i>
                                         </div>
-                                        <h2 class="fw-bolder">12k</h2>
-                                        <p class="card-text">Comments</p>
                                     </div>
+                                    <h6 class="fw-bolder">Archive</h6>
+                                    <p class="card-text">Clients archive</p>
                                 </div>
                             </div>
+                        </a>
+                    </div>
 
 
-                        </div>
-                        <!--/ Stats Vertical Card -->
+                </div>
+                <!--/ Stats Vertical Card -->
 
             </section>
             <!--/ Statistics Card section-->
@@ -300,7 +321,11 @@
 
 
 @section('styles')
-
+<style>
+    .card-body {
+        height: 12.5rem;
+    }
+</style>
 @endsection
 
 @section('scripts')

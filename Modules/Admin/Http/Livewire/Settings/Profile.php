@@ -33,6 +33,8 @@ class Profile extends Component
             'phone' => 'required'
         ]);
         Auth::user()->update($validatedData);
+
+        session()->flash('message', 'Profile updated successfully');
     }
 
 }
