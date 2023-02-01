@@ -8,19 +8,21 @@ use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
-
     public function index()
     {
-        $userId = Auth::id();
-        $products = Product::whereHas('category.store.admin', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
-        })->get();
+        if (Auth::user()->hasRole('admin')) {
+            $storeId = auth()->user()->admin->store->id;
+            $products = Product::where('store_id', $storeId)->get();
+        } else {
+            $products = Product::where('user_id', Auth::id())->get();
+        }
+
 
 
         return view('admin::Products.index', compact('products'));
     }
 
-    
+
     public function create()
     {
         return view('admin::Products.create');
@@ -36,11 +38,12 @@ class ProductController extends Controller
 
     public function destroy(Product $product)
     {
-        if ($product->dosentHave('orders')) {
-            return redirect()->back()->with('error', 'please delete orders first');
+        if ($product->orders()->exists()) {
+            return redirect()->back()->with('error', 'Please delete orders first');
         }
+
         $product->delete();
 
-        return to_route('admin.Products.index');
+        return redirect()->route('admin.Products.index');
     }
 }

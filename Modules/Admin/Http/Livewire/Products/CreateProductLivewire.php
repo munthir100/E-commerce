@@ -25,7 +25,9 @@ class CreateProductLivewire extends Component
         $free_shipping,
         $is_active = true,
         $category_id = null,
-        $categories;
+        $categories,
+        $user_id,
+        $store_id;
 
     protected $rules = [
         'title' => 'required',
@@ -58,8 +60,12 @@ class CreateProductLivewire extends Component
 
     public function save()
     {
-        Product::create($this->validate());
+        $validatedData = $this->validate();
+        $validatedData['user_id'] = Auth::id();
+        $validatedData['store_id'] = auth()->user()->admin->store->id;
+        Product::create($validatedData);
         session()->flash('success', 'product created successfully');
+        
         return redirect()->route('admin.products.index');
     }
 }

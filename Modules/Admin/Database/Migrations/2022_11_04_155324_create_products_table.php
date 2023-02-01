@@ -28,6 +28,18 @@ return new class extends Migration
             $table->boolean('is_active')->default(true);
             $table->string('image')->nullable();
 
+            $table->foreignId('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->foreignId('store_id')
+                ->references('id')
+                ->on('stores')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
             $table->foreignId('category_id')
                 ->references('id')
                 ->on('categories')

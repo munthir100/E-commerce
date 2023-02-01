@@ -14,9 +14,9 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles,SoftDeletes,CascadeSoftDeletes;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles, SoftDeletes, CascadeSoftDeletes;
 
-    protected $cascadeDeletes = ['admin','seller','client'];
+    protected $cascadeDeletes = ['admin', 'seller', 'client'];
 
     protected $fillable = [
         'user_type_id',

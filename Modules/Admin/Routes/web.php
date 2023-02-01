@@ -19,5 +19,5 @@ Route::prefix('admin')->middleware(['auth','role:admin'])->name('admin.')->group
     Route::resource('clients', ClientController::class,);
     Route::resource('reports', ReportController::class,);
 });
-Route::get('login', [AuthController::class, 'adminLoginForm'])->middleware(['guest'])->name('login');
-Route::get('register', [AuthController::class, 'adminRegisterForm'])->middleware(['guest'])->name('register');
+Route::get('login', [AuthController::class, 'adminLoginForm'])->name('login');
+Route::get('register', [AuthController::class, 'adminRegisterForm'])->name('register');
