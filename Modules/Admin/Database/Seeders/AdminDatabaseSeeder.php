@@ -16,6 +16,6 @@ class AdminDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        // $this->call(MediaSeederTableSeeder::class);
+        $this->call(PermissionsTableSeeder::class);
     }
 }
