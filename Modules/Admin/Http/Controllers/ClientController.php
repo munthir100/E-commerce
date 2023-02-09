@@ -18,7 +18,7 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::where('created_by',Auth::id())->with('user')->get();
-        return view('admin::clients.index',compact('clients'));
+        return view('admin::Clients.index',compact('clients'));
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin::clients.create');
+        return view('admin::Clients.create');
     }
 
     /**
@@ -47,7 +47,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('admin::clients.show',compact('client'));
+        return view('admin::Clients.show',compact('client'));
     }
 
     /**
@@ -57,7 +57,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('admin::clients.edit',compact('client'));
+        return view('admin::Clients.edit',compact('client'));
     }
 
     /**
