@@ -23,4 +23,9 @@ class SettingsController extends Controller
     {
         return view('admin::settings.profile');
     }
+
+    function store()
+    {
+        return view('admin::settings.store');
+    }
 }
