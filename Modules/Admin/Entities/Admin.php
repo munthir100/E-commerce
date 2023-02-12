@@ -16,7 +16,7 @@ class Admin extends Model
 
     protected $fillable = ['store_id'];
 
-    function store()
+    public function store()
     {
         return $this->hasOne(Store::class);
     }
