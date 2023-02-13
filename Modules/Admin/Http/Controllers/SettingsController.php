@@ -28,4 +28,14 @@ class SettingsController extends Controller
     {
         return view('admin::settings.store');
     }
+
+    function paymentMethods()
+    {
+        return view('admin::settings.paymentMethods');
+    }
+
+    function pages()
+    {
+        return view('admin::settings.pages');
+    }
 }
