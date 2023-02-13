@@ -32,6 +32,10 @@ class Store extends Model
 //        'store_city'
     ];
 
+    public function definitionPages(){
+        return $this->hasMany(DefinitionPage::class,"store_id");
+    }
+
 
     public function categories()
     {
