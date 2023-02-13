@@ -55,9 +55,13 @@
     <!-- BEGIN: Header-->
     <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
         <div class="navbar-container d-flex content">
-            
+            <div class="bookmark-wrapper d-flex align-items-center">
+                <ul class="nav navbar-nav d-xl-none">
+                    <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
+                </ul>
+            </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
-                
+
                 <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
                 <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>
                     <div class="search-input">
@@ -77,7 +81,7 @@
                         </li>
                         <li class="scrollable-container media-list"><a class="d-flex" href="#">
                                 <div class="list-item d-flex align-items-start">
-                                    
+
                                     <div class="list-item-body flex-grow-1">
                                         <p class="media-heading"><span class="fw-bolder">No Notifications</span>
                                     </div>
