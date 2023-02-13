@@ -18,7 +18,7 @@ class Store extends Model
         'admin_id',
         'store_name',
         'store_link',
-        'store_description',
+        'store_desc',
         'instagram_link',
         'snapchat_link',
         'twitter_link',

@@ -49,13 +49,13 @@
                                         <div class="col-md-6 col-12">
                                             <div class="mb-1">
                                                 <label class="form-label" for="first-name-column">Store Name</label>
-                                                <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="store_name" />
+                                                <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="store_name" value="{{$store->store_name}}" />
                                             </div>
                                         </div>
                                         <div class="col-md-6 col-12">
                                             <div class="mb-1">
                                                 <label class="form-label" for="last-name-column">Store Link</label>
-                                                <input type="text" id="last-name-column" class="form-control" placeholder="Last Name" name="store_link" />
+                                                <input type="text" id="last-name-column" class="form-control" placeholder="Last Name"  name="store_link" value="{{$store->store_link}}" />
                                             </div>
                                         </div>
                                         <div class="col-12" style="text-align: end;">
@@ -125,11 +125,12 @@
                                 <h4 class="card-title">Store description</h4>
                             </div>
                             <div class="card-body">
-
+                                <form class="form" action="{{route("admin.settings.store-setting")}}" method="POST" enctype="multipart/form-data" >
+                                    @csrf
                                 <div class="row">
                                     <div class="col-12">
                                         <div class="mb-1">
-                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="store_description" rows="3" placeholder="Description"></textarea>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1" name="store_desc"  rows="3" placeholder="Description">{{$store->store_desc}}</textarea>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-md-12 mb-2">
@@ -144,8 +145,10 @@
                                     </div>
                                 </div>
                                 <div class="col-12" style="text-align: end;">
-                                    <button type="reset" class="btn btn-primary me-1">Save</button>
+                                    <button type="submit" class="btn btn-primary me-1">Save</button>
                                 </div>
+                                </form>
+
                             </div>
                         </div>
                     </div>
@@ -160,7 +163,8 @@
                                 <h4 class="card-title">Social media links</h4>
                             </div>
                             <div class="card-body">
-                                <form class="form">
+                                <form class="form" action="{{route("admin.settings.store-setting")}}" method="POST" enctype="multipart/form-data" >
+                                    @csrf
                                     <div class="row">
 
                                         <div class="col-lg-4 col-sm-6 mb-2">
@@ -168,7 +172,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i data-feather='instagram'></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="instagram" aria-label="Username" name="instagram_link" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="instagram" aria-label="Username" name="instagram_link" value="{{$store->instagram_link}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -177,7 +181,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i data-feather='bell'></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="snapchat" aria-label="Username" name="snapchat_link" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="snapchat" aria-label="Username" name="snapchat_link" value="{{$store->snapchat_link}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -186,7 +190,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i data-feather='twitter'></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="tweeter" aria-label="Username" name="twitter_link" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="tweeter" aria-label="Username" name="twitter_link" value="{{$store->twitter_link}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -195,7 +199,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i data-feather='facebook'></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="facebook" aria-label="Username" name="facebook_user" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="facebook" aria-label="Username" name="facebook_user" value="{{$store->facebook_user}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -204,7 +208,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i class="fab fa-whatsapp"></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="whatsapp" aria-label="Username" name="whatsapp_number" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="whatsapp" aria-label="Username" name="whatsapp_number" value="{{$store->whatsapp_number}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -213,7 +217,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i class="fab fa-telegram"></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="telegram" aria-label="Username" name="telegram_link" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="telegram" aria-label="Username" name="telegram_link"  value="{{$store->telegram_link}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -222,7 +226,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i class="fab fa-tiktok"></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="tiktok" aria-label="Username" name="tiktok_link" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="tiktok" aria-label="Username" name="tiktok_link"  value="{{$store->tiktok_link}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -231,7 +235,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i data-feather='phone-call'></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="phone" aria-label="Username" name="phone_number" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="phone" aria-label="Username" name="phone_number" value="{{$store->phone_number}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -240,7 +244,7 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i class="fab fa-google-play"></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="google play" aria-label="Username" name="google_play_link" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="google play" aria-label="Username" name="google_play_link" value="{{$store->google_play_link}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
@@ -249,24 +253,17 @@
                                                 <span class="input-group-text bg-light" id="basic-addon1">
                                                     <i class="fab fa-apple"></i>
                                                 </span>
-                                                <input type="text" class="form-control" placeholder="apple store" aria-label="Username" name="apple_store_link" aria-describedby="basic-addon1">
+                                                <input type="text" class="form-control" placeholder="apple store" aria-label="Username" name="apple_store_link" value="{{$store->apple_store_link}}" aria-describedby="basic-addon1">
                                             </div>
                                         </div>
 
 
                                         <div class="col-12">
-                                            <button type="reset" class="btn btn-primary me-1 waves-effect waves-float waves-light">Save</button>
+                                            <button type="submit" class="btn btn-primary me-1 waves-effect waves-float waves-light">Save</button>
                                         </div>
                                     </div>
                                 </form>
-
-
-
-
-
-                                <div class="col-12" style="text-align: end;">
-                                    <button type="reset" class="btn btn-primary me-1">Save</button>
-                                </div>
+                                
                             </div>
                         </div>
                     </div>

@@ -43,24 +43,8 @@ class StoreSettingController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-//            return $this->repositoty->store($request);
-            $admin = Auth::user()->admin;
-            if ($admin){
-                if (!($admin->store)){
-                    $this->repositoty->store($request);
-                }else{
-                    $this->repositoty->update($request);
-                }
-
-                if ($store->save()){
-                    return redirect()->back();
-                }
-            }
-        }catch (\Exception $e){
-            return $e->getMessage();
-        }
-
+       $this->repositoty->store($request);
+       return redirect()->back();
     }
 
     /**
