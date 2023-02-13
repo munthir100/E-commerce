@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class SettingsController extends Controller
 {
@@ -26,7 +27,12 @@ class SettingsController extends Controller
 
     function store()
     {
-        return view('admin::settings.store');
+        $data["store"]=[];
+         $admin= Auth::user()->admin;
+        if ($admin->store){
+            $data["store"] = $admin->store;
+        }
+        return view('admin::settings.store',$data);
     }
 
     function paymentMethods()

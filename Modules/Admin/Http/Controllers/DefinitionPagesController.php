@@ -2,23 +2,23 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-
+use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
-use Modules\Client\Entities\Client;
-use Modules\Shipping\Entities\City;
 
-class ClientController extends Controller
+class DefinitionPagesController extends Controller
 {
+    public function get_store(){
+        return Auth::user()->admin;
+    }
     /**
      * Display a listing of the resource.
      * @return Renderable
      */
     public function index()
     {
-        $clients = Client::where('created_by',Auth::id())->with('user')->get();
-        return view('admin::Clients.index',compact('clients'));
+        return view('admin::index');
     }
 
     /**
@@ -27,7 +27,7 @@ class ClientController extends Controller
      */
     public function create()
     {
-        return view('admin::Clients.create');
+        return view('admin::create');
     }
 
     /**
@@ -45,9 +45,9 @@ class ClientController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show(Client $client)
+    public function show($id)
     {
-        return view('admin::Clients.show',compact('client'));
+        return view('admin::show');
     }
 
     /**
@@ -55,9 +55,9 @@ class ClientController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit(Client $client)
+    public function edit($id)
     {
-        return view('admin::Clients.edit',compact('client'));
+        return view('admin::edit');
     }
 
     /**

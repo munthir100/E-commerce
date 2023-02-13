@@ -14,14 +14,34 @@ class Store extends Model
     protected $cascadeDeletes = ['categories', 'media'];
 
 
-    protected $fillable = ['admin_id', 'store_name', 'store_link'];
+    protected $fillable = [
+        'admin_id',
+        'store_name',
+        'store_link',
+        'store_desc',
+        'instagram_link',
+        'snapchat_link',
+        'twitter_link',
+        'tiktok_link',
+        'telegram_link',
+        'whatsapp_number',
+        'phone_number',
+        'facebook_user',
+        'google_play_link',
+        'apple_store_link',
+//        'store_city'
+    ];
+
+    public function definitionPages(){
+        return $this->hasMany(DefinitionPage::class,"store_id");
+    }
 
 
     public function categories()
     {
         return $this->hasMany(Category::class)->where('is_active', true);
     }
-    
+
 
     public function media()
     {

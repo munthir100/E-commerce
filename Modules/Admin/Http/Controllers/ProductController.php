@@ -10,11 +10,14 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $products=[];
         if (Auth::user()->hasRole('admin')) {
-            $storeId = auth()->user()->admin->store->id;
-            $products = Product::where('store_id', $storeId)->get();
+            $storeId = auth()->user()->admin->store->id ?? null;
+            if ($storeId != null){
+                $products = Product::where('store_id', $storeId)->get() ?? [];
+            }
         } else {
-            $products = Product::where('user_id', Auth::id())->get();
+            $products = Product::where('user_id', Auth::id())->get() ?? [];
         }
 
 

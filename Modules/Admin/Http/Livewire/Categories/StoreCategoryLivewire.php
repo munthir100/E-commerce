@@ -26,7 +26,7 @@ class StoreCategoryLivewire extends Component
 
     public function render()
     {
-        return view('admin::livewire.categories.store-category-livewire');
+        return view('admin::livewire.Categories.store-category-livewire');
     }
 
     public function save()
