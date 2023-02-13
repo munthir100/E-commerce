@@ -27,7 +27,11 @@ class SettingsController extends Controller
 
     function store()
     {
-        $data["store"] = Auth::user()->admin->store;
+        $data["store"]=[];
+         $admin= Auth::user()->admin;
+        if ($admin->store){
+            $data["store"] = $admin->store;
+        }
         return view('admin::settings.store',$data);
     }
 }
