@@ -13,17 +13,22 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('definition_pages', function (Blueprint $table) {
+        Schema::create('rates', function (Blueprint $table) {
             $table->id();
             $table->foreignId('store_id')
                 ->references('id')
                 ->on('stores')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->string("title");
-            $table->string("description");
-            $table->boolean("is_active")->default(1)->comment("1: active, 0: not active");
-            $table->boolean("is_active")->default(true);
+
+            $table->foreignId('user_id')
+                ->references('id')
+                ->on('users')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->double("number_of_stars");
+            $table->string("type")->comment("store or product");
             $table->timestamps();
         });
     }
@@ -35,6 +40,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('definition_pages');
+        Schema::dropIfExists('rates');
     }
 };

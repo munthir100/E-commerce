@@ -42,25 +42,7 @@ class DefinitionPagesController extends Controller
      */
     public function store(Request $request)
     {
-        try {
-            $validator = Validator::make($request->all(),$this->rules());
-            if ($validator->fails()){
-                return response()->json(['errors'=>$validator->errors()]);
-            }
-
-            $definition_page = new DefinitionPage();
-            $definition_page->store_id = Auth::user()->admin->store->id;
-            $definition_page->title = $request->title;
-            $definition_page->description = $request->description;
-            if ($request->is_active){
-                $definition_page->is_active = $request->is_active;
-            }
-            $definition_page->save();
-
-
-        }catch (\Exception $e){
-            return $e->getMessage();
-        }
+        //
     }
 
     /**
