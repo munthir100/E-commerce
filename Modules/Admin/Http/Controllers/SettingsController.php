@@ -34,4 +34,10 @@ class SettingsController extends Controller
         }
         return view('admin::settings.store',$data);
     }
+
+    function paymentMethods()
+    {
+        return view('admin::settings.paymentMethods');
+    }
+
 }

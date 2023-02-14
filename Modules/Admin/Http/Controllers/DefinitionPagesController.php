@@ -27,19 +27,13 @@ class DefinitionPagesController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
+
     public function index()
     {
-        return view('admin::index');
+        $definitionPages = DefinitionPage::where('store_id', Auth::user()->admin->store->id)->get();
+        return view('admin::settings.pages.index',compact('definitionPages'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('admin::create');
-    }
 
     /**
      * Store a newly created resource in storage.
@@ -73,39 +67,22 @@ class DefinitionPagesController extends Controller
      * @param int $id
      * @return Renderable
      */
+
     public function show($id)
     {
         return view('admin::show');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
+    public function edit(DefinitionPage $page)
     {
-        return view('admin::edit');
+        return view('admin::settings.pages.edit',compact('page'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
-     * @return Renderable
-     */
-    public function update(Request $request, $id)
+    public function destroy(DefinitionPage $page)
     {
-        //
-    }
+        $page->delete();
+        session()->flash('success', 'definition page deleted successfully');
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
-    {
-        //
+        return to_route('admin.settings.pages.index');
     }
 }
