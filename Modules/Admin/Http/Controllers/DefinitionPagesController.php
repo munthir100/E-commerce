@@ -3,12 +3,23 @@
 namespace Modules\Admin\Http\Controllers;
 
 use Illuminate\Contracts\Support\Renderable;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
+use Modules\Admin\Entities\DefinitionPage;
 
 class DefinitionPagesController extends Controller
 {
+    public function rules(){
+        return [
+            'title' => ["required"],
+            'description'=>["required"],
+            'is_active'=>["nullable"]
+        ];
+    }
+
     public function get_store(){
         return Auth::user()->admin;
     }
@@ -37,7 +48,24 @@ class DefinitionPagesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $validator = Validator::make($request->all(),$this->rules());
+            if ($validator->fails()){
+                return response()->json(['errors'=>$validator->errors()]);
+            }
+
+            $definition_page = new DefinitionPage();
+            $definition_page->title = $request->title;
+            $definition_page->description = $request->description;
+            if ($request->is_active){
+                $definition_page->is_active = $request->is_active;
+            }
+            $definition_page->save();
+
+
+        }catch (\Exception $e){
+            return $e->getMessage();
+        }
     }
 
     /**
