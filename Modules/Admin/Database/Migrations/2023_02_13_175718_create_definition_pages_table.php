@@ -22,7 +22,6 @@ return new class extends Migration
                 ->cascadeOnUpdate();
             $table->string("title");
             $table->string("description");
-            $table->boolean("is_active")->default(1)->comment("1: active, 0: not active");
             $table->boolean("is_active")->default(true);
             $table->timestamps();
         });
