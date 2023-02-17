@@ -14,8 +14,13 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.settings
     Route::get('/profile', [SettingsController::class, 'profile'])->name('profile');
     Route::get('/store', [SettingsController::class, 'store'])->name('store');
     Route::get('/payment-methods', [SettingsController::class, 'paymentMethods'])->name('paymentMethods');
+    Route::get('/rating', [SettingsController::class, 'rating'])->name('rating');
+    Route::get('/countries', [SettingsController::class, 'countries'])->name('countries');
+    Route::get('/additionalSetting', [SettingsController::class, 'additionalSetting'])->name('additionalSetting');
 
-    Route::resource('/pages', DefinitionPagesController::class)->except('create','show','update');
+    Route::resource('/pages', DefinitionPagesController::class)->only('index','edit','destroy');
 
     Route::post('/store-setting', [StoreSettingController::class, 'store'])->name("store-setting");
+
+
 });

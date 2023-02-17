@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
+use Modules\Admin\Entities\Store;
 
 class SettingsController extends Controller
 {
@@ -27,12 +28,12 @@ class SettingsController extends Controller
 
     function store()
     {
-        $data["store"]=[];
-         $admin= Auth::user()->admin;
-        if ($admin->store){
+        $data["store"] = [];
+        $admin = Auth::user()->admin;
+        if ($admin->store) {
             $data["store"] = $admin->store;
         }
-        return view('admin::settings.store',$data);
+        return view('admin::settings.store', $data);
     }
 
     function paymentMethods()
@@ -40,4 +41,25 @@ class SettingsController extends Controller
         return view('admin::settings.paymentMethods');
     }
 
+    function rating()
+    {
+        $serverName = url('/');
+        $storeLink = Store::whereHas('admin', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->pluck('store_link')->first();
+
+        $storeLink = $serverName.'/'.$storeLink.'/rating';
+
+        return view('admin::settings.rating', compact('storeLink'));
+    }
+
+    function countries()
+    {
+        return view('admin::settings.countries');
+    }
+
+    function additionalSetting()
+    {
+        return view('admin::settings.additionalSetting');
+    }
 }
