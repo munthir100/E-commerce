@@ -24,8 +24,8 @@
                 <label class="form-label" for="store_link">store link</label>
                 <div class="input-group input-group-merge form-password-toggle">
                     <input class="form-control form-control-merge" id="store_link" type="text" wire:model="store_link" placeholder="store name" aria-describedby="store_link" tabindex="3" />
-                    @error('store_link') <small class="text-danger">{{$message}}</small>@enderror
                 </div>
+                @error('store_link') <small class="text-danger">{{$message}}</small>@enderror
             </div>
 
         </div>
