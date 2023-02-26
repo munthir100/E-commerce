@@ -32,6 +32,23 @@ class Store extends Model
 //        'store_city'
     ];
 
+
+    public function storeLanguageSupport(){
+        return $this->hasMany(StoreLanguageSupport::class,"store_id");
+    }
+
+    public function additionalStoreSetting(){
+        return $this->hasOne(AdditionalStoreSetting::class,"store_id");
+    }
+
+    public function vats(){
+        return $this->hasMany(VAT::class,"store_id");
+    }
+
+    public function storeCountryAndCurrency(){
+        return $this->hasMany(StoreCountryAndCurrency::class,"store_id");
+    }
+
     public function definitionPages(){
         return $this->hasMany(DefinitionPage::class,"store_id");
     }
