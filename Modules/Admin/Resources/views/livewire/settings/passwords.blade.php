@@ -10,21 +10,21 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput">Name</label>
+                    <label class="form-label" for="basicInput">cuttent password</label>
                     <input type="text" class="form-control" id="basicInput" placeholder="Enter name" wire:model="password">
                     @error('password')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput1">Email</label>
+                    <label class="form-label" for="basicInput1">passwords</label>
                     <input type="text" class="form-control" id="basicInput1" placeholder="Enter email" wire:model="new_password">
                     @error('new_password')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput2">Phone</label>
+                    <label class="form-label" for="basicInput2">passwords confirmation</label>
                     <input type="text" class="form-control" id="basicInput2" placeholder="Enter phone" wire:model="new_password_confirmation">
                     @error('new_password_confirmation')<small class="text-danger">{{$message}}</small>@enderror
                 </div>

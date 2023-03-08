@@ -1,23 +1,94 @@
 <div>
-    @if(session('error'))
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-danger" role="alert">
-                <div class="alert-body">
-                    {{ session('error') }}
-                </div>
+
+    @if(session('success'))
+    <div class="demo-spacing-0 mb-1">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="alert-body">
+                {{ session('success') }}
             </div>
-        </div>
-    </div>
-    @elseif(session('success'))
-    <div class="row">
-        <div class="col-12">
-            <div class="alert alert-success" role="alert">
-                <div class="alert-body">
-                    {{ session('success') }}
-                </div>
-            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
     </div>
     @endif
+
+    @if($errorMessage)
+    <div class="demo-spacing-0 mb-1">
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            <div class="alert-body">
+                {{ $errorMessage }}
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    @endif
+
+    @if($successMassage)
+    <div class="demo-spacing-0 mb-1">
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <div class="alert-body">
+                {{ $successMassage }}
+            </div>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    </div>
+    @endif
+
+    @push('styles')
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/sweetalert2.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
+    @endpush
+    @push('scripts')
+    <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
+    <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+    @endpush
+
+    <script>
+    window.addEventListener('confirmDelete', (event) => {
+        Swal.fire({
+            title: event.detail.message,
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonText: 'Yes, delete it!',
+            customClass: {
+                confirmButton: 'btn btn-primary',
+                cancelButton: 'btn btn-outline-danger ms-1'
+            },
+            buttonsStyling: false
+        }).then(function(result) {
+            if (result.isConfirmed) {
+                Livewire.emit(event.detail.callback, event.detail.id);
+            }
+            if (result.value) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Deleted!',
+                    text: 'Your file has been deleted.',
+                    customClass: {
+                        confirmButton: 'btn btn-success'
+                    }
+                });
+            }
+        });
+    });
+</script>
+
+
+
+    <script>
+        window.addEventListener('addWarning', () => {
+            Swal.fire({
+                title: 'Warning',
+                text: event.detail.message,
+                icon: 'warning',
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                },
+                buttonsStyling: false
+            })
+        });
+    </script>
+
 </div>

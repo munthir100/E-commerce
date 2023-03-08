@@ -342,59 +342,22 @@
     <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
     <script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
     <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
-    <script>
-        var warning = $('#notAvailable');
-        if (warning.length) {
-            warning.on('click', function() {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: ' Please upgrade your package becouse this feature is not available in your package!',
-                    icon: 'warning',
-                    customClass: {
-                        confirmButton: 'btn btn-primary'
-                    },
-                    buttonsStyling: false
-                });
-            });
-        }
-    </script>
-    <script>
-        var warning = $('#notAvailable1');
-        if (warning.length) {
-            warning.on('click', function() {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: ' Please upgrade your package becouse this feature is not available in your package!',
-                    icon: 'warning',
-                    customClass: {
-                        confirmButton: 'btn btn-primary'
-                    },
-                    buttonsStyling: false
-                });
-            });
-        }
-    </script>
-    <script>
-        var warning = $('#notAvailable2');
-        if (warning.length) {
-            warning.on('click', function() {
-                Swal.fire({
-                    title: 'Warning!',
-                    text: ' Please upgrade your package becouse this feature is not available in your package!',
-                    icon: 'warning',
-                    customClass: {
-                        confirmButton: 'btn btn-primary'
-                    },
-                    buttonsStyling: false
-                });
-            });
-        }
-    </script>
 
     <script>
         window.addEventListener('closeModal', event => {
             $('.modal').modal('hide');
         })
+    </script>
+
+    <script>
+        window.addEventListener('hideRow', event => {
+            const id = event.detail;
+            let rows = document.querySelectorAll(`#row-${id}`);
+            rows.forEach(row => {
+                row.remove();
+                row.style.display="none";
+            });
+        });
     </script>
 
     <script>

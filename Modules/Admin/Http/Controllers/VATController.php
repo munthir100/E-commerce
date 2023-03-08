@@ -2,9 +2,11 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
+use Modules\Admin\Entities\VAT;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Support\Renderable;
 
 class VATController extends Controller
 {
@@ -14,46 +16,16 @@ class VATController extends Controller
      */
     public function index()
     {
-        return view('admin::index');
+        $store_id = Auth::user()->admin->store->id;
+        $vats = VAT::where('store_id', $store_id)->with('country')->get();
+        return view('admin::settings.vat.index',compact('vats'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('admin::create');
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Show the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function show($id)
+    public function edit(VAT $vat)
     {
-        return view('admin::show');
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     * @param int $id
-     * @return Renderable
-     */
-    public function edit($id)
-    {
-        return view('admin::edit');
+        return view('admin::settings.vat.edit',compact('vat'));
     }
 
     /**

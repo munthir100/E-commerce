@@ -5,24 +5,29 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Product;
 use Illuminate\Support\Facades\Auth;
+use Modules\Admin\Entities\Category;
 
 class ProductController extends Controller
 {
     public function index()
     {
-        $products=[];
-        if (Auth::user()->hasRole('admin')) {
-            $storeId = auth()->user()->admin->store->id ?? null;
-            if ($storeId != null){
-                $products = Product::where('store_id', $storeId)->get() ?? [];
-            }
-        } else {
-            $products = Product::where('user_id', Auth::id())->get() ?? [];
-        }
+        $perPage = request()->query('per_page', 25);
+        $searchQuery = request()->query('q', '');
+        $categoryId = request()->query('category_id', null);
+
+        $products = Product::when($searchQuery, function ($query, $searchQuery) {
+            return $query->where('title', 'like', '%' . $searchQuery . '%');
+        })->when($categoryId, function ($query, $categoryId) {
+            return $query->where('category_id', $categoryId);
+        })->where('user_id', Auth::id())->paginate($perPage);
+
+        $userId = Auth::id();
+        $categories = Category::whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        })->get();
 
 
-
-        return view('admin::Products.index', compact('products'));
+        return view('admin::Products.index', compact('products', 'categories'));
     }
 
 

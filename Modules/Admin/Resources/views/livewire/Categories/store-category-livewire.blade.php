@@ -3,7 +3,7 @@
         <div class="col-md-6">
             <label class="form-label" for="Title">Title</label>
             <div class="input-group input-group-merge">
-                <input id="Title" wire:model.lazy="title" class="form-control add-credit-card-mask" type="text" placeholder="1356 3215 6548 7898" aria-describedby="modalAddCard2" data-msg="Please enter your credit card number" />
+                <input id="Title" wire:model.lazy="title" class="form-control add-credit-card-mask" type="text" placeholder="Title"/>
 
             </div>
             @error('title') <small class="text-danger"> {{$message}} </small> @enderror
@@ -14,7 +14,7 @@
             <select wire:model.lazy="parent_id" class="form-select" id="basicSelect">
                 <option value="">Select a parent</option>
                 @forelse($categories as $category)
-                <option value="{{$category->id}}">{{$category->title}}</option>
+                <option value="{{$category->id}}" id="row-{{$category->id}}">{{$category->title}}</option>
                 @empty
                 <option>no category found</option>
                 @endforelse
@@ -38,7 +38,7 @@
         </div>
 
         <div class="col-12 text-center">
-            <button type="submit" class="btn btn-primary me-1 mt-1" wire:loading.class="btn-secondary">Submit</button>
+            <button type="submit" class="btn btn-primary me-1 mt-1">Submit</button>
 
             <button type="reset" class="btn btn-outline-secondary mt-1" data-bs-dismiss="modal" aria-label="Close">
                 Cancel

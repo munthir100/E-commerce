@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->string('sku')->nullable();
+            $table->string('sku')->nullable()->unique();
             $table->integer('quantity')->nullable();
             $table->float('wheight')->nullable();
             $table->string('short_description', 20)->nullable();
@@ -26,6 +26,7 @@ return new class extends Migration
             $table->float('discount')->nullable();
             $table->boolean('free_shipping')->default(false);
             $table->boolean('is_active')->default(true);
+            $table->boolean('is_digital')->default(true);
             $table->string('image')->nullable();
 
             $table->foreignId('user_id')
@@ -41,6 +42,7 @@ return new class extends Migration
                 ->cascadeOnUpdate();
 
             $table->foreignId('category_id')
+                ->nullable()
                 ->references('id')
                 ->on('categories')
                 ->cascadeOnDelete()

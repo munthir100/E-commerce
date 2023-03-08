@@ -3,22 +3,37 @@
 namespace Modules\Admin\Http\Livewire;
 
 use Livewire\Component;
+use Modules\Admin\Entities\Product;
 
 class DeleteProductLivewire extends Component
 {
     public $product;
+    protected $listeners = ['deleteProductConfirmed' => 'delete'];
+
     public function render()
     {
         return view('admin::livewire.delete-product-livewire');
     }
-    function delete()
+
+    public function confirmDelete()
     {
         if (count($this->product->orders) > 0) {
-            session()->flash('error', 'this product contain an orders!');
-        } else {
-            $this->product->delete();
-            session()->flash('success', 'product deleted successfully');
+            $this->dispatchBrowserEvent('addWarning', [
+                'message' => 'this product contain an orders!.',
+            ]);
+            return;
         }
-        return to_route('admin.products.index');
+
+        $this->dispatchBrowserEvent('confirmDelete', [
+            'message' => 'Are you sure?',
+            'id' => $this->product->id,
+            'callback' => 'deleteProductConfirmed',
+        ]);
+    }
+    function delete($id)
+    {
+        Product::where('id', $id)->delete();
+        
+        $this->dispatchBrowserEvent('hideRow', $id);
     }
 }

@@ -13,7 +13,7 @@
                         <h2 class="content-header-title float-start mb-0">Statistics Cards</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
                                 </li>
                                 <li class="breadcrumb-item"><a href="#">Cards</a>
                                 </li>
@@ -24,14 +24,7 @@
                     </div>
                 </div>
             </div>
-            <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-                <div class="mb-1 breadcrumb-right">
-                    <div class="dropdown">
-                        <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i data-feather="grid"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html"><i class="me-1" data-feather="check-square"></i><span class="align-middle">Todo</span></a><a class="dropdown-item" href="app-chat.html"><i class="me-1" data-feather="message-square"></i><span class="align-middle">Chat</span></a><a class="dropdown-item" href="app-email.html"><i class="me-1" data-feather="mail"></i><span class="align-middle">Email</span></a><a class="dropdown-item" href="app-calendar.html"><i class="me-1" data-feather="calendar"></i><span class="align-middle">Calendar</span></a></div>
-                    </div>
-                </div>
-            </div>
+            
         </div>
         <div class="content-body">
             <!-- Statistics card section -->
@@ -156,7 +149,7 @@
                 <div class="row">
 
                     <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                        <a href="{{route('admin.settings.vat.index')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
                                     <div class="avatar bg-light-primary p-50 mb-1">
@@ -164,8 +157,8 @@
                                             <i data-feather='file-text'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">Tax</h6>
-                                    <p class="card-text">Tax Settings</p>
+                                    <h6 class="fw-bolder">vat</h6>
+                                    <p class="card-text">vat Settings</p>
                                 </div>
                             </div>
                         </a>

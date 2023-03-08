@@ -28,12 +28,7 @@ class SettingsController extends Controller
 
     function store()
     {
-        $data["store"] = [];
-        $admin = Auth::user()->admin;
-        if ($admin->store) {
-            $data["store"] = $admin->store;
-        }
-        return view('admin::settings.store', $data);
+        return view('admin::settings.store');
     }
 
     function paymentMethods()
@@ -48,7 +43,7 @@ class SettingsController extends Controller
             $query->where('user_id', Auth::id());
         })->pluck('store_link')->first();
 
-        $storeLink = $serverName.'/'.$storeLink.'/rating';
+        $storeLink = $serverName . '/' . $storeLink . '/rating';
 
         return view('admin::settings.rating', compact('storeLink'));
     }

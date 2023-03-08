@@ -7,7 +7,7 @@
             </div>
         </div>
         <div class="mb-1">
-            <label class="form-label" for="basicSelect">category</label>
+            <label class="form-label" for="basicSelect">Parent</label>
             <select class="form-select" id="basicSelect" wire:model="parent_id">
                 @if ($category->parent_id != null)
                 <option value="{{$category->parent_id}}" selected>{{$category->parent->title}}</option>
@@ -17,6 +17,8 @@
                 @if ($category->parent_id != null)
                 <option value="">None</option>
                 @endif
+
+                
                 @foreach($categories as $category)
                 <option value="{{$category->id}}">{{$category->title}}</option>
                 @endforeach

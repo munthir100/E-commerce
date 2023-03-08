@@ -2,6 +2,8 @@
 
 namespace Modules\Admin\Entities;
 
+use Modules\Shipping\Entities\City;
+use Modules\Admin\Entities\TaxNumber;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
@@ -29,28 +31,33 @@ class Store extends Model
         'facebook_user',
         'google_play_link',
         'apple_store_link',
-//        'store_city'
+        //        'store_city'
     ];
 
 
-    public function storeLanguageSupport(){
-        return $this->hasMany(StoreLanguageSupport::class,"store_id");
+    public function storeLanguageSupport()
+    {
+        return $this->hasMany(StoreLanguageSupport::class, "store_id");
     }
 
-    public function additionalStoreSetting(){
-        return $this->hasOne(AdditionalStoreSetting::class,"store_id");
+    public function additionalStoreSetting()
+    {
+        return $this->hasOne(AdditionalStoreSetting::class, "store_id");
     }
 
-    public function vats(){
-        return $this->hasMany(VAT::class,"store_id");
+    public function vats()
+    {
+        return $this->hasMany(VAT::class, "store_id");
     }
 
-    public function storeCountryAndCurrency(){
-        return $this->hasMany(StoreCountryAndCurrency::class,"store_id");
+    public function storeCountryAndCurrency()
+    {
+        return $this->hasMany(StoreCountryAndCurrency::class, "store_id");
     }
 
-    public function definitionPages(){
-        return $this->hasMany(DefinitionPage::class,"store_id");
+    public function definitionPages()
+    {
+        return $this->hasMany(DefinitionPage::class, "store_id");
     }
 
 
@@ -74,5 +81,14 @@ class Store extends Model
     public function admin()
     {
         return $this->belongsTo(Admin::class);
+    }
+    public function city()
+    {
+        return $this->belongsTo(City::class);
+    }
+
+    public function taxNumber()
+    {
+        return $this->hasMany(TaxNumber::class);
     }
 }

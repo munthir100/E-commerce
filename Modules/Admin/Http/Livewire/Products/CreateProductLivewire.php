@@ -41,7 +41,7 @@ class CreateProductLivewire extends Component
         'discount' => 'sometimes',
         'free_shipping' => 'sometimes',
         'is_active' => 'required|boolean',
-        'category_id' => 'required',
+        'category_id' => 'sometimes',
     ];
 
     public function updated($data)

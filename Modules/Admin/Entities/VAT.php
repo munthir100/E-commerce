@@ -14,7 +14,6 @@ class VAT extends Model
     protected $table="vats";
     protected $fillable = [
         "store_id",
-        "establishment_tax_number",
         "country_id",
         "vat_value",
         "tax_on_shipping_services",

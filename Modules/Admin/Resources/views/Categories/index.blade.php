@@ -66,7 +66,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach($allCategories as $category)
-                                            <tr>
+                                            <tr id="row-{{$category->id}}">
 
                                                 <td>{{$category->title}}</td>
 
@@ -109,23 +109,27 @@
                             <div class="card">
                                 <button data-bs-toggle="modal" data-bs-target="#addCategory" class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#modals-slide-in"><span>
                                         <i data-feather="plus"></i>
-                                        Add New Record</span>
+                                        Add New Category</span>
                                 </button>
                                 <div class="card-header">
-                                    <h4 class="card-title">Basic</h4>
+                                    <h4 class="card-title">Categories Tree</h4>
                                 </div>
 
                                 <div class="card-body">
                                     <div id="jstree-basic">
                                         <ul role="group" class="jstree-children">
-                                            @foreach($categories as $category)
-                                            <li data-jstree='{"icon" : "far fa-folder"}'>
+                                            @forelse($categories as $category)
+                                            <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                 {{ $category->title }}
                                                 @if(count($category->children) > 0)
                                                 @include('admin::Categories.subcategories', ['subcategories' => $category->children])
                                                 @endif
                                             </li>
-                                            @endforeach
+                                            @empty
+                                            <li>
+                                                no categories yet
+                                            </li>
+                                            @endforelse
                                         </ul>
 
                                     </div>
@@ -162,7 +166,6 @@
         </div>
     </div>
 </div>
-
 
 
 

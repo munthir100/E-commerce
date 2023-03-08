@@ -23,7 +23,7 @@ class CategoriesController extends Controller
 
         $categories = Category::buildCategoryTree($allCategories);
 
-        return view('admin::Categories.index', compact('categories','allCategories'));
+        return view('admin::Categories.index', compact('categories', 'allCategories'));
     }
 
 
@@ -48,9 +48,14 @@ class CategoriesController extends Controller
         $userId = Auth::id();
         $categories = Category::whereHas('store.admin', function ($query) use ($userId) {
             $query->where('user_id', $userId);
-        })->get();
+        })
+            ->where('id', '<>', $category->id)
+            ->whereDoesntHave('parent', function ($query) use ($category) {
+                $query->where('id', $category->id); // exclude child categories of the current category
+            })
+            ->get();
 
-        return view('admin::Categories.edit',compact('category','categories'));
+        return view('admin::Categories.edit', compact('category', 'categories'));
     }
 
     /**
