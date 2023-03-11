@@ -34,6 +34,10 @@ class Store extends Model
         //        'store_city'
     ];
 
+    public function storeThemes()
+    {
+        return $this->hasMany(StoreTheme::class, "store_id");
+    }
 
     public function storeLanguageSupport()
     {
