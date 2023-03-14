@@ -61,28 +61,26 @@
                             <li class="{{ request()->is('/') ? 'active' :'' }}">
                                 <a href="/">الرئيسية</a>
                             </li>
-                            
+
                             <li class="{{ request()->is('price') ? 'active' :'' }}">
                                 <a href="#">الاسعار</a>
                             </li>
-                            
 
-                            @if (Route::has('login'))
+
+                            @guest
+                            <li>
+                                <a href="{{route('login')}}" class=""> تسجيل دخول </a>
+                            </li>
+
+                            <li>
+                                <a href="{{route('register')}}" class=""> متجر جديد </a>
+                            </li>
+                            @endguest
                             @auth
                             <li>
                                 <a href="{{ url('/admin') }}" class=""> <i class="far fa-user-circle"></i> الادارة </a>
                             </li>
-                            @else
-                            <li>
-                                <a href="{{route('login')}}" class=""> تسجيل دخول </a>
-                            </li>
-                            @if (Route::has('register'))
-                            <li>
-                                <a href="{{route('register')}}" class=""> متجر جديد </a>
-                            </li>
-                            @endif
                             @endauth
-                            @endif
                         </ul>
 
                     </nav>
@@ -122,7 +120,7 @@
                             <a href="#">الاسعار</a>
                         </li>
                         <li>
-                            <a href="#">تجربة المنصة</a>
+                            <a href="/admin">تجربة المنصة</a>
                         </li>
                         @if (Route::has('login'))
                         @auth
@@ -131,11 +129,11 @@
                         </li>
                         @else
                         <li>
-                            <a href="#" class=""> تسجيل دخول </a>
+                            <a href="{{route('login')}}" class=""> تسجيل دخول </a>
                         </li>
                         @if (Route::has('register'))
                         <li>
-                            <a href="#" class=""> متجر جديد </a>
+                            <a href="{{route('register')}}" class=""> متجر جديد </a>
                         </li>
                         @endif
                         @endauth
@@ -151,70 +149,70 @@
     </header>
     <!--====== End Header ======-->
 
-<!--====== Start Hero Area ======-->
-<section class="hero-area-v7">
-    <div class="container-fluid">
-        <div class="hero-content">
-            <h2 class="hero-title wow fadeInLeft" data-wow-delay="0.2s">هل تريد بناء مصدر دخل <br>بطريقة جديدة وإحترافية .!</h2>
-            <p class="wow fadeInUp" data-wow-delay="0.3s">
-                بإمكانك ذلك الآن سجّل متجرك عبر منصة رست ون <br>لبدء نشاطك التجاري أينما كنت وبسهولة تامة
-            </p>
-            <a href="#" class="template-btn primary-bg-5 wow fadeInUp mb-2" data-wow-delay="0.4s"> متجر جديد</a>
-            <a href="/admin" class="template-btn primary-bg-6 mb-2 wow fadeInUp">تجربة المنصة</a>
+    <!--====== Start Hero Area ======-->
+    <section class="hero-area-v7">
+        <div class="container-fluid">
+            <div class="hero-content">
+                <h2 class="hero-title wow fadeInLeft" data-wow-delay="0.2s">هل تريد بناء مصدر دخل <br>بطريقة جديدة وإحترافية .!</h2>
+                <p class="wow fadeInUp" data-wow-delay="0.3s">
+                    بإمكانك ذلك الآن سجّل متجرك عبر منصة رست ون <br>لبدء نشاطك التجاري أينما كنت وبسهولة تامة
+                </p>
+                <a href="{{route('register')}}" class="template-btn primary-bg-5 wow fadeInUp mb-2" data-wow-delay="0.4s"> متجر جديد</a>
+                <a href="/admin" class="template-btn primary-bg-6 mb-2 wow fadeInUp">تجربة المنصة</a>
+            </div>
+            <div class="hero-img d-none d-lg-block wow fadeInUp" data-wow-delay="0.2s">
+                <img src="{{ asset('frontend/assets/img/hero/hero-1.png') }}" alt="Image" />
+            </div>
         </div>
-        <div class="hero-img d-none d-lg-block wow fadeInUp" data-wow-delay="0.2s">
-            <img src="{{ asset('frontend/assets/img/hero/hero-1.png') }}" alt="Image" />
-        </div>
-    </div>
-</section>
-<!--====== End Hero Area ======-->
-<!--====== Section Service Start ======-->
-<section class="service-section">
-    <div class="container">
+    </section>
+    <!--====== End Hero Area ======-->
+    <!--====== Section Service Start ======-->
+    <section class="service-section">
+        <div class="container">
 
 
-        <div class="common-heading m-b-30">
-            <h4 class=" text-first" style="padding-bottom: 8px;">انشئ متجرك واستمتع بافضل الخدمات</h4>
-            <h5 class="">انشئ متجرك واستمتع بافضل الخدمات</h5>
-        </div>
-
-        <div class="row justify-content-center icon-boxes-v3">
-            <div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.2s">
-                <div class="iconic-box box-version-white color-v1 m-t-50">
-                    <div class="icon text-center mb-4 mt-4">
-                        <i class="far fa-file-check fa-4x text-three"></i>
-                    </div>
-                    <h4 class="title"><a href="#">سرعة الاعداد والتجهيز</a></h4>
-                    <p>
-                        لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت
-                    </p>
-                </div>
+            <div class="common-heading m-b-30">
+                <h4 class=" text-first" style="padding-bottom: 8px;">انشئ متجرك واستمتع بافضل الخدمات</h4>
+                <h5 class="">انشئ متجرك واستمتع بافضل الخدمات</h5>
             </div>
 
-            <div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.3s">
-                <div class="iconic-box box-version-white color-v2 m-t-50">
-                    <div class="icon text-center mb-4 mt-4">
-                        <i class="far fa-map-marked fa-4x text-second"></i>
+            <div class="row justify-content-center icon-boxes-v3">
+                <div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="iconic-box box-version-white color-v1 m-t-50">
+                        <div class="icon text-center mb-4 mt-4">
+                            <i class="far fa-file-check fa-4x text-three"></i>
+                        </div>
+                        <h4 class="title"><a href="#">سرعة الاعداد والتجهيز</a></h4>
+                        <p>
+                            لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت
+                        </p>
                     </div>
-                    <h4 class="title"><a href="#">اضف منتجاتك بسهولة</a></h4>
-                    <p>
-                        لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت
-                    </p>
                 </div>
-            </div>
-            <div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
-                <div class="iconic-box box-version-white color-v3 m-t-50">
-                    <div class="icon text-center mb-4 mt-4">
-                        <i class="far fa-bullseye-arrow fa-4x text-first"></i>
-                    </div>
-                    <h4 class="title"><a href="#">انت تدير كل شيئ</a></h4>
-                    <p>
-                        لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت
-                    </p>
-                </div>
-            </div>
 
-            <!-- <div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="iconic-box box-version-white color-v2 m-t-50">
+                        <div class="icon text-center mb-4 mt-4">
+                            <i class="far fa-map-marked fa-4x text-second"></i>
+                        </div>
+                        <h4 class="title"><a href="#">اضف منتجاتك بسهولة</a></h4>
+                        <p>
+                            لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="iconic-box box-version-white color-v3 m-t-50">
+                        <div class="icon text-center mb-4 mt-4">
+                            <i class="far fa-bullseye-arrow fa-4x text-first"></i>
+                        </div>
+                        <h4 class="title"><a href="#">انت تدير كل شيئ</a></h4>
+                        <p>
+                            لوريم ايبسوم هو نموذج افتراضي يوضع في التصاميم لتعرض على العميل ليتصور طريقه وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه ... بروشور او فلاير على سبيل المثال ... او نماذج مواقع انترنت
+                        </p>
+                    </div>
+                </div>
+
+                <!-- <div class="col-lg-4 col-md-6 col-sm-10 wow fadeInUp" data-wow-delay="0.4s">
                     <div class="iconic-box box-version-white color-v4 m-t-50">
                         <div class="icon">
                             <i class="fas fa-chart-line"></i>
@@ -250,63 +248,60 @@
                         </p>
                     </div>
                 </div> -->
-        </div>
-    </div>
-</section>
-
-<!--====== Start Pricing Area ======-->
-<section class="pricing-section p-t-60 p-b-60">
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-6">
-                <div class="common-headingtagline-boxed-two title-line m-b-70 text-center">
-                    <span class="tagline">باقات منصة رست ون</span>
-                    <h2 class="title  text-center ">إختر الباقة المناسبة لمتجرك</h2>
-                </div>
             </div>
         </div>
+    </section>
 
-        <!-- Pricing Table -->
-        <div class="row justify-content-center">
-            
-            <div class="col-lg-4 col-md-6 col-sm-8">
-                <div class="pricing-table p-0 m-t-30">
-                    <div class="p-3">
-                        <div class="plan-title-area">
-                            <h3>باقة رست ون</h3>
-                            <h5 class="">بيزك</h5>
-                             <img src="{{ asset('frontend/assets/img/pricing/plan-icon.png') }}" alt="Plan icon"
-                                        class="plan-icon" />
-                                    <svg class="plan-shape">
-                                        <path class="blob"
-                                            d="M675.762,6280.79c27.519-33.95,38.271-67.86,19.8-107.55-44.452-95.53-192.815-73.8-213.55-32.81-19.531,38.6,77.819,48.49,80.344,152.05C563.555,6341.55,636.194,6329.6,675.762,6280.79Z"
-                                            transform="translate(-479.406 -6105.56)"></path>
-                                    </svg> 
-                        </div>
-                        <div class="plan-cost">
-                            <h3>22 ر.س / شهريا</h3>
-                        </div>
-                        <ul class="plan-feature">
-                            
-                            <li class="">
-                                
-                            </li>
-
-                          
-                        </ul>
+    <!--====== Start Pricing Area ======-->
+    <section class="pricing-section p-t-60 p-b-60">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-6">
+                    <div class="common-headingtagline-boxed-two title-line m-b-70 text-center">
+                        <span class="tagline">باقات منصة رست ون</span>
+                        <h2 class="title  text-center ">إختر الباقة المناسبة لمتجرك</h2>
                     </div>
-                    <a href="#" class="template-btn btn-block text-center"> الاشتراك الان</a>
+                </div>
+            </div>
+
+            <!-- Pricing Table -->
+            <div class="row justify-content-center">
+
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="pricing-table p-0 m-t-30">
+                        <div class="p-3">
+                            <div class="plan-title-area">
+                                <h3>باقة رست ون</h3>
+                                <h5 class="">بيزك</h5>
+                                <img src="{{ asset('frontend/assets/img/pricing/plan-icon.png') }}" alt="Plan icon" class="plan-icon" />
+                                <svg class="plan-shape">
+                                    <path class="blob" d="M675.762,6280.79c27.519-33.95,38.271-67.86,19.8-107.55-44.452-95.53-192.815-73.8-213.55-32.81-19.531,38.6,77.819,48.49,80.344,152.05C563.555,6341.55,636.194,6329.6,675.762,6280.79Z" transform="translate(-479.406 -6105.56)"></path>
+                                </svg>
+                            </div>
+                            <div class="plan-cost">
+                                <h3>22 ر.س / شهريا</h3>
+                            </div>
+                            <ul class="plan-feature">
+
+                                <li class="">
+
+                                </li>
+
+
+                            </ul>
+                        </div>
+                        <a href="#" class="template-btn btn-block text-center"> الاشتراك الان</a>
+
+                    </div>
 
                 </div>
 
             </div>
-            
         </div>
-    </div>
-</section>
-<!--====== End Pricing Area ======-->
+    </section>
+    <!--====== End Pricing Area ======-->
 
-<!--<section class="service-section new-store p-t-130 p-b-50">
+    <!--<section class="service-section new-store p-t-130 p-b-50">
     <div class="container">
 
         <div class="common-heading m-b-30">
@@ -387,7 +382,7 @@
 
     </div>
 </section>-->
- <section class="wcu-section p-t-130 p-b-130">
+    <section class="wcu-section p-t-130 p-b-130">
         <div class="container">
             <div class="row justify-content-lg-between justify-content-center align-items-center">
                 <div class="col-lg-6 col-md-10">
@@ -408,24 +403,20 @@
                     </div>
 
                     <ul class="fancy-check-list-v2">
-                        <li class="wow fadeInUp" data-wow-delay="0.2s"
-                            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <li class="wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
                             <span class="list-inner">
                                 ابدأ المتجر المجاني
                             </span>
                         </li>
-                        <li class="wow fadeInUp" data-wow-delay="0.3s"
-                            style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <li class="wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
                             <span class="list-inner">
                                 ضيف المنتجات
                             </span>
                         </li>
-                        <li class="wow fadeInUp" data-wow-delay="0.4s"
-                            style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                        <li class="wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
                             <span class="list-inner">فعل الدفع والشحن</span>
                         </li>
-                        <li class="wow fadeInUp" data-wow-delay="0.5s"
-                            style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                        <li class="wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
                             <span class="list-inner">
                                 إبدأ البيع
                             </span>
@@ -435,18 +426,14 @@
             </div>
         </div>
     </section> -->
- <section class="counter-section section-with-map-bg bg-primary-color p-t-80 p-b-80 p-t-md-160">
+    <section class="counter-section section-with-map-bg bg-primary-color p-t-80 p-b-80 p-t-md-160">
         <div class="container">
             <div class="row align-items-center justify-content-center">
                 <div class="col-lg-6 col-md-9">
                     <div class="preview-galley-v3 m-b-md-100">
-                        <img class="preview-image-1" src="{{ asset('frontend/assets/img/preview-gallery/graphic-4.png') }}"
-                            alt="Preview Image" />
-                        <img class="preview-image-2 animate-float-bob-y"
-                            src="{{ asset('frontend/assets/img/particle/cta-right-particle-1.png') }}"
-                            alt="Preview Image" />
-                        <img class="preview-image-3 animate-float-bob-y"
-                            src="{{ asset('frontend/assets/img/particle/paper-plane.png') }}" alt="Preview Image" />
+                        <img class="preview-image-1" src="{{ asset('frontend/assets/img/preview-gallery/graphic-4.png') }}" alt="Preview Image" />
+                        <img class="preview-image-2 animate-float-bob-y" src="{{ asset('frontend/assets/img/particle/cta-right-particle-1.png') }}" alt="Preview Image" />
+                        <img class="preview-image-3 animate-float-bob-y" src="{{ asset('frontend/assets/img/particle/paper-plane.png') }}" alt="Preview Image" />
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-10">
@@ -457,8 +444,7 @@
                                     <i class="fas fa-store-alt"></i>
                                 </div>
                                 <div class="counter-wrap">
-                                    <span
-                                        class="counter">12</span>
+                                    <span class="counter">12</span>
                                     <span class="suffix">+</span>
                                 </div>
                                 <p class="title">متجر إلكتروني</p>
@@ -470,8 +456,7 @@
                                     <i class="fal fa-file-alt"></i>
                                 </div>
                                 <div class="counter-wrap">
-                                    <span
-                                        class="counter">22</span>
+                                    <span class="counter">22</span>
                                     <span class="suffix">+</span>
                                 </div>
                                 <p class="title">حساب نشط</p>
@@ -505,9 +490,9 @@
                 </div>
             </div>
         </div>
-    </section> 
+    </section>
 
-    
+
     <!--====== Start Footer ======-->
     <footer class="template-footer mt-5">
         <div class="container">
@@ -594,7 +579,7 @@
     <script src="{{asset('frontend/assets/js/wow.min.js')}}"></script>
     <!--====== Main JS ======-->
     <script src="{{asset('frontend/assets/js/main.js')}}"></script>
-    
+
 
 </body>
 

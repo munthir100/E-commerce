@@ -1,11 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Admin\Http\Controllers\DefinitionPagesController;
-use Modules\Admin\Http\Controllers\SettingsController;
-use Modules\Admin\Http\Controllers\StoreSettingController;
-use Modules\Admin\Http\Controllers\TaxNumberController;
 use Modules\Admin\Http\Controllers\VATController;
+use Modules\Admin\Http\Controllers\SettingsController;
+use Modules\Admin\Http\Controllers\TaxNumberController;
+use Modules\Admin\Http\Controllers\StoreDesignController;
+use Modules\Admin\Http\Controllers\StoreSettingController;
+use Modules\Admin\Http\Controllers\DefinitionPagesController;
 
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.settings.')->group(function () {
 
@@ -24,6 +25,10 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.settings
     Route::resource('/pages', DefinitionPagesController::class)->only('index','edit','destroy');
 
     Route::post('/store-setting', [StoreSettingController::class, 'store'])->name("store-setting");
+
+    Route::get('/storeDesign', [StoreDesignController::class, 'storeDesign'])->name('storeDesign');
+    Route::get('/theme', [StoreDesignController::class, 'theme'])->name('theme');
+    Route::get('/sections', [StoreDesignController::class, 'sections'])->name('sections');
 
 
 });

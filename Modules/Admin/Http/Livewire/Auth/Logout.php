@@ -14,5 +14,6 @@ class Logout extends Component
     public function logout()
     {
         Auth::logout();
+        return redirect('/');
     }
 }

@@ -57,12 +57,14 @@
                 <div class="input-group mb-1">
 
                     <select class="form-select form-select-lg" id="selectLarge" wire:model="category_id">
+                        <option value="">No Category</option>
                         @forelse($categories as $category)
                         <option value="{{$category->id}}">{{$category->title}}</option>
                         @empty
                         <option>no category found</option>
                         @endforelse
                     </select>
+
 
                     <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="button">Add</button>
                 </div>

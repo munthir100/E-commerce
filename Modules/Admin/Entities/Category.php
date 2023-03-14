@@ -14,61 +14,43 @@ class Category extends Model
 
     protected $cascadeDeletes = ['products', 'brands', 'children'];
 
-    protected $fillable = ['store_id', 'title', 'parent_id', 'is_active'];
+    protected $fillable = [
+        'store_id', 'title', 'parent_id', 'is_active',
+    ];
 
+    // Relationships
 
     public function products()
     {
-        return $this->hasMany(Product::class)->where('is_active', true);
+        return $this->hasMany(Product::class)->isActive();
     }
+
     public function brands()
     {
-        return $this->hasMany(Brand::class);
+        return $this->hasMany(Brand::class)->isActive();
     }
 
     public function children()
     {
-        return $this->hasMany(Category::class, 'parent_id');
+        return $this->hasMany(Category::class, 'parent_id')->isActive();
     }
 
     public function parent()
     {
-        return $this->belongsTo(Category::class, 'parent_id');
+        return $this->belongsTo(Category::class, 'parent_id')->isActive();
     }
 
-
-
-    public static function buildCategoryTree($allCategories)
-    {
-        $rootCategories = $allCategories->whereNull('parent_id');
-        self::formatTree($rootCategories, $allCategories);
-        return $rootCategories;
-    }
-
-    private static function formatTree($categories, $allCategories)
-    {
-        foreach ($categories as $category) {
-
-            $category->children = $allCategories->where('parent_id', $category->id)->values();
-
-            if ($category->children->isNotEmpty()) {
-                self::formatTree($category->children, $allCategories);
-            }
-        }
-    }
-
-
-
-
-
-    //belongs
-
-    function store()
+    public function store()
     {
         return $this->belongsTo(Store::class);
     }
 
-    //scope
+    // Scopes
+
+    public function scopeIsActive(Builder $query)
+    {
+        return $query->where('is_active', true);
+    }
 
     public function scopeForStoreLink(Builder $query, $storeLink)
     {
@@ -77,4 +59,32 @@ class Category extends Model
         });
     }
 
+    // Methods
+
+    public static function buildCategoryTree($allCategories)
+    {
+        $rootCategories = $allCategories->filter(fn ($category) => $category->isRoot());
+
+        $rootCategories->each(function ($rootCategory) use ($allCategories) {
+            $rootCategory->children = $rootCategory->buildChildren($allCategories);
+        });
+
+        return $rootCategories;
+    }
+
+    private function buildChildren($allCategories)
+    {
+        $children = $allCategories->filter(fn ($category) => $category->parent_id === $this->id);
+
+        $children->each(function ($child) use ($allCategories) {
+            $child->children = $child->buildChildren($allCategories);
+        });
+
+        return $children;
+    }
+
+    public function isRoot()
+    {
+        return $this->parent_id === null;
+    }
 }

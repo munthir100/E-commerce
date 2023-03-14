@@ -48,7 +48,7 @@ class Product extends Model implements HasMedia
     }
     function store()
     {
-        return $this->belongsToThrough(Store::class, Category::class);
+        return $this->belongsTo(Store::class);
     }
     function images()
     {
@@ -62,7 +62,7 @@ class Product extends Model implements HasMedia
     // scope 
     public function scopeForStoreLink(Builder $query, $storeLink)
     {
-        return $query->whereHas('category.store', function ($query) use ($storeLink) {
+        return $query->whereHas('store', function ($query) use ($storeLink) {
             $query->where('store_link', $storeLink);
         });
     }

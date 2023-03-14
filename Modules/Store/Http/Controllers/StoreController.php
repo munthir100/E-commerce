@@ -14,9 +14,9 @@ class StoreController extends Controller
 
     public function index($storeLink)
     {
-        $categories = Category::forStoreLink($storeLink)->with('products')->get();
-        $products = $categories->pluck('products')->flatten();
-        $categories = Category::buildCategoryTree($categories);
+        $allCategories = Category::forStoreLink($storeLink)->isActive()->get();
+        $categories = Category::buildCategoryTree($allCategories);
+        $products = Product::forStoreLink($storeLink)->isActive()->get();
 
         return view('store::index', compact('categories', 'storeLink', 'products'));
     }
@@ -24,7 +24,7 @@ class StoreController extends Controller
 
     public function productDetails($storeLink, $productId)
     {
-        $product = Product::with('category')->findOrFail($productId);
+        $product = Product::with('category')->isActive()->findOrFail($productId);
         $categories = $this->getCategories($storeLink);
 
         return view('store::products.productDetails', compact('storeLink', 'product', 'categories'));
@@ -33,7 +33,7 @@ class StoreController extends Controller
 
     public function categoryProducts($storeLink, $categoryTitle)
     {
-        $category = Category::where('title', $categoryTitle)->forStoreLink($storeLink)->with('products')->first();
+        $category = Category::where('title', $categoryTitle)->forStoreLink($storeLink)->with('products')->isActive()->first();
         $products = $category->products;
         $categories = $this->getCategories($storeLink);
 
