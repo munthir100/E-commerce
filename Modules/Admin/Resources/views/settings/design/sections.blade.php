@@ -80,152 +80,125 @@
     <div class="col-12 bg-light">
         <!-- post 1 -->
         <div class="card mt-2" style="width:90%; margin-right: 15px;">
-            <div class="card-body">
-                <div class="d-flex justify-content-start align-items-center mb-1">
-                    <!-- avatar -->
+            <a href="#" data-bs-toggle="modal" data-bs-target="#dynamicBanner">
+                <div class="card-body">
+                    <div class="d-flex justify-content-start align-items-center mb-1">
+                        <!-- avatar -->
 
-                    <!--/ avatar -->
-                    <div class="col-12">
-                        <h6 class="mb-0">Dynamic Banner</h6>
-                        <hr>
+                        <!--/ avatar -->
+                        <div class="col-12">
+                            <h6 class="mb-0">Dynamic Banner</h6>
+                            <hr>
+                        </div>
                     </div>
+                    <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/movingBanner.svg" alt="">
                 </div>
-                <!-- post img -->
-                <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/movingBanner.svg" alt="">
-                <!--/ post img -->
+            </a>
+        </div>
 
-            </div>
+        <div class="card" style="width:90%; margin-right: 15px;">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#storeFeatures">
+                <div class="card-body">
+                    <div class="d-flex justify-content-start align-items-center mb-1">
+                        <div class="col-12">
+                            <h6 class="mb-0">Store Features</h6>
+                            <hr>
+                        </div>
+                    </div>
+                    <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/features.svg" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div class="card" style="width:90%; margin-right: 15px;">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#dynamicProducts">
+                <div class="card-body">
+                    <div class="d-flex justify-content-start align-items-center mb-1">
+                        <div class="col-12">
+                            <h6 class="mb-0">Dynamic Products</h6>
+                            <hr>
+                        </div>
+                    </div>
+                    <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/home-products.svg" alt="">
+                </div>
+            </a>
+        </div>
+
+        <div class="card" style="width:90%; margin-right: 15px;">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#largeBanner">
+                <div class="card-body">
+                    <div class="d-flex justify-content-start align-items-center mb-1">
+                        <!-- avatar -->
+
+                        <!--/ avatar -->
+                        <div class="col-12">
+                            <h6 class="mb-0">Large Banner</h6>
+                            <hr>
+                        </div>
+                    </div>
+                    <!-- post img -->
+                    <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/bnner.svg" alt="">
+                    <!--/ post img -->
+
+                </div>
+            </a>
+        </div>
+
+        <div class="card" style="width:90%; margin-right: 15px;">
+            <a href="#" data-bs-toggle="modal" data-bs-target="#rectangularBanner">
+                <div class="card-body">
+                    <div class="d-flex justify-content-start align-items-center mb-1">
+                        <div class="col-12">
+                            <h6 class="mb-0">Rectangular Banner</h6>
+                            <hr>
+                        </div>
+                    </div>
+                    <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/banner02.svg" alt="">
+                </div>
+            </a>
         </div>
 
         <div class="card" style="width:90%; margin-right: 15px;">
             <div class="card-body">
                 <div class="d-flex justify-content-start align-items-center mb-1">
-                    <!-- avatar -->
-
-                    <!--/ avatar -->
-                    <div class="col-12">
-                        <h6 class="mb-0">Store Features</h6>
-                        <hr>
-                    </div>
-                </div>
-                <!-- post img -->
-                <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/features.svg" alt="">
-                <!--/ post img -->
-
-            </div>
-        </div>
-
-        <div class="card" style="width:90%; margin-right: 15px;">
-            <div class="card-body">
-                <div class="d-flex justify-content-start align-items-center mb-1">
-                    <!-- avatar -->
-
-                    <!--/ avatar -->
-                    <div class="col-12">
-                        <h6 class="mb-0">Dynamic Products</h6>
-                        <hr>
-                    </div>
-                </div>
-                <!-- post img -->
-                <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/home-products.svg" alt="">
-                <!--/ post img -->
-
-            </div>
-        </div>
-
-        <div class="card" style="width:90%; margin-right: 15px;">
-            <div class="card-body">
-                <div class="d-flex justify-content-start align-items-center mb-1">
-                    <!-- avatar -->
-
-                    <!--/ avatar -->
-                    <div class="col-12">
-                        <h6 class="mb-0">Large Banner</h6>
-                        <hr>
-                    </div>
-                </div>
-                <!-- post img -->
-                <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/bnner.svg" alt="">
-                <!--/ post img -->
-
-            </div>
-        </div>
-
-        <div class="card" style="width:90%; margin-right: 15px;">
-            <div class="card-body">
-                <div class="d-flex justify-content-start align-items-center mb-1">
-                    <!-- avatar -->
-
-                    <!--/ avatar -->
-                    <div class="col-12">
-                        <h6 class="mb-0">Single Banner</h6>
-                        <hr>
-                    </div>
-                </div>
-                <!-- post img -->
-                <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/banner02.svg" alt="">
-                <!--/ post img -->
-
-            </div>
-        </div>
-
-        <div class="card" style="width:90%; margin-right: 15px;">
-            <div class="card-body">
-                <div class="d-flex justify-content-start align-items-center mb-1">
-                    <!-- avatar -->
-
-                    <!--/ avatar -->
                     <div class="col-12">
                         <h6 class="mb-0">Images</h6>
                         <hr>
                     </div>
                 </div>
-                <!-- post img -->
                 <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/square.svg" alt="">
-                <!--/ post img -->
-
             </div>
         </div>
 
         <div class="card" style="width:90%; margin-right: 15px;">
             <div class="card-body">
                 <div class="d-flex justify-content-start align-items-center mb-1">
-                    <!-- avatar -->
-
-                    <!--/ avatar -->
                     <div class="col-12">
                         <h6 class="mb-0">Youtube Vedio</h6>
                         <hr>
                     </div>
                 </div>
-                <!-- post img -->
                 <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/youtube.svg" alt="">
-                <!--/ post img -->
-
             </div>
         </div>
 
         <div class="card" style="width:90%; margin-right: 15px;">
             <div class="card-body">
                 <div class="d-flex justify-content-start align-items-center mb-1">
-                    <!-- avatar -->
-
-                    <!--/ avatar -->
                     <div class="col-12">
                         <h6 class="mb-0">Customers Comments</h6>
                         <hr>
                     </div>
                 </div>
-                <!-- post img -->
                 <img class="img-fluid rounded mb-75" src="https://cdn.mapp.sa/cPanel/images/testimonials.svg" alt="">
-                <!--/ post img -->
-
             </div>
         </div>
-        <!--/ post 1 -->
 
     </div>
 </div>
+
+@include('admin::settings.design.modals')
+
 @endsection
 
 

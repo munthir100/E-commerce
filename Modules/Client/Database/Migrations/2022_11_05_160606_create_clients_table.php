@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('gender')->nullable();
             $table->string('description')->nullable();
             $table->integer('number_of_orders')->default(0);
-            $table->string('store_link');
+
 
             $table->foreignId('city_id')
                 ->nullable()
@@ -34,15 +34,11 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
-            $table->foreignId('created_by')
-                ->nullable()
+            $table->foreignId('store_id')
                 ->references('id')
-                ->on('users')
+                ->on('stores')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-
-            $table->foreign('store_link')->references('store_link')->on('stores')->onDelete('cascade')->nullable();
-
 
 
             $table->timestamps();

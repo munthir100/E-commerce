@@ -17,12 +17,16 @@ class BrandController extends Controller
      */
     public function index()
     {
-        $userId = Auth::id();
-        $brands = Brand::with('category')->whereHas('category.store.admin', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
-        })->get();
-   
-        return view('admin::Brands.index', compact('brands'));
+        $perPage = request()->query('per_page', 25);
+        $searchQuery = request()->query('q', '');
+        $categoryId = request()->query('category_id', null);
+
+        $brands = Brand::with('category')->forAdmin(Auth::id())
+            ->search($searchQuery, $categoryId)
+            ->paginate($perPage);
+        $categories = Category::forAdmin(Auth::id())->get();
+
+        return view('admin::Brands.index', compact('brands', 'categories'));
     }
 
     /**

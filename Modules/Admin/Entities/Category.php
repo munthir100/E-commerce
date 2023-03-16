@@ -59,6 +59,14 @@ class Category extends Model
         });
     }
 
+    public function scopeForAdmin($query, $userId)
+    {
+        return $query->whereHas('store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        });
+    }
+
+
     // Methods
 
     public static function buildCategoryTree($allCategories)

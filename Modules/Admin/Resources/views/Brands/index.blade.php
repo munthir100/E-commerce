@@ -32,16 +32,36 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header border-bottom p-1">
-                                <div class="head-label">
-                                    <form action="#soon">
-                                        <div class="input-group">
-                                            <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2">
-                                            <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
-                                                <i data-feather='search'></i>
-                                            </button>
-                                        </div>
-                                    </form>
+
+                                <div class="col-lg-2 col-md-4 col-sm-4 col-12 mb-1 mt-1">
+                                    <div class="head-label">
+                                        <form method="GET" action="{{ route('admin.brands.index') }}">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2" name="q" value="{{ Request::get('q') }}">
+                                                <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
+                                                    <i data-feather='search'></i>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
                                 </div>
+                                <div class="col-lg-2 col-md-4 col-sm-4 mb-1 mt-1 col-12">
+                                    <div class="head-label">
+                                        <form method="GET" action="{{ route('admin.brands.index') }}">
+
+                                            <select class="select2 form-select" name="category_id" onchange="this.form.submit()">
+                                                <option value="">All categories</option>
+                                                @foreach($categories as $category)
+                                                <option value="{{ $category->id }}" {{ Request::get('category_id') == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
+                                                @endforeach
+                                            </select>
+
+                                        </form>
+                                    </div>
+                                </div>
+
+
+
                                 <div class="dt-action-buttons text-end">
                                     <div class="dt-buttons d-inline-flex">
                                         <a data-bs-toggle="modal" data-bs-target="#addNewBrand" href="#" class="dt-button create-new btn btn-primary">
@@ -54,7 +74,21 @@
                             </div>
 
                             <div class="table-responsive">
-                                <table class="table">
+                                @if($brands->isEmpty())
+                                <div class="demo-spacing-0 mb-2">
+                                    <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                        <div class="alert-body d-flex align-items-center">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50">
+                                                <circle cx="12" cy="12" r="10"></circle>
+                                                <line x1="12" y1="16" x2="12" y2="12"></line>
+                                                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                            </svg>
+                                            <span>No Items to display it now .</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                @else
+                                <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>name</th>
@@ -66,7 +100,7 @@
                                     </thead>
                                     <tbody>
                                         @foreach($brands as $brand)
-                                        <tr>
+                                        <tr id="row-{{$brand->id}}">
                                             <td>{{$brand->name}}</td>
                                             <td>{{$brand->number_of_products}}</td>
                                             <td>{{$brand->category->title}}</td>
@@ -93,6 +127,17 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                <div class="col-2 mb-2 mt-2">
+                                    <form method="GET" action="{{ route('admin.brands.index') }}" class="mr-10">
+                                        <select class="form-select" name="per_page" onchange="this.form.submit()">
+                                            <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>10 items</option>
+                                            <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>25 items</option>
+                                            <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>50 items</option>
+                                            <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>100 items</option>
+                                        </select>
+                                    </form>
+                                </div>
+                                @endif
                             </div>
                         </div>
                     </div>
@@ -109,7 +154,7 @@
                 <h5 class="modal-title" id="addNewBrandTitle">Modal title</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <livewire:admin::brands.create-brand-livewire />
+            <livewire:admin::brands.create-brand-livewire :categories="$categories" />
         </div>
     </div>
 </div>

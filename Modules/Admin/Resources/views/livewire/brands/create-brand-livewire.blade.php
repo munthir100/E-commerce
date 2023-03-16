@@ -14,7 +14,7 @@
             </div>
             <div class="mb-1">
                 <label class="form-label" for="basicInput">brand name</label>
-                <input type="text" wire:model="name" class="form-control" id="basicInput" placeholder="Enter email">
+                <input type="text" wire:model="name" class="form-control" id="basicInput" placeholder="Brand name">
                 @error('name')<small class="text-danger">{{$message}}</small>@enderror
             </div>
             <div class="col-12">

@@ -17,19 +17,19 @@
                             <div class="swiper-paginations swiper-container swiper-autoplay">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
-                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-12.jpg" alt="banner" />
+                                        <img class="img-fluid" style="width: -webkit-fill-available; height:25rem" src="../../../app-assets/images/slider/06.jpg" alt="banner" />
                                     </div>
                                     <div class="swiper-slide">
-                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-9.jpg" alt="banner" />
+                                        <img class="img-fluid" style="width: -webkit-fill-available; height:25rem" src="../../../app-assets/images/slider/05.jpg" alt="banner" />
                                     </div>
                                     <div class="swiper-slide">
-                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-8.jpg" alt="banner" />
+                                        <img class="img-fluid" style="width: -webkit-fill-available; height:25rem" src="../../../app-assets/images/slider/02.jpg" alt="banner" />
                                     </div>
                                     <div class="swiper-slide">
-                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-7.jpg" alt="banner" />
+                                        <img class="img-fluid" style="width: -webkit-fill-available; height:25rem" src="../../../app-assets/images/slider/04.jpg" alt="banner" />
                                     </div>
                                     <div class="swiper-slide">
-                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-20.jpg" alt="banner" />
+                                        <img class="img-fluid" style="width: -webkit-fill-available; height:25rem" src="../../../app-assets/images/banner/banner-20.jpg" alt="banner" />
                                     </div>
                                 </div>
                                 <!-- Add Pagination -->
@@ -278,32 +278,60 @@
                 </section>
                 <!--end youtube vedio -->
 
+                <!-- large banner -->
+                <section id="large banner">
+                    <div class="row">
+                        <div class="col-xl-6 col-md-12">
+                            <img class="img-fluid" src="../../../app-assets/images/banner/banner-12.jpg" alt="banner" />
+                        </div>
+
+                        <div class="col-xl-6 col-md-12">
+                            <img class="img-fluid" src="../../../app-assets/images/banner/banner-12.jpg" alt="banner" />
+                        </div>
+                    </div>
+                </section>
+                <!--end large banner -->
+
+                <!-- pictures -->
+                <section id="component-swiper-multiple">
+                    <div class="card">
+                        <div class="mt-4 mb-2 text-center">
+                            <h4>Related Products</h4>
+                            <p class="card-text">People also search for this items</p>
+                        </div>
+                        <div class="card-body">
+                            <div class="swiper-multiple swiper-container swiper-container-initialized swiper-container-horizontal swiper-container-pointer-events swiper-container-rtl">
+                                <div class="swiper-wrapper" id="swiper-wrapper-99332351074b6610e5" aria-live="polite" style="transform: translate3d(0px, 0px, 0px); transition-duration: 0ms;">
+                                    <div class="swiper-slide swiper-slide-active" role="group" aria-label="1 / 5" style="height: 200px; margin-left: 30px;">
+                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-31.jpg" alt="banner">
+                                    </div>
+                                    <div class="swiper-slide swiper-slide-next" role="group" aria-label="2 / 5" style="height: 200px; margin-left: 30px;">
+                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-32.jpg" alt="banner">
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="3 / 5" style="height: 200px; margin-left: 30px;">
+                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-33.jpg" alt="banner">
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="4 / 5" style="height: 200px; margin-left: 30px;">
+                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-34.jpg" alt="banner">
+                                    </div>
+                                    <div class="swiper-slide" role="group" aria-label="5 / 5" style="height: 200px; margin-left: 30px;">
+                                        <img class="img-fluid" src="../../../app-assets/images/banner/banner-35.jpg" alt="banner">
+                                    </div>
+                                </div>
+                                <!-- Add Pagination -->
+                                <div class="swiper-pagination swiper-pagination-clickable swiper-pagination-bullets"><span class="swiper-pagination-bullet swiper-pagination-bullet-active" tabindex="0" role="button" aria-label="Go to slide 1"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 2"></span><span class="swiper-pagination-bullet" tabindex="0" role="button" aria-label="Go to slide 3"></span></div>
+                                <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <!--end pictures -->
+
 
                 <!-- E-commerce Products Starts -->
                 <livewire:store::products.products-list :storeLink="$storeLink" :products="$products" />
                 <!-- E-commerce Products Ends -->
 
-                <!-- E-commerce Pagination Starts -->
-                <section id="ecommerce-pagination">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination justify-content-center mt-2">
-                                    <li class="page-item prev-item"><a class="page-link" href="#"></a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item" aria-current="page"><a class="page-link" href="#">4</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                    <li class="page-item next-item"><a class="page-link" href="#"></a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                </section>
-                <!-- E-commerce Pagination Ends -->
 
             </div>
         </div>

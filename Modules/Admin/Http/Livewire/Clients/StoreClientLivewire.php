@@ -10,12 +10,7 @@ use Modules\Shipping\Entities\City;
 
 class StoreClientLivewire extends Component
 {
-    public $name, $email, $phone, $birth_date, $city_id, $gender, $description, $user_type_id = 3, $created_by;
-
-    public function mount()
-    {
-        $this->created_by = Auth::user()->id;
-    }
+    public $name, $email, $phone, $birth_date, $city_id, $gender, $description, $store_id;
 
     protected $rules = [
         'name' => 'required',
@@ -25,8 +20,6 @@ class StoreClientLivewire extends Component
         'gender' => 'sometimes',
         'description' => 'string',
         'city_id' => 'sometimes',
-        'user_type_id' => 'required',
-        'created_by' => 'required',
     ];
 
     public function updated($data)
@@ -43,11 +36,13 @@ class StoreClientLivewire extends Component
     public function save()
     {
         $validatedData = $this->validate();
+        $validatedData['user_type_id'] = 3;
+        $validatedData['store_id'] = Auth::user()->admin->store->id;
         $user = User::create($validatedData);
         $client = new Client($validatedData);
         $client->user_id = $user->id;
         $client->save();
-        
+
         return redirect()->route('admin.clients.index');
     }
 }

@@ -16,10 +16,8 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $userId = Auth::id();
-        $allCategories = Category::whereHas('store.admin', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
-        })->get();
+        $user = Auth::user();
+        $allCategories = Category::forAdmin($user->id)->get();
 
         $categories = Category::buildCategoryTree($allCategories);
 

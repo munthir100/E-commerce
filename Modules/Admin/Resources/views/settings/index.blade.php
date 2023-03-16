@@ -24,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="content-body">
             <!-- Statistics card section -->
@@ -109,7 +109,7 @@
                     </div>
 
                     <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                        <a href="{{route('admin.settings.shipping')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
                                     <div class="avatar bg-light-primary p-50 mb-1">
@@ -165,7 +165,7 @@
                     </div>
 
                     <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                        <a href="{{route('admin.settings.teamwork')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
                                     <div class="avatar bg-light-primary p-50 mb-1">
@@ -195,7 +195,7 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                        <a href="{{route('admin.settings.domain')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
                                     <div class="avatar bg-light-primary p-50 mb-1">
@@ -210,7 +210,7 @@
                         </a>
                     </div>
                     <div class="col-xl-3 col-md-4 col-sm-6">
-                        <a href="{{route('admin.settings.profile')}}" class="text-muted">
+                        <a href="{{route('admin.settings.services')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
                                     <div class="avatar bg-light-primary p-50 mb-1">

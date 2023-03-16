@@ -1,6 +1,5 @@
 <div>
     <form id="editUserForm" class="row gy-1 pt-75" wire:submit.prevent="save" novalidate="novalidate">
-        <input type="hidden" wire:model="user_type_id">
         <input type="hidden" wire:model="created_by">
         <div class="col-12 col-md-6">
             <label class="form-label" for="name"> Name</label>

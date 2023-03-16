@@ -20,4 +20,22 @@ class Brand extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    // scopes
+
+    public function scopeForAdmin($query, $userId)
+    {
+        return $query->whereHas('category.store.admin', function ($query) use ($userId) {
+            $query->where('user_id', $userId);
+        });
+    }
+
+    public function scopeSearch($query, $searchQuery, $categoryId)
+    {
+        return $query->when('name', function ($query) use ($searchQuery) {
+            $query->where('name', 'like', '%' . $searchQuery . '%');
+        })->when($categoryId, function ($query, $categoryId) {
+            return $query->where('category_id', $categoryId);
+        });
+    }
 }

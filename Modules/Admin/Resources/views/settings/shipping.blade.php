@@ -44,15 +44,6 @@
                 </div>
             </div>
 
-            <div class="demo-spacing-0 mb-2">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <div class="alert-body">
-                        Chupa chups topping bonbon. Jelly-o toffee I love. Sweet I love wafer I love wafer.
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-                </div>
-            </div>
-
             <div class="row">
                 <div class="col-md-6 col-lg-4 col-sm-6">
                     <div class="card text-center">
@@ -62,25 +53,13 @@
                         </div>
                         <div class="card-footer">
                             <div class="btn btn-primary">
-                                Activate
+                                Details
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 col-lg-4 col-sm-6">
-                    <div class="card text-center">
-                        <div class="card-header">Featured</div>
-                        <div class="card-body">
-                            <img class="img-fluid" src="../../../app-assets/images/slider/03.jpg" alt="Card image cap">
-                        </div>
-                        <div class="card-footer">
-                            <div class="btn btn-primary">
-                                Activate
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
             </div>
 
             <div class="card">
@@ -88,7 +67,7 @@
 
                     <div class="col-lg-2 col-md-4 col-sm-4 col-12 mb-1 mt-1">
                         <div class="card-title">
-                            Bank Accounts
+                            Shipping
                         </div>
                     </div>
 
@@ -98,7 +77,7 @@
                             <a href="#" class="btn btn-primary">
                                 <span>
                                     <i data-feather="plus"></i>
-                                    Add Bank account
+                                    Add Shipping Service
                                 </span>
                             </a>
                         </div>

@@ -4,6 +4,7 @@ namespace Modules\Client\Entities;
 
 
 use Modules\Acl\Entities\User;
+use Modules\Admin\Entities\Sale;
 use Modules\Admin\Entities\Admin;
 use Modules\Shipping\Entities\City;
 use Illuminate\Database\Eloquent\Model;
@@ -45,5 +46,19 @@ class Client extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+    public function sales()
+    {
+        return $this->hasMany(Sale::class);
+    }
+
+    // scoopes
+
+    public function scopeSearch($query, $searchQuery)
+    {
+        return $query->whereHas('user', function ($query) use ($searchQuery) {
+            $query->where('name', 'like', '%' . $searchQuery . '%')
+                ->orWhere('phone', 'like', '%' . $searchQuery . '%');
+        });
     }
 }

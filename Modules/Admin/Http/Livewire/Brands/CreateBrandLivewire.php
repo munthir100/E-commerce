@@ -29,10 +29,6 @@ class CreateBrandLivewire extends Component
     }
     public function render()
     {
-        $userId = Auth::id();
-        $this->categories = Category::whereHas('store.admin', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
-        })->get();
         return view('admin::livewire.brands.create-brand-livewire');
     }
     function save()

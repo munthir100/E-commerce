@@ -36,6 +36,26 @@ class SettingsController extends Controller
         return view('admin::settings.paymentMethods');
     }
 
+    function shipping()
+    {
+        return view('admin::settings.shipping');
+    }
+
+    function teamwork()
+    {
+        return view('admin::settings.teamwork');
+    }
+
+    function domain()
+    {
+        return view('admin::settings.domain');
+    }
+
+    function services()
+    {
+        return view('admin::settings.services');
+    }
+
     function rating()
     {
         $serverName = url('/');

@@ -17,8 +17,15 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::where('created_by',Auth::id())->with('user')->get();
-        return view('admin::Clients.index',compact('clients'));
+        $perPage = request()->query('per_page', 25);
+        $searchQuery = request()->query('q', '');
+
+        $clients = Client::search($searchQuery)
+            ->where('store_id', Auth::user()->admin->store->id)
+            ->with('user')
+            ->paginate($perPage);
+
+        return view('admin::Clients.index', compact('clients'));
     }
 
     /**
@@ -47,7 +54,7 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('admin::Clients.show',compact('client'));
+        return view('admin::Clients.show', compact('client'));
     }
 
     /**
@@ -57,7 +64,7 @@ class ClientController extends Controller
      */
     public function edit(Client $client)
     {
-        return view('admin::Clients.edit',compact('client'));
+        return view('admin::Clients.edit', compact('client'));
     }
 
     /**

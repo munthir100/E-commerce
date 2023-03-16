@@ -22,7 +22,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="content-body">
             <!-- Basic Tables start -->
@@ -30,16 +30,20 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header border-bottom p-1">
-                            <div class="head-label">
-                                <form action="#soon">
-                                    <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2">
-                                        <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
-                                            <i data-feather='search'></i>
-                                        </button>
-                                    </div>
-                                </form>
+
+                            <div class="col-lg-2 col-md-4 col-sm-4 col-12 mb-1 mt-1">
+                                <div class="head-label">
+                                    <form method="GET" action="{{ route('admin.clients.index') }}">
+                                        <div class="input-group">
+                                            <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2" name="q" value="{{ Request::get('q') }}">
+                                            <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
+                                                <i data-feather='search'></i>
+                                            </button>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
+
                             <div class="dt-action-buttons text-end">
                                 <div class="dt-buttons d-inline-flex">
                                     <button data-bs-toggle="modal" data-bs-target="#addclient" class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#modals-slide-in"><span>
@@ -50,7 +54,7 @@
                         </div>
 
                         <div class="table-responsive">
-                            <table class="table">
+                            <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
                                         <th>name</th>
@@ -95,6 +99,16 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="col-2 mb-2 mt-2">
+                                <form method="GET" action="{{ route('admin.clients.index') }}" class="mr-10">
+                                    <select class="form-select" name="per_page" onchange="this.form.submit()">
+                                        <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>10 items</option>
+                                        <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>25 items</option>
+                                        <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>50 items</option>
+                                        <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>100 items</option>
+                                    </select>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
