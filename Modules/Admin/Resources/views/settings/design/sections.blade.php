@@ -77,7 +77,7 @@
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
-    <div class="col-12 bg-light">
+    <div class="store-design col-12">
         <!-- post 1 -->
         <div class="card mt-2" style="width:90%; margin-right: 15px;">
             <a href="#" data-bs-toggle="modal" data-bs-target="#dynamicBanner">
@@ -204,7 +204,11 @@
 
 @section('styles')
 <link rel="stylesheet" href="{{asset('frontend/assets/fonts/fontawesome/css/all.min.css')}}" />
-
+<style>
+    .store-design .card{
+        border: 1px solid #fff;
+    }
+</style>
 @endsection
 
 @section('scripts')

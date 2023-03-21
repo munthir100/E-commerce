@@ -11,6 +11,7 @@ class UpdateCategoryLivewire extends Component
     function mount()
     {
         $this->title = $this->category->title;
+        $this->parent_id = $this->category->parent_id;
         $this->is_active = $this->category->is_active;
     }
     protected $rules = [
@@ -36,7 +37,7 @@ class UpdateCategoryLivewire extends Component
             $this->category->parent_id = null;
         }
         $this->category->save();
-        session()->flash('success','category edited successfully');
+        session()->flash('success', 'category edited successfully');
         return to_route('admin.categories.index');
     }
 }

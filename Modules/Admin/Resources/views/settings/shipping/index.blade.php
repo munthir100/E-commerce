@@ -59,7 +59,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
 
             <div class="card">
@@ -74,7 +74,7 @@
 
                     <div class="dt-action-buttons text-end">
                         <div class=" d-inline-flex">
-                            <a href="#" class="btn btn-primary">
+                            <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addShippingService">
                                 <span>
                                     <i data-feather="plus"></i>
                                     Add Shipping Service
@@ -107,6 +107,23 @@
             </div>
 
 
+        </div>
+    </div>
+</div>
+
+<div class="modal fade show" id="addShippingService" tabindex="-1" aria-labelledby="addShippingServiceTitle" aria-modal="true" role="dialog">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header bg-transparent">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body px-sm-5 mx-50 pb-5">
+                <h1 class="text-center mb-1" id="addShippingServiceTitle">Add New Card</h1>
+                <p class="text-center">Add card for future billing</p>
+
+                
+                <livewire:admin::shipping.add-shipping-service />
+            </div>
         </div>
     </div>
 </div>

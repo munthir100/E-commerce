@@ -6,6 +6,7 @@ use App\Traits\HasCategoriesTrait;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Product;
 use Modules\Admin\Entities\Category;
+use Modules\Admin\Entities\FeatureView;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class StoreController extends Controller
@@ -14,9 +15,16 @@ class StoreController extends Controller
 
     public function index($storeLink)
     {
+        $searchQuery = request()->query('searchTerm', '');
+        $categoryId = request()->query('category_id', null);
+
         $allCategories = Category::forStoreLink($storeLink)->isActive()->get();
         $categories = Category::buildCategoryTree($allCategories);
-        $products = Product::forStoreLink($storeLink)->isActive()->get();
+        $products = Product::forStoreLink($storeLink)->isActive()
+            ->when($searchQuery, function ($query, $searchQuery) {
+                return $query->where('title', 'like', '%' . $searchQuery . '%');
+            })->orWhere('price', $searchQuery)->get();
+
 
         return view('store::index', compact('categories', 'storeLink', 'products'));
     }

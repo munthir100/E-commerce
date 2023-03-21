@@ -8,7 +8,7 @@ use Modules\Admin\Entities\Store;
 
 class StoreDescription extends Component
 {
-    public $store_desc, $userId,$city_id;
+    public $store, $store_desc, $userId, $city_id;
 
     protected $rules = [
         'store_desc' => 'required|string|max:255',
@@ -16,14 +16,8 @@ class StoreDescription extends Component
 
     public function mount()
     {
-        $this->userId = Auth::id();
-
-        $store = Store::whereHas('admin.user', function ($query) {
-            $query->where('user_id', $this->userId);
-        })->first();
-
-        $this->store_desc = $store->store_desc;
-        $this->city_id = Auth::user()->admin->store->city->name;
+        $this->store_desc = $this->store->store_desc;
+        $this->city_id = optional($this->store->city)->name;
     }
 
     public function render()
@@ -35,15 +29,12 @@ class StoreDescription extends Component
     {
         $this->validate();
 
-        $store = Store::whereHas('admin.user', function ($query) {
-            $query->where('user_id', $this->userId);
-        })->first();
-
-        $store->update([
+        $this->store->update([
             'store_desc' => $this->store_desc,
         ]);
 
-        session()->flash('success', 'Store description updated successfully.');
-        return redirect()->route('admin.settings.store');
+        $this->dispatchBrowserEvent('addSuccess', [
+            'message' => 'store description updated',
+        ]);
     }
 }

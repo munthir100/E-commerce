@@ -91,4 +91,19 @@
         });
     </script>
 
+<script>
+        window.addEventListener('addSuccess', () => {
+            Swal.fire({
+                title: 'Successfull',
+                text: event.detail.message,
+                icon: 'success',
+                confirmButtonText: 'Ok',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                },
+                buttonsStyling: false
+            })
+        });
+    </script>
+
 </div>

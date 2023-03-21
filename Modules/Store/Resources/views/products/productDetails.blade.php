@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="content-body">
             <!-- app e-commerce details start -->
@@ -43,60 +43,26 @@
                                 <h4>{{$product->title}}</h4>
                                 <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
                                 <div class="ecommerce-details-price d-flex flex-wrap mt-1">
-                                    <h4 class="item-price me-1">{{$product->price}}</h4>
+                                    <h4 class="item-price me-1">${{$product->price}}</h4>
                                     <ul class="unstyled-list list-inline ps-1 border-start">
-                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                        <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                        <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                        <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                        <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
                                         <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
                                     </ul>
                                 </div>
-                                <p class="card-text">{{$product->short_description}} <span class="text-success">In stock</span></p>
+                                <p class="card-text">{{$product->short_description}}</p>
                                 <p class="card-text">
                                     {{$product->description}}
                                 </p>
                                 <ul class="product-features list-unstyled">
-                                    <li><i data-feather="shopping-cart"></i> <span>Free Shipping</span></li>
-                                    <li>
-                                        <i data-feather="dollar-sign"></i>
-                                        <span>EMI options available</span>
-                                    </li>
+                                    <li><i data-feather="shopping-cart"></i> <span class="text-success">Available now</span></li>
                                 </ul>
-                                <hr />
-                                <div class="product-color-options">
-                                    <h6>Colors</h6>
-                                    <ul class="list-unstyled mb-0">
-                                        <li class="d-inline-block selected">
-                                            <div class="color-option b-primary">
-                                                <div class="filloption bg-primary"></div>
-                                            </div>
-                                        </li>
-                                        <li class="d-inline-block">
-                                            <div class="color-option b-success">
-                                                <div class="filloption bg-success"></div>
-                                            </div>
-                                        </li>
-                                        <li class="d-inline-block">
-                                            <div class="color-option b-danger">
-                                                <div class="filloption bg-danger"></div>
-                                            </div>
-                                        </li>
-                                        <li class="d-inline-block">
-                                            <div class="color-option b-warning">
-                                                <div class="filloption bg-warning"></div>
-                                            </div>
-                                        </li>
-                                        <li class="d-inline-block">
-                                            <div class="color-option b-info">
-                                                <div class="filloption bg-info"></div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
+
                                 <hr />
                                 <div class="d-flex flex-column flex-sm-row pt-1">
-                                    <livewire:store::cart.add-to-cart :product="$product"/>
+                                    <livewire:store::cart.add-to-cart :product="$product" />
                                     <a href="#" class="btn btn-outline-secondary btn-wishlist me-0 me-sm-1 mb-1 mb-sm-0">
                                         <i data-feather="heart" class="me-50"></i>
                                         <span>Wishlist</span>
@@ -300,12 +266,3 @@
 <script src="../../../app-assets/js/scripts/pages/app-ecommerce-details.js"></script>
 <script src="../../../app-assets/js/scripts/forms/form-number-input.js"></script>
 @endsection
-
-
-
-
-
-
-
-
-

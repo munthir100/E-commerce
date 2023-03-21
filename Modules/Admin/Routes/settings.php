@@ -7,6 +7,8 @@ use Modules\Admin\Http\Controllers\TaxNumberController;
 use Modules\Admin\Http\Controllers\StoreDesignController;
 use Modules\Admin\Http\Controllers\StoreSettingController;
 use Modules\Admin\Http\Controllers\DefinitionPagesController;
+use Modules\Admin\Http\Controllers\ShippingMethodsController;
+
 
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.settings.')->group(function () {
 
@@ -17,11 +19,9 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.settings
 
     Route::get('/profile', [SettingsController::class, 'profile'])->name('profile');
 
-    Route::get('/store', [SettingsController::class, 'store'])->name('store');
-
     Route::get('/payment-methods', [SettingsController::class, 'paymentMethods'])->name('paymentMethods');
 
-    Route::get('/shipping', [SettingsController::class, 'shipping'])->name('shipping');
+    Route::resource('shipping', ShippingMethodsController::class);
 
 
     Route::get('/teamwork', [SettingsController::class, 'teamwork'])->name('teamwork');
@@ -41,6 +41,8 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.settings
     Route::resource('/taxNumber', TaxNumberController::class);
 
     Route::resource('/pages', DefinitionPagesController::class)->only('index', 'edit', 'destroy');
+
+    Route::get('/store', [StoreSettingController::class, 'index'])->name('store');
 
     Route::post('/store-setting', [StoreSettingController::class, 'store'])->name("store-setting");
 

@@ -9,9 +9,10 @@ class PartsCustomization extends Model
 {
     use HasFactory;
 
-    protected $fillable = ["store_id","customizable" ];
+    protected $fillable = ["store_link", "customizable_id", 'customizable_type'];
 
-    public function customizable(){
+    public function customizable()
+    {
         return $this->morphTo();
     }
 }

@@ -91,7 +91,7 @@
                                 <h4 class="card-title">Shipping adressess</h4>
                             </div>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Project</th>
@@ -123,7 +123,7 @@
                                 <h4 class="card-title">orders</h4>
                             </div>
                             <div class="table-responsive">
-                                <table class="table">
+                                <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
                                             <th>Project</th>

@@ -10,21 +10,21 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Statistics Cards</h2>
+                        <h2 class="content-header-title float-start mb-0">Store Settings</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Cards</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.settings.index')}}">Settings</a>
                                 </li>
-                                <li class="breadcrumb-item active">Statistics Cards
+                                <li class="breadcrumb-item active">Store Settings
                                 </li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="content-body">
             <livewire:alerts.alert>
@@ -37,26 +37,7 @@
                                     <h4 class="card-title">Store Settings</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form class="form" action="{{route("admin.settings.store-setting")}}" method="POST" enctype="multipart/form-data">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col-md-6 col-12">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="first-name-column">Store Name</label>
-                                                    <input type="text" id="first-name-column" class="form-control" placeholder="First Name" name="store_name" value="{{$store->store_name ?? null}}" />
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6 col-12">
-                                                <div class="mb-1">
-                                                    <label class="form-label" for="last-name-column">Store Link</label>
-                                                    <input type="text" id="last-name-column" class="form-control" placeholder="Last Name" name="store_link" value="{{$store->store_link ?? null}}" />
-                                                </div>
-                                            </div>
-                                            <div class="col-12" style="text-align: end;">
-                                                <button type="submit" class="btn btn-primary me-1">Save</button>
-                                            </div>
-                                        </div>
-                                    </form>
+                                    <livewire:admin::store.updata-store-data-livewire :store="$store" />
                                 </div>
                             </div>
                         </div>
@@ -119,7 +100,7 @@
                                     <h4 class="card-title">Store description</h4>
                                 </div>
                                 <div class="card-body">
-                                    <livewire:admin::store-description />
+                                    <livewire:admin::store-description :store="$store" />
                                 </div>
                             </div>
                         </div>

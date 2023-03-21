@@ -199,7 +199,7 @@
                         <div class="card card-company-table">
                             <div class="card-body p-0">
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    <table class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Company</th>

@@ -15,13 +15,14 @@ return new class extends Migration
     {
         Schema::create('parts_customizations', function (Blueprint $table) {
             $table->id();
-            $table->foreignId("store_id")
-                ->references("id")
+            $table->string("store_link");
+            $table->morphs("customizable");
+            $table->timestamps();
+            $table->foreign("store_link")
+                ->references("store_link")
                 ->on("stores")
                 ->cascadeOnUpdate()
                 ->cascadeOnDelete();
-            $table->morphs("customizable");
-            $table->timestamps();
         });
     }
 

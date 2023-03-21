@@ -14,7 +14,7 @@
 
         <div class="col-12 col-md-6">
             <label class="form-label" for="Phone">Phone</label>
-            <input type="text" id="Phone" wire:model="phone" class="form-control">
+            <input type="number" id="Phone" wire:model="phone" class="form-control" placeholder="phone">
             @error('phone') <small class="text-danger">{{$message}}</small>@enderror
         </div>
         <div class="col-12 col-md-6">

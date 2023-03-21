@@ -47,16 +47,29 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Table Basic</h4>
+                                    <h4 class="card-title">Important Note</h4>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text">
-                                        Using the most basic table Leanne Grahamup, here’s how <code>.table</code>-based tables look in Bootstrap. You
-                                        can use any example of below table for your table and it can be use with any type of bootstrap tables.
+                                        If you de-activeat any category , the <code>products</code> and <code>sub-categories</code> related with this category is <code>disapear</code> from customers in your store
                                     </p>
                                 </div>
                                 <div class="table-responsive">
-                                    <table class="table">
+                                    @if($categories->isEmpty())
+                                    <div class="demo-spacing-0 mb-2">
+                                        <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                            <div class="alert-body d-flex align-items-center">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50">
+                                                    <circle cx="12" cy="12" r="10"></circle>
+                                                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                                                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                                </svg>
+                                                <span>No Items to display it now .</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @else
+                                    <table class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
@@ -99,6 +112,7 @@
                                             @endforeach
                                         </tbody>
                                     </table>
+                                    @endif
                                 </div>
                             </div>
                         </div>
