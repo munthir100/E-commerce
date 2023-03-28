@@ -40,7 +40,7 @@ class StoreCity extends Component
             'city_id' => $this->city_id,
         ]);
 
-        session()->flash('success', 'Store location updated successfully.');
+        session()->flash('success', 'Store location updated successfully');
 
         return to_route('admin.settings.store');
     }

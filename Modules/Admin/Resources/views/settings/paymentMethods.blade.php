@@ -10,14 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Statistics Cards</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Payment Methods')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Cards</a>
+                                <li class="breadcrumb-item"><a href="#">{{translate('Settings')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Statistics Cards
+                                <li class="breadcrumb-item active">{{translate('Payment Methods')}}
                                 </li>
                             </ol>
                         </div>
@@ -39,17 +39,8 @@
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                         </svg>
-                        <span> This feature is available in the advanced package and the professional package,<strong> click here </strong></span>
+                        <span> {{translate('This feature is available in the advanced package and the professional package,')}}<strong> {{translate('click here')}} </strong></span>
                     </div>
-                </div>
-            </div>
-
-            <div class="demo-spacing-0 mb-2">
-                <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <div class="alert-body">
-                        Chupa chups topping bonbon. Jelly-o toffee I love. Sweet I love wafer I love wafer.
-                    </div>
-                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                 </div>
             </div>
 
@@ -62,7 +53,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="btn btn-primary">
-                                Activate
+                                {{translate('Activate')}}
                             </div>
                         </div>
                     </div>
@@ -70,7 +61,7 @@
 
                 <div class="col-md-6 col-lg-4 col-sm-6">
                     <div class="card text-center">
-                        <div class="card-header">Featured</div>
+                        <div class="card-header">{{translate('Featured')}}</div>
                         <div class="card-body">
                             <img class="img-fluid" src="../../../app-assets/images/slider/03.jpg" alt="Card image cap">
                         </div>
@@ -88,7 +79,7 @@
 
                     <div class="col-lg-2 col-md-4 col-sm-4 col-12 mb-1 mt-1">
                         <div class="card-title">
-                            Bank Accounts
+                            {{translate('Bank Accounts')}}
                         </div>
                     </div>
 
@@ -98,7 +89,7 @@
                             <a href="#" class="btn btn-primary">
                                 <span>
                                     <i data-feather="plus"></i>
-                                    Add Bank account
+                                    {{translate('Add Bank account')}}
                                 </span>
                             </a>
                         </div>
@@ -110,13 +101,13 @@
                     <table class="table table-striped table-bordered" style="margin-bottom: 5rem;">
                         <thead>
                             <tr>
-                                <th>Bank</th>
-                                <th>Bank name</th>
-                                <th>Name</th>
-                                <th>Account number</th>
-                                <th>Transactions</th>
-                                <th>Status</th>
-                                <th>Actions</th>
+                                <th>{{translate('Bank')}}</th>
+                                <th>{{translate('Bank name')}}</th>
+                                <th>{{translate('Name')}}</th>
+                                <th>{{translate('Account number')}}</th>
+                                <th>{{translate('Transactions')}}</th>
+                                <th>{{translate('Status')}}</th>
+                                <th>{{translate('Actions')}}</th>
                             </tr>
                         </thead>
                         <tbody>

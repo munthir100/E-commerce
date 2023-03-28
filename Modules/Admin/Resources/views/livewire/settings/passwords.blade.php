@@ -8,31 +8,55 @@
 
     <form wire:submit.prevent="updatePassword">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput">cuttent password</label>
-                    <input type="text" class="form-control" id="basicInput" placeholder="Enter name" wire:model="password">
+                    <label class="form-label" for="basicInput">{{translate('Current Password')}}</label>
+                    <div class="input-group input-group-merge form-password-toggle">
+                        <input class="form-control form-control-merge" id="password" type="password" wire:model="password" placeholder="············" aria-describedby="password" tabindex="2" />
+                        <span class="input-group-text cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </span>
+                    </div>
                     @error('password')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput1">passwords</label>
-                    <input type="text" class="form-control" id="basicInput1" placeholder="Enter email" wire:model="new_password">
+                    <label class="form-label" for="basicInput1">{{translate('New Password')}}</label>
+                    <div class="input-group input-group-merge form-password-toggle">
+                        <input class="form-control form-control-merge" id="password" type="password" wire:model="new_password" placeholder="············" aria-describedby="password" tabindex="2" />
+                        <span class="input-group-text cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </span>
+                    </div>
                     @error('new_password')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput2">passwords confirmation</label>
-                    <input type="text" class="form-control" id="basicInput2" placeholder="Enter phone" wire:model="new_password_confirmation">
+                    <label class="form-label" for="basicInput2">{{translate('New Password Confirmation')}}</label>
+                    <div class="input-group input-group-merge form-password-toggle">
+                        <input class="form-control form-control-merge" id="password" type="password" wire:model="new_password_confirmation" placeholder="············" aria-describedby="password" tabindex="2" />
+                        <span class="input-group-text cursor-pointer">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </span>
+                    </div>
                     @error('new_password_confirmation')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
 
             <div class="col-12" style="text-align: end;">
                 <button class="btn btn-primary waves-effect waves-float waves-light" type="submit">
-                    Save
+                    {{translate('Save')}}
                 </button>
             </div>
 

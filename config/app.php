@@ -109,6 +109,11 @@ return [
     */
 
     'faker_locale' => 'en_US',
+    
+    'available_locales' => [
+        'English' => 'en',
+        'Arabic' => 'ar',
+      ],
 
     /*
     |--------------------------------------------------------------------------
@@ -182,6 +187,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Spatie\Permission\PermissionServiceProvider::class,
+        Gloudemans\Shoppingcart\ShoppingcartServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -211,6 +217,8 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
+        'GoogleTranslate' => Stichoza\GoogleTranslate\GoogleTranslate::class
+
     ])->toArray(),
 
 ];

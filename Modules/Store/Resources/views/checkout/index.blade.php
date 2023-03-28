@@ -1,4 +1,5 @@
 @extends('store::layouts.storeLayout')
+@section('title',"$store->store_name | checkout")
 
 @section('content')
 @php
@@ -13,14 +14,12 @@ $wishlist = session()->get('wishlist', []);
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Checkout</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Checkout')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">eCommerce</a>
-                                </li>
-                                <li class="breadcrumb-item active">Checkout
+                                <li class="breadcrumb-item active">{{translate('Checkout')}}
                                 </li>
                             </ol>
                         </div>
@@ -39,8 +38,8 @@ $wishlist = session()->get('wishlist', []);
                                 <i data-feather="shopping-cart" class="font-medium-3"></i>
                             </span>
                             <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">Cart</span>
-                                <span class="bs-stepper-subtitle">Your Cart Items</span>
+                                <span class="bs-stepper-title">{{translate('Cart')}}</span>
+                                <span class="bs-stepper-subtitle">{{translate('Your Cart Items')}}</span>
                             </span>
                         </button>
                     </div>
@@ -53,8 +52,8 @@ $wishlist = session()->get('wishlist', []);
                                 <i data-feather="home" class="font-medium-3"></i>
                             </span>
                             <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">Address</span>
-                                <span class="bs-stepper-subtitle">Enter Your Address</span>
+                                <span class="bs-stepper-title">{{translate('Address')}}</span>
+                                <span class="bs-stepper-subtitle">{{translate('Enter Your Address')}}</span>
                             </span>
                         </button>
                     </div>
@@ -67,8 +66,8 @@ $wishlist = session()->get('wishlist', []);
                                 <i data-feather="credit-card" class="font-medium-3"></i>
                             </span>
                             <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">Payment</span>
-                                <span class="bs-stepper-subtitle">Select Payment Method</span>
+                                <span class="bs-stepper-title">{{translate('Payment')}}</span>
+                                <span class="bs-stepper-subtitle">{{translate('Select Payment Method')}}</span>
                             </span>
                         </button>
                     </div>
@@ -106,14 +105,14 @@ $wishlist = session()->get('wishlist', []);
                                                 </ul>
                                             </div>
                                         </div>
-                                        <span class="text-success mb-1">Available</span>
+                                        <span class="text-success mb-1">{{translate('Available')}}</span>
 
                                         <livewire:store::cart.update-quantity :productId="$product->id" :quantity="$itemsById[$product->id]->qty" />
 
 
 
 
-                                        <span class="delivery-date text-muted">Date of creation, {{$product->created_at->diffForHumans()}}</span>
+                                        <span class="delivery-date text-muted">{{translate('Date of creation')}}, {{$product->created_at->diffForHumans()}}</span>
                                         <span class="text-success">{{$product->short_description}}</span>
                                     </div>
                                     <div class="item-options text-center">
@@ -138,45 +137,45 @@ $wishlist = session()->get('wishlist', []);
                             <div class="checkout-options">
                                 <div class="card">
                                     <div class="card-body">
-                                        <label class="section-label form-label mb-1">Options</label>
+                                        <label class="section-label form-label mb-1">{{translate('Options')}}</label>
                                         <div class="coupons input-group input-group-merge">
-                                            <input type="text" class="form-control" placeholder="Coupons" aria-label="Coupons" aria-describedby="input-coupons" />
-                                            <span class="input-group-text text-primary ps-1" id="input-coupons">Apply</span>
+                                            <input type="text" class="form-control" placeholder="{{translate('Coupons')}}" aria-label="Coupons" aria-describedby="input-coupons" />
+                                            <span class="input-group-text text-primary ps-1" id="input-coupons">{{translate('Apply')}}</span>
                                         </div>
                                         <hr />
                                         <div class="price-details">
-                                            <h6 class="price-title">Price Details</h6>
+                                            <h6 class="price-title">{{translate('Price Details')}}</h6>
                                             <ul class="list-unstyled">
                                                 <li class="price-detail">
-                                                    <div class="detail-title">Products Cost</div>
+                                                    <div class="detail-title">{{translate('Products Cost')}}</div>
                                                     <div class="detail-amt">
                                                         <livewire:client::cart.total />
                                                     </div>
                                                 </li>
                                                 <li class="price-detail">
-                                                    <div class="detail-title">Shipping Cost</div>
+                                                    <div class="detail-title">{{translate('Shipping Cost')}}</div>
                                                     <div class="detail-amt discount-amt text-success">0</div>
                                                 </li>
                                                 <li class="price-detail">
-                                                    <div class="detail-title">Cash on Delivary</div>
+                                                    <div class="detail-title">{{translate('Cash on Delivary')}}</div>
                                                     <div class="detail-amt">0</div>
                                                 </li>
                                                 <li class="price-detail">
-                                                    <div class="detail-title">Delivery Charges</div>
-                                                    <div class="detail-amt discount-amt text-success">Free</div>
+                                                    <div class="detail-title">{{translate('Delivery Charges')}}</div>
+                                                    <div class="detail-amt discount-amt text-success">{{translate('Free')}}</div>
                                                 </li>
                                             </ul>
                                             <hr />
                                             <ul class="list-unstyled">
                                                 <li class="price-detail">
-                                                    <div class="detail-title detail-total">Total</div>
+                                                    <div class="detail-title detail-total">{{translate('Total')}}</div>
                                                     <div class="detail-amt fw-bolder">
                                                         <livewire:client::cart.total />
                                                     </div>
                                                 </li>
                                             </ul>
                                             @if (Auth::check())
-                                            <button type="button" class="btn btn-primary w-100 btn-next place-order" disabled>Place Order</button>
+                                            <button type="button" class="btn btn-primary w-100 btn-next place-order" disabled>{{translate('Place Order')}}</button>
                                             @else
                                             <button data-bs-toggle="modal" data-bs-target="#userLoginModal" type="button" class="btn btn-primary w-100">Place Order</button>
                                             @endif
@@ -192,88 +191,12 @@ $wishlist = session()->get('wishlist', []);
                     <div id="step-address" class="content" role="tabpanel" aria-labelledby="step-address-trigger">
                         <form id="checkout-address" class="list-view product-checkout">
                             <!-- Checkout Customer Address Left starts -->
-                            <div class="card">
-                                <div class="card-header flex-column align-items-start">
-                                    <h4 class="card-title">Add New Address</h4>
-                                    <p class="card-text text-muted mt-25">Be sure to check "Deliver to this address" when you have finished</p>
-                                </div>
-                                <div class="card-body">
-                                    <div class="row">
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="mb-2">
-                                                <label class="form-label" cfor="checkout-name">Full Name:</label>
-                                                <input type="text" id="checkout-name" class="form-control" name="fname" placeholder="John Doe" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="mb-2">
-                                                <label class="form-label" cfor="checkout-number">Mobile Number:</label>
-                                                <input type="number" id="checkout-number" class="form-control" name="mnumber" placeholder="0123456789" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="mb-2">
-                                                <label class="form-label" cfor="checkout-apt-number">Flat, House No:</label>
-                                                <input type="number" id="checkout-apt-number" class="form-control" name="apt-number" placeholder="9447 Glen Eagles Drive" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="mb-2">
-                                                <label class="form-label" cfor="checkout-landmark">Landmark e.g. near apollo hospital:</label>
-                                                <input type="text" id="checkout-landmark" class="form-control" name="landmark" placeholder="Near Apollo Hospital" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="mb-2">
-                                                <label class="form-label" cfor="checkout-city">Town/City:</label>
-                                                <input type="text" id="checkout-city" class="form-control" name="city" placeholder="Tokyo" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="mb-2">
-                                                <label class="form-label" cfor="checkout-pincode">Pincode:</label>
-                                                <input type="number" id="checkout-pincode" class="form-control" name="pincode" placeholder="201301" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="mb-2">
-                                                <label class="form-label" cfor="checkout-state">State:</label>
-                                                <input type="text" id="checkout-state" class="form-control" name="state" placeholder="California" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-6 col-sm-12">
-                                            <div class="mb-2">
-                                                <label class="form-label" cfor="add-type">Address Type:</label>
-                                                <select class="form-select" id="add-type">
-                                                    <option>Home</option>
-                                                    <option>Work</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-12">
-                                            <button type="button" class="btn btn-primary btn-next delivery-address">Save And Deliver Here</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                             <!-- Checkout Customer Address Left ends -->
 
                             <!-- Checkout Customer Address Right starts -->
                             <div class="customer-card">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">John Doe</h4>
-                                    </div>
-                                    <div class="card-body actions">
-                                        <p class="card-text mb-0">9447 Glen Eagles Drive</p>
-                                        <p class="card-text">Lewis Center, OH 43035</p>
-                                        <p class="card-text">UTC-5: Eastern Standard Time (EST)</p>
-                                        <p class="card-text">202-555-0140</p>
-                                        <button type="button" class="btn btn-primary w-100 btn-next delivery-address mt-2">
-                                            Deliver To This Address
-                                        </button>
-                                    </div>
-                                </div>
+                               
                             </div>
                             <!-- Checkout Customer Address Right ends -->
                         </form>
@@ -283,94 +206,10 @@ $wishlist = session()->get('wishlist', []);
                     <div id="step-payment" class="content" role="tabpanel" aria-labelledby="step-payment-trigger">
                         <form id="checkout-payment" class="list-view product-checkout" onsubmit="return false;">
                             <div class="payment-type">
-                                <div class="card">
-                                    <div class="card-header flex-column align-items-start">
-                                        <h4 class="card-title">Payment options</h4>
-                                        <p class="card-text text-muted mt-25">Be sure to click on correct payment option</p>
-                                    </div>
-                                    <div class="card-body">
-                                        <h6 class="card-holder-name my-75">John Doe</h6>
-                                        <div class="form-check">
-                                            <input type="radio" id="customColorRadio1" name="paymentOptions" class="form-check-input" checked />
-                                            <label class="form-check-label" for="customColorRadio1">
-                                                US Unlocked Debit Card 12XX XXXX XXXX 0000
-                                            </label>
-                                        </div>
-                                        <div class="customer-cvv mt-1 row row-cols-lg-auto">
-                                            <div class="col-3 d-flex align-items-center">
-                                                <label class="mb-50 form-label" for="card-holder-cvv">Enter CVV:</label>
-                                            </div>
-                                            <div class="col-4 p-0">
-                                                <input type="password" class="form-control mb-50 input-cvv" name="input-cvv" id="card-holder-cvv" />
-                                            </div>
-                                            <div class="col-3">
-                                                <button type="button" class="btn btn-primary btn-cvv mb-50">Continue</button>
-                                            </div>
-                                        </div>
-                                        <hr class="my-2" />
-                                        <ul class="other-payment-options list-unstyled">
-                                            <li class="py-50">
-                                                <div class="form-check">
-                                                    <input type="radio" id="customColorRadio2" name="paymentOptions" class="form-check-input" />
-                                                    <label class="form-check-label" for="customColorRadio2"> Credit / Debit / ATM Card </label>
-                                                </div>
-                                            </li>
-                                            <li class="py-50">
-                                                <div class="form-check">
-                                                    <input type="radio" id="customColorRadio3" name="paymentOptions" class="form-check-input" />
-                                                    <label class="form-check-label" for="customColorRadio3"> Net Banking </label>
-                                                </div>
-                                            </li>
-                                            <li class="py-50">
-                                                <div class="form-check">
-                                                    <input type="radio" id="customColorRadio4" name="paymentOptions" class="form-check-input" />
-                                                    <label class="form-check-label" for="customColorRadio4"> EMI (Easy Installment) </label>
-                                                </div>
-                                            </li>
-                                            <li class="py-50">
-                                                <div class="form-check">
-                                                    <input type="radio" id="customColorRadio5" name="paymentOptions" class="form-check-input" />
-                                                    <label class="form-check-label" for="customColorRadio5"> Cash On Delivery </label>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <hr class="my-2" />
-                                        <div class="gift-card mb-25">
-                                            <p class="card-text">
-                                                <i data-feather="plus-circle" class="me-50 font-medium-5"></i>
-                                                <span class="align-middle">Add Gift Card</span>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="amount-payable checkout-options">
-                                <div class="card">
-                                    <div class="card-header">
-                                        <h4 class="card-title">Price Details</h4>
-                                    </div>
-                                    <div class="card-body">
-                                        <ul class="list-unstyled price-details">
-                                            <li class="price-detail">
-                                                <div class="details-title">Price of 3 items</div>
-                                                <div class="detail-amt">
-                                                    <strong>$699.30</strong>
-                                                </div>
-                                            </li>
-                                            <li class="price-detail">
-                                                <div class="details-title">Delivery Charges</div>
-                                                <div class="detail-amt discount-amt text-success">Free</div>
-                                            </li>
-                                        </ul>
-                                        <hr />
-                                        <ul class="list-unstyled price-details">
-                                            <li class="price-detail">
-                                                <div class="details-title">Amount Payable</div>
-                                                <div class="detail-amt fw-bolder">$699.30</div>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
+
                             </div>
                         </form>
                     </div>

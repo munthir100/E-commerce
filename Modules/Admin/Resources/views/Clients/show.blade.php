@@ -10,12 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Bootstrap Tables</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Show Client')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Table Bootstrap
+                                <li class="breadcrumb-item active">{{translate('Clients')}}
+                                </li>
+                                <li class="breadcrumb-item">{{$client->user->name}}
                                 </li>
                             </ol>
                         </div>
@@ -38,18 +40,18 @@
                             <ul class="list-style-icons">
                                 <li>
                                     <i data-feather="user"></i>
-                                    {{$client->user->name}} : name
+                                    {{$client->user->name}} : {{translate('name')}}
                                 </li>
                                 <li>
                                     <i data-feather='mail'></i>
                                     <a href="mailto:{{$client->user->email}}">
-                                        {{$client->user->email}} : email
+                                        {{$client->user->email}} : {{translate('email')}}
                                     </a>
                                 </li>
                                 <li>
                                     <i data-feather='phone-call'></i>
                                     <a href="tel:{{$client->user->phone}}">
-                                        {{$client->user->phone}} : phone
+                                        {{$client->user->phone}} : {{translate('phone')}}
                                     </a>
                                 </li>
                             </ul>
@@ -63,23 +65,27 @@
                         <ul class="list-style-icons">
                             <li class="mb-1">
                                 <i data-feather='clock'></i>
-                                {{$client->created_at}} : created at
+                                {{$client->created_at}} : {{translate('created at')}}
                             </li>
                             <li class="mb-1">
                                 <i data-feather='map-pin'></i>
-                                {{$client->city->name}} : city
+                                @if($client->city)
+                                {{$client->city->name}} : {{translate('city')}}
+                                @else
+                                {{translate('None City Found')}}
+                                @endif
                             </li>
                             <li class="mb-1">
                                 <i data-feather='user'></i>
-                                {{$client->gender}} : gender
+                                {{$client->gender}} : {{translate('gender')}}
                             </li>
                             <li class="mb-1">
                                 <i data-feather='clipboard'></i>
-                                {{$client->birth_date}} : birth date
+                                {{$client->birth_date}} : {{translate('birth date')}}
                             </li>
                             <li class="mb-1">
                                 <i data-feather='file-text'></i>
-                                {{$client->description}} : description
+                                {{$client->description}} : {{translate('description')}}
                             </li>
                         </ul>
                     </div>
@@ -88,17 +94,17 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Shipping adressess</h4>
+                                <h4 class="card-title">{{translate('Shipping adressess')}}</h4>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Project</th>
-                                            <th>Client</th>
-                                            <th>Users</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
+                                            <th>{{translate('Project')}}</th>
+                                            <th>{{translate('Client')}}</th>
+                                            <th>{{translate('Users')}}</th>
+                                            <th>{{translate('Status')}}</th>
+                                            <th>{{translate('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -106,7 +112,7 @@
                                         <tr>
                                             <div class="alert alert-danger">
                                                 <span class="text-danger">
-                                                    soon
+                                                    {{translate('soon')}}
                                                 </span>
                                             </div>
                                         </tr>
@@ -120,24 +126,24 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">orders</h4>
+                                <h4 class="card-title">{{translate('orders')}}</h4>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>Project</th>
-                                            <th>Client</th>
-                                            <th>Users</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
+                                            <th>{{translate('Project')}}</th>
+                                            <th>{{translate('Client')}}</th>
+                                            <th>{{translate('Users')}}</th>
+                                            <th>{{translate('Status')}}</th>
+                                            <th>{{translate('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <div class="alert alert-danger">
                                                 <span class="text-danger">
-                                                    soon
+                                                    {{translate('soon')}}
                                                 </span>
                                             </div>
                                         </tr>

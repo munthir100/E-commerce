@@ -45,6 +45,7 @@ class UpdateClientLivewire extends Component
     {
         $this->client->update($this->validate());
         $this->client->user->update($this->validate());
+        session()->flash('success','client data updated successfully');
         return to_route('admin.clients.index');
     }
 }

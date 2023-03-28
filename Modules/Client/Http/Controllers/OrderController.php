@@ -4,13 +4,15 @@ namespace Modules\Client\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     
     public function index($storeLink)
     {
-        return view('client::orders.index',compact('storeLink'));
+        $orders = null;
+        return view('client::orders.index',compact('storeLink','orders'));
     }
 
     

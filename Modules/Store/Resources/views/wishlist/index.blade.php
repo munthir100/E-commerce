@@ -1,5 +1,5 @@
 @extends('store::layouts.storeLayout')
-
+@section('title',"$store->store_name | wishlist")
 @section('content')
 <!-- BEGIN: Content-->
 <div class="app-content content ecommerce-application">
@@ -14,8 +14,6 @@
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
-                                </li>
-                                <li class="breadcrumb-item"><a href="#">eCommerce</a>
                                 </li>
                                 <li class="breadcrumb-item active">Wish List
                                 </li>

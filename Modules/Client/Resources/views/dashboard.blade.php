@@ -14,8 +14,6 @@
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">eCommerce</a>
-                                </li>
                                 <li class="breadcrumb-item active">Shop
                                 </li>
                             </ol>

@@ -9,7 +9,13 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Register</title>
+    <title>{{translate('Register')}}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -90,20 +96,26 @@
                         <!-- Register-->
                         <div class="d-flex col-lg-6 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                                <h2 class="card-title fw-bold mb-1">Adventure starts here 🚀</h2>
-                                <p class="card-text mb-2">Make your app management easy and fun!</p>
+                                <h2 class="card-title fw-bold mb-1">
+                                    {{translate('Adventure starts here 🚀')}}
+
+                                </h2>
+                                <p class="card-text mb-2">
+                                    {{translate('Make your app management easy and fun!')}}
+                                </p>
 
                                 <livewire:admin::auth.register />
 
-                                <p class="text-center mt-2"><span>Already have an account?</span>
+                                <p class="text-center mt-2"><span>
+                                    {{translate('Already have an account?')}}
+                                </span>
                                     <a href="{{route('login')}}">
-                                        <span>&nbsp;Sign in instead</span>
+                                        <span>&nbsp;
+                                            {{translate('Sign in instead')}}
+                                        </span>
                                     </a>
                                 </p>
-                                <div class="divider my-2">
-                                    <div class="divider-text">or</div>
-                                </div>
-                                <div class="auth-footer-btn d-flex justify-content-center"><a class="btn btn-facebook" href="#"><i data-feather="facebook"></i></a><a class="btn btn-twitter white" href="#"><i data-feather="twitter"></i></a><a class="btn btn-google" href="#"><i data-feather="mail"></i></a><a class="btn btn-github" href="#"><i data-feather="github"></i></a></div>
+                                
                             </div>
                         </div>
                         <!-- /Register-->

@@ -3,11 +3,11 @@
         <div class="col-12" style="text-align: end;">
             <div class="form-check form-check-inline">
                 <input class="form-check-input" type="checkbox" id="inlineCheckbox1" wire:model="is_active">
-                <label class="form-check-label" for="inlineCheckbox1">Publish in store</label>
+                <label class="form-check-label" for="inlineCheckbox1">{{translate('Publish in store')}}</label>
             </div>
         </div>
         <div class="mb-1">
-            <label class="form-label" for="basicSelect">category</label>
+            <label class="form-label" for="basicSelect">{{translate('category')}}</label>
             <select class="form-select" id="basicSelect" wire:model="parent_id">
                 <option value="{{$brand->category_id}}" selected>{{$brand->category->title}}</option>
                 @foreach($categories as $category)
@@ -18,12 +18,12 @@
         </div>
 
         <div class="mb-1">
-            <label class="form-label" for="disabledSelect">name</label>
-            <input wire:model="name" type="text" class="form-control" id="basicInput" placeholder="Enter name">
+            <label class="form-label" for="disabledSelect">{{translate('name')}}</label>
+            <input wire:model="name" type="text" class="form-control" id="basicInput" placeholder="{{translate('Enter name')}}">
             @error('name')<small class="text-danger">{{$message}}</small>@enderror
         </div>
         <div class="col-12" style="text-align: end;">
-            <button class="btn btn-primary" type="submit">save</button>
+            <button class="btn btn-primary" type="submit">{{translate('save')}}</button>
         </div>
     </form>
 </div>

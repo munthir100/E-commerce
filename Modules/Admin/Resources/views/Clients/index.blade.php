@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Bootstrap Tables</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Clients')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Table Bootstrap
+                                <li class="breadcrumb-item active">{{translate('Clients')}}
                                 </li>
                             </ol>
                         </div>
@@ -36,7 +36,7 @@
                                     <div class="head-label">
                                         <form method="GET" action="{{ route('admin.clients.index') }}">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2" name="q" value="{{ Request::get('q') }}">
+                                                <input type="text" class="form-control" placeholder="{{translate('search ..')}}" aria-describedby="button-addon2" name="q" value="{{ Request::get('q') }}">
                                                 <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
                                                     <i data-feather='search'></i>
                                                 </button>
@@ -50,7 +50,7 @@
                                         <button data-bs-toggle="modal" data-bs-target="#addclient" class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#modals-slide-in">
                                             <span>
                                                 <i data-feather="plus"></i>
-                                                Add
+                                                {{translate('Add')}}
                                             </span>
                                         </button>
                                     </div>
@@ -67,7 +67,7 @@
                                                 <line x1="12" y1="16" x2="12" y2="12"></line>
                                                 <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                             </svg>
-                                            <span>No Items to display it now .</span>
+                                            <span>{{translate('No Items to display it now .')}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -75,12 +75,12 @@
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>name</th>
-                                            <th>date of registerd</th>
-                                            <th>phone</th>
-                                            <th>email</th>
-                                            <th>number of orders</th>
-                                            <th>Actions</th>
+                                            <th>{{translate('name')}}</th>
+                                            <th>{{translate('date of registerd')}}</th>
+                                            <th>{{translate('phone')}}</th>
+                                            <th>{{translate('email')}}</th>
+                                            <th>{{translate('number of orders')}}</th>
+                                            <th>{{translate('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -99,12 +99,12 @@
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item" href="{{route('admin.clients.show',$client->id)}}">
                                                             <i data-feather="eye" class="me-50"></i>
-                                                            <span>Show</span>
+                                                            <span>{{translate('Show')}}</span>
                                                         </a>
 
                                                         <a class="dropdown-item" href="{{route('admin.clients.edit',$client->id)}}">
                                                             <i data-feather="edit-2" class="me-50"></i>
-                                                            <span>Edit</span>
+                                                            <span>{{translate('Edit')}}</span>
                                                         </a>
                                                         <livewire:admin::delete-client-livewire :client="$client" />
                                                     </div>
@@ -117,10 +117,10 @@
                                 <div class="col-2 mb-2 mt-2">
                                     <form method="GET" action="{{ route('admin.clients.index') }}" class="mr-10">
                                         <select class="form-select" name="per_page" onchange="this.form.submit()">
-                                            <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>10 items</option>
-                                            <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>25 items</option>
-                                            <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>50 items</option>
-                                            <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>100 items</option>
+                                            <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{translate('10 items')}}</option>
+                                            <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>{{translate('25 item')}}</option>
+                                            <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>{{translate('50 item')}}</option>
+                                            <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>{{translate('100 item')}}</option>
                                         </select>
                                     </form>
                                 </div>
@@ -143,8 +143,8 @@
             </div>
             <div class="modal-body pb-5 px-sm-5 pt-50">
                 <div class="text-center mb-2">
-                    <h1 class="mb-1">Add Client Information</h1>
-                    <p>Adding client details will receive a privacy audit.</p>
+                    <h1 class="mb-1">{{translate('Add Client Information')}}</h1>
+                    <p>{{translate('Adding client details will receive a privacy audit.')}}</p>
                 </div>
                 <livewire:admin::clients.store-client-livewire />
             </div>

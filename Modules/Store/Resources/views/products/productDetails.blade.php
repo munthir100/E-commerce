@@ -1,5 +1,5 @@
-@extends('store::layouts.storeLayout')
-
+`@extends('store::layouts.storeLayout')
+@section('title',"$store->store_name | $product->title")
 @section('content')
 <div class="app-content content ecommerce-application">
     <div class="content-overlay"></div>
@@ -9,16 +9,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Product Details</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Product Details')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('store.index',$store->store_link)}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">eCommerce</a>
+                                <li class="breadcrumb-item"><a href="{{route('store.index',$store->store_link)}}">{{translate('Products')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="app-ecommerce-shop.html">Shop</a>
-                                </li>
-                                <li class="breadcrumb-item active">Details
+                                <li class="breadcrumb-item active">{{$product->title}}
                                 </li>
                             </ol>
                         </div>
@@ -41,7 +39,14 @@
                             </div>
                             <div class="col-12 col-md-7">
                                 <h4>{{$product->title}}</h4>
-                                <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
+                                <span class="card-text item-company">{{translate('Category:')}} <a href="#" class="company-name">
+                                        @if($product->category)
+                                        {{$product->category->title}}
+                                        @else
+                                        {{translate('None')}}
+                                        @endif
+                                    </a>
+                                </span>
                                 <div class="ecommerce-details-price d-flex flex-wrap mt-1">
                                     <h4 class="item-price me-1">${{$product->price}}</h4>
                                     <ul class="unstyled-list list-inline ps-1 border-start">
@@ -57,32 +62,42 @@
                                     {{$product->description}}
                                 </p>
                                 <ul class="product-features list-unstyled">
-                                    <li><i data-feather="shopping-cart"></i> <span class="text-success">Available now</span></li>
+                                    <li><i data-feather="shopping-cart"></i> <span class="text-success">{{translate('Available now')}}</span></li>
                                 </ul>
 
                                 <hr />
                                 <div class="d-flex flex-column flex-sm-row pt-1">
-                                    <livewire:store::cart.add-to-cart :product="$product" />
-                                    <a href="#" class="btn btn-outline-secondary btn-wishlist me-0 me-sm-1 mb-1 mb-sm-0">
-                                        <i data-feather="heart" class="me-50"></i>
-                                        <span>Wishlist</span>
-                                    </a>
+                                    <livewire:store::cart.add-to-cart :product="$product" source="productDetails" />
+
+                                    <livewire:store::wishlist.wishlist :product="$product" source="productDetails" />
+
                                     <div class="btn-group dropdown-icon-wrapper btn-share">
-                                        <button type="button" class="btn btn-icon hide-arrow btn-outline-secondary dropdown-toggle" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <i data-feather="share-2"></i>
+                                        <button type="button" class="btn btn-icon hide-arrow btn-outline-secondary dropdown-toggle waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-share-2">
+                                                <circle cx="18" cy="5" r="3"></circle>
+                                                <circle cx="6" cy="12" r="3"></circle>
+                                                <circle cx="18" cy="19" r="3"></circle>
+                                                <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                                <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                            </svg>
                                         </button>
                                         <div class="dropdown-menu dropdown-menu-end">
-                                            <a href="#" class="dropdown-item">
-                                                <i data-feather="facebook"></i>
+                                            <a href="javascript:void(0);" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u={{route('store.product-details',[$store->store_link,$product->id])}}', 'facebook-share', 'width=500,height=500');" class="dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+                                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                                </svg>
                                             </a>
-                                            <a href="#" class="dropdown-item">
-                                                <i data-feather="twitter"></i>
+                                            <a href="javascript:void(0);" onclick="window.open('https://twitter.com/intent/tweet?text=&url={{route('store.product-details',[$store->store_link,$product->id])}}', 'twitter-share', 'width=500,height=500');" class="dropdown-item">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter">
+                                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                                </svg>
                                             </a>
-                                            <a href="#" class="dropdown-item">
-                                                <i data-feather="youtube"></i>
+                                            <a href="javascript:void(0);" onclick="window.open('https://t.me/share/url?url={{route('store.product-details',[$store->store_link,$product->id])}}&text={{route('store.index',[$store->store_link])}}', 'telegram-share', 'width=500,height=500');" class="dropdown-item">
+                                                <i class="fab fa-telegram"></i>
                                             </a>
-                                            <a href="#" class="dropdown-item">
-                                                <i data-feather="instagram"></i>
+
+                                            <a href="javascript:void(0);" onclick="window.open('https://wa.me/?text={{route('store.product-details',[$store->store_link,$product->id])}}', 'whatsapp-share', 'width=500,height=500');" class="dropdown-item">
+                                                <i class="fab fa-whatsapp"></i>
                                             </a>
                                         </div>
                                     </div>
@@ -92,47 +107,23 @@
                     </div>
                     <!-- Product Details ends -->
 
-                    <!-- Item features starts -->
-                    <div class="item-features">
-                        <div class="row text-center">
-                            <div class="col-12 col-md-4 mb-4 mb-md-0">
-                                <div class="w-75 mx-auto">
-                                    <i data-feather="award"></i>
-                                    <h4 class="mt-2 mb-1">100% Original</h4>
-                                    <p class="card-text">Chocolate bar candy canes ice cream toffee. Croissant pie cookie halvah.</p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-4 mb-md-0">
-                                <div class="w-75 mx-auto">
-                                    <i data-feather="clock"></i>
-                                    <h4 class="mt-2 mb-1">10 Day Replacement</h4>
-                                    <p class="card-text">Marshmallow biscuit donut dragée fruitcake. Jujubes wafer cupcake.</p>
-                                </div>
-                            </div>
-                            <div class="col-12 col-md-4 mb-4 mb-md-0">
-                                <div class="w-75 mx-auto">
-                                    <i data-feather="shield"></i>
-                                    <h4 class="mt-2 mb-1">1 Year Warranty</h4>
-                                    <p class="card-text">Cotton candy gingerbread cake I love sugar plum I love sweet croissant.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Item features ends -->
+
 
                     <!-- Related Products starts -->
+                    @if($relatedProducts->isNotEmpty())
                     <div class="card-body">
                         <div class="mt-4 mb-2 text-center">
-                            <h4>Related Products</h4>
-                            <p class="card-text">People also search for this items</p>
+                            <h4>{{translate('Related Products')}}</h4>
+                            <p class="card-text">{{translate('People also search for this items')}}</p>
                         </div>
                         <div class="swiper-responsive-breakpoints swiper-container px-4 py-2">
                             <div class="swiper-wrapper">
+                                @foreach($relatedProducts as $product)
                                 <div class="swiper-slide">
                                     <a href="#">
                                         <div class="item-heading">
-                                            <h5 class="text-truncate mb-0">Apple Watch Series 6</h5>
-                                            <small class="text-body">by Apple</small>
+                                            <h5 class="text-truncate mb-0">{{$product->title}}</h5>
+                                            <small class="text-body">{{$product->short_description}}</small>
                                         </div>
                                         <div class="img-container w-50 mx-auto py-75">
                                             <img src="../../../app-assets/images/elements/apple-watch.png" class="img-fluid" alt="image" />
@@ -145,100 +136,18 @@
                                                 <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
                                                 <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
                                             </ul>
-                                            <p class="card-text text-primary mb-0">$399.98</p>
+                                            <p class="card-text text-primary mb-0">${{$product->price}}</p>
                                         </div>
                                     </a>
                                 </div>
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <div class="item-heading">
-                                            <h5 class="text-truncate mb-0">Apple MacBook Pro - Silver</h5>
-                                            <small class="text-body">by Apple</small>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto py-50">
-                                            <img src="../../../app-assets/images/elements/macbook-pro.png" class="img-fluid" alt="image" />
-                                        </div>
-                                        <div class="item-meta">
-                                            <ul class="unstyled-list list-inline mb-25">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                            </ul>
-                                            <p class="card-text text-primary mb-0">$2449.49</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <div class="item-heading">
-                                            <h5 class="text-truncate mb-0">Apple HomePod (Space Grey)</h5>
-                                            <small class="text-body">by Apple</small>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto py-75">
-                                            <img src="../../../app-assets/images/elements/homepod.png" class="img-fluid" alt="image" />
-                                        </div>
-                                        <div class="item-meta">
-                                            <ul class="unstyled-list list-inline mb-25">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                            </ul>
-                                            <p class="card-text text-primary mb-0">$229.29</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <div class="item-heading">
-                                            <h5 class="text-truncate mb-0">Magic Mouse 2 - Black</h5>
-                                            <small class="text-body">by Apple</small>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto py-75">
-                                            <img src="../../../app-assets/images/elements/magic-mouse.png" class="img-fluid" alt="image" />
-                                        </div>
-                                        <div class="item-meta">
-                                            <ul class="unstyled-list list-inline mb-25">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                            </ul>
-                                            <p class="card-text text-primary mb-0">$90.98</p>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#">
-                                        <div class="item-heading">
-                                            <h5 class="text-truncate mb-0">iPhone 12 Pro</h5>
-                                            <small class="text-body">by Apple</small>
-                                        </div>
-                                        <div class="img-container w-50 mx-auto py-75">
-                                            <img src="../../../app-assets/images/elements/iphone-x.png" class="img-fluid" alt="image" />
-                                        </div>
-                                        <div class="item-meta">
-                                            <ul class="unstyled-list list-inline mb-25">
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
-                                            </ul>
-                                            <p class="card-text text-primary mb-0">$1559.99</p>
-                                        </div>
-                                    </a>
-                                </div>
+                                @endforeach
                             </div>
                             <!-- Add Arrows -->
                             <div class="swiper-button-next"></div>
                             <div class="swiper-button-prev"></div>
                         </div>
                     </div>
+                    @endif
                     <!-- Related Products ends -->
                 </div>
             </section>
@@ -251,7 +160,7 @@
 
 
 @section('styles')
-
+<link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/swiper.min.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/app-ecommerce-details.css">

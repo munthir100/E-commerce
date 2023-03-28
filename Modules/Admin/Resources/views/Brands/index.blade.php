@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Bootstrap Tables</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Brands')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Table Bootstrap
+                                <li class="breadcrumb-item active">{{translate('Brands')}}
                                 </li>
                             </ol>
                         </div>
@@ -37,7 +37,7 @@
                                     <div class="head-label">
                                         <form method="GET" action="{{ route('admin.brands.index') }}">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2" name="q" value="{{ Request::get('q') }}">
+                                                <input type="text" class="form-control" placeholder="{{translate('search ..')}}" aria-describedby="button-addon2" name="q" value="{{ Request::get('q') }}">
                                                 <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
                                                     <i data-feather='search'></i>
                                                 </button>
@@ -50,7 +50,7 @@
                                         <form method="GET" action="{{ route('admin.brands.index') }}">
 
                                             <select class="select2 form-select" name="category_id" onchange="this.form.submit()">
-                                                <option value="">All categories</option>
+                                                <option value="">{{translate('All categories')}}</option>
                                                 @foreach($categories as $category)
                                                 <option value="{{ $category->id }}" {{ Request::get('category_id') == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
                                                 @endforeach
@@ -66,7 +66,7 @@
                                     <div class="dt-buttons d-inline-flex">
                                         <a data-bs-toggle="modal" data-bs-target="#addNewBrand" href="#" class="dt-button create-new btn btn-primary">
                                             <span>
-                                                <i data-feather="plus"></i>Add New Brand
+                                                <i data-feather="plus"></i>{{translate('Add New Brand')}}
                                             </span>
                                         </a>
                                     </div>
@@ -83,7 +83,7 @@
                                                 <line x1="12" y1="16" x2="12" y2="12"></line>
                                                 <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                             </svg>
-                                            <span>No Items to display it now .</span>
+                                            <span>{{translate('No Items to display it now .')}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -91,11 +91,11 @@
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>name</th>
-                                            <th>number of products</th>
-                                            <th>category</th>
-                                            <th>status</th>
-                                            <th>Actions</th>
+                                            <th>{{translate('name')}}</th>
+                                            <th>{{translate('number of products')}}</th>
+                                            <th>{{translate('category')}}</th>
+                                            <th>{{translate('status')}}</th>
+                                            <th>{{translate('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -117,7 +117,7 @@
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item" href="{{route('admin.brands.edit',[$brand->id])}}">
                                                             <i data-feather="edit-2" class="me-50"></i>
-                                                            <span>Edit</span>
+                                                            <span>{{translate('Edit')}}</span>
                                                         </a>
                                                         <livewire:admin::brands.delete-brand-livewire :brand="$brand" />
                                                     </div>
@@ -151,7 +151,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="addNewBrandTitle">Modal title</h5>
+                <h5 class="modal-title" id="addNewBrandTitle">{{translate('create new brand')}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <livewire:admin::brands.create-brand-livewire :categories="$categories" />

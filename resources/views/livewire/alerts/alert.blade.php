@@ -4,7 +4,7 @@
     <div class="demo-spacing-0 mb-1">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <div class="alert-body">
-                {{ session('success') }}
+                {{ translate(session('success')) }}
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -15,7 +15,7 @@
     <div class="demo-spacing-0 mb-1">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <div class="alert-body">
-                {{ $errorMessage }}
+                {{ translate($errorMessage) }}
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -26,7 +26,7 @@
     <div class="demo-spacing-0 mb-1">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <div class="alert-body">
-                {{ $successMassage }}
+                {{ translate($successMassage) }}
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -45,34 +45,34 @@
     @endpush
 
     <script>
-    window.addEventListener('confirmDelete', (event) => {
-        Swal.fire({
-            title: event.detail.message,
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonText: 'Yes, delete it!',
-            customClass: {
-                confirmButton: 'btn btn-primary',
-                cancelButton: 'btn btn-outline-danger ms-1'
-            },
-            buttonsStyling: false
-        }).then(function(result) {
-            if (result.isConfirmed) {
-                Livewire.emit(event.detail.callback, event.detail.id);
-            }
-            if (result.value) {
-                Swal.fire({
-                    icon: 'success',
-                    title: 'Deleted!',
-                    text: 'Your file has been deleted.',
-                    customClass: {
-                        confirmButton: 'btn btn-success'
-                    }
-                });
-            }
+        window.addEventListener('confirmDelete', (event) => {
+            Swal.fire({
+                title: event.detail.message,
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                customClass: {
+                    confirmButton: 'btn btn-primary',
+                    cancelButton: 'btn btn-outline-danger ms-1'
+                },
+                buttonsStyling: false
+            }).then(function(result) {
+                if (result.isConfirmed) {
+                    Livewire.emit(event.detail.callback, event.detail.id);
+                }
+                if (result.value) {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Deleted!',
+                        text: 'Your file has been deleted.',
+                        customClass: {
+                            confirmButton: 'btn btn-success'
+                        }
+                    });
+                }
+            });
         });
-    });
-</script>
+    </script>
 
 
 
@@ -91,7 +91,7 @@
         });
     </script>
 
-<script>
+    <script>
         window.addEventListener('addSuccess', () => {
             Swal.fire({
                 title: 'Successfull',
@@ -105,5 +105,20 @@
             })
         });
     </script>
+
+    <script>
+        $('#notAvailable').on('click', function() {
+            Swal.fire({
+                title: '{{ translate("Warning!") }}',
+                text: '{{ translate("Please upgrade your package becouse this fddeature is not available in your package!") }}',
+                icon: 'warning',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+        });
+    </script>
+
 
 </div>

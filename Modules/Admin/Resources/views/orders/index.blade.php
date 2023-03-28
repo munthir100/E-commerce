@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Bootstrap Tables</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Orders')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Table Bootstrap
+                                <li class="breadcrumb-item active">{{translate('Orders')}}
                                 </li>
                             </ol>
                         </div>
@@ -33,7 +33,7 @@
                             <div class="head-label">
                                 <form action="#soon">
                                     <div class="input-group">
-                                        <input type="text" class="form-control" placeholder="search .." aria-describedby="button-addon2">
+                                        <input type="text" class="form-control" placeholder="{{translate('search ..')}}" aria-describedby="button-addon2">
                                         <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
                                             <i data-feather='search'></i>
                                         </button>
@@ -44,7 +44,7 @@
                                 <div class="dt-buttons d-inline-flex">
                                     <button id="new-order" class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button"><span>
                                             <i data-feather="plus"></i>
-                                            Add New Order
+                                            {{translate('Add New Order')}}
                                         </span>
                                     </button>
                                 </div>
@@ -61,7 +61,7 @@
                                             <line x1="12" y1="16" x2="12" y2="12"></line>
                                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                         </svg>
-                                        <span>No Items to display it now .</span>
+                                        <span>{{translate('No Items to display it now .')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -69,14 +69,14 @@
                             <table class="table table-striped table-bordered">
                                 <thead>
                                     <tr>
-                                        <th>Order number</th>
-                                        <th>Client</th>
-                                        <th>Date</th>
-                                        <th>Payment</th>
-                                        <th>Shipping</th>
-                                        <th>Total</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>{{translate('Order number')}}</th>
+                                        <th>{{translate('Client')}}</th>
+                                        <th>{{translate('Date')}}</th>
+                                        <th>{{translate('Payment')}}</th>
+                                        <th>{{translate('Shipping')}}</th>
+                                        <th>{{translate('Total')}}</th>
+                                        <th>{{translate('Status')}}</th>
+                                        <th>{{translate('Actions')}}</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -95,16 +95,16 @@
                                                 <div class="dropdown-menu dropdown-menu-end">
                                                     <a class="dropdown-item" href="{{route('admin.clients.show',$client->id)}}">
                                                         <i data-feather="eye" class="me-50"></i>
-                                                        <span>Show</span>
+                                                        <span>{{translate('Show')}}</span>
                                                     </a>
 
                                                     <a class="dropdown-item" href="{{route('admin.clients.edit',$client->id)}}">
                                                         <i data-feather="edit-2" class="me-50"></i>
-                                                        <span>Edit</span>
+                                                        <span>{{translate('Edit')}}</span>
                                                     </a>
                                                     <a class="dropdown-item" href="#">
                                                         <i data-feather="trash" class="me-50"></i>
-                                                        <span>Delete</span>
+                                                        <span>{{translate('Delete')}}</span>
                                                     </a>
                                                 </div>
                                             </div>
@@ -131,8 +131,8 @@
             </div>
             <div class="modal-body pb-5 px-sm-5 pt-50">
                 <div class="text-center mb-2">
-                    <h1 class="mb-1">Add Client Information</h1>
-                    <p>Adding client details will receive a privacy audit.</p>
+                    <h1 class="mb-1">{{translate('Add Client Information')}}</h1>
+                    <p>{{translate('Adding client details will receive a privacy audit.')}}</p>
                 </div>
                 <livewire:admin::clients.store-client-livewire />
             </div>
@@ -157,8 +157,8 @@
     if (warning.length) {
         warning.on('click', function() {
             Swal.fire({
-                title: 'Warning!',
-                text: ' Please upgrade your package becouse this feature is not available in your package!',
+                title: '{{translate("Warning!")}}',
+                text: ' {{translate("Please upgrade your package becouse this feature is not available in your package!")}}',
                 icon: 'warning',
                 customClass: {
                     confirmButton: 'btn btn-primary'

@@ -2,68 +2,77 @@
 
 namespace Modules\Store\Http\Controllers;
 
+use Modules\Admin\Entities\Store;
 use App\Traits\HasCategoriesTrait;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Product;
 use Modules\Admin\Entities\Category;
-use Modules\Admin\Entities\FeatureView;
 use Gloudemans\Shoppingcart\Facades\Cart;
 
 class StoreController extends Controller
 {
     use HasCategoriesTrait;
 
-    public function index($storeLink)
+    public function index(Store $store)
     {
         $searchQuery = request()->query('searchTerm', '');
         $categoryId = request()->query('category_id', null);
 
-        $allCategories = Category::forStoreLink($storeLink)->isActive()->get();
-        $categories = Category::buildCategoryTree($allCategories);
-        $products = Product::forStoreLink($storeLink)->isActive()
+        $categories = Category::buildCategoryTree($store->categories()->isActive()->get());
+
+        $products = $store->products()
+            ->isActive()
             ->when($searchQuery, function ($query, $searchQuery) {
                 return $query->where('title', 'like', '%' . $searchQuery . '%');
-            })->orWhere('price', $searchQuery)->get();
-
-
-        return view('store::index', compact('categories', 'storeLink', 'products'));
+            })
+            ->orWhere('price', $searchQuery)
+            ->get();
+        $products_count = $products->count();
+        return view('store::index', compact('categories', 'store', 'products', 'products_count'));
     }
 
 
-    public function productDetails($storeLink, $productId)
+
+
+    public function productDetails(Store $store, $productId)
     {
         $product = Product::with('category')->isActive()->findOrFail($productId);
-        $categories = $this->getCategories($storeLink);
-
-        return view('store::products.productDetails', compact('storeLink', 'product', 'categories'));
+        $categories = Category::buildCategoryTree($store->categories()->isActive()->get());
+        $relatedProducts = $store->products()
+            ->where('category_id', $product->category_id)
+            ->where('id', '!=', $productId)
+            ->get();
+        return view('store::products.productDetails', compact('store', 'product', 'categories', 'relatedProducts'));
     }
 
 
-    public function categoryProducts($storeLink, $categoryTitle)
+    public function categoryProducts(Store $store, Category $category)
     {
-        $category = Category::where('title', $categoryTitle)->forStoreLink($storeLink)->with('products')->isActive()->first();
+        $categories = Category::buildCategoryTree($store->categories()->isActive()->get());
         $products = $category->products;
-        $categories = $this->getCategories($storeLink);
 
-        return view('store::categories.categoryProducts', compact('storeLink', 'category', 'products', 'categories'));
+        return view('store::categories.categoryProducts', compact('store', 'category', 'products', 'categories'));
     }
 
-    public function checkout($storeLink)
+    public function checkout(Store $store)
     {
-        $categories = $this->getCategories($storeLink);
+        $categories = Category::buildCategoryTree($store->categories()->isActive()->get());
         $items = Cart::content();
         $productIds = [];
 
         foreach ($items as $item) {
             $productIds[] = $item->id;
         }
-        $products = Product::whereIn('id', $productIds)->get();
+        $products = $store->products()->whereIn('id', $productIds)->get();
 
-        return view('store::checkout.index', compact('categories', 'storeLink'))->with('items', $items)->with('products', $products);
+        return view('store::checkout.index', compact('categories', 'store'))->with('items', $items)->with('products', $products);
     }
 
-    public function shipping()
+    public function wishlist(Store $store)
     {
-        dd('soon');
+        $wishlist = session()->get('wishlist', []);
+        $wishlistProducts = $store->products()->whereIn('id', $wishlist)->get();
+        $categories = Category::buildCategoryTree($store->categories()->isActive()->get());
+        return view('store::Wishlist.index', compact('store', 'wishlistProducts', 'categories'));
     }
 }

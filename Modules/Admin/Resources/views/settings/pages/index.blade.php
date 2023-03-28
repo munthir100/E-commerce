@@ -10,14 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Statistics Cards</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Definition Pages')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Cards</a>
+                                <li class="breadcrumb-item"><a href="#">{{translate('Settings')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Statistics Cards
+                                <li class="breadcrumb-item active">{{translate('Definition Pages')}}
                                 </li>
                             </ol>
                         </div>
@@ -37,13 +37,14 @@
                                 <div class="card-header border-bottom p-1">
                                     <div class="head-label">
                                         <p class="card-text">
-                                            Create meta pages at the bottom of the page in the terms and conditions below.
+                                            {{translate('Create definition pages at the bottom of the page in the terms and conditions below.')}}
                                         </p>
                                     </div>
                                     <div class="dt-action-buttons text-end">
                                         <div class="dt-buttons d-inline-flex">
-                                            <a href="#" class="dt-button create-new btn btn-primary" data-bs-toggle="modal" data-bs-target="#addPage">
-                                                <span><i data-feather="plus"></i>Add New</span>
+                                            <!-- data-bs-toggle="modal" data-bs-target="#addPage" -->
+                                            <a href="#" class="dt-button create-new btn btn-primary" onclick="notAvailable()">
+                                                <span><i data-feather="plus"></i>{{translate('Add New')}}</span>
                                             </a>
                                         </div>
                                     </div>
@@ -52,9 +53,9 @@
                                     <table class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Titile</th>
-                                                <th>Publish in store</th>
-                                                <th>Actions</th>
+                                                <th>{{translate('Titile')}}</th>
+                                                <th>{{translate('Publish in store')}}</th>
+                                                <th>{{translate('Actions')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -62,9 +63,9 @@
                                             <tr>
                                                 <td style="min-height: 10rem;">{{$definitionPage->title}}</td>
                                                 @if($definitionPage->is_active == true)
-                                                <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                                                <td><span class="badge rounded-pill badge-light-primary me-1">{{translate('Active')}}</span></td>
                                                 @else
-                                                <td><span class="badge rounded-pill badge-light-secondary me-1">Not Active</span></td>
+                                                <td><span class="badge rounded-pill badge-light-secondary me-1">{{translate('Not Active')}}</span></td>
                                                 @endif
                                                 <td>
                                                     <div class="dropdown">
@@ -80,7 +81,7 @@
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 me-50">
                                                                     <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
                                                                 </svg>
-                                                                <span>Edit</span>
+                                                                <span>{{translate('Edit')}}</span>
                                                             </a>
                                                             <form action="{{ route('admin.settings.pages.destroy', $definitionPage->id) }}" method="POST">
                                                                 @csrf
@@ -90,7 +91,7 @@
                                                                         <polyline points="3 6 5 6 21 6"></polyline>
                                                                         <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
                                                                     </svg>
-                                                                    <span>Delete</span>
+                                                                    <span>{{translate('Delete')}}</span>
                                                                 </button>
                                                             </form>
                                                         </div>
@@ -119,7 +120,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body px-sm-5 mx-50 pb-5">
-                <h1 class="text-center mb-1" id="addPageTitle">Add Definition Page</h1>
+                <h1 class="text-center mb-1" id="addPageTitle">{{translate('Add Definition Page')}}</h1>
 
                 <!-- form -->
                 <livewire:admin::create-definition-page />

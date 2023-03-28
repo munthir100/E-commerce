@@ -29,9 +29,15 @@ return new class extends Migration
             $table->string('facebook_user')->nullable();
             $table->string('google_play_link')->nullable();
             $table->string('apple_store_link')->nullable();
-            
+
 
             $table->string('store_desc')->nullable();
+
+            $table->foreignId('country_id')
+                ->nullable()
+                ->references('id')
+                ->on('countries')
+                ->nullOnDelete();
 
             $table->foreignId('city_id')
                 ->nullable()

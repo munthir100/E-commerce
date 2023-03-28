@@ -25,16 +25,16 @@
                 </div>
                 <h6 class="item-name">
                     <a class="text-body" href="{{route('store.product-details',[$storeLink,$product->id])}}">{{$product->title}}</a>
-                    <span class="card-text item-company">By <a href="#" class="company-name">Apple</a></span>
+                    <span class="card-text item-company"> <a href="#" class="company-name">{{$product->short_description}}</a></span>
                 </h6>
                 <p class="card-text item-description">
-                    {{$product->short_description}}
+                    {{$product->description}}
                 </p>
             </div>
             <div class="item-options text-center">
                 <div class="item-wrapper">
                     <div class="item-cost">
-                        <h4 class="item-price">{{$product->price}}</h4>
+                        <h4 class="item-price">${{$product->price}}</h4>
                     </div>
                 </div>
                 <livewire:store::wishlist.wishlist :product="$product" source="product-list" />

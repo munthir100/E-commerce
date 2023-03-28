@@ -10,6 +10,12 @@
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>@yield('title')</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -61,22 +67,55 @@
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
+                @if(Session::get('locale') == 'ar')
+                <li class="nav-item dropdown dropdown-language">
+                    <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="flag-icon flag-icon-sa"></i>
+                        <span class="selected-language">اللغة العربية</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-flag">
+                        <form method="POST" action="{{ route('admin.change.language') }}">
+                            @csrf
+                            <button type="submit" name="locale" value="en" class="dropdown-item" style="width:100%">
+                                <i class="flag-icon flag-icon-us"></i>
+                                English
+                            </button>
+                        </form>
+                    </div>
+                </li>
+                @else
+                <li class="nav-item dropdown dropdown-language">
+                    <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="flag-icon flag-icon-us"></i>
+                        <span class="selected-language">{{ translate('English') }}</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-flag">
+                        <form method="POST" action="{{ route('admin.change.language') }}">
+                            @csrf
+                            <button type="submit" name="locale" value="ar" class="dropdown-item" style="width:100%">
+                                <i class="flag-icon flag-icon-sa"></i>
+                                {{ translate('اللغة العربية') }}
+                            </button>
+                        </form>
+                    </div>
+                </li>
+                @endif
 
                 <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
                 <li class="nav-item nav-search"><a class="nav-link nav-link-search"><i class="ficon" data-feather="search"></i></a>
                     <div class="search-input">
                         <div class="search-input-icon"><i data-feather="search"></i></div>
-                        <input class="form-control input" type="text" placeholder="Explore Vuexy..." tabindex="-1" data-search="search">
+                        <input class="form-control input" type="text" placeholder="{{ translate('Explore Vuexy...') }}" tabindex="-1" data-search="search">
                         <div class="search-input-close"><i data-feather="x"></i></div>
                     </div>
                 </li>
 
-                <li class="nav-item dropdown dropdown-notification me-25"><a class="nav-link" href="#" data-bs-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge rounded-pill bg-danger badge-up">5</span></a>
+                <li class="nav-item dropdown dropdown-notification me-25"><a class="nav-link" href="#" data-bs-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge rounded-pill bg-danger badge-up">0</span></a>
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 me-auto">Notifications</h4>
-                                <div class="badge rounded-pill badge-light-primary">0 New</div>
+                                <h4 class="notification-title mb-0 me-auto">{{ translate('Notifications') }}</h4>
+                                <div class="badge rounded-pill badge-light-primary">0 {{ translate('New') }}</div>
                             </div>
                         </li>
                         <li class="scrollable-container media-list"><a class="d-flex" href="#">
@@ -90,11 +129,15 @@
                         <li class="dropdown-menu-footer"><a class="btn btn-primary w-100 disabled" href="#">Read all notifications</a></li>
                     </ul>
                 </li>
-                <li class="nav-item dropdown dropdown-user"><a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <div class="user-nav d-sm-flex d-none"><span class="user-name fw-bolder">John Doe</span><span class="user-status">Admin</span></div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                <li class="nav-item dropdown dropdown-user">
+                    <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="user-nav d-sm-flex d-none">
+                            <span class="user-name fw-bolder">{{Auth::user()->name}}</span>
+                            <span class="user-status">{{translate('Admin')}}</span>
+                        </div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                        <a class="dropdown-item" href="{{route('admin.settings.profile')}}"><i class="me-50" data-feather="user"></i> Profile</a>
+                        <a class="dropdown-item" href="{{route('admin.settings.profile')}}"><i class="me-50" data-feather="user"></i> {{translate('Profile')}}</a>
                         <div class="dropdown-divider"></div>
                         <livewire:admin::auth.logout />
                     </div>
@@ -199,7 +242,7 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link font-medium-3 me-50">
                                             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                                             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                                        </svg><span class="fw-bold">Link</span>
+                                        </svg><span class="fw-bold">{{ translate('Store Link')}}</span>
                                     </a>
                                 </span>
                             </div>
@@ -217,34 +260,34 @@
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="{{route('admin.index')}}"><i data-feather="home"></i>
-                        <span class="menu-title text-truncate" data-i18n="Home">Home</span>
+                        <span class="menu-title text-truncate" data-i18n="{{ translate('Home') }}">{{ translate('home') }}</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="#">
                         <i data-feather='shopping-bag'></i>
-                        <span class="menu-title text-truncate" data-i18n="products">products</span>
+                        <span class="menu-title text-truncate" data-i18n="{{ translate('Products') }}">{{ translate('Products') }}</span>
                     </a>
                     <ul class="menu-content">
                         <li>
                             <a class="d-flex align-items-center" href="{{route('admin.categories.index')}}">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="categories">categories</span>
+                                <span class="menu-item text-truncate" data-i18n="{{ translate('Categories') }}">{{ translate('Categories') }}</span>
                             </a>
                         </li>
 
                         <li>
                             <a class="d-flex align-items-center" href="{{route('admin.products.index')}}">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="products">products</span>
+                                <span class="menu-item text-truncate" data-i18n="{{ translate('Products') }}">{{ translate('Products') }}</span>
                             </a>
                         </li>
 
                         <li>
                             <a class="d-flex align-items-center" href="{{route('admin.brands.index')}}">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="brands">brands</span>
+                                <span class="menu-item text-truncate" data-i18n="{{ translate('Brands') }}">{{ translate('Brands') }}</span>
                             </a>
                         </li>
                     </ul>
@@ -252,42 +295,42 @@
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="{{route('admin.orders.index')}}">
-                        <i data-feather='shopping-bag'></i>
-                        <span class="menu-title text-truncate" data-i18n="orders">orders</span>
+                        <i data-feather='truck'></i>
+                        <span class="menu-title text-truncate" data-i18n="{{ translate('Orders') }}">{{ translate('Orders') }}</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="{{route('admin.clients.index')}}">
                         <i data-feather='users'></i>
-                        <span class="menu-title text-truncate" data-i18n="clients">clients</span>
+                        <span class="menu-title text-truncate" data-i18n="{{ translate('Clients') }}">{{ translate('Clients') }}</span>
                     </a>
                 </li>
 
-                <li class="nav-item" id="notAvailable">
+                <li class="nav-item" onclick="notAvailable()">
                     <a class="d-flex align-items-center" href="#">
                         <i data-feather='pie-chart'></i>
-                        <span class="menu-title text-truncate" data-i18n="reports">reports</span>
+                        <span class="menu-title text-truncate" data-i18n="{{ translate('Reports') }}">{{ translate('Reports') }}</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="#">
                         <i data-feather='shopping-bag'></i>
-                        <span class="menu-title text-truncate" data-i18n="marketing">marketing</span>
+                        <span class="menu-title text-truncate" data-i18n="{{ translate('Marketing') }}">{{ translate('Marketing') }}</span>
                     </a>
                     <ul class="menu-content">
-                        <li id="notAvailable1">
+                        <li onclick="notAvailable()">
                             <a class="d-flex align-items-center" href="#">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="affilate marketing">affilate marketing</span>
+                                <span class="menu-item text-truncate" data-i18n="{{ translate('Affilate Marketing') }}">{{ translate('Affilate Marketing') }}</span>
                             </a>
                         </li>
 
-                        <li id="notAvailable2">
+                        <li onclick="notAvailable()">
                             <a class="d-flex align-items-center" href="#">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="coupons">coupons</span>
+                                <span class="menu-item text-truncate" data-i18n="{{ translate('Coupons')}}">{{ translate('Coupons')}}</span>
                             </a>
                         </li>
                     </ul>
@@ -296,7 +339,7 @@
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="{{route('admin.settings.index')}}">
                         <i data-feather='settings'></i>
-                        <span class="menu-title text-truncate" data-i18n="settings">settings</span>
+                        <span class="menu-title text-truncate" data-i18n="{{ translate('Settings')}}">{{ translate('Settings')}}</span>
                     </a>
                 </li>
 
@@ -335,6 +378,21 @@
     <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
     <script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
     <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+    <script>
+        function notAvailable() {
+
+            Swal.fire({
+                title: '{{ translate("Warning!") }}',
+                text: '{{ translate("Please upgrade your package becouse this fddeature is not available in your package!") }}',
+                icon: 'warning',
+                customClass: {
+                    confirmButton: 'btn btn-primary'
+                },
+                buttonsStyling: false
+            });
+
+        }
+    </script>
 
     <script>
         window.addEventListener('closeModal', event => {

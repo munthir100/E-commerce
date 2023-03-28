@@ -10,14 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Statistics Cards</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Shipping')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Cards</a>
+                                <li class="breadcrumb-item"><a href="#">{{translate('Settings')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Statistics Cards
+                                <li class="breadcrumb-item">{{translate('Shipping')}}
                                 </li>
                             </ol>
                         </div>
@@ -39,7 +39,7 @@
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                         </svg>
-                        <span> This feature is available in the advanced package and the professional package,<strong> click here </strong></span>
+                        <span> {{translate('This feature is available in the advanced package and the professional package,')}}<strong> {{translate('click here')}} </strong></span>
                     </div>
                 </div>
             </div>
@@ -47,13 +47,13 @@
             <div class="row">
                 <div class="col-md-6 col-lg-4 col-sm-6">
                     <div class="card text-center">
-                        <div class="card-header">Featured</div>
+                        <div class="card-header">{{translate('Featured')}}</div>
                         <div class="card-body">
                             <img class="img-fluid" src="../../../app-assets/images/slider/03.jpg" alt="Card image cap">
                         </div>
                         <div class="card-footer">
                             <div class="btn btn-primary">
-                                Details
+                                {{translate('Details')}}
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@
 
                     <div class="col-lg-2 col-md-4 col-sm-4 col-12 mb-1 mt-1">
                         <div class="card-title">
-                            Shipping
+                            {{translate('Shipping')}}
                         </div>
                     </div>
 
@@ -77,7 +77,7 @@
                             <a class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#addShippingService">
                                 <span>
                                     <i data-feather="plus"></i>
-                                    Add Shipping Service
+                                    {{translate('Add Shipping Service')}}
                                 </span>
                             </a>
                         </div>

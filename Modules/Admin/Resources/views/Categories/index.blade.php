@@ -1,5 +1,5 @@
 @extends('admin::Layouts.adminLayout')
-@section('title','My store | Categories')
+@section('title', translate('My store | Categories'))
 @section('content')
 <div class="app-content content ">
     <div class="content-overlay"></div>
@@ -9,14 +9,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Tree</h2>
+                        <h2 class="content-header-title float-start mb-0">{{ translate('Categories') }}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="index.html">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{ translate('Home') }}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Extensions</a>
-                                </li>
-                                <li class="breadcrumb-item active">Tree
+                                <li class="breadcrumb-item active">{{ translate('Categories') }}
                                 </li>
                             </ol>
                         </div>
@@ -29,10 +27,10 @@
                         <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i data-feather="grid"></i></button>
                         <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html">
-                                <i class="me-1" data-feather="check-square"></i><span class="align-middle">Todo</span></a><a class="dropdown-item" href="app-chat.html">
-                                <i class="me-1" data-feather="message-square"></i><span class="align-middle">Chat</span></a><a class="dropdown-item" href="app-email.html">
-                                <i class="me-1" data-feather="mail"></i><span class="align-middle">Email</span></a><a class="dropdown-item" href="app-calendar.html">
-                                <i class="me-1" data-feather="calendar"></i><span class="align-middle">Calendar</span></a></div>
+                                <i class="me-1" data-feather="check-square"></i><span class="align-middle">{{ translate('Todo') }}</span></a><a class="dropdown-item" href="app-chat.html">
+                                <i class="me-1" data-feather="message-square"></i><span class="align-middle">{{ translate('Chat') }}</span></a><a class="dropdown-item" href="app-email.html">
+                                <i class="me-1" data-feather="mail"></i><span class="align-middle">{{ translate('Email') }}</span></a><a class="dropdown-item" href="app-calendar.html">
+                                <i class="me-1" data-feather="calendar"></i><span class="align-middle">{{ translate('Calendar') }}</span></a></div>
                     </div>
                 </div>
             </div>
@@ -47,11 +45,11 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Important Note</h4>
+                                    <h4 class="card-title">{{ translate('Important Note') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text">
-                                        If you de-activeat any category , the <code>products</code> and <code>sub-categories</code> related with this category is <code>disapear</code> from customers in your store
+                                        {{ translate('If you deactivate any category, the products and sub-categories related to this category will disappear from customers in your store.') }}
                                     </p>
                                 </div>
                                 <div class="table-responsive">
@@ -64,7 +62,7 @@
                                                     <line x1="12" y1="16" x2="12" y2="12"></line>
                                                     <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                                 </svg>
-                                                <span>No Items to display it now .</span>
+                                                <span>{{ translate('No Items to display it now .')}}</span>
                                             </div>
                                         </div>
                                     </div>
@@ -72,9 +70,9 @@
                                     <table class="table table-striped table-bordered">
                                         <thead>
                                             <tr>
-                                                <th>Name</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
+                                                <th>{{ translate('Name')}}</th>
+                                                <th>{{ translate('Status')}}</th>
+                                                <th>{{ translate('Actions')}}</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -84,9 +82,9 @@
                                                 <td>{{$category->title}}</td>
 
                                                 @if($category->is_active)
-                                                <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                                                <td><span class="badge rounded-pill badge-light-primary me-1">{{ translate('Active')}}</span></td>
                                                 @else
-                                                <td><span class="badge rounded-pill badge-light-secondary me-1">Not Active</span></td>
+                                                <td><span class="badge rounded-pill badge-light-secondary me-1">{{ translate('Not Active')}}</span></td>
                                                 @endif
                                                 <td>
                                                     <div class="dropdown">
@@ -123,10 +121,10 @@
                             <div class="card">
                                 <button data-bs-toggle="modal" data-bs-target="#addCategory" class="dt-button create-new btn btn-primary" tabindex="0" aria-controls="DataTables_Table_0" type="button" data-bs-toggle="modal" data-bs-target="#modals-slide-in"><span>
                                         <i data-feather="plus"></i>
-                                        Add New Category</span>
+                                        {{ translate('Add New Category')}}</span>
                                 </button>
                                 <div class="card-header">
-                                    <h4 class="card-title">Categories Tree</h4>
+                                    <h4 class="card-title">{{ translate('Categories Tree')}}</h4>
                                 </div>
 
                                 <div class="card-body">
@@ -141,7 +139,7 @@
                                             </li>
                                             @empty
                                             <li>
-                                                no categories yet
+                                                {{ translate('no categories yet')}}
                                             </li>
                                             @endforelse
                                         </ul>
@@ -169,8 +167,8 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body px-sm-5 mx-50 pb-5">
-                <h1 class="text-center mb-1" id="addCategoryTitle">Add new Category</h1>
-                <p class="text-center">Add your Categories for your store</p>
+                <h1 class="text-center mb-1" id="addCategoryTitle">{{ translate('Add new Category')}}</h1>
+                <p class="text-center">{{ translate('Add your Categories for your store')}}</p>
 
                 <!-- form -->
                 <livewire:admin::categories.store-category-livewire :categories="$allCategories" />

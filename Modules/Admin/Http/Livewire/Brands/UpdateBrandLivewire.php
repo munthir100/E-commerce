@@ -30,7 +30,7 @@ class UpdateBrandLivewire extends Component
     public function save()
     {
         $this->brand->update($this->validate());
-        session()->flash('success', 'brand created successfull');
+        session()->flash('success', 'brand updated successfully');
         return to_route('admin.brands.index');
     }
 }

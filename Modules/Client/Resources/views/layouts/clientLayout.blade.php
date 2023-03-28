@@ -303,28 +303,28 @@
 
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class=" nav-item">
-                    <a class="d-flex align-items-center" href="{{route('client.orders.index',$storeLink)}}">
+                    <a class="d-flex align-items-center text-muted" href="{{route('client.orders.index',$storeLink)}}">
                         <i data-feather='shopping-bag'></i>
                         <span class="menu-title text-truncate" data-i18n="orders">orders</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
-                    <a class="d-flex align-items-center" href="{{route('store.shipping',$storeLink)}}">
+                    <a class="d-flex align-items-center text-muted" href="#">
                         <i data-feather='users'></i>
                         <span class="menu-title text-truncate" data-i18n="clients">Shipping</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
-                    <a class="d-flex align-items-center" href="#">
+                    <a class="d-flex align-items-center text-muted" href="#">
                         <i data-feather='star'></i>
                         <span class="menu-title text-truncate" data-i18n="marketing">Ratings</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
-                    <a class="d-flex align-items-center" href="#">
+                    <a class="d-flex align-items-center text-muted" href="#">
                         <i data-feather='settings'></i>
                         <span class="menu-title text-truncate" data-i18n="settings">settings</span>
                     </a>

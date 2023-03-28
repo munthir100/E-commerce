@@ -10,31 +10,31 @@ class Profile extends Component
 {
     public $name, $email, $phone;
 
-
-
-    function mount()
+    public function mount()
     {
-        $this->name = Auth::user()->name;
-        $this->email = Auth::user()->email;
-        $this->phone = Auth::user()->phone;
+        $user = Auth::user();
+        $this->name = $user->name;
+        $this->email = $user->email;
+        $this->phone = $user->phone;
     }
-
 
     public function render()
     {
         return view('admin::livewire.settings.profile');
     }
 
-    function save()
+    public function save()
     {
         $validatedData = $this->validate([
             'name' => 'required',
-            'email' => ['required', 'email', Rule::unique('users')->ignore(Auth::user()->id, 'id')],
-            'phone' => 'required'
+            'email' => ['required', 'email', Rule::unique('users')->ignore(Auth::id())],
+            'phone' => ['required','integer', Rule::unique('users')->ignore(Auth::id())],
         ]);
+
         Auth::user()->update($validatedData);
 
-        session()->flash('message', 'Profile updated successfully');
+        $this->dispatchBrowserEvent('addSuccess', [
+            'message' => 'Profile updated',
+        ]);
     }
-
 }

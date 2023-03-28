@@ -10,12 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Bootstrap Tables</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Edit Brand')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Table Bootstrap
+                                <li class="breadcrumb-item active">{{translate('Edit Brand')}}
+                                </li>
+                                <li class="breadcrumb-item">{{$brand->name}}
                                 </li>
                             </ol>
                         </div>
@@ -30,9 +32,6 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Bootstrap Select</h4>
-                            </div>
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">

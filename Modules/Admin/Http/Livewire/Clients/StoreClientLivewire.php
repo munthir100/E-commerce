@@ -17,7 +17,7 @@ class StoreClientLivewire extends Component
         'email' => 'required|unique:users',
         'phone' => 'required|unique:users',
         'birth_date' => 'date',
-        'gender' => 'sometimes',
+        'gender' => 'required',
         'description' => 'string',
         'city_id' => 'sometimes',
     ];
@@ -43,6 +43,6 @@ class StoreClientLivewire extends Component
         $client->user_id = $user->id;
         $client->save();
 
-        return redirect()->route('admin.clients.index');
+        return redirect()->route('admin.clients.index')->with('success','client created successfully');
     }
 }

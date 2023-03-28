@@ -1007,7 +1007,9 @@ window.colors = {
       currentLayout = getCurrentLayout(),
       mainMenu = $('.main-menu'),
       navbar = $('.header-navbar'),
-      // Witch to local storage layout if we have else current layout
+      storeBody = $('#store-body'),
+      storeFooter = $('#store-footer'),
+      // Switch to local storage layout if we have else current layout
       switchToLayout = currentLocalStorageLayout ? currentLocalStorageLayout : currentLayout;
 
     // Store the current layout in local storage
@@ -1019,21 +1021,29 @@ window.colors = {
       $html.addClass('dark-layout');
       mainMenu.removeClass('menu-light').addClass('menu-dark');
       navbar.removeClass('navbar-light').addClass('navbar-dark');
+      storeBody.removeClass('bg-white').addClass('bg-black');
+      storeFooter.removeClass('bg-white').addClass('bg-black');
       navLinkStyle.find('.ficon').replaceWith(feather.icons['sun'].toSvg({ class: 'ficon' }));
     } else if (switchToLayout === 'bordered-layout') {
       $html.addClass('bordered-layout');
       mainMenu.removeClass('menu-dark').addClass('menu-light');
       navbar.removeClass('navbar-dark').addClass('navbar-light');
+      storeBody.removeClass('bg-black').addClass('bg-white');
+      storeFooter.removeClass('bg-black').addClass('bg-white');
       navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({ class: 'ficon' }));
     } else if (switchToLayout === 'semi-dark-layout') {
       $html.addClass('semi-dark-layout');
       mainMenu.removeClass('menu-dark').addClass('menu-light');
       navbar.removeClass('navbar-dark').addClass('navbar-light');
+      storeBody.removeClass('bg-black').addClass('bg-white');
+      storeFooter.removeClass('bg-black').addClass('bg-white');
       navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({ class: 'ficon' }));
     } else {
       $html.addClass('light-layout');
       mainMenu.removeClass('menu-dark').addClass('menu-light');
       navbar.removeClass('navbar-dark').addClass('navbar-light');
+      storeBody.removeClass('bg-black').addClass('bg-white');
+      storeFooter.removeClass('bg-black').addClass('bg-light');
       navLinkStyle.find('.ficon').replaceWith(feather.icons['moon'].toSvg({ class: 'ficon' }));
     }
     // Set radio in customizer if we have
@@ -1043,6 +1053,7 @@ window.colors = {
       });
     }
   }
+
 })(window, document, jQuery);
 
 // To use feather svg icons with different sizes

@@ -35,7 +35,7 @@ class CreateBrandLivewire extends Component
     {
         Brand::create($this->validate());
         $this->dispatchBrowserEvent('closeModal');
-        session()->flash('success', 'brand created successfull');
+        session()->flash('success', 'brand created successfully');
         return to_route('admin.brands.index');
     }
 }

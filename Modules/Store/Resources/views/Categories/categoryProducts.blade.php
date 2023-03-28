@@ -1,4 +1,5 @@
 @extends('store::layouts.storeLayout')
+@section('title',"$store->store_name | $category->title")
 
 @section('content')
 <div class="app-content content ecommerce-application">
@@ -9,14 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Shop</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Category')}}:{{$category->title}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">eCommerce</a>
-                                </li>
-                                <li class="breadcrumb-item"><a href="#">Categories</a>
+                                <li class="breadcrumb-item"><a href="#">{{translate('Categories')}}</a>
                                 </li>
                                 <li class="breadcrumb-item active">{{$category->title}}
                                 </li>
@@ -25,7 +24,7 @@
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="content-detached">
             <div class="content-body">
@@ -38,19 +37,9 @@
                                     <button class="navbar-toggler shop-sidebar-toggler" type="button" data-bs-toggle="collapse">
                                         <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
                                     </button>
-                                    <div class="search-results">22 results found</div>
+                                    <div class="search-results">{{$products_count}} {{translate('results found')}}</div>
                                 </div>
                                 <div class="view-options d-flex">
-                                    <div class="btn-group dropdown-sort">
-                                        <button type="button" class="btn btn-outline-primary dropdown-toggle me-1" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            <span class="active-sorting">Featured</span>
-                                        </button>
-                                        <div class="dropdown-menu">
-                                            <a class="dropdown-item" href="#">Featured</a>
-                                            <a class="dropdown-item" href="#">Lowest</a>
-                                            <a class="dropdown-item" href="#">Highest</a>
-                                        </div>
-                                    </div>
                                     <div class="btn-group" role="group">
                                         <input type="radio" class="btn-check" name="radio_options" id="radio_option1" autocomplete="off" checked />
                                         <label class="btn btn-icon btn-outline-primary view-btn grid-view-btn" for="radio_option1"><i data-feather="grid" class="font-medium-3"></i></label>
@@ -67,34 +56,24 @@
                 <!-- background Overlay when sidebar is shown  starts-->
                 <div class="body-content-overlay"></div>
                 <!-- background Overlay when sidebar is shown  ends-->
-
-
-                <livewire:store::products.search-bar :storeLink="$storeLink">
-                    <!-- E-commerce Products Starts -->
-                    <livewire:store::products.products-list :storeLink="$storeLink" :products="$products" />
-                    <!-- E-commerce Products Ends -->
-
-                    <!-- E-commerce Pagination Starts -->
-                    <section id="ecommerce-pagination">
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <nav aria-label="Page navigation example">
-                                    <ul class="pagination justify-content-center mt-2">
-                                        <li class="page-item prev-item"><a class="page-link" href="#"></a></li>
-                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                        <li class="page-item" aria-current="page"><a class="page-link" href="#">4</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">5</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">6</a></li>
-                                        <li class="page-item"><a class="page-link" href="#">7</a></li>
-                                        <li class="page-item next-item"><a class="page-link" href="#"></a></li>
-                                    </ul>
-                                </nav>
-                            </div>
+                <section id="ecommerce-searchbar" class="ecommerce-searchbar">
+                    <div class="row mt-1">
+                        <div class="col-sm-12">
+                            <form action="{{route('store.index',$store->store_link)}}">
+                                <div class="input-group input-group-merge">
+                                    <input name="searchTerm" type="text" class="form-control search-product" id="shop-search" placeholder="Search Product" aria-label="Search..." aria-describedby="shop-search" wire:model="searchTerm" />
+                                    <button class="input-group-text"><i data-feather="search" class="text-muted"></i></button>
+                                </div>
+                            </form>
                         </div>
-                    </section>
-                    <!-- E-commerce Pagination Ends -->
+                    </div>
+                </section>
+
+                <!-- E-commerce Products Starts -->
+                <livewire:store::products.products-list :storeLink="$store->store_link" :products="$products" />
+                <!-- E-commerce Products Ends -->
+
+                
 
             </div>
         </div>

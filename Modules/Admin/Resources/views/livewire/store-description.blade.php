@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="mb-1">
-                    <textarea class="form-control" id="exampleFormControlTextarea1" wire:model="store_desc" rows="3" placeholder="Description">{{$store->store_desc ?? null}}</textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" wire:model="store_desc" rows="3" placeholder="{{translate('Enter Description')}}">{{$store->store_desc ?? null}}</textarea>
                     @error('store_desc')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
@@ -12,15 +12,15 @@
 
                 <div class="input-group" data-bs-toggle="modal" data-bs-target="#storeAddress">
                     <button class="btn btn-light" type="button">
-                        <i data-feather='map-pin'></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-map-pin"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     </button>
-                    <input type="text" class="form-control" placeholder="Button on both side" wire:model="city_id" aria-label="Amount">
-                    <button class="btn btn-primary" type="button">Select</button>
+                    <input type="text" class="form-control" placeholder="{{translate('Select The City')}}" wire:model="city_id" aria-label="Amount">
+                    <button class="btn btn-primary" type="button">{{translate('Select')}}</button>
                 </div>
             </div>
         </div>
         <div class="col-12" style="text-align: end;">
-            <button type="submit" class="btn btn-primary me-1">Save</button>
+            <button type="submit" class="btn btn-primary me-1">{{translate('Save')}}</button>
         </div>
     </form>
 
@@ -32,8 +32,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body px-sm-5 mx-50 pb-5">
-                    <h1 class="text-center mb-1" id="storeAddressTitle">Select city</h1>
-                    <p class="text-center">Select your city</p>
+                    <h1 class="text-center mb-1" id="storeAddressTitle">{{translate('Select city')}}</h1>
                     <livewire:admin::store-city />
                 </div>
             </div>

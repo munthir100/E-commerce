@@ -9,7 +9,13 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>Dashboard ecommerce - Vuexy - Bootstrap HTML admin template</title>
+    <title>@yield('title')</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Tajawal', sans-serif;
+        }
+    </style>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -19,6 +25,7 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/toastr.min.css">
     <!-- END: Vendor CSS-->
     <!-- BEGIN: Theme CSS-->
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/bootstrap-extended.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/colors.css">
@@ -37,7 +44,7 @@
 <!-- END: Head-->
 <!-- BEGIN: Body-->
 
-<body class="horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" data-col="">
+<body class="bg-white horizontal-layout horizontal-menu  navbar-floating footer-static  " data-open="hover" data-menu="horizontal-menu" id="store-body">
     @livewireScripts
     <!-- BEGIN: Header-->
     <nav class="header-navbar navbar-expand-lg navbar navbar-fixed align-items-center navbar-shadow navbar-brand-center" data-nav="brand-center">
@@ -78,12 +85,15 @@
                 <ul class="nav navbar-nav d-xl-none">
                     <li class="nav-item"><a class="nav-link menu-toggle" href="#"><i class="ficon" data-feather="menu"></i></a></li>
                 </ul>
-                <ul class="nav navbar-nav bookmark-icons">
-                    <button class="btn btn-light"> shipping options</button>
+                <ul class="nav navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i>
+                        </a>
+                    </li>
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
-                <li class="nav-item dropdown dropdown-language">
+                <!-- <li class="nav-item dropdown dropdown-language">
                     <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="flag-icon flag-icon-us"></i>
                         <span class="selected-language">English</span>
@@ -98,13 +108,10 @@
                         <a class="dropdown-item" href="#" data-language="pt">
                             <i class="flag-icon flag-icon-pt"></i> Portuguese</a>
                     </div>
-                </li>
-                <li class="nav-item d-none d-lg-block">
-                    <a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i>
-                    </a>
-                </li>
+                </li> -->
+
                 <li class="nav-item nav-search">
-                    <a class="nav-link" href="{{route('store.wishlist.index',$storeLink)}}">
+                    <a class="nav-link" href="{{route('store.wishlist',$store->store_link)}}">
                         <i class="ficon" data-feather="heart"></i>
                         <span class="badge rounded-pill bg-primary badge-up cart-item-count">
                             <livewire:store::wishlist.wishlist-counter>
@@ -112,7 +119,7 @@
                     </a>
                 </li>
                 <li class="nav-item dropdown dropdown-cart me-25">
-                    <a class="nav-link" href="{{route('store.checkout',$storeLink)}}">
+                    <a class="nav-link" href="{{route('store.checkout',$store->store_link)}}">
                         <i class="ficon" data-feather="shopping-cart"></i>
                         <span class="badge rounded-pill bg-primary badge-up cart-item-count">
                             <livewire:client::cart-counter />
@@ -121,9 +128,9 @@
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 me-auto">My Cart</h4>
+                                <h4 class="notification-title mb-0 me-auto">{{translate('My Cart')}}</h4>
                                 <div class="badge rounded-pill badge-light-primary" style="display:inherit;">
-                                    items
+                                    {{translate('items')}}
                                     (
                                     <livewire:client::cart-counter />)
                                 </div>
@@ -131,17 +138,17 @@
                         </li>
                         <li class="dropdown-menu-footer">
                             <div class="d-flex justify-content-between mb-1">
-                                <h6 class="fw-bolder mb-0">Total:</h6>
+                                <h6 class="fw-bolder mb-0">{{translate('Total:')}}</h6>
                                 <h6 class="text-primary fw-bolder mb-0">
                                     <livewire:client::cart.total />
                                 </h6>
-                            </div><a class="btn btn-primary w-100" href="app-ecommerce-checkout.html">Checkout</a>
+                            </div><a class="btn btn-primary w-100" href="app-ecommerce-checkout.html">{{translate('Checkout')}}</a>
                         </li>
                     </ul>
                 </li>
                 @if (Auth::check())
                 <li class="nav-item dropdown dropdown-notification me-25">
-                    <a href="{{ Auth::user()->hasRole('admin') ? route('admin.index') : route('client.dashboard',$storeLink) }}" class="avatar bg-light-success" target="__blank">
+                    <a href="{{ Auth::user()->hasRole('admin') ? route('admin.index') : route('client.dashboard',$store->store_link) }}" class="avatar bg-light-success" target="__blank">
                         <span class="avatar-content">{{ucfirst(Auth::user()->name[0])}}</span>
                         <span class="avatar-status-online"></span>
                     </a>
@@ -197,15 +204,15 @@
                 <!-- include ../../../includes/mixins-->
                 <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
                     <li class="dropdown nav-item">
-                        <a class="nav-link d-flex align-items-center" href="{{route('store.index',$storeLink)}}">
+                        <a class="nav-link d-flex align-items-center" href="{{route('store.index',$store->store_link)}}">
                             <i data-feather="home"></i>
-                            <span data-i18n="Home">Home</span>
+                            <span data-i18n="Home">{{translate('Home')}}</span>
                         </a>
                     </li>
                     @foreach($categories as $category)
                     @if(count($category->children) > 0 )
                     <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle  nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$storeLink,$category->title])}}">
+                        <a class="dropdown-toggle  nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$store->store_link,$category->id])}}">
                             <i data-feather='circle'></i>
                             <span data-i18n="Apps">{{$category->title}}</span>
                         </a>
@@ -213,7 +220,7 @@
                     </li>
                     @else
                     <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$storeLink,$category->title])}}">
+                        <a class="nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$store->store_link,$category->id])}}">
                             <i data-feather='circle'></i>
                             <span data-i18n="Apps">{{$category->title}}</span>
                         </a>
@@ -231,24 +238,96 @@
     <div class="sidenav-overlay"></div>
     <div class="drag-target"></div>
     <!-- BEGIN: Footer-->
-    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
-        <p class="col-md-4 mb-0 text-muted">© 2022 Company, Inc</p>
+    <footer class="bg-light d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top" id="store-footer">
+        <div class="container-fluid">
 
-        <a href="/" class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-            <button type="button" class="btn btn-icon btn-icon rounded-circle btn-warning waves-effect waves-float waves-light">
-                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-inbox">
-                    <polyline points="22 12 16 12 14 15 10 15 8 12 2 12"></polyline>
-                    <path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"></path>
-                </svg>
-            </button>
-        </a>
-        <ul class="nav col-md-4 justify-content-end">
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Home</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Features</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">Pricing</a></li>
-            <li class="nav-item"><a href="#" class="nav-link px-2 text-muted">FAQs</a></li>
-        </ul>
+            <div class="row">
+                <div class="col-md-6 col-sm-12">
+                    <div class="store-data mb-2">
+                        <h3>
+                            {{$store->store_name}}
+                        </h3>
+                        <p>{{$store->store_desc}}</p>
+                        <div>
+                            @if($store->instagram_link)
+                            <a href="https://instagram.com/{{$store->instagram_link}}" target="__blank" type="button" class="btn btn btn-icon btn-icon rounded-circle btn-outline-dark mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-instagram">
+                                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                                </svg>
+                            </a>
+                            @endif
+                            @if($store->snapchat_link)
+                            <a href="https://snapchat.com/{{$store->snapchat_link}}" target="__blank" type="button" class="btn btn btn-icon btn-icon rounded-circle btn-outline-dark mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-bell">
+                                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                                    <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                                </svg>
+                            </a>
+                            @endif
+                            @if($store->twitter_link)
+                            <a href="https://twitter.com/{{$store->twitter_link}}" target="__blank" type="button" class="btn btn btn-icon btn-icon rounded-circle btn-outline-dark mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-twitter">
+                                    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                                </svg>
+                            </a>
+                            @endif
+                            @if($store->tiktok_link)
+                            <a href="https://tiktok.com/{{$store->tiktok_link}}" target="__blank" type="button" class="btn btn btn-icon btn-icon rounded-circle btn-outline-dark mb-1">
+                                <i class="fab fa-tiktok"></i>
+                            </a>
+                            @endif
+                            @if($store->telegram_link)
+                            <a href="https://t.me/{{$store->telegram_link}}" target="__blank" type="button" class="btn btn btn-icon btn-icon rounded-circle btn-outline-dark mb-1">
+                                <i class="fab fa-telegram"></i>
+                            </a>
+                            @endif
+                            @if($store->whatsapp_number)
+                            <a href="https://api.whatsapp.com/send?phone={{$store->whatsapp_number}}/" target="__blank" type="button" class="btn btn btn-icon btn-icon rounded-circle btn-outline-dark mb-1">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            @endif
+                            @if($store->phone_number)
+                            <a href="tel:{{$store->phone_number}}" target="__blank" type="button" class="btn btn btn-icon btn-icon rounded-circle btn-outline-dark mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-phone-call">
+                                    <path d="M15.05 5A5 5 0 0 1 19 8.95M15.05 1A9 9 0 0 1 23 8.94m-1 7.98v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                                </svg>
+                            </a>
+                            @endif
+                            @if($store->facebook_user)
+                            <a href="https://facebook.com/{{$store->facebook_user}}" target="__blank" type="button" class="btn btn btn-icon btn-icon rounded-circle btn-outline-dark mb-1">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-facebook">
+                                    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                                </svg>
+                            </a>
+                            @endif
+
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-12">
+                    <div class="contact-data">
+                        <h3>{{translate('Quick Access')}}</h3>
+                        <p><a href="#" class="text-body">{{translate('click heare to contact us')}}</a></p>
+                    </div>
+                    <button class="btn btn-outline-primary">
+                        <span>
+                            <i data-feather="truck"></i>
+                        </span>
+                        {{translate('shipping options')}}
+                    </button>
+                </div>
+            </div>
+        </div>
     </footer>
+    <style>
+        @media (max-width: 768px) {
+            footer {
+                text-align: center;
+            }
+        }
+    </style>
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->
     <!-- BEGIN: Vendor JS-->
@@ -259,21 +338,12 @@
     @yield('scripts')
     <!-- END: Page Vendor JS-->
     @section('modals')
-    @extends('store::layouts.authModalsLayout',['storeLink' => $storeLink])
+    @extends('store::layouts.authModalsLayout',['storeLink' => $store->store_link])
     @endsection
     <!-- BEGIN: Theme JS-->
     <script src="../../../app-assets/js/core/app-menu.js"></script>
     <script src="../../../app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
-    <script>
-        window.addEventListener('livewire:loading', function() {
-            alert('d')
-        });
-
-        window.addEventListener('livewire:done-loading', function() {
-            alert('ds')
-        });
-    </script>
 </body>
 <!-- END: Body-->
 

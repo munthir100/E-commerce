@@ -6,12 +6,14 @@ use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Admin\Http\Controllers\BrandController;
 use Modules\Admin\Http\Controllers\OrderController;
 use Modules\Admin\Http\Controllers\ClientController;
+use Modules\Admin\Http\Controllers\ReportController;
 use Modules\Admin\Http\Controllers\ProductController;
 use Modules\Admin\Http\Controllers\CategoriesController;
-use Modules\Admin\Http\Controllers\ReportController;
+use Illuminate\Http\Request;
 
-Route::prefix('admin')->middleware(['auth','role:admin'])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
+    Route::post('change-language', [AdminController::class, 'localize'])->name('change.language');
     Route::resource('categories', CategoriesController::class,);
     Route::resource('products', ProductController::class,);
     Route::resource('brands', BrandController::class,);

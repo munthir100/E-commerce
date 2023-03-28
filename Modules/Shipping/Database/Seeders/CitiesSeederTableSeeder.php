@@ -33,18 +33,6 @@ class CitiesSeederTableSeeder extends Seeder
         }
 
 
-//        Country::create([
-//            'name' => 'Sudan',
-//        ]);
-//        Country::create([
-//            'name' => 'Saudi Arabia',
-//        ]);
-//        Country::create([
-//            'name' => 'Egypt',
-//        ]);
-//        Country::create([
-//            'name' => 'Lebanon',
-//        ]);
 
 //        City::create([
 //            'name' => 'khartoum',

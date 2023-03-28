@@ -10,21 +10,21 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Statistics Cards</h2>
+                        <h2 class="content-header-title float-start mb-0">{{translate('Ratings')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">Cards</a>
+                                <li class="breadcrumb-item"><a href="#">{{translate('Settings')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Statistics Cards
+                                <li class="breadcrumb-item active">{{translate('Ratings')}}
                                 </li>
                             </ol>
                         </div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="content-body">
             <section id="copy-to-clipboard">
@@ -34,7 +34,7 @@
                             <div class="card-header">
                                 <h5 class="text-secondary">
                                     <i data-feather="star"></i>
-                                    Store and product rating link
+                                    {{translate('Store and products rating link')}}
                                 </h5>
                             </div>
                             <div class="card-body">
@@ -47,7 +47,7 @@
                                         </a>
                                     </div>
                                     <div class="col-sm-2 col-12">
-                                        <button class="btn btn-outline-primary waves-effect" id="btn-copy">Copy!</button>
+                                        <button class="btn btn-outline-primary waves-effect" id="btn-copy">{{translate('Copy!')}}</button>
                                     </div>
                                 </div>
                             </div>
@@ -61,69 +61,34 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Ratings</h4>
+                                <h4 class="card-title">{{translate('Ratings')}}</h4>
                             </div>
-                            
+
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>product</th>
-                                            <th>Client</th>
-                                            <th>Users</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
+                                            <th>{{translate('product')}}</th>
+                                            <th>{{translate('Client')}}</th>
+                                            <th>{{translate('Users')}}</th>
+                                            <th>{{translate('Status')}}</th>
+                                            <th>{{translate('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>
-                                                <img src="../../../app-assets/images/icons/angular.svg" class="me-75" height="20" width="20" alt="Angular">
-                                                <span class="fw-bold">Angular Project</span>
-                                            </td>
-                                            <td>Peter Charls</td>
-                                            <td>
-                                                <div class="avatar-group">
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="" data-bs-original-title="Lilian Nenez">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-5.jpg" alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-6.jpg" alt="Avatar" height="26" width="26">
-                                                    </div>
-                                                    <div data-bs-toggle="tooltip" data-popup="tooltip-custom" data-bs-placement="top" class="avatar pull-up my-0" title="" data-bs-original-title="Alberto Glotzbach">
-                                                        <img src="../../../app-assets/images/portrait/small/avatar-s-7.jpg" alt="Avatar" height="26" width="26">
-                                                    </div>
+                                        <div class="demo-spacing-0 mb-2">
+                                            <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
+                                                <div class="alert-body d-flex align-items-center">
+                                                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50">
+                                                        <circle cx="12" cy="12" r="10"></circle>
+                                                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                                                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                                                    </svg>
+                                                    <span>{{ translate('No Items to display it now .')}}</span>
                                                 </div>
-                                            </td>
-                                            <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
-                                            <td>
-                                                <div class="dropdown">
-                                                    <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0 waves-effect waves-float waves-light" data-bs-toggle="dropdown">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-more-vertical">
-                                                            <circle cx="12" cy="12" r="1"></circle>
-                                                            <circle cx="12" cy="5" r="1"></circle>
-                                                            <circle cx="12" cy="19" r="1"></circle>
-                                                        </svg>
-                                                    </button>
-                                                    <div class="dropdown-menu dropdown-menu-end">
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 me-50">
-                                                                <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
-                                                            </svg>
-                                                            <span>Edit</span>
-                                                        </a>
-                                                        <a class="dropdown-item" href="#">
-                                                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-trash me-50">
-                                                                <polyline points="3 6 5 6 21 6"></polyline>
-                                                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
-                                                            </svg>
-                                                            <span>Delete</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        
+                                            </div>
+                                        </div>
+
                                     </tbody>
                                 </table>
                             </div>

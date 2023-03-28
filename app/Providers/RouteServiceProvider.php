@@ -40,7 +40,7 @@ class RouteServiceProvider extends ServiceProvider
         parent::boot();
 
         Route::bind('storeLink', function ($value) {
-            return Store::where('store_link', $value)->pluck('store_link')->first() ?? abort(404);
+            return Store::where('store_link', $value)->first() ?? abort(404);
         });
     }
 

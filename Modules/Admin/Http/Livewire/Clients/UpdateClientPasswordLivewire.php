@@ -10,8 +10,8 @@ class UpdateClientPasswordLivewire extends Component
     public $client, $password, $password_confirmation;
 
     protected $rules = [
-        'password' => 'sometimes',
-        'password_confirmation' => 'sometimes|same:password',
+        'password' => 'required',
+        'password_confirmation' => 'required|same:password',
     ];
 
     // public function mount(){
