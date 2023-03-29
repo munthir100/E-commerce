@@ -31,23 +31,28 @@ class Login extends Component
     {
         $data = $this->validate();
 
-        if (is_numeric($data['username'])) {
-            $user = User::where('phone', $data['username'])
-                ->where('user_type_id', 1)
-                ->first();
-        } else {
+        if (filter_var($data['username'], FILTER_VALIDATE_EMAIL)) {
             $user = User::where('email', $data['username'])
                 ->where('user_type_id', 1)
                 ->first();
-        }
-        if (!$user) {
-            $this->addError('username', 'email or phone number not match');
-        } elseif (!Hash::check($data['password'], $user->password)) {
-            $this->addError('password', 'password not match');
         } else {
-            Auth::login($user);
-            $user->assignRole('admin');
-            return redirect()->route('admin.index');
+            $user = User::where('phone', $data['username'])
+                ->where('user_type_id', 1)
+                ->first();
         }
+
+        if (!$user) {
+            $this->addError('username', 'Email or phone number not found');
+            return;
+        }
+    
+        if (!Hash::check($data['password'], $user->password)) {
+            $this->addError('password', 'Password is incorrect');
+            return;
+        }
+
+        Auth::login($user);
+        $user->assignRole('admin');
+        return redirect()->route('admin.index');
     }
 }

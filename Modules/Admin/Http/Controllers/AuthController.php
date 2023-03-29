@@ -8,6 +8,11 @@ use Illuminate\Routing\Controller;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest')->except('logout');
+    }
+    
     public function adminLoginForm()
     {
         return view('admin::Auth.login');

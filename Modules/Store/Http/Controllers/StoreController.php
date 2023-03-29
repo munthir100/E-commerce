@@ -50,8 +50,8 @@ class StoreController extends Controller
     {
         $categories = Category::buildCategoryTree($store->categories()->isActive()->get());
         $products = $category->products;
-
-        return view('store::categories.categoryProducts', compact('store', 'category', 'products', 'categories'));
+        $products_count = $products->count();
+        return view('store::categories.categoryProducts', compact('store', 'category', 'products', 'categories','products_count'));
     }
 
     public function checkout(Store $store)

@@ -3,7 +3,6 @@
 namespace App\Providers;
 
 use Illuminate\Http\Request;
-use Modules\Admin\Entities\Store;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Support\Facades\RateLimiter;
@@ -18,7 +17,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    public const HOME = '/home';
+    public const HOME = '/admin';
 
     /**
      * Define your route model bindings, pattern filters, and other route configuration.
@@ -38,10 +37,6 @@ class RouteServiceProvider extends ServiceProvider
                 ->group(base_path('routes/web.php'));
         });
         parent::boot();
-
-        Route::bind('storeLink', function ($value) {
-            return Store::where('store_link', $value)->first() ?? abort(404);
-        });
     }
 
     /**

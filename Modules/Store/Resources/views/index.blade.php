@@ -77,13 +77,13 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">No Products Yet</h4>
+                                    <h4 class="card-title">{{translate('No Products Yet')}}</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="demo-spacing-0">
                                         <div class="alert alert-danger" role="alert">
                                             <div class="alert-body">
-                                                There Is No Products Found
+                                                {{{translate('There Is No Products Found')}}}
                                             </div>
                                         </div>
                                     </div>

@@ -61,9 +61,6 @@
             </div>
         </div>
 
-
-
-
         <button class="btn btn-primary w-100" tabindex="5">{{translate('Sign up')}}</button>
     </form>
 </div>

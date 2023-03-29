@@ -67,7 +67,7 @@
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
-                @if(Session::get('locale') == 'ar')
+                @if(Session::get('locale') != 'en')
                 <li class="nav-item dropdown dropdown-language">
                     <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="flag-icon flag-icon-sa"></i>

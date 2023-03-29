@@ -1,5 +1,5 @@
 @extends('admin::Layouts.adminLayout')
-@section('title', translate('Main Page') . ' | ' . translate('My store'))
+@section('title', translate('Dashboard'))
 @section('content')
 <div class="app-content content ">
     <div class="content-overlay"></div>

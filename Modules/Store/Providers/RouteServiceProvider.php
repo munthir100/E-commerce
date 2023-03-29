@@ -2,6 +2,7 @@
 
 namespace Modules\Store\Providers;
 
+use Modules\Admin\Entities\Store;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -24,6 +25,9 @@ class RouteServiceProvider extends ServiceProvider
     public function boot()
     {
         parent::boot();
+        Route::bind('storeLink', function ($value) {
+            return Store::where('store_link', $value)->first() ?? abort(404);
+        });
     }
 
     /**
