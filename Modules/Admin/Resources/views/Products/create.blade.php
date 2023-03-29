@@ -1,5 +1,5 @@
 @extends('admin::Layouts.adminLayout')
-@section('title','My store | Create new product')
+@section('title',translate('Create New Product'))
 
 @section('content')
 <div class="app-content content ">

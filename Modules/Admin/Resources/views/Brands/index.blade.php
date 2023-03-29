@@ -130,10 +130,10 @@
                                 <div class="col-2 mb-2 mt-2">
                                     <form method="GET" action="{{ route('admin.brands.index') }}" class="mr-10">
                                         <select class="form-select" name="per_page" onchange="this.form.submit()">
-                                            <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>10 items</option>
-                                            <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>25 items</option>
-                                            <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>50 items</option>
-                                            <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>100 items</option>
+                                            <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{translate('10 items')}}</option>
+                                            <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>{{translate('25 item')}}</option>
+                                            <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>{{translate('50 item')}}</option>
+                                            <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>{{translate('100 item')}}</option>
                                         </select>
                                     </form>
                                 </div>

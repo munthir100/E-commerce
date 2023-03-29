@@ -21,7 +21,7 @@ return new class extends Migration
             $table->float('wheight')->nullable();
             $table->string('short_description', 20)->nullable();
             $table->string('description')->nullable();
-            $table->float('price');
+            $table->bigInteger('price');
             $table->float('cost')->nullable();
             $table->float('discount')->nullable();
             $table->boolean('free_shipping')->default(false);

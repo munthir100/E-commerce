@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Modules\Admin\Http\Controllers\AuthController;
 use Modules\Admin\Http\Controllers\AdminController;
@@ -9,7 +11,6 @@ use Modules\Admin\Http\Controllers\ClientController;
 use Modules\Admin\Http\Controllers\ReportController;
 use Modules\Admin\Http\Controllers\ProductController;
 use Modules\Admin\Http\Controllers\CategoriesController;
-use Illuminate\Http\Request;
 
 Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
@@ -23,3 +24,7 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.')->grou
 });
 Route::get('login', [AuthController::class, 'adminLoginForm'])->name('login');
 Route::get('register', [AuthController::class, 'adminRegisterForm'])->name('register');
+Route::get('logout', function(){
+    Auth::logout();
+    return redirect()->back();
+});

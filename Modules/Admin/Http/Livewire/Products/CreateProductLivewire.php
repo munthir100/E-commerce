@@ -36,7 +36,7 @@ class CreateProductLivewire extends Component
         'wheight' => 'sometimes',
         'short_description' => 'sometimes|max:20',
         'description' => 'sometimes',
-        'price' => 'numeric|between:0,255',
+        'price' => 'numeric',
         'cost' => 'sometimes',
         'discount' => 'sometimes',
         'free_shipping' => 'sometimes',

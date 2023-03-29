@@ -28,14 +28,14 @@
                 <div class="col-md-4 col-6">
                     <div class="mb-1">
                         <label class="form-label" for="city-column">{{translate('quantity')}}</label>
-                        <input type="number" id="city-column" class="form-control" placeholder="{{translate('abailable quantity')}}" wire:model="quantity" />
+                        <input type="number" id="city-column" class="form-control" placeholder="{{translate('quantity')}}" wire:model="quantity" />
                         @error('quantity') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                 </div>
                 <div class="col-md-4 col-12">
                     <div class="mb-1">
                         <label class="form-label" for="country-floating" data-bs-toggle="tooltip" data-bs-placement="top" title="{{translate('In the event that the product is in grams: Example: To convert 1 kilogram to the gram unit, 1 kilogram = 1 x 1000 = 1000 grams. And you write: 0.001')}}">
-                            {{translate('wheight')}} 
+                            {{translate('wheight')}}
                             <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle">
                                 <circle cx="12" cy="12" r="10"></circle>
                                 <line x1="12" y1="8" x2="12" y2="12"></line>
@@ -52,7 +52,7 @@
                 <div class="col-md-6 col-6">
                     <div class="mb-1">
                         <label class="form-label" for="city-column">{{translate('price')}}<span class="text-danger">*</span></label>
-                        <input type="number" id="city-column" class="form-control" placeholder="{{translate('product price')}}" wire:model="price" />
+                        <input type="number" id="city-column" class="form-control" placeholder="{{translate('price')}}" wire:model="price" />
                         @error('price') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                 </div>
@@ -72,7 +72,7 @@
                 <div class="input-group">
 
                     <select class="form-select form-select-lg" id="selectLarge" wire:model="category_id">
-                        <option value="">{{translate('Open this select menu')}}</option>
+                        <option value="">{{translate('select category')}}</option>
                         @forelse($categories as $category)
                         <option value="{{$category->id}}">{{$category->title}}</option>
                         @empty
@@ -80,7 +80,11 @@
                         @endforelse
                     </select>
 
-                    <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="button">{{translate('Add')}}</button>
+                    <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="button">
+                        <a href="{{route('admin.categories.index')}}">
+                            {{translate('Add')}}
+                        </a>
+                    </button>
                 </div>
                 @error('category_id')<small class="text-danger">{{$message}}</small>@enderror
             </div>
@@ -88,7 +92,7 @@
             <div class="col-md-8 col-12">
                 <div class="mb-1">
                     <label class="form-label" for="city-column" data-bs-toggle="tooltip" data-bs-placement="top" title="{{translate('It appears on the outer card of the product')}}">
-                        {{translate('short description')}} 
+                        {{translate('short description')}}
                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-alert-circle">
                             <circle cx="12" cy="12" r="10"></circle>
                             <line x1="12" y1="8" x2="12" y2="12"></line>
