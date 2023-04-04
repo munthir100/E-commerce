@@ -17,6 +17,6 @@ class ClientLogout extends Component
     function logout(){
         Auth::logout();
 
-        return redirect()->route('store.index',$this->storeLink);
+        return redirect()->route('store.index',$this->storeLink->store_link);
     }
 }

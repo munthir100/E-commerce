@@ -6,6 +6,7 @@ namespace Modules\Client\Entities;
 use Modules\Acl\Entities\User;
 use Modules\Admin\Entities\Sale;
 use Modules\Admin\Entities\Admin;
+use Modules\Admin\Entities\Store;
 use Modules\Shipping\Entities\City;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -39,9 +40,9 @@ class Client extends Model
         return $this->hasMany(Order::class);
     }
 
-    public function admin()
+    public function store()
     {
-        return $this->belongsTo(Admin::class);
+        return $this->belongsTo(Store::class);
     }
     public function user()
     {

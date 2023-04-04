@@ -2,12 +2,12 @@
     <form class="auth-login-form mt-2" method="POST" wire:submit.prevent="save">
         <div class="mb-1">
             <label class="form-label" for="username">{{translate('Email/Phone')}}</label>
-            <input class="form-control" id="username" type="text" wire:model.defer="username" placeholder="email or phone" aria-describedby="username" autofocus="" tabindex="1" />
+            <input class="form-control" id="username" type="text" wire:model.defer="username" placeholder="{{translate('email or phone')}}" aria-describedby="username" autofocus="" tabindex="1" />
             @error('username') <small class="text-danger">{{$message}}</small>@enderror
         </div>
         <div class="mb-1">
             <div class="d-flex justify-content-between">
-                <label class="form-label" for="password">{{translate('Password')}}</label><a href="auth-forgot-password-cover.html"><small>{{translate('Forgot Password?')}}</small></a>
+                <label class="form-label" for="password">{{translate('Password')}}</label><a href="{{route('admin.forgetPassword')}}"><small>{{translate('Forgot Password?')}}</small></a>
             </div>
             <div class="input-group input-group-merge form-password-toggle">
                 <input class="form-control form-control-merge" id="password" type="password" wire:model.defer="password" placeholder="············" aria-describedby="password" tabindex="2" />

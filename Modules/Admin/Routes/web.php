@@ -23,8 +23,10 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.')->grou
     Route::resource('reports', ReportController::class,);
 });
 Route::get('login', [AuthController::class, 'adminLoginForm'])->name('login');
+Route::get('forgetPassword', [AuthController::class, 'forgetPassword'])->name('admin.forgetPassword');
+Route::get('resetPassword', [AuthController::class, 'resetPassword'])->name('admin.resetPassword');
 Route::get('register', [AuthController::class, 'adminRegisterForm'])->name('register');
-Route::get('logout', function(){
+Route::post('logout', function(){
     Auth::logout();
     return redirect()->back();
-});
+})->name('logout');

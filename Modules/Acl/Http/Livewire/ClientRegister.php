@@ -13,7 +13,7 @@ class ClientRegister extends Component
 
     protected $rules = [
         'name' => 'required',
-        'email' => 'required|unique:users',
+        'email' => 'required',
         'phone' => 'required|unique:users',
         'password' => 'required',
     ];
@@ -31,13 +31,18 @@ class ClientRegister extends Component
     public function register()
     {
         $data = $this->validate();
+        $emailExist = User::where('email', $data['email'])->where('user_type_id', 3)->first();
+        if ($emailExist) {
+            $this->addError('email', 'you can not use this email');
+            return;
+        }
         $data['store_link'] = $this->storeLink;
         $data['user_type_id'] = 3;
         $data['password'] = Hash::make($data['password']);
         $user = User::create($data);
         $user->assignRole('client');
         Auth::login($user);
-        
+
         return redirect()->route('store.index',$this->storeLink);
     }
 }

@@ -18,6 +18,6 @@ class UserTypesSeederTableSeeder extends Seeder
         // Model::unguard();
         UserTypes::create(['name' => 'admin']);
         UserTypes::create(['name' => 'seller']);
-        UserTypes::create(['name' => 'customer']);
+        UserTypes::create(['name' => 'client']);
     }
 }
