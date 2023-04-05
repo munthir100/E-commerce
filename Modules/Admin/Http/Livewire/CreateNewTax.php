@@ -17,11 +17,7 @@ class CreateNewTax extends Component
         $this->countries = Country::all();
         $this->tax_number = Auth::user()->admin->store->taxNumber;
     }
-
-    protected $messages = [
-        'country_id.unique' => 'This country already has a VAT value in your store.',
-    ];
-
+    
     public function render()
     {
         return view('admin::livewire.create-new-tax');

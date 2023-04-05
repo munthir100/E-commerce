@@ -116,6 +116,8 @@
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/app-ecommerce-details.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-number-input.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/authentication.css">
 @endsection
 @section('scripts')
 
@@ -130,4 +132,6 @@
 <script src="../../../app-assets/vendors/js/extensions/swiper.min.js"></script>
 
 <script src="../../../app-assets/js/scripts/extensions/ext-component-swiper.js"></script>
+<script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+<script src="../../../app-assets/js/scripts/pages/auth-login.js"></script>
 @endsection
