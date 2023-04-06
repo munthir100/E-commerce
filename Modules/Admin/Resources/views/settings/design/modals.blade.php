@@ -2,7 +2,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="dynamicBanner">{{translate('Dynamic Banner')}}</h4>
+                <h4 class="modal-title" id="dynamicBanner">{{__('Dynamic Banner')}}</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -24,7 +24,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="storeFeatures">{{translate('Dynamic Banner')}}</h4>
+                <h4 class="modal-title" id="storeFeatures">{{__('Dynamic Banner')}}</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -38,7 +38,7 @@
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="dynamicProducts">{{translate('Dynamic Banner')}}</h4>
+                <h4 class="modal-title" id="dynamicProducts">{{__('Dynamic Banner')}}</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">

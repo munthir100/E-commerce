@@ -14,12 +14,12 @@ $wishlist = session()->get('wishlist', []);
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Checkout')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Checkout')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Checkout')}}
+                                <li class="breadcrumb-item active">{{__('Checkout')}}
                                 </li>
                             </ol>
                         </div>
@@ -38,8 +38,8 @@ $wishlist = session()->get('wishlist', []);
                                 <i data-feather="shopping-cart" class="font-medium-3"></i>
                             </span>
                             <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">{{translate('Cart')}}</span>
-                                <span class="bs-stepper-subtitle">{{translate('Your Cart Items')}}</span>
+                                <span class="bs-stepper-title">{{__('Cart')}}</span>
+                                <span class="bs-stepper-subtitle">{{__('Your Cart Items')}}</span>
                             </span>
                         </button>
                     </div>
@@ -52,8 +52,8 @@ $wishlist = session()->get('wishlist', []);
                                 <i data-feather="home" class="font-medium-3"></i>
                             </span>
                             <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">{{translate('Address')}}</span>
-                                <span class="bs-stepper-subtitle">{{translate('Enter Your Address')}}</span>
+                                <span class="bs-stepper-title">{{__('Address')}}</span>
+                                <span class="bs-stepper-subtitle">{{__('Enter Your Address')}}</span>
                             </span>
                         </button>
                     </div>
@@ -66,8 +66,8 @@ $wishlist = session()->get('wishlist', []);
                                 <i data-feather="credit-card" class="font-medium-3"></i>
                             </span>
                             <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">{{translate('Payment')}}</span>
-                                <span class="bs-stepper-subtitle">{{translate('Select Payment Method')}}</span>
+                                <span class="bs-stepper-title">{{__('Payment')}}</span>
+                                <span class="bs-stepper-subtitle">{{__('Select Payment Method')}}</span>
                             </span>
                         </button>
                     </div>
@@ -105,14 +105,14 @@ $wishlist = session()->get('wishlist', []);
                                                 </ul>
                                             </div>
                                         </div>
-                                        <span class="text-success mb-1">{{translate('Available')}}</span>
+                                        <span class="text-success mb-1">{{__('Available')}}</span>
 
                                         <livewire:store::cart.update-quantity :productId="$product->id" :quantity="$itemsById[$product->id]->qty" />
 
 
 
 
-                                        <span class="delivery-date text-muted">{{translate('Date of creation')}}, {{$product->created_at->diffForHumans()}}</span>
+                                        <span class="delivery-date text-muted">{{__('Date of creation')}}, {{$product->created_at->diffForHumans()}}</span>
                                         <span class="text-success">{{$product->short_description}}</span>
                                     </div>
                                     <div class="item-options text-center">
@@ -137,45 +137,45 @@ $wishlist = session()->get('wishlist', []);
                             <div class="checkout-options">
                                 <div class="card">
                                     <div class="card-body">
-                                        <label class="section-label form-label mb-1">{{translate('Options')}}</label>
+                                        <label class="section-label form-label mb-1">{{__('Options')}}</label>
                                         <div class="coupons input-group input-group-merge">
-                                            <input type="text" class="form-control" placeholder="{{translate('Coupons')}}" aria-label="Coupons" aria-describedby="input-coupons" />
-                                            <span class="input-group-text text-primary ps-1" id="input-coupons">{{translate('Apply')}}</span>
+                                            <input type="text" class="form-control" placeholder="{{__('Coupons')}}" aria-label="Coupons" aria-describedby="input-coupons" />
+                                            <span class="input-group-text text-primary ps-1" id="input-coupons">{{__('Apply')}}</span>
                                         </div>
                                         <hr />
                                         <div class="price-details">
-                                            <h6 class="price-title">{{translate('Price Details')}}</h6>
+                                            <h6 class="price-title">{{__('Price Details')}}</h6>
                                             <ul class="list-unstyled">
                                                 <li class="price-detail">
-                                                    <div class="detail-title">{{translate('Products Cost')}}</div>
+                                                    <div class="detail-title">{{__('Products Cost')}}</div>
                                                     <div class="detail-amt">
                                                         <livewire:client::cart.total />
                                                     </div>
                                                 </li>
                                                 <li class="price-detail">
-                                                    <div class="detail-title">{{translate('Shipping Cost')}}</div>
+                                                    <div class="detail-title">{{__('Shipping Cost')}}</div>
                                                     <div class="detail-amt discount-amt text-success">0</div>
                                                 </li>
                                                 <li class="price-detail">
-                                                    <div class="detail-title">{{translate('Cash on Delivary')}}</div>
+                                                    <div class="detail-title">{{__('Cash on Delivary')}}</div>
                                                     <div class="detail-amt">0</div>
                                                 </li>
                                                 <li class="price-detail">
-                                                    <div class="detail-title">{{translate('Delivery Charges')}}</div>
-                                                    <div class="detail-amt discount-amt text-success">{{translate('Free')}}</div>
+                                                    <div class="detail-title">{{__('Delivery Charges')}}</div>
+                                                    <div class="detail-amt discount-amt text-success">{{__('Free')}}</div>
                                                 </li>
                                             </ul>
                                             <hr />
                                             <ul class="list-unstyled">
                                                 <li class="price-detail">
-                                                    <div class="detail-title detail-total">{{translate('Total')}}</div>
+                                                    <div class="detail-title detail-total">{{__('Total')}}</div>
                                                     <div class="detail-amt fw-bolder">
                                                         <livewire:client::cart.total />
                                                     </div>
                                                 </li>
                                             </ul>
                                             @if (Auth::check())
-                                            <button type="button" class="btn btn-primary w-100 btn-next place-order" disabled>{{translate('Place Order')}}</button>
+                                            <button type="button" class="btn btn-primary w-100 btn-next place-order" disabled>{{__('Place Order')}}</button>
                                             @else
                                             <button data-bs-toggle="modal" data-bs-target="#userLoginModal" type="button" class="btn btn-primary w-100">Place Order</button>
                                             @endif

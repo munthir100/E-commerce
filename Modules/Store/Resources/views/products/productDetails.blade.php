@@ -9,12 +9,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Product Details')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Product Details')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('store.index',$store->store_link)}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('store.index',$store->store_link)}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('store.index',$store->store_link)}}">{{translate('Products')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('store.index',$store->store_link)}}">{{__('Products')}}</a>
                                 </li>
                                 <li class="breadcrumb-item active">{{$product->title}}
                                 </li>
@@ -39,11 +39,11 @@
                             </div>
                             <div class="col-12 col-md-7">
                                 <h4>{{$product->title}}</h4>
-                                <span class="card-text item-company">{{translate('Category:')}} <a href="#" class="company-name">
+                                <span class="card-text item-company">{{__('Category:')}} <a href="#" class="company-name">
                                         @if($product->category)
                                         {{$product->category->title}}
                                         @else
-                                        {{translate('None')}}
+                                        {{__('None')}}
                                         @endif
                                     </a>
                                 </span>
@@ -62,7 +62,7 @@
                                     {{$product->description}}
                                 </p>
                                 <ul class="product-features list-unstyled">
-                                    <li><i data-feather="shopping-cart"></i> <span class="text-success">{{translate('Available now')}}</span></li>
+                                    <li><i data-feather="shopping-cart"></i> <span class="text-success">{{__('Available now')}}</span></li>
                                 </ul>
 
                                 <hr />
@@ -113,8 +113,8 @@
                     @if($relatedProducts->isNotEmpty())
                     <div class="card-body">
                         <div class="mt-4 mb-2 text-center">
-                            <h4>{{translate('Related Products')}}</h4>
-                            <p class="card-text">{{translate('People also search for this items')}}</p>
+                            <h4>{{__('Related Products')}}</h4>
+                            <p class="card-text">{{__('People also search for this items')}}</p>
                         </div>
                         <div class="swiper-responsive-breakpoints swiper-container px-4 py-2">
                             <div class="swiper-wrapper">

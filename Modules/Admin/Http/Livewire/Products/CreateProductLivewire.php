@@ -11,61 +11,54 @@ use Modules\Admin\Entities\Product;
 class CreateProductLivewire extends Component
 {
     use WithFileUploads;
-    public
-        $images,
-        $title,
-        $sku,
-        $quantity,
-        $wheight,
-        $short_description,
-        $description,
-        $price,
-        $cost,
-        $discount,
-        $free_shipping,
-        $is_active = true,
-        $category_id = null,
-        $categories,
-        $user_id,
-        $store_id;
+
+    public $image, $title, $sku, $quantity, $wheight, $short_description,
+        $description, $price, $cost, $discount, $free_shipping, $is_active,
+        $category_id, $categories, $user_id, $main_image, $sub_images, $store_id;
 
     protected $rules = [
-        'title' => 'required',
-        'sku' => 'sometimes',
-        'quantity' => 'sometimes',
-        'wheight' => 'sometimes',
+        'image'        => 'required|image',
+        'sub_images.*'      => 'sometimes',
+        'title'             => 'required',
+        'sku'               => 'sometimes',
+        'quantity'          => 'sometimes',
+        'wheight'           => 'sometimes',
         'short_description' => 'sometimes|max:20',
-        'description' => 'sometimes',
-        'price' => 'numeric',
-        'cost' => 'sometimes',
-        'discount' => 'sometimes',
-        'free_shipping' => 'sometimes',
-        'is_active' => 'required|boolean',
-        'category_id' => 'sometimes',
+        'description'       => 'sometimes',
+        'price'             => 'required|numeric',
+        'cost'              => 'sometimes',
+        'discount'          => 'sometimes',
+        'free_shipping'     => 'sometimes',
+        'is_active'         => 'required|boolean',
+        'category_id'       => 'sometimes',
     ];
 
-    public function updated($data)
+    public function mount()
     {
-        $this->validateOnly($data);
-    }
-
-    public function render()
-    {
-        $userId = Auth::id();
-        $this->categories = Category::with('children')->whereHas('store.admin', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
+        $this->categories = Category::with('children')->whereHas('store.admin', function ($query) {
+            $query->where('user_id', Auth::id());
         })->get();
-        return view('admin::livewire.products.create-product-livewire');
     }
 
     public function save()
     {
         $validatedData = $this->validate();
-        $validatedData['user_id'] = Auth::id();
-        $validatedData['store_id'] = auth()->user()->admin->store->id;
-        Product::create($validatedData);
+        $validatedData['sku']       = $validatedData['sku'] ?? mt_rand(100000, 999999);
+        $validatedData['user_id']   = Auth::id();
+        $validatedData['store_id']  = auth()->user()->admin->store->id;
+        $product = Product::create($validatedData);
+
+        $mainImagePath = $this->image->store('public/products/images');
+
+        $product->update(['image' => $mainImagePath]);
+
+
         session()->flash('success', 'product created successfully');
-        
         return redirect()->route('admin.products.index');
+    }
+
+    public function render()
+    {
+        return view('admin::livewire.products.create-product-livewire');
     }
 }

@@ -10,14 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Store Sections')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Store Sections')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">{{translate('Store Design')}}</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('Store Design')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Store Sections')}}
+                                <li class="breadcrumb-item active">{{__('Store Sections')}}
                                 </li>
                             </ol>
                         </div>
@@ -35,7 +35,7 @@
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                         </svg>
-                        <span> {{translate('This feature is available in the advanced package and the professional package,')}}<strong> {{translate('click here')}} </strong></span>
+                        <span> {{__('This feature is available in the advanced package and the professional package,')}}<strong> {{__('click here')}} </strong></span>
                     </div>
                 </div>
             </div>
@@ -44,21 +44,21 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">{{translate('Customize Store Sections')}}</h4>
+                        <h4 class="card-title">{{__('Customize Store Sections')}}</h4>
 
                         <div class="row">
                             <div class="col-6">
                                 <button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#addItems">
                                     <i data-feather="plus"></i>
                                     <span>
-                                        {{translate('Add item')}}
+                                        {{__('Add item')}}
                                     </span>
                                 </button>
                             </div>
                             <div class="col-6" style="text-align: end;">
                                 <button type="button" class="btn btn-primary">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-eye"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle></svg>
-                                    <span>{{translate('View Store')}}</span>
+                                    <span>{{__('View Store')}}</span>
                                 </button>
                             </div>
                         </div>
@@ -73,7 +73,7 @@
 
 <div class="offcanvas offcanvas-end " tabindex="-1" id="addItems" aria-labelledby="addItemsLabel" style="overflow-y: scroll;">
     <div class="offcanvas-header">
-        <h5 id="addItemsLabel" class="offcanvas-title">{{translate('Items')}}</h5>
+        <h5 id="addItemsLabel" class="offcanvas-title">{{__('Items')}}</h5>
         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
 
@@ -87,7 +87,7 @@
 
                         <!--/ avatar -->
                         <div class="col-12">
-                            <h6 class="mb-0">{{translate('Dynamic Banner')}}</h6>
+                            <h6 class="mb-0">{{__('Dynamic Banner')}}</h6>
                             <hr>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-start align-items-center mb-1">
                         <div class="col-12">
-                            <h6 class="mb-0">{{translate('Store Features')}}</h6>
+                            <h6 class="mb-0">{{__('Store Features')}}</h6>
                             <hr>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-start align-items-center mb-1">
                         <div class="col-12">
-                            <h6 class="mb-0">{{translate('Dynamic Products')}}</h6>
+                            <h6 class="mb-0">{{__('Dynamic Products')}}</h6>
                             <hr>
                         </div>
                     </div>
@@ -132,7 +132,7 @@
 
                         <!--/ avatar -->
                         <div class="col-12">
-                            <h6 class="mb-0">{{translate('Large Banner')}}</h6>
+                            <h6 class="mb-0">{{__('Large Banner')}}</h6>
                             <hr>
                         </div>
                     </div>
@@ -149,7 +149,7 @@
                 <div class="card-body">
                     <div class="d-flex justify-content-start align-items-center mb-1">
                         <div class="col-12">
-                            <h6 class="mb-0">{{translate('Rectangular Banner')}}</h6>
+                            <h6 class="mb-0">{{__('Rectangular Banner')}}</h6>
                             <hr>
                         </div>
                     </div>
@@ -162,7 +162,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-start align-items-center mb-1">
                     <div class="col-12">
-                        <h6 class="mb-0">{{translate('Images')}}</h6>
+                        <h6 class="mb-0">{{__('Images')}}</h6>
                         <hr>
                     </div>
                 </div>
@@ -174,7 +174,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-start align-items-center mb-1">
                     <div class="col-12">
-                        <h6 class="mb-0">{{translate('Youtube Vedio')}}</h6>
+                        <h6 class="mb-0">{{__('Youtube Vedio')}}</h6>
                         <hr>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
             <div class="card-body">
                 <div class="d-flex justify-content-start align-items-center mb-1">
                     <div class="col-12">
-                        <h6 class="mb-0">{{translate('Customers Comments')}}</h6>
+                        <h6 class="mb-0">{{__('Customers Comments')}}</h6>
                         <hr>
                     </div>
                 </div>

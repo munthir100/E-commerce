@@ -17,7 +17,7 @@ class Register extends Component
 
         'email' => 'required|email',
 
-        'phone' => 'required|integer|unique:users',
+        'phone' => 'required|integer|max:13|unique:users',
 
         'password' => 'required',
 

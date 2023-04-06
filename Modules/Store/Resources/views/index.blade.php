@@ -9,14 +9,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Products')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Products')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">{{translate('Products')}}</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('Products')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('All Products')}}
+                                <li class="breadcrumb-item active">{{__('All Products')}}
                                 </li>
                             </ol>
                         </div>
@@ -32,12 +32,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="ecommerce-header-items">
-                                <div class="result-toggler">
-                                    <button class="navbar-toggler shop-sidebar-toggler" type="button" data-bs-toggle="collapse">
-                                        <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
-                                    </button>
-                                    <div class="search-results">{{$products_count}} {{translate('results found')}}</div>
-                                </div>
+                                <div class="search-results">{{$products_count}} {{__('results found')}}</div>
                                 <div class="view-options d-flex">
                                     <div class="btn-group" role="group">
                                         <input type="radio" class="btn-check" name="radio_options" id="radio_option1" autocomplete="off" checked />
@@ -60,7 +55,7 @@
                         <div class="col-sm-12">
                             <form action="{{route('store.index',$store->store_link)}}">
                                 <div class="input-group input-group-merge">
-                                    <input name="searchTerm" type="text" class="form-control search-product" id="shop-search" placeholder="{{translate('Search Product')}}" aria-label="Search..." aria-describedby="shop-search" wire:model="searchTerm" />
+                                    <input name="searchTerm" type="text" class="form-control search-product" id="shop-search" placeholder="{{__('Search Product')}}" aria-label="Search..." aria-describedby="shop-search" wire:model="searchTerm" />
                                     <button class="input-group-text"><i data-feather="search" class="text-muted"></i></button>
                                 </div>
                             </form>
@@ -77,13 +72,13 @@
                         <div class="col-xl-12 col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{translate('No Products Yet')}}</h4>
+                                    <h4 class="card-title">{{__('No Products Yet')}}</h4>
                                 </div>
                                 <div class="card-body">
                                     <div class="demo-spacing-0">
                                         <div class="alert alert-danger" role="alert">
                                             <div class="alert-body">
-                                                {{{translate('There Is No Products Found')}}}
+                                                {{{__('There Is No Products Found')}}}
                                             </div>
                                         </div>
                                     </div>

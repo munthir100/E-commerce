@@ -19,6 +19,7 @@ $(function () {
   var acceptFiles = $('#dpz-accept-files');
   var removeThumb = $('#dpz-remove-thumb');
   var removeAllThumbs = $('#dpz-remove-all-thumb');
+  var addProduct = $('#dpz-add-product');
 
   // Basic example
   singleFile.dropzone({
@@ -50,9 +51,26 @@ $(function () {
   acceptFiles.dropzone({
     paramName: 'file', // The name that will be used to transfer the file
     maxFilesize: 1, // MB
-    acceptedFiles: 'image/*'
+    acceptedFiles: 'image/*',
+    error: function(file, message) {
+      console.log(message);
+
+      file.previewElement.querySelector("[data-dz-errormessage]").textContent = message;
+    }
   });
 
+
+  // add product
+    addProduct.dropzone({
+      maxFilesize: 1, // MB
+      addRemoveLinks: true,
+      acceptedFiles: 'image/*',
+      error: function(file, message) {
+        console.log(message);
+
+        file.previewElement.querySelector("[data-dz-errormessage]").textContent = message;
+      }
+  });
   //Remove Thumbnail
   removeThumb.dropzone({
     paramName: 'file', // The name that will be used to transfer the file
@@ -78,4 +96,5 @@ $(function () {
       });
     }
   });
+  
 });

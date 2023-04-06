@@ -17,9 +17,9 @@
                     <div class="col-12">
                         <div class="card card-statistics">
                             <div class="card-header">
-                                <h4 class="card-title">{{translate('Statistics')}}</h4>
+                                <h4 class="card-title">{{__('Statistics')}}</h4>
                                 <div class="d-flex align-items-center">
-                                    <p class="card-text font-small-2 me-25 mb-0">{{translate('Updated 1 month ago')}}</p>
+                                    <p class="card-text font-small-2 me-25 mb-0">{{__('Updated 1 month ago')}}</p>
                                 </div>
                             </div>
                             <div class="card-body statistics-body">
@@ -33,7 +33,7 @@
                                             </div>
                                             <div class="my-auto">
                                                 <h4 class="fw-bolder mb-0">0</h4>
-                                                <p class="card-text font-small-3 mb-0">{{translate('Sales')}}</p>
+                                                <p class="card-text font-small-3 mb-0">{{__('Sales')}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -46,7 +46,7 @@
                                             </div>
                                             <div class="my-auto">
                                                 <h4 class="fw-bolder mb-0">0</h4>
-                                                <p class="card-text font-small-3 mb-0">{{translate('Customers')}}</p>
+                                                <p class="card-text font-small-3 mb-0">{{__('Customers')}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="my-auto">
                                                 <h4 class="fw-bolder mb-0">0</h4>
-                                                <p class="card-text font-small-3 mb-0">{{translate('Orders')}}</p>
+                                                <p class="card-text font-small-3 mb-0">{{__('Orders')}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -72,7 +72,7 @@
                                             </div>
                                             <div class="my-auto">
                                                 <h4 class="fw-bolder mb-0">0</h4>
-                                                <p class="card-text font-small-3 mb-0">{{translate('Profit')}}</p>
+                                                <p class="card-text font-small-3 mb-0">{{__('Profit')}}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -89,7 +89,7 @@
                     <div class="col-lg-6 col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
-                                <h4 class="card-title">{{translate('Most requested cities')}}</h4>
+                                <h4 class="card-title">{{__('Most requested cities')}}</h4>
                                 <i data-feather="help-circle" class="font-medium-3 text-muted cursor-pointer"></i>
                             </div>
 
@@ -101,7 +101,7 @@
                     <div class="col-lg-6 col-12">
                         <div class="card">
                             <div class="card-header d-flex justify-content-between align-items-center">
-                                <h4 class="card-title">{{translate('Orders')}}</h4>
+                                <h4 class="card-title">{{__('Orders')}}</h4>
                                 <i data-feather="help-circle" class="font-medium-3 text-muted cursor-pointer"></i>
                             </div>
                             <div class="card-body p-0">

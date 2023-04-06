@@ -10,14 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Additional Settings')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Additional Settings')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">{{translate('Settings')}}</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('Settings')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Additional Settings')}}
+                                <li class="breadcrumb-item active">{{__('Additional Settings')}}
                                 </li>
                             </ol>
                         </div>
@@ -30,14 +30,14 @@
             <section id="additionalSettings">
                 <div class="card mb-2">
                     <div class="card-body">
-                        <h4 class="card-title">{{translate('Additional settings')}}</h4>
+                        <h4 class="card-title">{{__('Additional settings')}}</h4>
                         <form action="#">
                             <ul class="list-unstyled brand-list">
                                 <li>
                                     <div class="form-check mb-2">
                                         <input type="checkbox" class="form-check-input" id="productBrand1" checked disabled>
                                         <label class="form-check-label text-muted" for="productBrand1">
-                                            {{translate('Show the copyright of the Matajer platform in your store')}}
+                                            {{__('Show the copyright of the Matajer platform in your store')}}
                                         </label>
                                     </div>
                                 </li>
@@ -46,7 +46,7 @@
                                     <div class="form-check mb-2">
                                         <input type="checkbox" class="form-check-input" id="productBrand1">
                                         <label class="form-check-label" for="productBrand1">
-                                            {{translate('Activate the minimum order')}}
+                                            {{__('Activate the minimum order')}}
                                         </label>
 
                                         <input type="text" placeholder="1 (SDG)">
@@ -59,7 +59,7 @@
                                     <div class="form-check mb-2">
                                         <input type="checkbox" class="form-check-input" id="productBrand1">
                                         <label class="form-check-label" for="productBrand1">
-                                            {{translate('Overseas product pictures show one size')}}
+                                            {{__('Overseas product pictures show one size')}}
                                         </label>
                                     </div>
                                 </li>
@@ -68,7 +68,7 @@
                                     <div class="form-check mb-2">
                                         <input type="checkbox" class="form-check-input" id="productBrand1">
                                         <label class="form-check-label" for="productBrand1">
-                                            {{translate('Activate the gift system in the store')}}
+                                            {{__('Activate the gift system in the store')}}
                                         </label>
                                     </div>
                                 </li>
@@ -77,7 +77,7 @@
                                     <div class="form-check mb-2">
                                         <input type="checkbox" class="form-check-input" id="productBrand1">
                                         <label class="form-check-label" for="productBrand1">
-                                            {{translate('Activate electronic payment fees (for reports)')}}
+                                            {{__('Activate electronic payment fees (for reports)')}}
                                         </label>
                                     </div>
                                 </li>
@@ -85,7 +85,7 @@
 
                             </ul>
                             <div style="text-align: end;">
-                                <button class="btn btn-primary">{{translate('Save')}}</button>
+                                <button class="btn btn-primary">{{__('Save')}}</button>
                             </div>
                         </form>
                     </div>
@@ -93,23 +93,23 @@
 
                 <div class="card mb-2">
                     <div class="card-body">
-                        <h4 class="card-title">{{translate('Additional settings')}}</h4>
+                        <h4 class="card-title">{{__('Additional settings')}}</h4>
                         <form action="#">
                             <div class="card-header p-1">
                                 <div class="head-label">
-                                    {{translate('Default wheight in shipping')}}
+                                    {{__('Default wheight in shipping')}}
                                 </div>
                                 <div class="dt-action-buttons text-end">
                                     <div class="dt-buttons d-inline-flex">
                                         <div class="input-group mb-2">
-                                            <input type="text" class="form-control" value="0" placeholder="{{translate('Default wheight in shipping')}}">
+                                            <input type="text" class="form-control" value="0" placeholder="{{__('Default wheight in shipping')}}">
                                             <span class="input-group-text">K.G</span>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                             <div style="text-align: end;">
-                                <button type="button" onclick="notAvailable()" class="btn btn-primary">{{translate('Save')}}</button>
+                                <button type="button" onclick="notAvailable()" class="btn btn-primary">{{__('Save')}}</button>
                             </div>
                         </form>
                     </div>
@@ -117,7 +117,7 @@
 
                 <div class="card mb-2">
                     <div class="card-body">
-                        <h4 class="card-title">{{translate('Commercial Registration No')}}</h4>
+                        <h4 class="card-title">{{__('Commercial Registration No')}}</h4>
                         <form action="#">
                             <div class="card-header p-1">
                                 <div class="head-label">
@@ -131,14 +131,14 @@
                                     <div class="form-check mb-2">
                                         <input type="checkbox" class="form-check-input" id="productBrand1">
                                         <label class="form-check-label" for="productBrand1">
-                                            {{translate('The commercial registration appears at the bottom of the store page')}}
+                                            {{__('The commercial registration appears at the bottom of the store page')}}
                                         </label>
                                     </div>
                                 </li>
                             </ul>
 
                             <div style="text-align: end;">
-                                <button type="button" onclick="notAvailable()" class="btn btn-primary">{{translate('Save')}}</button>
+                                <button type="button" onclick="notAvailable()" class="btn btn-primary">{{__('Save')}}</button>
                             </div>
                         </form>
                     </div>
@@ -146,7 +146,7 @@
 
                 <div class="card mb-2">
                     <div class="card-body">
-                        <h4 class="card-title">{{translate('Languages')}}</h4>
+                        <h4 class="card-title">{{__('Languages')}}</h4>
                         <form action="#">
                             <ul class="list-unstyled brand-list">
 
@@ -155,7 +155,7 @@
                                     <div class="form-check mb-2">
                                         <input type="checkbox" class="form-check-input" id="productBrand1" checked disabled>
                                         <label class="form-check-label text-muted" for="productBrand1">
-                                            {{translate('Arabic')}}
+                                            {{__('Arabic')}}
                                         </label>
                                     </div>
                                 </li>
@@ -164,7 +164,7 @@
                                     <div class="form-check mb-2" onclick="notAvailable()">
                                         <input type="checkbox" class="form-check-input" id="productBrand1" disabled>
                                         <label class="form-check-label" for="productBrand1">
-                                            {{translate('English')}}
+                                            {{__('English')}}
                                         </label>
                                     </div>
                                 </li>
@@ -172,7 +172,7 @@
 
                             </ul>
                             <div style="text-align: end;">
-                                <button type="button" onclick="notAvailable()" class="btn btn-primary">{{translate('Save')}}</button>
+                                <button type="button" onclick="notAvailable()" class="btn btn-primary">{{__('Save')}}</button>
                             </div>
                         </form>
                     </div>
@@ -181,7 +181,7 @@
                 <div class="card mb-2">
                     <div class="card-body">
                         <h4 class="card-title">
-                            <i data-feather='alert-triangle'></i>{{translate('Store maintenance')}}
+                            <i data-feather='alert-triangle'></i>{{__('Store maintenance')}}
                         </h4>
                         <form action="#">
                             <ul class="list-unstyled brand-list">
@@ -189,14 +189,14 @@
                                     <div class="form-check mb-2" onclick="notAvailable()">
                                         <input type="checkbox" class="form-check-input" id="productBrand1" disabled>
                                         <label class="form-check-label" for="productBrand1">
-                                            {{translate('Temporarily stopping the store for maintenance')}}
+                                            {{__('Temporarily stopping the store for maintenance')}}
                                         </label>
                                     </div>
                                 </li>
                             </ul>
 
                             <div style="text-align: end;">
-                                <button type="button" onclick="notAvailable()" class="btn btn-primary">{{translate('Save')}}</button>
+                                <button type="button" onclick="notAvailable()" class="btn btn-primary">{{__('Save')}}</button>
                             </div>
                         </form>
                     </div>

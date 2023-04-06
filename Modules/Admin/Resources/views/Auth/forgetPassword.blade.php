@@ -10,7 +10,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>{{translate('Forget Password')}}</title>
+    <title>{{__('Forget Password')}}</title>
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -86,14 +86,14 @@
                                 <h2 class="brand-text text-primary ms-1">Vuexy</h2>
                             </a>
 
-                            <h4 class="card-title mb-1">{{translate('Forgot Password? 🔒')}}</h4>
+                            <h4 class="card-title mb-1">{{__('Forgot Password? 🔒')}}</h4>
                             <p class="card-text mb-2">
-                                {{translate('Enter your email and we will send you instructions to reset your password')}}
+                                {{__('Enter your email and we will send you instructions to reset your password')}}
                             </p>
                             <livewire:admin::auth.forget-passwordform />
 
                             <p class="text-center mt-2">
-                                <a href="{{route('login')}}"> <i data-feather="chevron-left"></i> {{translate('Back to login')}} </a>
+                                <a href="{{route('login')}}"> <i data-feather="chevron-left"></i> {{__('Back to login')}} </a>
                             </p>
                         </div>
                     </div>

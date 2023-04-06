@@ -87,14 +87,14 @@
                 <li class="nav-item dropdown dropdown-language">
                     <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <i class="flag-icon flag-icon-us"></i>
-                        <span class="selected-language">{{ translate('English') }}</span>
+                        <span class="selected-language">{{__('English') }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-flag">
                         <form method="POST" action="{{ route('admin.change.language') }}">
                             @csrf
                             <button type="submit" name="locale" value="ar" class="dropdown-item" style="width:100%">
                                 <i class="flag-icon flag-icon-sa"></i>
-                                {{ translate('اللغة العربية') }}
+                                {{__('اللغة العربية') }}
                             </button>
                         </form>
                     </div>
@@ -108,30 +108,30 @@
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
                         <li class="dropdown-menu-header">
                             <div class="dropdown-header d-flex">
-                                <h4 class="notification-title mb-0 me-auto">{{ translate('Notifications') }}</h4>
-                                <div class="badge rounded-pill badge-light-primary">0 {{ translate('New') }}</div>
+                                <h4 class="notification-title mb-0 me-auto">{{__('Notifications') }}</h4>
+                                <div class="badge rounded-pill badge-light-primary">0 {{__('New') }}</div>
                             </div>
                         </li>
                         <li class="scrollable-container media-list"><a class="d-flex" href="#">
                                 <div class="list-item d-flex align-items-start">
 
                                     <div class="list-item-body flex-grow-1">
-                                        <p class="media-heading"><span class="fw-bolder">{{translate('No Notifications')}}</span>
+                                        <p class="media-heading"><span class="fw-bolder">{{__('No Notifications')}}</span>
                                     </div>
                                 </div>
                         </li>
-                        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100 disabled" href="#">{{translate('Read all notifications')}}</a></li>
+                        <li class="dropdown-menu-footer"><a class="btn btn-primary w-100 disabled" href="#">{{__('Read all notifications')}}</a></li>
                     </ul>
                 </li>
                 <li class="nav-item dropdown dropdown-user">
                     <a class="nav-link dropdown-toggle dropdown-user-link" id="dropdown-user" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <div class="user-nav d-sm-flex d-none">
                             <span class="user-name fw-bolder">{{Auth::user()->name}}</span>
-                            <span class="user-status">{{translate('Admin')}}</span>
+                            <span class="user-status">{{__('Admin')}}</span>
                         </div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
-                        <a class="dropdown-item" href="{{route('admin.settings.profile')}}"><i class="me-50" data-feather="user"></i> {{translate('Profile')}}</a>
+                        <a class="dropdown-item" href="{{route('admin.settings.profile')}}"><i class="me-50" data-feather="user"></i> {{__('Profile')}}</a>
                         <div class="dropdown-divider"></div>
                         <livewire:admin::auth.logout />
                     </div>
@@ -160,7 +160,7 @@
                                         <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-link font-medium-3 me-50">
                                             <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path>
                                             <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path>
-                                        </svg><span class="fw-bold">{{ translate('Store Link')}}</span>
+                                        </svg><span class="fw-bold">{{__('Store Link')}}</span>
                                     </a>
                                 </span>
                             </div>
@@ -178,34 +178,34 @@
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="{{route('admin.index')}}"><i data-feather="home"></i>
-                        <span class="menu-title text-truncate" data-i18n="{{ translate('Home') }}">{{ translate('home') }}</span>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Home') }}">{{__('home') }}</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="#">
                         <i data-feather='shopping-bag'></i>
-                        <span class="menu-title text-truncate" data-i18n="{{ translate('Products') }}">{{ translate('Products') }}</span>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Products') }}">{{__('Products') }}</span>
                     </a>
                     <ul class="menu-content">
                         <li>
                             <a class="d-flex align-items-center" href="{{route('admin.categories.index')}}">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="{{ translate('Categories') }}">{{ translate('Categories') }}</span>
+                                <span class="menu-item text-truncate" data-i18n="{{__('Categories') }}">{{__('Categories') }}</span>
                             </a>
                         </li>
 
                         <li>
                             <a class="d-flex align-items-center" href="{{route('admin.products.index')}}">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="{{ translate('Products') }}">{{ translate('Products') }}</span>
+                                <span class="menu-item text-truncate" data-i18n="{{__('Products') }}">{{__('Products') }}</span>
                             </a>
                         </li>
 
                         <li>
                             <a class="d-flex align-items-center" href="{{route('admin.brands.index')}}">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="{{ translate('Brands') }}">{{ translate('Brands') }}</span>
+                                <span class="menu-item text-truncate" data-i18n="{{__('Brands') }}">{{__('Brands') }}</span>
                             </a>
                         </li>
                     </ul>
@@ -214,41 +214,41 @@
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="{{route('admin.orders.index')}}">
                         <i data-feather='truck'></i>
-                        <span class="menu-title text-truncate" data-i18n="{{ translate('Orders') }}">{{ translate('Orders') }}</span>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Orders') }}">{{__('Orders') }}</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="{{route('admin.clients.index')}}">
                         <i data-feather='users'></i>
-                        <span class="menu-title text-truncate" data-i18n="{{ translate('Clients') }}">{{ translate('Clients') }}</span>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Clients') }}">{{__('Clients') }}</span>
                     </a>
                 </li>
 
                 <li class="nav-item" onclick="notAvailable()">
                     <a class="d-flex align-items-center" href="#">
                         <i data-feather='pie-chart'></i>
-                        <span class="menu-title text-truncate" data-i18n="{{ translate('Reports') }}">{{ translate('Reports') }}</span>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Reports') }}">{{__('Reports') }}</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="#">
                         <i data-feather='shopping-bag'></i>
-                        <span class="menu-title text-truncate" data-i18n="{{ translate('Marketing') }}">{{ translate('Marketing') }}</span>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Marketing') }}">{{__('Marketing') }}</span>
                     </a>
                     <ul class="menu-content">
                         <li onclick="notAvailable()">
                             <a class="d-flex align-items-center" href="#">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="{{ translate('Affilate Marketing') }}">{{ translate('Affilate Marketing') }}</span>
+                                <span class="menu-item text-truncate" data-i18n="{{__('Affilate Marketing') }}">{{__('Affilate Marketing') }}</span>
                             </a>
                         </li>
 
                         <li onclick="notAvailable()">
                             <a class="d-flex align-items-center" href="#">
                                 <i data-feather="circle"></i>
-                                <span class="menu-item text-truncate" data-i18n="{{ translate('Coupons')}}">{{ translate('Coupons')}}</span>
+                                <span class="menu-item text-truncate" data-i18n="{{__('Coupons')}}">{{__('Coupons')}}</span>
                             </a>
                         </li>
                     </ul>
@@ -257,7 +257,7 @@
                 <li class=" nav-item">
                     <a class="d-flex align-items-center" href="{{route('admin.settings.index')}}">
                         <i data-feather='settings'></i>
-                        <span class="menu-title text-truncate" data-i18n="{{ translate('Settings')}}">{{ translate('Settings')}}</span>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Settings')}}">{{__('Settings')}}</span>
                     </a>
                 </li>
 

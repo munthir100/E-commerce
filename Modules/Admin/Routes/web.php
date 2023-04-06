@@ -12,7 +12,7 @@ use Modules\Admin\Http\Controllers\ReportController;
 use Modules\Admin\Http\Controllers\ProductController;
 use Modules\Admin\Http\Controllers\CategoriesController;
 
-Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.')->group(function () {
+Route::prefix('admin')->middleware(['auth', 'role:admin','local'])->name('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
     Route::post('change-language', [AdminController::class, 'localize'])->name('change.language');
     Route::resource('categories', CategoriesController::class,);
@@ -27,6 +27,10 @@ Route::get('forgetPassword', [AuthController::class, 'forgetPassword'])->name('a
 Route::get('resetPassword', [AuthController::class, 'resetPassword'])->name('admin.resetPassword');
 Route::get('register', [AuthController::class, 'adminRegisterForm'])->name('register');
 Route::post('logout', function(){
+    Auth::logout();
+    return redirect()->back();
+})->name('logout');
+Route::get('logout', function(){
     Auth::logout();
     return redirect()->back();
 })->name('logout');

@@ -9,12 +9,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{ translate('Products')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Products')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{ translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{ translate('Products')}}
+                                <li class="breadcrumb-item active">{{__('Products')}}
                                 </li>
                             </ol>
                         </div>
@@ -36,7 +36,7 @@
                                     <div class="head-label">
                                         <form method="GET" action="{{ route('admin.products.index') }}">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="{{translate('search ..')}}" aria-describedby="button-addon2" name="q" value="{{ Request::get('q') }}">
+                                                <input type="text" class="form-control" placeholder="{{__('search ..')}}" aria-describedby="button-addon2" name="q" value="{{ Request::get('q') }}">
                                                 <button class="btn btn-outline-primary waves-effect" id="button-addon2" type="submit">
                                                     <i data-feather='search'></i>
                                                 </button>
@@ -49,7 +49,7 @@
                                         <form method="GET" action="{{ route('admin.products.index') }}">
 
                                             <select class="select2 form-select" name="category_id" onchange="this.form.submit()">
-                                                <option value="">{{ translate('All categories')}}</option>
+                                                <option value="">{{__('All categories')}}</option>
                                                 @foreach($categories as $category)
                                                 <option value="{{ $category->id }}" {{ Request::get('category_id') == $category->id ? 'selected' : '' }}>{{ $category->title }}</option>
                                                 @endforeach
@@ -63,7 +63,7 @@
                                     <div class=" d-inline-flex">
                                         <a href="{{route('admin.products.create')}}" class="dt-button create-new btn btn-primary"><span>
                                                 <i data-feather="plus"></i>
-                                                {{ translate('Add New Product') }}</span></a>
+                                                {{__('Add New Product') }}</span></a>
                                     </div>
                                 </div>
 
@@ -79,7 +79,7 @@
                                                 <line x1="12" y1="16" x2="12" y2="12"></line>
                                                 <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                             </svg>
-                                            <span>{{ translate('No Items to display it now .')}}</span>
+                                            <span>{{__('No Items to display it now .')}}</span>
                                         </div>
                                     </div>
                                 </div>
@@ -87,12 +87,12 @@
                                 <table class="table table-striped table-bordered" style="margin-bottom: 5rem;">
                                     <thead>
                                         <tr>
-                                            <th>{{translate('name')}}</th>
-                                            <th>{{translate('product sku')}}</th>
-                                            <th>{{translate('quantity')}}</th>
-                                            <th>{{translate('price')}}</th>
-                                            <th>{{translate('Publish in store')}}</th>
-                                            <th>{{translate('Actions')}}</th>
+                                            <th>{{__('name')}}</th>
+                                            <th>{{__('product sku')}}</th>
+                                            <th>{{__('quantity')}}</th>
+                                            <th>{{__('price')}}</th>
+                                            <th>{{__('Publish in store')}}</th>
+                                            <th>{{__('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -114,9 +114,9 @@
                                             <td>{{$product->price}}</td>
 
                                             @if($product->is_active != 0)
-                                            <td><span class="badge rounded-pill badge-light-primary me-1">{{translate('Active')}}</span></td>
+                                            <td><span class="badge rounded-pill badge-light-primary me-1">{{__('Active')}}</span></td>
                                             @else
-                                            <td><span class="badge rounded-pill badge-light-secondary me-1">{{translate('Not Active')}}</span></td>
+                                            <td><span class="badge rounded-pill badge-light-secondary me-1">{{__('Not Active')}}</span></td>
                                             @endif
                                             <td>
                                                 <div class="dropdown">
@@ -126,7 +126,7 @@
                                                     <div class="dropdown-menu dropdown-menu-end">
                                                         <a class="dropdown-item" href="{{route('admin.products.edit',[$product->id])}}">
                                                             <i data-feather="edit-2" class="me-50"></i>
-                                                            <span>{{translate('Edit')}}</span>
+                                                            <span>{{__('Edit')}}</span>
                                                         </a>
                                                         <livewire:admin::delete-product-livewire :product="$product" />
                                                     </div>
@@ -139,10 +139,10 @@
                                 <div class="col-2 mb-2">
                                     <form method="GET" action="{{ route('admin.products.index') }}" class="mr-10">
                                         <select class="form-select" name="per_page" onchange="this.form.submit()">
-                                            <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{translate('10 items')}}</option>
-                                            <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>{{translate('25 item')}}</option>
-                                            <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>{{translate('50 item')}}</option>
-                                            <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>{{translate('100 item')}}</option>
+                                            <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{__('10 items')}}</option>
+                                            <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>{{__('25 item')}}</option>
+                                            <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>{{__('50 item')}}</option>
+                                            <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>{{__('100 item')}}</option>
                                         </select>
                                     </form>
                                 </div>

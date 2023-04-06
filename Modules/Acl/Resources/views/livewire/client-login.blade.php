@@ -1,16 +1,16 @@
 <div>
     <form class="auth-login-form mt-2" method="POST" wire:submit.prevent="login">
         <div class="mb-1">
-            <label for="login-email" class="form-label">{{translate('Username')}}</label>
-            <input type="text" class="form-control" wire:model="username" placeholder="{{translate('email or phone number')}}" autofocus />
+            <label for="login-email" class="form-label">{{__('Username')}}</label>
+            <input type="text" class="form-control" wire:model="username" placeholder="{{__('email or phone number')}}" autofocus />
             @error('username')<small class="text-danger">{{$message}}</small>@enderror
         </div>
 
         <div class="mb-1">
             <div class="d-flex justify-content-between">
-                <label class="form-label" for="login-password">{{translate('Password')}}</label>
+                <label class="form-label" for="login-password">{{__('Password')}}</label>
                 <a href="#">
-                    <small id="forgetPassword" onclick="$('#userLoginModal').modal('hide');$('#forgetPassword').modal('show');">{{translate('Forgot Password?')}}
+                    <small id="forgetPassword" onclick="$('#userLoginModal').modal('hide');$('#forgetPassword').modal('show');">{{__('Forgot Password?')}}
                     </small>
                 </a>
             </div>
@@ -25,6 +25,6 @@
             </div>
             @error('password')<small class="text-danger">{{$message}}</small>@enderror
         </div>
-        <button class="btn btn-primary w-100" tabindex="4">{{translate('Sign in')}}</button>
+        <button class="btn btn-primary w-100" tabindex="4">{{__('Sign in')}}</button>
     </form>
 </div>

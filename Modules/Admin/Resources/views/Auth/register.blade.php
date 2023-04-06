@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>{{translate('Register')}}</title>
+    <title>{{__('Register')}}</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -97,21 +97,21 @@
                         <div class="d-flex col-lg-6 align-items-center auth-bg px-2 p-lg-5">
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <h2 class="card-title fw-bold mb-1">
-                                    {{translate('Adventure starts here 🚀')}}
+                                    {{__('Adventure starts here 🚀')}}
 
                                 </h2>
                                 <p class="card-text mb-2">
-                                    {{translate('Make your app management easy and fun!')}}
+                                    {{__('Make your app management easy and fun!')}}
                                 </p>
 
                                 <livewire:admin::auth.register />
 
                                 <p class="text-center mt-2"><span>
-                                    {{translate('Already have an account?')}}
+                                    {{__('Already have an account?')}}
                                 </span>
                                     <a href="{{route('login')}}">
                                         <span>&nbsp;
-                                            {{translate('Sign in instead')}}
+                                            {{__('Sign in instead')}}
                                         </span>
                                     </a>
                                 </p>

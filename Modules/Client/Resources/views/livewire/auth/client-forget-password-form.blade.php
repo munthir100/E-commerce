@@ -7,6 +7,6 @@
                    aria-describedby="forgot-password-email" tabindex="1" autofocus/>
             @error('email') <span class="text-danger"> {{$message}} </span>@enderror
         </div>
-        <button class="btn btn-primary w-100" tabindex="2">{{translate('Send reset link')}}</button>
+        <button class="btn btn-primary w-100" tabindex="2">{{__('Send reset link')}}</button>
     </form>
 </div>

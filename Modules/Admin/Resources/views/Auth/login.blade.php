@@ -9,7 +9,7 @@
     <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
-    <title>{{translate('Login Page')}}</title>
+    <title>{{__('Login Page')}}</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
     <style>
         * {
@@ -96,12 +96,12 @@
                     <!-- Login-->
                     <div class="d-flex col-lg-4 align-items-center auth-bg px-2 p-lg-5">
                         <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
-                            <h2 class="card-title fw-bold mb-1">{{translate('Welcome to our Platform👋')}}</h2>
-                            <p class="card-text mb-2">{{translate('Please sign-in to your account and start the adventure')}}</p>
+                            <h2 class="card-title fw-bold mb-1">{{__('Welcome to our Platform👋')}}</h2>
+                            <p class="card-text mb-2">{{__('Please sign-in to your account and start the adventure')}}</p>
 
                             <livewire:admin::auth.login />
 
-                            <p class="text-center mt-2"><span>{{translate('New on our platform?')}}</span><a href="{{route('register')}}"><span>&nbsp;{{translate('Create an account')}}</span></a></p>
+                            <p class="text-center mt-2"><span>{{__('New on our platform?')}}</span><a href="{{route('register')}}"><span>&nbsp;{{__('Create an account')}}</span></a></p>
 
                         </div>
                     </div>

@@ -145,9 +145,9 @@
                 <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
                     <li class="dropdown-menu-header">
                         <div class="dropdown-header d-flex">
-                            <h4 class="notification-title mb-0 me-auto">{{translate('My Cart')}}</h4>
+                            <h4 class="notification-title mb-0 me-auto">{{__('My Cart')}}</h4>
                             <div class="badge rounded-pill badge-light-primary" style="display:inherit;">
-                                {{translate('items')}}
+                                {{__('items')}}
                                 (
                                 <livewire:client::cart-counter/>
                                 )
@@ -156,13 +156,13 @@
                     </li>
                     <li class="dropdown-menu-footer">
                         <div class="d-flex justify-content-between mb-1">
-                            <h6 class="fw-bolder mb-0">{{translate('Total:')}}</h6>
+                            <h6 class="fw-bolder mb-0">{{__('Total:')}}</h6>
                             <h6 class="text-primary fw-bolder mb-0">
                                 <livewire:client::cart.total/>
                             </h6>
                         </div>
                         <a class="btn btn-primary w-100"
-                           href="app-ecommerce-checkout.html">{{translate('Checkout')}}</a>
+                           href="app-ecommerce-checkout.html">{{__('Checkout')}}</a>
                     </li>
                 </ul>
             </li>
@@ -247,7 +247,7 @@
                 <li class="dropdown nav-item">
                     <a class="nav-link d-flex align-items-center" href="{{route('store.index',$store->store_link)}}">
                         <i data-feather="home"></i>
-                        <span data-i18n="Home">{{translate('Home')}}</span>
+                        <span data-i18n="Home">{{__('Home')}}</span>
                     </a>
                 </li>
                 @foreach($categories as $category)
@@ -372,14 +372,14 @@
             </div>
             <div class="col-md-5 col-sm-12">
                 <div class="contact-data">
-                    <h3>{{translate('Quick Access')}}</h3>
-                    <p><a href="#" class="text-body">{{translate('click heare to contact us')}}</a></p>
+                    <h3>{{__('Quick Access')}}</h3>
+                    <p><a href="#" class="text-body">{{__('click heare to contact us')}}</a></p>
                 </div>
                 <button class="btn btn-outline-primary">
                         <span>
                             <i data-feather="truck"></i>
                         </span>
-                    {{translate('shipping options')}}
+                    {{__('shipping options')}}
                 </button>
             </div>
         </div>
@@ -402,7 +402,7 @@
 @yield('scripts')
 <!-- END: Page Vendor JS-->
 @section('modals')
-    @extends('store::layouts.authModalsLayout',['storeLink' => $store->store_link])
+    @extends('store::layouts.authModalsLayout',['storeLink' => $store->store_link,'store' => $store])
 @endsection
 <!-- BEGIN: Theme JS-->
 <script src="../../../app-assets/js/core/app-menu.js"></script>

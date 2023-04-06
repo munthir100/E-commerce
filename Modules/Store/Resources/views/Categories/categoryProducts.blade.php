@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Category')}}:{{$category->title}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Category')}}:{{$category->title}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">{{translate('Categories')}}</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('Categories')}}</a>
                                 </li>
                                 <li class="breadcrumb-item active">{{$category->title}}
                                 </li>
@@ -33,12 +33,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="ecommerce-header-items">
-                                <div class="result-toggler">
-                                    <button class="navbar-toggler shop-sidebar-toggler" type="button" data-bs-toggle="collapse">
-                                        <span class="navbar-toggler-icon d-block d-lg-none"><i data-feather="menu"></i></span>
-                                    </button>
-                                    <div class="search-results">{{$products_count}} {{translate('results found')}}</div>
-                                </div>
+                                <div class="search-results">{{$products_count}} {{__('results found')}}</div>
                                 <div class="view-options d-flex">
                                     <div class="btn-group" role="group">
                                         <input type="radio" class="btn-check" name="radio_options" id="radio_option1" autocomplete="off" checked />
@@ -73,7 +68,7 @@
                 <livewire:store::products.products-list :storeLink="$store->store_link" :products="$products" />
                 <!-- E-commerce Products Ends -->
 
-                
+
 
             </div>
         </div>

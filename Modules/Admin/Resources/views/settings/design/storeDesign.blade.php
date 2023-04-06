@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Store Design<')}}/h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Store Design<')}}/h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item">{{translate('Store Design')}}
+                                <li class="breadcrumb-item">{{__('Store Design')}}
                                 </li>
                             </ol>
                         </div>
@@ -27,7 +27,7 @@
         <div class="content-body">
             <section id="additionalSettings">
 
-                <h5> {{translate('Basic Settings')}}</h5>
+                <h5> {{__('Basic Settings')}}</h5>
 
                 <!-- Stats Vertical Card -->
                 <div class="row">
@@ -41,8 +41,8 @@
                                             <i class="fa fa-brush"></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Store Theme')}}</h6>
-                                    <p class="card-text">{{translate('Theme Settings')}}</p>
+                                    <h6 class="fw-bolder">{{__('Store Theme')}}</h6>
+                                    <p class="card-text">{{__('Theme Settings')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -57,8 +57,8 @@
                                             <i class="fas fa-layer-group"></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Customize store layers')}}</h6>
-                                    <p class="card-text">{{translate('banners and other')}}</p>
+                                    <h6 class="fw-bolder">{{__('Customize store layers')}}</h6>
+                                    <p class="card-text">{{__('banners and other')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -73,8 +73,8 @@
                                             <i class="fa fa-palette"></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Shipping')}}</h6>
-                                    <p class="card-text">{{translate('Active shipping options')}}</p>
+                                    <h6 class="fw-bolder">{{__('Shipping')}}</h6>
+                                    <p class="card-text">{{__('Active shipping options')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -89,8 +89,8 @@
                                             <i class="fas fa-browser"></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Store Design')}}</h6>
-                                    <p class="card-text">{{translate('edit in store Design')}}</p>
+                                    <h6 class="fw-bolder">{{__('Store Design')}}</h6>
+                                    <p class="card-text">{{__('edit in store Design')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -105,8 +105,8 @@
                                             <i class="fas fa-code"></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Store Design')}}</h6>
-                                    <p class="card-text">{{translate('edit in store Design')}}</p>
+                                    <h6 class="fw-bolder">{{__('Store Design')}}</h6>
+                                    <p class="card-text">{{__('edit in store Design')}}</p>
                                 </div>
                             </div>
                         </a>

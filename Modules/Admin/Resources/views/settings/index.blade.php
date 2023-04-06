@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Settings')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Settings')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Settings')}}
+                                <li class="breadcrumb-item active">{{__('Settings')}}
                                 </li>
                             </ol>
                         </div>
@@ -28,7 +28,7 @@
             <!-- Statistics card section -->
             <section id="statistics-card">
 
-                <h5> {{translate('Account Settings')}}</h5>
+                <h5> {{__('Account Settings')}}</h5>
 
                 <!-- Stats Vertical Card -->
                 <div class="row">
@@ -43,8 +43,8 @@
                                             <i data-feather='unlock'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Subscriptions')}}</h6>
-                                    <p class="card-text">{{translate('manage subscriptions')}}</p>
+                                    <h6 class="fw-bolder">{{__('Subscriptions')}}</h6>
+                                    <p class="card-text">{{__('manage subscriptions')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -59,8 +59,8 @@
                                             <i data-feather='user'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Account Settings')}}</h6>
-                                    <p class="card-text">{{translate('edit account settings')}}</p>
+                                    <h6 class="fw-bolder">{{__('Account Settings')}}</h6>
+                                    <p class="card-text">{{__('edit account settings')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -69,7 +69,7 @@
 
 
 
-                <h5> {{translate('Basic Settings')}}</h5>
+                <h5> {{__('Basic Settings')}}</h5>
 
                 <!-- Stats Vertical Card -->
                 <div class="row">
@@ -83,8 +83,8 @@
                                             <i data-feather='shopping-bag'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Store Settings')}}</h6>
-                                    <p class="card-text">{{translate('Store information')}}</p>
+                                    <h6 class="fw-bolder">{{__('Store Settings')}}</h6>
+                                    <p class="card-text">{{__('Store information')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -100,8 +100,8 @@
                                             <i data-feather='credit-card'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('payment methods')}}</h6>
-                                    <p class="card-text">{{translate('e-Payment gateways')}}</p>
+                                    <h6 class="fw-bolder">{{__('payment methods')}}</h6>
+                                    <p class="card-text">{{__('e-Payment gateways')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -117,8 +117,8 @@
                                             <i data-feather='truck'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Shipping')}}</h6>
-                                    <p class="card-text">{{translate('Active shipping options')}}</p>
+                                    <h6 class="fw-bolder">{{__('Shipping')}}</h6>
+                                    <p class="card-text">{{__('Active shipping options')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -134,8 +134,8 @@
                                             <i data-feather='layout'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Store Design')}}</h6>
-                                    <p class="card-text">{{translate('edit in store Design')}}</p>
+                                    <h6 class="fw-bolder">{{__('Store Design')}}</h6>
+                                    <p class="card-text">{{__('edit in store Design')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -144,7 +144,7 @@
                 </div>
 
 
-                <h5> {{translate('Other Settings')}}</h5>
+                <h5> {{__('Other Settings')}}</h5>
 
                 <!-- Stats Vertical Card -->
                 <div class="row">
@@ -158,8 +158,8 @@
                                             <i data-feather='file-text'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('vat')}}</h6>
-                                    <p class="card-text">{{translate('vat Settings')}}</p>
+                                    <h6 class="fw-bolder">{{__('vat')}}</h6>
+                                    <p class="card-text">{{__('vat Settings')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -175,8 +175,8 @@
                                             <i data-feather='users'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Teamwork')}}</h6>
-                                    <p class="card-text">{{translate('Manage your teamwork')}}</p>
+                                    <h6 class="fw-bolder">{{__('Teamwork')}}</h6>
+                                    <p class="card-text">{{__('Manage your teamwork')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -190,8 +190,8 @@
                                             <i data-feather='type'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Definition pages')}}</h6>
-                                    <p class="card-text">{{translate('Terms and Conditions')}} </p>
+                                    <h6 class="fw-bolder">{{__('Definition pages')}}</h6>
+                                    <p class="card-text">{{__('Terms and Conditions')}} </p>
                                 </div>
                             </div>
                         </a>
@@ -207,8 +207,8 @@
                                             <i data-feather='globe'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Domain')}}</h6>
-                                    <p class="card-text">{{translate('Domain reservation')}}</p>
+                                    <h6 class="fw-bolder">{{__('Domain')}}</h6>
+                                    <p class="card-text">{{__('Domain reservation')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -223,8 +223,8 @@
                                             <i data-feather='link'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Services')}}</h6>
-                                    <p class="card-text">{{translate('Link a services')}}</p>
+                                    <h6 class="fw-bolder">{{__('Services')}}</h6>
+                                    <p class="card-text">{{__('Link a services')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -239,8 +239,8 @@
                                             <i data-feather='star'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Ratings')}}</h6>
-                                    <p class="card-text">{{translate('Products and store')}}</p>
+                                    <h6 class="fw-bolder">{{__('Ratings')}}</h6>
+                                    <p class="card-text">{{__('Products and store')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -254,8 +254,8 @@
                                             <i data-feather='map-pin'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Countries and currencies')}}</h6>
-                                    <p class="card-text">{{translate('Manage Countries and currencies')}}</p>
+                                    <h6 class="fw-bolder">{{__('Countries and currencies')}}</h6>
+                                    <p class="card-text">{{__('Manage Countries and currencies')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -269,8 +269,8 @@
                                             <i data-feather='search'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('SEO')}}</h6>
-                                    <p class="card-text">{{translate('Address and other')}}</p>
+                                    <h6 class="fw-bolder">{{__('SEO')}}</h6>
+                                    <p class="card-text">{{__('Address and other')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -284,8 +284,8 @@
                                             <i data-feather='tool'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Additional Settings')}}</h6>
-                                    <p class="card-text">{{translate('Mantinance and more')}}</p>
+                                    <h6 class="fw-bolder">{{__('Additional Settings')}}</h6>
+                                    <p class="card-text">{{__('Mantinance and more')}}</p>
                                 </div>
                             </div>
                         </a>
@@ -299,8 +299,8 @@
                                             <i data-feather='trash'></i>
                                         </div>
                                     </div>
-                                    <h6 class="fw-bolder">{{translate('Archive')}}</h6>
-                                    <p class="card-text">{{translate('Clients archive')}}</p>
+                                    <h6 class="fw-bolder">{{__('Archive')}}</h6>
+                                    <p class="card-text">{{__('Clients archive')}}</p>
                                 </div>
                             </div>
                         </a>

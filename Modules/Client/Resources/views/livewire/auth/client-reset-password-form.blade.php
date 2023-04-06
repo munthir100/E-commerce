@@ -1,13 +1,13 @@
 <div>
     <form class="auth-register-form mt-2" method="POST" wire:submit.prevent="clientResetPassword">
         <div class="mb-1">
-            <label class="form-label">{{translate('Token Code')}}</label>
-            <input type="number" class="form-control" wire:model="token" placeholder="{{translate('Token Code')}}" autofocus/>
+            <label class="form-label">{{__('Token Code')}}</label>
+            <input type="number" class="form-control" wire:model="token" placeholder="{{__('Token Code')}}" autofocus/>
             @error('token') <small class="text-danger">{{$message}}</small> @enderror
         </div>
 
         <div class="mb-1">
-            <label for="register-password" class="form-label">{{translate('New Password')}}</label>
+            <label for="register-password" class="form-label">{{__('New Password')}}</label>
 
             <div class="input-group input-group-merge form-password-toggle">
                 <input type="password" class="form-control form-control-merge" wire:model="new_password"
@@ -19,7 +19,7 @@
         </div>
 
         <div class="mb-1">
-            <label for="register-password" class="form-label">{{translate('Confirm Password')}}</label>
+            <label for="register-password" class="form-label">{{__('Confirm Password')}}</label>
 
             <div class="input-group input-group-merge form-password-toggle">
                 <input type="password" class="form-control form-control-merge" wire:model="new_password_confirmation"
@@ -30,6 +30,6 @@
             @error('new_password_confirmation') <small class="text-danger">{{$message}}</small> @enderror
         </div>
 
-        <button class="btn btn-primary w-100" tabindex="5">{{translate('Reset')}}</button>
+        <button class="btn btn-primary w-100" tabindex="5">{{__('Reset')}}</button>
     </form>
 </div>

@@ -356,5 +356,7 @@
     "Token Code": "الرمز",
     "Username": "اسم المستخدم",
     "email or phone number": "البريد الإلكتروني أو رقم الهاتف",
-    "Reset password":"اعادة تعيين كلمة المرور"
+    "Reset password":"اعادة تعيين كلمة المرور",
+    "Add image":"أضف صورة",
+    "Add sub images":"أضف الصور الفرعية"
 }

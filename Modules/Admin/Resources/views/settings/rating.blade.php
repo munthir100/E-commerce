@@ -10,14 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Ratings')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Ratings')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">{{translate('Settings')}}</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('Settings')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Ratings')}}
+                                <li class="breadcrumb-item active">{{__('Ratings')}}
                                 </li>
                             </ol>
                         </div>
@@ -34,7 +34,7 @@
                             <div class="card-header">
                                 <h5 class="text-secondary">
                                     <i data-feather="star"></i>
-                                    {{translate('Store and products rating link')}}
+                                    {{__('Store and products rating link')}}
                                 </h5>
                             </div>
                             <div class="card-body">
@@ -47,7 +47,7 @@
                                         </a>
                                     </div>
                                     <div class="col-sm-2 col-12">
-                                        <button class="btn btn-outline-primary waves-effect" id="btn-copy">{{translate('Copy!')}}</button>
+                                        <button class="btn btn-outline-primary waves-effect" id="btn-copy">{{__('Copy!')}}</button>
                                     </div>
                                 </div>
                             </div>
@@ -61,18 +61,18 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">{{translate('Ratings')}}</h4>
+                                <h4 class="card-title">{{__('Ratings')}}</h4>
                             </div>
 
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>{{translate('product')}}</th>
-                                            <th>{{translate('Client')}}</th>
-                                            <th>{{translate('Users')}}</th>
-                                            <th>{{translate('Status')}}</th>
-                                            <th>{{translate('Actions')}}</th>
+                                            <th>{{__('product')}}</th>
+                                            <th>{{__('Client')}}</th>
+                                            <th>{{__('Users')}}</th>
+                                            <th>{{__('Status')}}</th>
+                                            <th>{{__('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -84,7 +84,7 @@
                                                         <line x1="12" y1="16" x2="12" y2="12"></line>
                                                         <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                                     </svg>
-                                                    <span>{{ translate('No Items to display it now .')}}</span>
+                                                    <span>{{__('No Items to display it now .')}}</span>
                                                 </div>
                                             </div>
                                         </div>

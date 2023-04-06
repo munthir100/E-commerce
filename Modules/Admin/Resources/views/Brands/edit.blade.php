@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Edit Brand')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Edit Brand')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Edit Brand')}}
+                                <li class="breadcrumb-item active">{{__('Edit Brand')}}
                                 </li>
                                 <li class="breadcrumb-item">{{$brand->name}}
                                 </li>

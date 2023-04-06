@@ -10,14 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Payment Methods')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Payment Methods')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="#">{{translate('Settings')}}</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('Settings')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Payment Methods')}}
+                                <li class="breadcrumb-item active">{{__('Payment Methods')}}
                                 </li>
                             </ol>
                         </div>
@@ -39,7 +39,7 @@
                             <line x1="12" y1="16" x2="12" y2="12"></line>
                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                         </svg>
-                        <span> {{translate('This feature is available in the advanced package and the professional package,')}}<strong> {{translate('click here')}} </strong></span>
+                        <span> {{__('This feature is available in the advanced package and the professional package,')}}<strong> {{__('click here')}} </strong></span>
                     </div>
                 </div>
             </div>
@@ -53,7 +53,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="btn btn-primary">
-                                {{translate('Activate')}}
+                                {{__('Activate')}}
                             </div>
                         </div>
                     </div>
@@ -61,7 +61,7 @@
 
                 <div class="col-md-6 col-lg-4 col-sm-6">
                     <div class="card text-center">
-                        <div class="card-header">{{translate('Featured')}}</div>
+                        <div class="card-header">{{__('Featured')}}</div>
                         <div class="card-body">
                             <img class="img-fluid" src="../../../app-assets/images/slider/03.jpg" alt="Card image cap">
                         </div>
@@ -79,7 +79,7 @@
 
                     <div class="col-lg-2 col-md-4 col-sm-4 col-12 mb-1 mt-1">
                         <div class="card-title">
-                            {{translate('Bank Accounts')}}
+                            {{__('Bank Accounts')}}
                         </div>
                     </div>
 
@@ -89,7 +89,7 @@
                             <a href="#" class="btn btn-primary">
                                 <span>
                                     <i data-feather="plus"></i>
-                                    {{translate('Add Bank account')}}
+                                    {{__('Add Bank account')}}
                                 </span>
                             </a>
                         </div>
@@ -101,13 +101,13 @@
                     <table class="table table-striped table-bordered" style="margin-bottom: 5rem;">
                         <thead>
                             <tr>
-                                <th>{{translate('Bank')}}</th>
-                                <th>{{translate('Bank name')}}</th>
-                                <th>{{translate('Name')}}</th>
-                                <th>{{translate('Account number')}}</th>
-                                <th>{{translate('Transactions')}}</th>
-                                <th>{{translate('Status')}}</th>
-                                <th>{{translate('Actions')}}</th>
+                                <th>{{__('Bank')}}</th>
+                                <th>{{__('Bank name')}}</th>
+                                <th>{{__('Name')}}</th>
+                                <th>{{__('Account number')}}</th>
+                                <th>{{__('Transactions')}}</th>
+                                <th>{{__('Status')}}</th>
+                                <th>{{__('Actions')}}</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -10,14 +10,14 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Store Settings')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Store Settings')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item"><a href="{{route('admin.settings.index')}}">{{translate('Settings')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.settings.index')}}">{{__('Settings')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Store Settings')}}
+                                <li class="breadcrumb-item active">{{__('Store Settings')}}
                                 </li>
                             </ol>
                         </div>
@@ -34,7 +34,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{translate('Store Settings')}}</h4>
+                                    <h4 class="card-title">{{__('Store Settings')}}</h4>
                                 </div>
                                 <div class="card-body">
                                     <livewire:admin::store.updata-store-data-livewire :store="$store" />
@@ -50,7 +50,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{translate('Logo Of Store')}}</h4>
+                                    <h4 class="card-title">{{__('Logo Of Store')}}</h4>
                                 </div>
                                 <div class="card-body">
                                     <form action="#">
@@ -59,7 +59,7 @@
                                                 <img src="../../../app-assets/images/portrait/small/avatar-s-2.jpg" class="rounded img-fluid" alt="Card image">
                                             </div>
                                             <br>
-                                            <p class="text-danger">{{translate('width: 512px , height: 512px , max size of image : 5MB , Jpg , JPEG , PNG')}}</p>
+                                            <p class="text-danger">{{__('width: 512px , height: 512px , max size of image : 5MB , Jpg , JPEG , PNG')}}</p>
                                         </div>
                                     </form>
                                 </div>
@@ -74,7 +74,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{translate('Icon of tab in browser')}}</h4>
+                                    <h4 class="card-title">{{__('Icon of tab in browser')}}</h4>
                                 </div>
                                 <div class="card-body">
                                     <form action="#">
@@ -83,7 +83,7 @@
                                                 <img src="../../../app-assets/images/portrait/small/avatar-s-2.jpg" class="rounded img-fluid" alt="Card image">
                                             </div>
                                             <br>
-                                            <p class="text-danger">{{translate('width: 512px , height: 512px , max size of image : 5MB , Jpg , JPEG , PNG')}}</p>
+                                            <p class="text-danger">{{__('width: 512px , height: 512px , max size of image : 5MB , Jpg , JPEG , PNG')}}</p>
                                         </div>
                                     </form>
                                 </div>
@@ -97,7 +97,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{translate('Store description')}}</h4>
+                                    <h4 class="card-title">{{__('Store description')}}</h4>
                                 </div>
                                 <div class="card-body">
                                     <livewire:admin::store-description :store="$store" />
@@ -112,7 +112,7 @@
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{translate('Social media links')}}</h4>
+                                    <h4 class="card-title">{{__('Social media links')}}</h4>
                                 </div>
                                 <div class="card-body">
                                     <livewire:admin::create-social-media-links />

@@ -39,7 +39,7 @@
                                             <line x1="12" y1="16" x2="12" y2="12"></line>
                                             <line x1="12" y1="8" x2="12.01" y2="8"></line>
                                         </svg>
-                                        <span>{{ translate('No Items to display it now .')}}</span>
+                                        <span>{{__('No Items to display it now .')}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -48,10 +48,10 @@
                             <div class="col-2 mb-2">
                                 <form method="GET" action="#" class="mr-10">
                                     <select class="form-select" name="per_page" onchange="this.form.submit()">
-                                        <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{translate('10 items')}}</option>
-                                        <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>{{translate('25 item')}}</option>
-                                        <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>{{translate('50 item')}}</option>
-                                        <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>{{translate('100 item')}}</option>
+                                        <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{__('10 items')}}</option>
+                                        <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>{{__('25 item')}}</option>
+                                        <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>{{__('50 item')}}</option>
+                                        <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>{{__('100 item')}}</option>
                                     </select>
                                 </form>
                             </div>

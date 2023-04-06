@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">{{translate('Show Client')}}</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Show Client')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{translate('Home')}}</a>
+                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">{{translate('Clients')}}
+                                <li class="breadcrumb-item active">{{__('Clients')}}
                                 </li>
                                 <li class="breadcrumb-item">{{$client->user->name}}
                                 </li>
@@ -40,18 +40,18 @@
                             <ul class="list-style-icons">
                                 <li>
                                     <i data-feather="user"></i>
-                                    {{$client->user->name}} : {{translate('name')}}
+                                    {{$client->user->name}} : {{__('name')}}
                                 </li>
                                 <li>
                                     <i data-feather='mail'></i>
                                     <a href="mailto:{{$client->user->email}}">
-                                        {{$client->user->email}} : {{translate('email')}}
+                                        {{$client->user->email}} : {{__('email')}}
                                     </a>
                                 </li>
                                 <li>
                                     <i data-feather='phone-call'></i>
                                     <a href="tel:{{$client->user->phone}}">
-                                        {{$client->user->phone}} : {{translate('phone')}}
+                                        {{$client->user->phone}} : {{__('phone')}}
                                     </a>
                                 </li>
                             </ul>
@@ -65,27 +65,27 @@
                         <ul class="list-style-icons">
                             <li class="mb-1">
                                 <i data-feather='clock'></i>
-                                {{$client->created_at}} : {{translate('created at')}}
+                                {{$client->created_at}} : {{__('created at')}}
                             </li>
                             <li class="mb-1">
                                 <i data-feather='map-pin'></i>
                                 @if($client->city)
-                                {{$client->city->name}} : {{translate('city')}}
+                                {{$client->city->name}} : {{__('city')}}
                                 @else
-                                {{translate('None City Found')}}
+                                {{__('None City Found')}}
                                 @endif
                             </li>
                             <li class="mb-1">
                                 <i data-feather='user'></i>
-                                {{$client->gender}} : {{translate('gender')}}
+                                {{$client->gender}} : {{__('gender')}}
                             </li>
                             <li class="mb-1">
                                 <i data-feather='clipboard'></i>
-                                {{$client->birth_date}} : {{translate('birth date')}}
+                                {{$client->birth_date}} : {{__('birth date')}}
                             </li>
                             <li class="mb-1">
                                 <i data-feather='file-text'></i>
-                                {{$client->description}} : {{translate('description')}}
+                                {{$client->description}} : {{__('description')}}
                             </li>
                         </ul>
                     </div>
@@ -94,17 +94,17 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">{{translate('Shipping adressess')}}</h4>
+                                <h4 class="card-title">{{__('Shipping adressess')}}</h4>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>{{translate('Project')}}</th>
-                                            <th>{{translate('Client')}}</th>
-                                            <th>{{translate('Users')}}</th>
-                                            <th>{{translate('Status')}}</th>
-                                            <th>{{translate('Actions')}}</th>
+                                            <th>{{__('Project')}}</th>
+                                            <th>{{__('Client')}}</th>
+                                            <th>{{__('Users')}}</th>
+                                            <th>{{__('Status')}}</th>
+                                            <th>{{__('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -112,7 +112,7 @@
                                         <tr>
                                             <div class="alert alert-danger">
                                                 <span class="text-danger">
-                                                    {{translate('soon')}}
+                                                    {{__('soon')}}
                                                 </span>
                                             </div>
                                         </tr>
@@ -126,24 +126,24 @@
                     <div class="col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">{{translate('orders')}}</h4>
+                                <h4 class="card-title">{{__('orders')}}</h4>
                             </div>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered">
                                     <thead>
                                         <tr>
-                                            <th>{{translate('Project')}}</th>
-                                            <th>{{translate('Client')}}</th>
-                                            <th>{{translate('Users')}}</th>
-                                            <th>{{translate('Status')}}</th>
-                                            <th>{{translate('Actions')}}</th>
+                                            <th>{{__('Project')}}</th>
+                                            <th>{{__('Client')}}</th>
+                                            <th>{{__('Users')}}</th>
+                                            <th>{{__('Status')}}</th>
+                                            <th>{{__('Actions')}}</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <div class="alert alert-danger">
                                                 <span class="text-danger">
-                                                    {{translate('soon')}}
+                                                    {{__('soon')}}
                                                 </span>
                                             </div>
                                         </tr>

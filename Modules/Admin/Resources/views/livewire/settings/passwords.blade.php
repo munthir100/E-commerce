@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput">{{translate('Current Password')}}</label>
+                    <label class="form-label" for="basicInput">{{__('Current Password')}}</label>
                     <div class="input-group input-group-merge form-password-toggle">
                         <input class="form-control form-control-merge" id="password" type="password" wire:model="password" placeholder="············" aria-describedby="password" tabindex="2" />
                         <span class="input-group-text cursor-pointer">
@@ -25,7 +25,7 @@
             </div>
             <div class="col-md-6">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput1">{{translate('New Password')}}</label>
+                    <label class="form-label" for="basicInput1">{{__('New Password')}}</label>
                     <div class="input-group input-group-merge form-password-toggle">
                         <input class="form-control form-control-merge" id="password" type="password" wire:model="new_password" placeholder="············" aria-describedby="password" tabindex="2" />
                         <span class="input-group-text cursor-pointer">
@@ -40,7 +40,7 @@
             </div>
             <div class="col-md-6">
                 <div class="mb-1">
-                    <label class="form-label" for="basicInput2">{{translate('New Password Confirmation')}}</label>
+                    <label class="form-label" for="basicInput2">{{__('New Password Confirmation')}}</label>
                     <div class="input-group input-group-merge form-password-toggle">
                         <input class="form-control form-control-merge" id="password" type="password" wire:model="new_password_confirmation" placeholder="············" aria-describedby="password" tabindex="2" />
                         <span class="input-group-text cursor-pointer">
@@ -56,7 +56,7 @@
 
             <div class="col-12" style="text-align: end;">
                 <button class="btn btn-primary waves-effect waves-float waves-light" type="submit">
-                    {{translate('Save')}}
+                    {{__('Save')}}
                 </button>
             </div>
 
