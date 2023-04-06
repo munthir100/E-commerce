@@ -33,10 +33,30 @@
                     <div class="card-body">
                         <div class="row my-2">
                             <div class="col-12 col-md-5 d-flex align-items-center justify-content-center mb-2 mb-md-0">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <img src="../../../app-assets/images/pages/eCommerce/1.png" class="img-fluid product-img" alt="product image" />
+                                <div id="carousel-interval" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+
+                                    <div class="carousel-inner" role="listbox">
+                                        <div class="carousel-item active">
+                                            <img class="img-fluid" src="{{ asset('storage/' . $product->image) }}" style="height: 224px;width: 480px;" />
+                                        </div>
+                                        @foreach($product->productImages as $productImage)
+                                        <div class="carousel-item">
+                                            <img class="img-fluid" src="{{ asset('storage/' . $productImage->path) }}" style="height: 224px;width: 480px;" />
+                                        </div>
+                                        @endforeach
+                                    </div>
+
+                                    <a class="carousel-control-prev" href="#carousel-interval" role="button" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carousel-interval" role="button" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </a>
                                 </div>
                             </div>
+
                             <div class="col-12 col-md-7">
                                 <h4>{{$product->title}}</h4>
                                 <span class="card-text item-company">{{__('Category:')}} <a href="#" class="company-name">
@@ -126,7 +146,7 @@
                                             <small class="text-body">{{$product->short_description}}</small>
                                         </div>
                                         <div class="img-container w-50 mx-auto py-75">
-                                            <img src="../../../app-assets/images/elements/apple-watch.png" class="img-fluid" alt="image" />
+                                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="image" />
                                         </div>
                                         <div class="item-meta">
                                             <ul class="unstyled-list list-inline mb-25">
@@ -166,6 +186,9 @@
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/app-ecommerce-details.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-number-input.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
+
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/swiper.min.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-swiper.css">
 @endsection
 @section('scripts')
 <script src="../../../app-assets/vendors/js/ui/jquery.sticky.js"></script>
@@ -174,4 +197,6 @@
 <script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
 <script src="../../../app-assets/js/scripts/pages/app-ecommerce-details.js"></script>
 <script src="../../../app-assets/js/scripts/forms/form-number-input.js"></script>
+
+<script src="../../../app-assets/js/scripts/extensions/ext-component-swiper.js"></script>
 @endsection

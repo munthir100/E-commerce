@@ -6,6 +6,7 @@ use Modules\Admin\Entities\Sale;
 use Spatie\MediaLibrary\HasMedia;
 use Modules\Client\Entities\Order;
 use Illuminate\Database\Eloquent\Model;
+use Modules\Admin\Entities\ProductImage;
 use Illuminate\Database\Eloquent\Builder;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -59,6 +60,11 @@ class Product extends Model implements HasMedia
     public function sales()
     {
         return $this->hasMany(Sale::class);
+    }
+
+    public function productImages()
+    {
+        return $this->hasMany(ProductImage::class);
     }
 
     // scopes

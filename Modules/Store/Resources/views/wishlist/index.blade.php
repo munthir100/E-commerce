@@ -31,7 +31,7 @@
                 <div class="card ecommerce-card">
                     <div class="item-img text-center">
                         <a href="app-ecommerce-details.html">
-                            <img src="../../../app-assets/images/pages/eCommerce/1.png" class="img-fluid" alt="img-placeholder" />
+                            <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="img-placeholder" style="width: 300px;"/>
                         </a>
                     </div>
                     <div class="card-body">

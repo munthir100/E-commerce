@@ -87,7 +87,7 @@ $wishlist = session()->get('wishlist', []);
                                 <div class="card ecommerce-card">
                                     <div class="item-img">
                                         <a href="app-ecommerce-details.html">
-                                            <img src="../../../app-assets/images/pages/eCommerce/2.png" alt="img-placeholder" />
+                                            <img src="{{ asset('storage/' . $product->image) }}" alt="img-placeholder" />
                                         </a>
                                     </div>
                                     <div class="card-body">

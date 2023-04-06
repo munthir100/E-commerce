@@ -5,7 +5,7 @@
         <div class="card ecommerce-card">
             <div class="item-img text-center">
                 <a href="{{route('store.product-details',[$storeLink,$product->id])}}">
-                    <img class="img-fluid card-img-top" src="../../../app-assets/images/pages/eCommerce/1.png" alt="img-placeholder" />
+                    <img class="img-fluid card-img-top" src="{{ asset('storage/' . $product->image) }}" alt="img-placeholder" />
                 </a>
             </div>
             <div class="card-body">
