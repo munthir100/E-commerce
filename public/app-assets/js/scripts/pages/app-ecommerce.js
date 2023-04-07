@@ -21,7 +21,6 @@ $(function () {
     isRTL = true;
   }
   var sidebarShop = $('.sidebar-shop'),
-    btnCart = $('.btn-cart'),
     overlay = $('.body-content-overlay'),
     sidebarToggler = $('.shop-sidebar-toggler'),
     gridViewBtn = $('.grid-view-btn'),
@@ -30,7 +29,6 @@ $(function () {
     ecommerceProducts = $('#ecommerce-products'),
     sortingDropdown = $('.dropdown-sort .dropdown-item'),
     sortingText = $('.dropdown-toggle .active-sorting'),
-    wishlist = $('.btn-wishlist'),
     checkout = 'app-ecommerce-checkout.html';
 
   if ($('body').attr('data-framework') === 'laravel') {
@@ -101,37 +99,9 @@ $(function () {
   }
 
   // On cart & view cart btn click to cart
-  if (btnCart.length) {
-    btnCart.on('click', function (e) {
-      var $this = $(this),
-        addToCart = $this.find('.add-to-cart');
-      if (addToCart.length > 0) {
-        e.preventDefault();
-      }
-      addToCart.text('View In Cart').removeClass('add-to-cart').addClass('view-in-cart');
-      $this.attr('href', checkout);
-      toastr['success']('', 'Added Item In Your Cart 🛒', {
-        closeButton: true,
-        tapToDismiss: false,
-        rtl: isRTL
-      });
-    });
-  }
 
-  // For Wishlist Icon
-  if (wishlist.length) {
-    wishlist.on('click', function () {
-      var $this = $(this);
-      $this.find('svg').toggleClass('text-danger');
-      if ($this.find('svg').hasClass('text-danger')) {
-        toastr['success']('', 'Added to wishlist ❤️', {
-          closeButton: true,
-          tapToDismiss: false,
-          rtl: isRTL
-        });
-      }
-    });
-  }
+
+
 });
 
 // on window resize hide sidebar

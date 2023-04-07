@@ -18,7 +18,7 @@ class CreateProductLivewire extends Component
         $category_id, $categories, $user_id, $main_image, $sub_images, $store_id;
 
     protected $rules = [
-        'image'        => 'required|image',
+        'image'             => 'sometimes',
         'sub_images.*'      => 'sometimes',
         'title'             => 'required',
         'sku'               => 'sometimes',

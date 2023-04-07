@@ -56,7 +56,7 @@
                                     <form action="#">
                                         <div class="text-center">
                                             <div class="profile-img">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-2.jpg" class="rounded img-fluid" alt="Card image">
+                                                <img src="../../../app-assets/images/custom/image-icon.png" class="rounded img-fluid" alt="Card image" style="width: 212px;height:212px;">
                                             </div>
                                             <br>
                                             <p class="text-danger">{{__('width: 512px , height: 512px , max size of image : 5MB , Jpg , JPEG , PNG')}}</p>
@@ -78,9 +78,12 @@
                                 </div>
                                 <div class="card-body">
                                     <form action="#">
+                                        <input type="file" name="browser_icon" id="brouwser_icon" hidden>
                                         <div class="text-center">
                                             <div class="profile-img">
-                                                <img src="../../../app-assets/images/portrait/small/avatar-s-2.jpg" class="rounded img-fluid" alt="Card image">
+                                                <label for="brouwser_icon">
+                                                    <img src="../../../app-assets/images/custom/image-icon.png" class="rounded img-fluid" alt="Card image" style="width: 212px;height:212px;">
+                                                </label>
                                             </div>
                                             <br>
                                             <p class="text-danger">{{__('width: 512px , height: 512px , max size of image : 5MB , Jpg , JPEG , PNG')}}</p>

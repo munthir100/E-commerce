@@ -20,6 +20,8 @@ class Wishlist extends Component
         session()->put('wishlist', $wishlist);
 
         $this->emit('added-to-wishlist');
+        $this->dispatchBrowserEvent('added_to_wishlist',__("Item Added to wishlist ❤️"));
+        
     }
     public function removeFromWishlist()
     {
@@ -29,5 +31,7 @@ class Wishlist extends Component
         session()->put('wishlist', $wishlist);
 
         $this->emit('removed-from-wishlist');
+        $this->dispatchBrowserEvent('removed_from_wishlist',__("Removed Item 🗑️"));
+
     }
 }

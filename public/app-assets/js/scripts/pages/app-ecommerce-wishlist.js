@@ -15,14 +15,14 @@ $(function () {
     isRtl = $('html').attr('data-textdirection') === 'rtl';
 
   // remove items from wishlist page
-  removeItem.on('click', function () {
-    $(this).closest('.ecommerce-card').remove();
-    toastr['error']('', 'Removed Item 🗑️', {
-      closeButton: true,
-      tapToDismiss: false,
-      rtl: isRtl
-    });
-  });
+  // removeItem.on('click', function () {
+  //   $(this).closest('.ecommerce-card').remove();
+  //   toastr['error']('', 'Removed Item 🗑️', {
+  //     closeButton: true,
+  //     tapToDismiss: false,
+  //     rtl: isRtl
+  //   });
+  // });
 
   // move items to cart
   moveToCart.on('click', function () {

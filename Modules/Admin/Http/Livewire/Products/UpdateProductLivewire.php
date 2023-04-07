@@ -10,24 +10,14 @@ use Illuminate\Support\Facades\Session;
 
 class UpdateProductLivewire extends Component
 {
-    public
-        $product,
-        $title,
-        $categories,
-        $sku,
-        $quantity,
-        $wheight,
-        $short_description,
-        $description,
-        $price,
-        $cost,
-        $discount,
-        $free_shipping,
-        $is_active,
-        $category_id;
+
+    public $product, $image, $title, $sku, $quantity, $wheight, $short_description,
+        $description, $price, $cost, $discount, $free_shipping, $is_active = true,
+        $category_id, $categories, $user_id, $main_image, $sub_images, $store_id;
 
     function mount()
     {
+        $this->image = $this->product->image;
         $this->title = $this->product->title;
         $this->sku = $this->product->sku;
         $this->quantity = $this->product->quantity;
@@ -40,21 +30,27 @@ class UpdateProductLivewire extends Component
         $this->free_shipping = $this->product->free_shipping;
         $this->is_active = $this->product->is_active;
         $this->category_id = $this->product->category_id;
+
+        $this->categories = Category::with('children')->whereHas('store.admin', function ($query) {
+            $query->where('user_id', Auth::id());
+        })->get();
     }
 
     protected $rules = [
-        'title' => 'required',
-        'sku' => 'sometimes',
-        'quantity' => 'sometimes',
-        'wheight' => 'sometimes',
+        'image'             => 'required',
+        'sub_images.*'      => 'sometimes',
+        'title'             => 'required',
+        'sku'               => 'sometimes',
+        'quantity'          => 'sometimes',
+        'wheight'           => 'sometimes',
         'short_description' => 'sometimes|max:20',
-        'description' => 'sometimes',
-        'price' => 'required',
-        'cost' => 'sometimes',
-        'discount' => 'sometimes',
-        'free_shipping' => 'sometimes',
-        'is_active' => 'required',
-        'category_id' => 'sometimes',
+        'description'       => 'sometimes',
+        'price'             => 'required|numeric',
+        'cost'              => 'sometimes',
+        'discount'          => 'sometimes',
+        'free_shipping'     => 'sometimes',
+        'is_active'         => 'required|boolean',
+        'category_id'       => 'sometimes',
     ];
 
     public function updated($data)
@@ -64,11 +60,6 @@ class UpdateProductLivewire extends Component
 
     public function render()
     {
-        $product = $this->product;
-        $userId = Auth::id();
-        $this->categories = Category::with('children')->whereHas('store.admin', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
-        })->get();
         return view('admin::livewire.products.update-product-livewire');
     }
 

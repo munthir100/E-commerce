@@ -140,7 +140,7 @@
                             <div class="swiper-wrapper">
                                 @foreach($relatedProducts as $product)
                                 <div class="swiper-slide">
-                                    <a href="#">
+                                    <a href="{{route('store.product-details',[$store->store_link,$product->id])}}">
                                         <div class="item-heading">
                                             <h5 class="text-truncate mb-0">{{$product->title}}</h5>
                                             <small class="text-body">{{$product->short_description}}</small>
@@ -185,7 +185,6 @@
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/app-ecommerce-details.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-number-input.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
 
 <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/swiper.min.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-swiper.css">
@@ -194,7 +193,6 @@
 <script src="../../../app-assets/vendors/js/ui/jquery.sticky.js"></script>
 <script src="../../../app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
 <script src="../../../app-assets/vendors/js/extensions/swiper.min.js"></script>
-<script src="../../../app-assets/vendors/js/extensions/toastr.min.js"></script>
 <script src="../../../app-assets/js/scripts/pages/app-ecommerce-details.js"></script>
 <script src="../../../app-assets/js/scripts/forms/form-number-input.js"></script>
 

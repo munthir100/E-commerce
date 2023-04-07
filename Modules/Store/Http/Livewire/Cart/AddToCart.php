@@ -22,5 +22,6 @@ class AddToCart extends Component
             $this->product->price,
         );
         $this->emit('cart_updated');
+        $this->dispatchBrowserEvent('added_to_cart',__("Added Item In Your Cart 🛒"));
     }
 }

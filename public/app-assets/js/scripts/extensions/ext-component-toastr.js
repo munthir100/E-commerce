@@ -1,10 +1,10 @@
 /*=========================================================================================
-	File Name: ext-component-toastr.js
-	Description: Toastr notifications
-	----------------------------------------------------------------------------------------
-	Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
-	Author: Pixinvent
-	Author URL: hhttp://www.themeforest.net/user/pixinvent
+  File Name: ext-component-toastr.js
+  Description: Toastr notifications
+  ----------------------------------------------------------------------------------------
+  Item Name: Vuexy  - Vuejs, HTML & Laravel Admin Dashboard Template
+  Author: Pixinvent
+  Author URL: hhttp://www.themeforest.net/user/pixinvent
 ==========================================================================================*/
 
 $(function () {
@@ -41,6 +41,61 @@ $(function () {
       rtl: isRtl
     });
   });
+
+  window.addEventListener('added_to_cart', function (event) {
+    var message = event.detail;
+
+    var addToCart = $('.add-to-cart');
+    if (addToCart.length > 0) {
+      event.preventDefault();
+      toastr['success']('', message, {
+        showMethod: 'slideDown',
+        hideMethod: 'slideUp',
+        timeOut: 2000,
+        rtl: isRtl
+      });
+    }
+  });
+
+
+
+  window.addEventListener('added_to_wishlist', function (event) {
+    var message = event.detail;
+
+    var addToWishlist = $('.custom-wishlist');
+    if (addToWishlist.length > 0) {
+      event.preventDefault();
+      toastr['success']('', message, {
+        showMethod: 'slideDown',
+        hideMethod: 'slideUp',
+        timeOut: 2000,
+        rtl: isRtl
+      });
+    }
+  });
+
+  window.addEventListener('removed_from_wishlist', function (event) {
+    var message = event.detail;
+    
+    var addToWishlist = $('.custom-wishlist');
+    var hideItem = $('.hide-from-list');
+    if (addToWishlist.length > 0) {
+        event.preventDefault();
+        toastr['success']('', message, {
+            showMethod: 'slideDown',
+            hideMethod: 'slideUp',
+            timeOut: 2000,
+            rtl: isRtl
+        });
+    }
+});
+
+  
+
+
+
+
+
 
   // Info Type
   typeInfo.on('click', function () {

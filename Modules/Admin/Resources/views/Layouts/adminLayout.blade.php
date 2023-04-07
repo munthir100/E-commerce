@@ -6,8 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="Vuexy admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, Vuexy admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="description" content="{{('Restone')}} admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, {{('Restone')}} admin template, dashboard template, flat admin template, responsive admin template, web app">
     <meta name="author" content="PIXINVENT">
     <title>@yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
@@ -128,7 +128,7 @@
                         <div class="user-nav d-sm-flex d-none">
                             <span class="user-name fw-bolder">{{Auth::user()->name}}</span>
                             <span class="user-status">{{__('Admin')}}</span>
-                        </div><span class="avatar"><img class="round" src="../../../app-assets/images/portrait/small/avatar-s-11.jpg" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
+                        </div><span class="avatar"><img class="round" src="../../../app-assets/images/custom/image-user.png" alt="avatar" height="40" width="40"><span class="avatar-status-online"></span></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-user">
                         <a class="dropdown-item" href="{{route('admin.settings.profile')}}"><i class="me-50" data-feather="user"></i> {{__('Profile')}}</a>
@@ -150,7 +150,7 @@
                 <li class="nav-item me-auto">
                     <div class="d-flex mt-2">
                         <div class="flex-shrink-0">
-                            <img src="../../../app-assets/images/icons/social/github.png" alt="github" class="me-1" height="38" width="38">
+                            <img src="../../../app-assets/images/custom/image-icon.png" alt="logo" class="me-1" height="38" width="38">
                         </div>
                         <div class="d-flex align-item-center justify-content-between flex-grow-1">
                             <div class="me-1">
