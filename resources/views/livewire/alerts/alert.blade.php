@@ -4,7 +4,7 @@
     <div class="demo-spacing-0 mb-1">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <div class="alert-body">
-                {{ translate(session('success')) }}
+                {{ __(session('success')) }}
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -15,7 +15,7 @@
     <div class="demo-spacing-0 mb-1">
         <div class="alert alert-danger alert-dismissible fade show" role="alert">
             <div class="alert-body">
-                {{ translate($errorMessage) }}
+                {{ __($errorMessage) }}
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -26,7 +26,7 @@
     <div class="demo-spacing-0 mb-1">
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             <div class="alert-body">
-                {{ translate($successMassage) }}
+                {{ __($successMassage) }}
             </div>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -109,8 +109,8 @@
     <script>
         $('#notAvailable').on('click', function() {
             Swal.fire({
-                title: '{{ translate("Warning!") }}',
-                text: '{{ translate("Please upgrade your package becouse this fddeature is not available in your package!") }}',
+                title: '{{ __("Warning!") }}',
+                text: '{{ __("Please upgrade your package becouse this fddeature is not available in your package!") }}',
                 icon: 'warning',
                 customClass: {
                     confirmButton: 'btn btn-primary'

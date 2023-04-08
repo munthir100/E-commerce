@@ -50,7 +50,7 @@
                 <!-- sections -->
                 <!-- end sections -->
                 @if(!$products->isEmpty())
-                <section id="ecommerce-searchbar" class="ecommerce-searchbar">
+                <section id="ecommerce-searchbar" class="ecommerce-searchbar mb-2">
                     <div class="row mt-1">
                         <div class="col-sm-12">
                             <form action="{{route('store.index',$store->store_link)}}">

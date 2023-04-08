@@ -37,7 +37,7 @@ class StoreController extends Controller
     public function productDetails(Store $store, $productId)
     {
         $product = Product::with('category','productImages')->isActive()->findOrFail($productId);
-        
+
         $categories = Category::buildCategoryTree($store->categories()->isActive()->get());
         $relatedProducts = $store->products()
             ->where('category_id', $product->category_id)

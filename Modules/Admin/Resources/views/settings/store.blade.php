@@ -53,15 +53,7 @@
                                     <h4 class="card-title">{{__('Logo Of Store')}}</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="#">
-                                        <div class="text-center">
-                                            <div class="profile-img">
-                                                <img src="../../../app-assets/images/custom/image-icon.png" class="rounded img-fluid" alt="Card image" style="width: 212px;height:212px;">
-                                            </div>
-                                            <br>
-                                            <p class="text-danger">{{__('width: 512px , height: 512px , max size of image : 5MB , Jpg , JPEG , PNG')}}</p>
-                                        </div>
-                                    </form>
+                                    <livewire:admin::store.upload-store-logo-livewire :store="$store" />
                                 </div>
                             </div>
                         </div>
@@ -77,18 +69,7 @@
                                     <h4 class="card-title">{{__('Icon of tab in browser')}}</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form action="#">
-                                        <input type="file" name="browser_icon" id="brouwser_icon" hidden>
-                                        <div class="text-center">
-                                            <div class="profile-img">
-                                                <label for="brouwser_icon">
-                                                    <img src="../../../app-assets/images/custom/image-icon.png" class="rounded img-fluid" alt="Card image" style="width: 212px;height:212px;">
-                                                </label>
-                                            </div>
-                                            <br>
-                                            <p class="text-danger">{{__('width: 512px , height: 512px , max size of image : 5MB , Jpg , JPEG , PNG')}}</p>
-                                        </div>
-                                    </form>
+                                    <livewire:admin::store.upload-store-browser-icon :store="$store" />
                                 </div>
                             </div>
                         </div>
@@ -128,7 +109,6 @@
     </div>
 </div>
 
-
 @endsection
 
 
@@ -140,4 +120,6 @@
 @section('scripts')
 <script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
 <script src="../../../app-assets/js/scripts/forms/form-select2.js"></script>
+
+<script src="../../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
 @endsection

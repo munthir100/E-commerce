@@ -150,7 +150,7 @@
                 <li class="nav-item me-auto">
                     <div class="d-flex mt-2">
                         <div class="flex-shrink-0">
-                            <img src="../../../app-assets/images/custom/image-icon.png" alt="logo" class="me-1" height="38" width="38">
+                        <img src="{{ Auth::user()->admin->store->logo ? asset('storage/' . Auth::user()->admin->store->logo) : asset('app-assets/images/custom/image-icon.png') }}" height="57" width="57" style="border-radius: 50%;" alt="Logo">
                         </div>
                         <div class="d-flex align-item-center justify-content-between flex-grow-1">
                             <div class="me-1">

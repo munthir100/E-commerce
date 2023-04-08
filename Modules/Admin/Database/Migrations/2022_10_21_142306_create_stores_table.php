@@ -29,8 +29,8 @@ return new class extends Migration
             $table->string('facebook_user')->nullable();
             $table->string('google_play_link')->nullable();
             $table->string('apple_store_link')->nullable();
-
-
+            $table->string('logo')->nullable();
+            $table->string('browser_icon')->nullable();
             $table->string('store_desc')->nullable();
 
             $table->foreignId('country_id')

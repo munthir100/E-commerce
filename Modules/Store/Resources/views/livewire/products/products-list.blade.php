@@ -1,9 +1,10 @@
 <div>
-    <section id="ecommerce-products" class="grid-view">
+    
+    <section id="ecommerce-products" class="grid-view wishlist-items">
 
         @foreach($products as $product)
         <div class="card ecommerce-card">
-            <div class="item-img text-center">
+            <div class="text-center">
                 <a href="{{route('store.product-details',[$storeLink,$product->id])}}">
                     <img class="img-fluid card-img-top" src="{{ asset('storage/' . $product->image) }}" alt="img-placeholder" />
                 </a>

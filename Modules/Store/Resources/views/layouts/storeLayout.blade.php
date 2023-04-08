@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
     <meta name="description" content="{{('Restone')}} admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
     <meta name="keywords" content="admin template, {{('Restone')}} admin template, dashboard template, flat admin template, responsive admin template, web app">
-    <meta name="author" content="PIXINVENT">
+    <link rel="shortcut icon" href="{{ $store->browser_icon ? asset('storage/' . $store->browser_icon) : asset('app-assets/images/custom/image-icon.png') }}" type="image/x-icon">
     <title>@yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
     <style>
@@ -64,9 +64,8 @@
             <ul class="nav navbar-nav">
                 <li class="nav-item">
                     <a class="navbar-brand" href="../../../html/rtl/horizontal-menu-template/index.html"><span class="brand-logo">
-                            <img class="top-logo" src="{{asset('frontend/assets/img/logo.png')}}" alt="logo" width="50" height="50" />
+                            <img class="top-logo" src="{{ $store->logo ? asset('storage/' . $store->logo) : asset('app-assets/images/custom/image-icon.png') }}" alt="logo" width="50" height="50" />
                         </span>
-                        <h2 class="brand-text mb-0">{{('Restone')}}</h2>
                     </a>
                 </li>
             </ul>
@@ -169,9 +168,8 @@
             <div class="navbar-header">
                 <ul class="nav navbar-nav flex-row">
                     <li class="nav-item me-auto"><a class="navbar-brand" href="../../../html/rtl/horizontal-menu-template/index.html"><span class="brand-logo">
-                                <img class="top-logo" src="{{asset('frontend/assets/img/logo.png')}}" alt="logo" width="50" height="50" />
+                                <img class="top-logo" src="{{ $store->logo ? asset('storage/' . $store->logo) : asset('app-assets/images/custom/image-icon.png') }}" alt="logo" width="50" height="50" />
                             </span>
-                            <h2 class="brand-text mb-0">{{('Restone')}}</h2>
                         </a></li>
                     <li class="nav-item nav-toggle"><a class="nav-link modern-nav-toggle pe-0" data-bs-toggle="collapse"><i class="d-block d-xl-none text-primary toggle-icon font-medium-4" data-feather="x"></i></a>
                     </li>

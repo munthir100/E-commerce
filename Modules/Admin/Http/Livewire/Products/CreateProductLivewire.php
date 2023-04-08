@@ -18,7 +18,7 @@ class CreateProductLivewire extends Component
         $category_id, $categories, $user_id, $main_image, $sub_images, $store_id;
 
     protected $rules = [
-        'image'             => 'sometimes',
+        'image'             => 'required|image',
         'sub_images.*'      => 'sometimes',
         'title'             => 'required',
         'sku'               => 'sometimes',
@@ -36,9 +36,11 @@ class CreateProductLivewire extends Component
 
     public function mount()
     {
-        $this->categories = Category::with('children')->whereHas('store.admin', function ($query) {
-            $query->where('user_id', Auth::id());
-        })->get();
+        $this->categories = Category::with('children')
+            ->whereHas('store.admin', function ($query) {
+                $query->where('user_id', Auth::id());
+            })
+            ->get();
     }
 
     public function save()
@@ -54,13 +56,15 @@ class CreateProductLivewire extends Component
         $product->image = $mainImagePath;
         $product->save();
 
-        foreach ($validatedData['sub_images'] as $subImage) {
-            $subImagePath = $subImage->store('products/images', 'public');
-            $productImage = new ProductImage([
-                'path' => $subImagePath,
-            ]);
-            $product->productImages()->save($productImage);
+        if (isset($validatedData['sub_images'])) {
+            foreach ($validatedData['sub_images'] as $subImage) {
+                $subImagePath = $subImage->store('products/images', 'public');
+                $product->productImages()->save(
+                    new ProductImage(['path' => $subImagePath])
+                );
+            }
         }
+
 
         session()->flash('success', 'product created successfully');
         return redirect()->route('admin.products.index');

@@ -31,6 +31,8 @@ class Store extends Model
         'facebook_user',
         'google_play_link',
         'apple_store_link',
+        'logo',
+        'browser_icon',
         //        'store_city'
     ];
 

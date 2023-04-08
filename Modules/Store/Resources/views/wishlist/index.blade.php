@@ -10,12 +10,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">WishList</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Wishlist')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="{{route('admin.index')}}">Home</a>
+                                <li class="breadcrumb-item"><a href="{{route('store.index',$store->store_link)}}">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Wish List
+                                <li class="breadcrumb-item active">{{__('Wishlist')}}
                                 </li>
                             </ol>
                         </div>
@@ -29,8 +29,8 @@
             <section id="wishlist" class="grid-view wishlist-items">
                 @foreach($wishlistProducts as $product)
                 <div class="card ecommerce-card">
-                    <div class="item-img text-center">
-                        <a href="app-ecommerce-details.html">
+                    <div class="text-center">
+                        <a href="{{route('store.product-details',[$store->store_link,$product->id])}}">
                             <img src="{{ asset('storage/' . $product->image) }}" class="img-fluid" alt="img-placeholder" style="width: 300px;"/>
                         </a>
                     </div>
@@ -38,10 +38,10 @@
                         <div class="item-wrapper">
                             <div class="item-rating">
                                 <ul class="unstyled-list list-inline">
-                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
+                                    <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
                                     <li class="ratings-list-item"><i data-feather="star" class="unfilled-star"></i></li>
                                 </ul>
                             </div>
@@ -50,7 +50,7 @@
                             </div>
                         </div>
                         <div class="item-name">
-                            <a href="app-ecommerce-details.html">{{$product->title}}</a>
+                            <a href="{{route('store.product-details',[$store->store_link,$product->id])}}">{{$product->title}}</a>
                         </div>
                         <p class="card-text item-description">
                             {{$product->description}}
