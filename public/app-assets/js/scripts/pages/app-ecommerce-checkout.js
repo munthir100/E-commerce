@@ -22,12 +22,57 @@ $(function () {
   // remove items from wishlist page
   removeItem.on('click', function () {
     $(this).closest('.ecommerce-card').remove();
-    toastr['error']('', 'Removed Item 🗑️', {
-      closeButton: true,
-      tapToDismiss: false,
-      rtl: isRtl
-    });
   });
+
+
+
+
+
+  const nameInput = document.querySelector('#checkout-name');
+  const phoneInput = document.querySelector('#checkout-number');
+  const addressInput = document.querySelector('#checkout-city');
+  const deliveryBtn = document.querySelector('.delivery-address');
+  const addressTypeSelect = document.querySelector('#add-type');
+  
+  deliveryBtn.disabled = true;
+  
+  function toggleButtonState() {
+    if (addressInput.value !== '' && nameInput.value !== '' && phoneInput.value !== '' && addressTypeSelect.value !== '') {
+      deliveryBtn.disabled = false;
+    } else {
+      deliveryBtn.disabled = true;
+    }
+  
+    // Check validity of input fields
+    if (nameInput.value.trim() === '') {
+      nameInput.classList.add('is-invalid');
+    } else {
+      nameInput.classList.remove('is-invalid');
+    }
+    if (phoneInput.value.trim() === '') {
+      phoneInput.classList.add('is-invalid');
+    } else {
+      phoneInput.classList.remove('is-invalid');
+    }
+    if (addressInput.value.trim() === '') {
+      addressInput.classList.add('is-invalid');
+    } else {
+      addressInput.classList.remove('is-invalid');
+    }
+    if (addressTypeSelect.value.trim() === '') {
+      addressTypeSelect.classList.add('is-invalid');
+    } else {
+      addressTypeSelect.classList.remove('is-invalid');
+    }
+  }
+  
+  nameInput.addEventListener('input', toggleButtonState);
+  phoneInput.addEventListener('input', toggleButtonState);
+  addressInput.addEventListener('input', toggleButtonState);
+  addressTypeSelect.addEventListener('change', toggleButtonState);
+  
+
+
 
   // move items to cart
   moveToCart.on('click', function () {

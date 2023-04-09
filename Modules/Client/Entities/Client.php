@@ -8,6 +8,7 @@ use Modules\Admin\Entities\Sale;
 use Modules\Admin\Entities\Admin;
 use Modules\Admin\Entities\Store;
 use Modules\Shipping\Entities\City;
+use Modules\Client\Entities\Location;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
@@ -51,6 +52,10 @@ class Client extends Model
     public function sales()
     {
         return $this->hasMany(Sale::class);
+    }
+    public function locations()
+    {
+        return $this->hasMany(Location::class);
     }
 
     // scoopes

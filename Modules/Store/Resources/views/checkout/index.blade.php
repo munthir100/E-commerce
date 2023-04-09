@@ -26,9 +26,12 @@ $wishlist = session()->get('wishlist', []);
                     </div>
                 </div>
             </div>
-            
+
         </div>
         <div class="content-body">
+        <livewire:alerts.alert>
+
+            @if(!$products->isEmpty())
             <div class="bs-stepper checkout-tab-steps">
                 <!-- Wizard starts -->
                 <div class="bs-stepper-header">
@@ -43,6 +46,7 @@ $wishlist = session()->get('wishlist', []);
                             </span>
                         </button>
                     </div>
+                    @if(Auth::check())
                     <div class="line">
                         <i data-feather="chevron-right" class="font-medium-2"></i>
                     </div>
@@ -57,20 +61,9 @@ $wishlist = session()->get('wishlist', []);
                             </span>
                         </button>
                     </div>
-                    <div class="line">
-                        <i data-feather="chevron-right" class="font-medium-2"></i>
-                    </div>
-                    <div class="step" data-target="#step-payment" role="tab" id="step-payment-trigger">
-                        <button type="button" class="step-trigger">
-                            <span class="bs-stepper-box">
-                                <i data-feather="credit-card" class="font-medium-3"></i>
-                            </span>
-                            <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">{{__('Payment')}}</span>
-                                <span class="bs-stepper-subtitle">{{__('Select Payment Method')}}</span>
-                            </span>
-                        </button>
-                    </div>
+                    
+                    @endif
+
                 </div>
                 <!-- Wizard ends -->
 
@@ -174,10 +167,10 @@ $wishlist = session()->get('wishlist', []);
                                                     </div>
                                                 </li>
                                             </ul>
-                                            @if (Auth::check())
-                                            <button type="button" class="btn btn-primary w-100 btn-next place-order" disabled>{{__('Place Order')}}</button>
+                                            @if (Auth::check() && $products)
+                                            <button type="button" class="btn btn-primary w-100 btn-next place-order">{{__('Place Order')}}</button>
                                             @else
-                                            <button data-bs-toggle="modal" data-bs-target="#userLoginModal" type="button" class="btn btn-primary w-100">Place Order</button>
+                                            <button data-bs-toggle="modal" data-bs-target="#userLoginModal" type="button" class="btn btn-primary w-100">{{__('Place Order')}}</button>
                                             @endif
                                         </div>
                                     </div>
@@ -189,55 +182,68 @@ $wishlist = session()->get('wishlist', []);
                     </div>
                     <!-- Checkout Customer Address Starts -->
                     <div id="step-address" class="content" role="tabpanel" aria-labelledby="step-address-trigger">
-                        <form id="checkout-address" class="list-view product-checkout">
-                            <!-- Checkout Customer Address Left starts -->
-                            
-                            <!-- Checkout Customer Address Left ends -->
+                        <div id="map" style="height: 270px;"></div>
 
-                            <!-- Checkout Customer Address Right starts -->
-                            <div class="customer-card">
-                               
-                            </div>
-                            <!-- Checkout Customer Address Right ends -->
-                        </form>
+                        <!-- Checkout Customer Address Left starts -->
+                        <livewire:client::add-client-location :store="$store"/>
+
+                        <!-- Checkout Customer Address Left ends -->
+
+                        <!-- Checkout Customer Address Right starts -->
+                        <div class="customer-card">
+
+                        </div>
+                        <!-- Checkout Customer Address Right ends -->
+
                     </div>
                     <!-- Checkout Customer Address Ends -->
                     <!-- Checkout Payment Starts -->
-                    <div id="step-payment" class="content" role="tabpanel" aria-labelledby="step-payment-trigger">
-                        <form id="checkout-payment" class="list-view product-checkout" onsubmit="return false;">
-                            <div class="payment-type">
-                                
-                            </div>
-                            <div class="amount-payable checkout-options">
-
-                            </div>
-                        </form>
-                    </div>
+                    
                     <!-- Checkout Payment Ends -->
                     <!-- </div> -->
                 </div>
             </div>
-
+            @else
+            <div class="col-12">
+                <div class="card text-center mb-3">
+                    <div class="card-body">
+                        <h4 class="card-title">{{__('Empty Cart')}}</h4>
+                        <p class="card-text">{{__('Your shopping cart is empty , plesde select your items first')}}</p>
+                        <a href="{{route('store.index',$store->store_link)}}" type="button" class="btn btn-outline-primary waves-effect">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home me-25">
+                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                            </svg>
+                            <span>{{__('Continue Shopping')}}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            @endif
         </div>
     </div>
 </div>
 <!-- END: Content-->
 @endsection
 
-
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/wizard/bs-stepper.min.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/maps/map-leaflet.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/maps/leaflet.min.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/app-ecommerce.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/pickers/form-pickadate.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-wizard.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-number-input.css">
 <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
+<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/wizard/bs-stepper.min.css">
 @endsection
 @section('scripts')
 <script src="../../../app-assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
 <script src="../../../app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
 <script src="../../../app-assets/js/scripts/pages/app-ecommerce-checkout.js"></script>
 
+
+
+<script src="../../../app-assets/vendors/js/maps/leaflet.min.js"></script>
+<script src="../../../app-assets/js/scripts/maps/map-leaflet.js"></script>
 @endsection

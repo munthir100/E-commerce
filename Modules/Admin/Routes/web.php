@@ -14,7 +14,6 @@ use Modules\Admin\Http\Controllers\CategoriesController;
 
 Route::prefix('admin')->middleware(['auth', 'role:admin','local'])->name('admin.')->group(function () {
     Route::get('/', [AdminController::class, 'index'])->name('index');
-    Route::post('change-language', [AdminController::class, 'localize'])->name('change.language');
     Route::resource('categories', CategoriesController::class,);
     Route::resource('products', ProductController::class,);
     Route::resource('brands', BrandController::class,);
@@ -34,3 +33,5 @@ Route::get('logout', function(){
     Auth::logout();
     return redirect()->back();
 })->name('logout');
+
+Route::post('change-language', [AdminController::class, 'localize'])->name('admin.change.language');

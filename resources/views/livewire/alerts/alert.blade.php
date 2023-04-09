@@ -50,7 +50,7 @@
                 title: event.detail.message,
                 icon: 'warning',
                 showCancelButton: true,
-                confirmButtonText: 'Yes, delete it!',
+                confirmButtonText: '{{__("Confirm")}}',
                 customClass: {
                     confirmButton: 'btn btn-primary',
                     cancelButton: 'btn btn-outline-danger ms-1'
@@ -62,9 +62,9 @@
                 }
                 if (result.value) {
                     Swal.fire({
-                        icon: 'success',
-                        title: 'Deleted!',
-                        text: 'Your file has been deleted.',
+                        icon: '{{__("success")}}',
+                        title: '{{__("Deleted")}}',
+                        text: '{{__("Your file has been deleted.")}}',
                         customClass: {
                             confirmButton: 'btn btn-success'
                         }
@@ -79,10 +79,10 @@
     <script>
         window.addEventListener('addWarning', () => {
             Swal.fire({
-                title: 'Warning',
+                title: '{{__("Warning")}}',
                 text: event.detail.message,
                 icon: 'warning',
-                confirmButtonText: 'Ok',
+                confirmButtonText: '{{__("Ok")}}',
                 customClass: {
                     confirmButton: 'btn btn-primary',
                 },
@@ -94,10 +94,10 @@
     <script>
         window.addEventListener('addSuccess', () => {
             Swal.fire({
-                title: 'Successfull',
+                title: '{{__("Successfull")}}',
                 text: event.detail.message,
                 icon: 'success',
-                confirmButtonText: 'Ok',
+                confirmButtonText: '{{__("Ok")}}',
                 customClass: {
                     confirmButton: 'btn btn-primary',
                 },

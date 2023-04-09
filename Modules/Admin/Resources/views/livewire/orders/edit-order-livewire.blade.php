@@ -1,4 +1,4 @@
-<div wire:ignore>
+<div>
     <form class="form" wire:submit.prevent="save" enctype="multipart/form-data">
         <div class="row">
 

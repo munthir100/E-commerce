@@ -17,11 +17,13 @@ class OrderController extends Controller
     public function index()
     {
         $userId = Auth::id();
-        $orders = Order::whereHas('store.admin', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
-        })->get();
+        $orders = Order::with('client')
+            ->whereHas('store.admin', function ($query) use ($userId) {
+                $query->where('user_id', $userId);
+            })
+            ->get();
 
-        return view('admin::orders.index',compact('orders'));
+        return view('admin::orders.index', compact('orders'));
     }
 
     /**
@@ -48,9 +50,10 @@ class OrderController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        return view('admin::show');
+        $order = $order->load('client');
+        return view('admin::orders.show',compact('order'));
     }
 
     /**

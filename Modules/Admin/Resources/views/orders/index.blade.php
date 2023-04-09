@@ -82,26 +82,38 @@
                                 <tbody>
                                     @foreach($orders as $order)
                                     <tr>
-                                        <td>{{$client->user->name}}</td>
-                                        <td>{{$client->created_at->diffForhumans()}}</td>
-                                        <td>{{$client->user->phone}}</td>
-                                        <td>{{$client->user->email}}</td>
-                                        <td>{{$client->number_of_orders}}</td>
+                                        <td>{{$order->id}}</td>
+                                        <td>{{$order->client->user->name}}</td>
+                                        <td>{{$order->created_at->diffForhumans()}}</td>
+                                        <td>{{__('Cash on delivery')}}</td>
+                                        <td> <i data-feather="truck"></i> </td>
+                                        <td>{{$order->price}}</td>
+                                        <td>
+                                            @if($order->status == 'new')
+                                            {{__('new')}}
+                                            @elseif($order->status == 'processing')
+                                            {{__('processing')}}
+                                            @elseif($order->status == 'ready')
+                                            {{__('ready')}}
+                                            @elseif($order->status == 'delivering')
+                                            {{__('delivering')}}
+                                            @elseif($order->status == 'completed')
+                                            {{__('completed')}}
+                                            @else($order->status == 'rejected')
+                                            {{__('rejected')}}
+                                            @endif
+                                        </td>
                                         <td>
                                             <div class="dropdown">
                                                 <button type="button" class="btn btn-sm dropdown-toggle hide-arrow py-0" data-bs-toggle="dropdown">
                                                     <i data-feather="more-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="{{route('admin.clients.show',$client->id)}}">
+                                                    <a class="dropdown-item" href="{{route('admin.orders.show',$order->client->id)}}">
                                                         <i data-feather="eye" class="me-50"></i>
                                                         <span>{{__('Show')}}</span>
                                                     </a>
 
-                                                    <a class="dropdown-item" href="{{route('admin.clients.edit',$client->id)}}">
-                                                        <i data-feather="edit-2" class="me-50"></i>
-                                                        <span>{{__('Edit')}}</span>
-                                                    </a>
                                                     <a class="dropdown-item" href="#">
                                                         <i data-feather="trash" class="me-50"></i>
                                                         <span>{{__('Delete')}}</span>

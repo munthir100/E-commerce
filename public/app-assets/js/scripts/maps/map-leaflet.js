@@ -4411,6 +4411,28 @@ $(function () {
     }).addTo(basicMap);
   }
 
+
+
+
+  if ($('#map').length) {
+    var mymap = L.map('map').setView([21.4858, 39.1925], 1);
+    L.tileLayer('https://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a>',
+      maxZoom: 18
+    }).addTo(mymap);
+    var marker = L.marker([21.4858, 39.1925], { draggable: true }).addTo(mymap);
+
+    marker.on('dragend', function (e) {
+      document.getElementById('latitude').value = marker.getLatLng().lat;
+      document.getElementById('longitude').value = marker.getLatLng().lng;
+      Livewire.emit('markerDragged', {
+        latitude: marker.getLatLng().lat,
+        longitude: marker.getLatLng().lng
+      });
+    });
+  }
+
+  
   // Markers
   // --------------------------------------------------------------------
   if ($('#shape-map').length) {

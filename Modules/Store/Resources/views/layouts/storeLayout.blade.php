@@ -26,6 +26,9 @@
             width: 408px !important;
         }
     </style>
+        <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
+
     <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
     <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
@@ -316,10 +319,15 @@
     <!-- BEGIN: Page Vendor JS-->
     @yield('scripts')
     <!-- END: Page Vendor JS-->
+
+
     @section('modals')
     @extends('store::layouts.authModalsLayout',['storeLink' => $store->store_link,'store' => $store])
     @endsection
     <!-- BEGIN: Theme JS-->
+    <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+    <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+
     <script src="../../../app-assets/js/core/app-menu.js"></script>
     <script src="../../../app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->

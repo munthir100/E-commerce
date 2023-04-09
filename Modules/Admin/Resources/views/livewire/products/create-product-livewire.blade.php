@@ -1,4 +1,4 @@
-<div>
+<div wire:ignore>
     <form class="form" wire:submit.prevent="save" enctype="multipart/form-data">
         <div class="row">
 
@@ -107,7 +107,7 @@
 
             <div class="col-md-6 col-xs-12">
                 <label for="formFile" class="form-label">{{__('Add image')}} ( {{__('Main')}} )</label>
-                <input class="form-control" type="file" wire:model="image">
+                <input class="form-control" type="file" wire:model="image" wire:loading.attr="disabled" wire:loading.attr="disabled" required >
                 @error('image') <small class="text-danger">{{$message}}</small>@enderror
             </div>
 

@@ -9,12 +9,12 @@
             <div class="content-header-left col-md-9 col-12 mb-2">
                 <div class="row breadcrumbs-top">
                     <div class="col-12">
-                        <h2 class="content-header-title float-start mb-0">Orders</h2>
+                        <h2 class="content-header-title float-start mb-0">{{__('Orders')}}</h2>
                         <div class="breadcrumb-wrapper">
                             <ol class="breadcrumb">
-                                <li class="breadcrumb-item"><a href="#">Home</a>
+                                <li class="breadcrumb-item"><a href="#">{{__('Home')}}</a>
                                 </li>
-                                <li class="breadcrumb-item active">Orders
+                                <li class="breadcrumb-item active">{{__('Orders')}}
                                 </li>
                             </ol>
                         </div>

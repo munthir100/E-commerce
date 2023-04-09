@@ -54,8 +54,11 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        return view('admin::Clients.show', compact('client'));
+        $perPage = request()->query('per_page', 25);
+        $orders = $client->load('orders')->paginate($perPage);
+        return view('admin::Clients.show', compact('client','orders'));
     }
+
 
     /**
      * Show the form for editing the specified resource.

@@ -69,7 +69,7 @@
                     <h4 class="card-title mb-1">{{__('Adventure starts here 🚀')}}</h4>
                     <p class="card-text mb-2">{{__('Make your app management easy and fun!')}}</p>
 
-                    <livewire:acl::client-register :storeLink="$storeLink"/>
+                    <livewire:acl::client-register :store="$store"/>
 
                     <p class="text-center mt-2">
                         <span>{{__('Already have an account?')}}</span>

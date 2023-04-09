@@ -91,6 +91,20 @@
                                       style="display: none;">
                                     @csrf
                                 </form>
+                            @else
+                            <li>
+                                    <a href="{{ route('store.index',auth()->user()->client->store->store_link) }}"><i class="far fa-user-circle"></i> الادارة</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                        تسجيل خروج
+                                    </a>
+                                </li>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                      style="display: none;">
+                                    @csrf
+                                </form>
                             @endif
 
                         @endauth
@@ -273,7 +287,8 @@
 </section>
 
 <!--====== Start Pricing Area ======-->
-<section class="pricing-section p-t-60 p-b-60">
+<small> <small> we need to change this page design because the design is old</small></small>
+<!-- <section class="pricing-section p-t-60 p-b-60">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-6">
@@ -284,7 +299,7 @@
             </div>
         </div>
 
-        <!-- Pricing Table -->
+       
         <div class="row justify-content-center">
 
             <div class="col-lg-4 col-md-6 col-sm-8">
@@ -319,9 +334,74 @@
 
             </div>
 
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="pricing-table p-0 m-t-30">
+                    <div class="p-3">
+                        <div class="plan-title-area">
+                            <h3>باقة رست ون</h3>
+                            <h5 class="">برو</h5>
+                            <img src="{{ asset('frontend/assets/img/pricing/plan-icon.png') }}" alt="Plan icon"
+                                 class="plan-icon"/>
+                            <svg class="plan-shape">
+                                <path class="blob"
+                                      d="M675.762,6280.79c27.519-33.95,38.271-67.86,19.8-107.55-44.452-95.53-192.815-73.8-213.55-32.81-19.531,38.6,77.819,48.49,80.344,152.05C563.555,6341.55,636.194,6329.6,675.762,6280.79Z"
+                                      transform="translate(-479.406 -6105.56)"></path>
+                            </svg>
+                        </div>
+                        <div class="plan-cost">
+                            <h3>22 ر.س / شهريا</h3>
+                        </div>
+                        <ul class="plan-feature">
+
+                            <li class="">
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <a href="#" class="template-btn btn-block text-center"> الاشتراك الان</a>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="pricing-table p-0 m-t-30">
+                    <div class="p-3">
+                        <div class="plan-title-area">
+                            <h3>باقة رست ون</h3>
+                            <h5 class="">بريميوم</h5>
+                            <img src="{{ asset('frontend/assets/img/pricing/plan-icon.png') }}" alt="Plan icon"
+                                 class="plan-icon"/>
+                            <svg class="plan-shape">
+                                <path class="blob"
+                                      d="M675.762,6280.79c27.519-33.95,38.271-67.86,19.8-107.55-44.452-95.53-192.815-73.8-213.55-32.81-19.531,38.6,77.819,48.49,80.344,152.05C563.555,6341.55,636.194,6329.6,675.762,6280.79Z"
+                                      transform="translate(-479.406 -6105.56)"></path>
+                            </svg>
+                        </div>
+                        <div class="plan-cost">
+                            <h3>22 ر.س / شهريا</h3>
+                        </div>
+                        <ul class="plan-feature">
+
+                            <li class="">
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+                    <a href="#" class="template-btn btn-block text-center"> الاشتراك الان</a>
+
+                </div>
+
+            </div>
+
         </div>
     </div>
-</section>
+</section> -->
 <!--====== End Pricing Area ======-->
 
 <!--<section class="service-section new-store p-t-130 p-b-50">
