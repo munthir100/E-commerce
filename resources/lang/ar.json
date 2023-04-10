@@ -351,6 +351,7 @@
     "The email field is required.": "حقل البريد الالكتروني مطلوب",
     "This email associated with another user type": "هذا البريد الالكتروني مرتبط بنوع اخر من المستخدمين",
     "The username field is required.": "حقل اسم المستخدم مطلوب",
+    "Enter your email and well send you instructions to reset your password":"أدخل البريد الالكتروني لنرسل لك تعليمات لاستعادة كلمة المرور",
     "The username title is required.": "حقل العنوان مطلوب",
     "The password field is required.": "حقل كلمة المرور مطلوب",
     "Token Code": "الرمز",
@@ -395,5 +396,7 @@
     "envoy": "مندوب خاص",
     "Payment Method": "طريقة الدفع",
     "cash on delivery": "الدفع عند الاستلام",
-    "N/A": "لم يتم التحديد"
+    "N/A": "لم يتم التحديد",
+    "you can not use this email":"لا يمكنك استخدام هذا البريد الالكتروني",
+    "invaild username":"اسم خاطئ"
 }

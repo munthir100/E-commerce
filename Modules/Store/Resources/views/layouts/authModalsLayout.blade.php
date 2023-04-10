@@ -10,8 +10,7 @@
             <div class="card mb-0">
                 <div class="card-body">
                     <h4 class="card-title mb-1">{{__('Forgot Password? 🔒')}}</h4>
-                    <p class="card-text mb-2">{{__('Enter your email and well send you instructions to reset your
-                        password')}}</p>
+                    <p class="card-text mb-2">{{__('Enter your email and well send you instructions to reset your password')}}</p>
                     <livewire:client::auth.client-forget-password-form />
 
 
@@ -26,8 +25,7 @@
         </div>
     </div>
 </div>
-<div class="modal fade" id="userResetPasswordModal" tabindex="-1" aria-labelledby="userResetPasswordModalTitle"
-     aria-hidden="true">
+<div class="modal fade" id="userResetPasswordModal" tabindex="-1" aria-labelledby="userResetPasswordModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-transparent">
@@ -38,12 +36,11 @@
             <div class="card mb-0">
                 <div class="card-body">
 
-                    <livewire:client::auth.client-reset-password-form :store="$store"/>
+                    <livewire:client::auth.client-reset-password-form :store="$store" />
 
                     <p class="text-center mt-2">
                         <span>{{__('Already have an account?')}}</span>
-                        <a href="#"
-                           onclick="$('#userRegisterModal').modal('hide'); $('#userLoginModal').modal('show');">
+                        <a href="#" onclick="$('#userResetPasswordModal').modal('hide'); $('#userRegisterModal').modal('hide'); $('#userLoginModal').modal('show');">
                             <span>{{__('Sign in instead')}}</span>
                         </a>
                     </p>
@@ -55,8 +52,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="userRegisterModal" tabindex="-1" aria-labelledby="userRegisterModalTitle"
-     aria-hidden="true">
+<div class="modal fade" id="userRegisterModal" tabindex="-1" aria-labelledby="userRegisterModalTitle" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header bg-transparent">
@@ -69,12 +65,11 @@
                     <h4 class="card-title mb-1">{{__('Adventure starts here 🚀')}}</h4>
                     <p class="card-text mb-2">{{__('Make your app management easy and fun!')}}</p>
 
-                    <livewire:acl::client-register :store="$store"/>
+                    <livewire:acl::client-register :store="$store" />
 
                     <p class="text-center mt-2">
                         <span>{{__('Already have an account?')}}</span>
-                        <a href="#"
-                           onclick="$('#userRegisterModal').modal('hide'); $('#userLoginModal').modal('show');">
+                        <a href="#" onclick="$('#forgetPassword').modal('hide'); $('#userRegisterModal').modal('hide'); $('#userLoginModal').modal('show');">
                             <span>{{__('Sign in instead')}}</span>
                         </a>
                     </p>
@@ -102,7 +97,7 @@
                     <p class="card-text mb-2">{{__('Please sign-in to your account and start the adventure')}}</p>
 
 
-                    <livewire:acl::client-login :storeLink="$storeLink"/>
+                    <livewire:acl::client-login :storeLink="$storeLink" />
                     <p class="text-center mt-2">
                         <span>{{__('New on our platform?')}}</span>
                         <a href="#" onclick="$('#userLoginModal').modal('hide');$('#userRegisterModal').modal('show');">

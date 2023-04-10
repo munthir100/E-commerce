@@ -1,5 +1,5 @@
 <div>
-    <form onsubmit="event.preventDefault(); setTimeout(function() { $('#forgetPassword').modal('hide'); $('#userResetPasswordModal').modal('show'); }, 1000);" class="auth-forgot-password-form mt-2" wire:submit.prevent="resetClientPassword">
+    <form class="auth-forgot-password-form mt-2" wire:submit.prevent="resetClientPassword">
         <div class="mb-1">
             <label for="forgot-password-email" class="form-label">{{(translate('Email'))}}</label>
             <input type="email" class="form-control" id="forgot-password-email"

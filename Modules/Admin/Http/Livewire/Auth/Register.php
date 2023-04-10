@@ -17,7 +17,7 @@ class Register extends Component
 
         'email' => 'required|email',
 
-        'phone' => 'required|integer|max:13|unique:users',
+        'phone' => 'required|integer|unique:users',
 
         'password' => 'required',
 
@@ -41,7 +41,7 @@ class Register extends Component
         $data = $this->validate();
         $emailExist = User::where('email', $data['email'])->where('user_type_id', 1)->first();
         if ($emailExist) {
-            $this->addError('email', 'you can not use this email');
+            $this->addError('email', __('you can not use this email'));
             return;
         }
         $data['password'] = Hash::make($data['password']);
