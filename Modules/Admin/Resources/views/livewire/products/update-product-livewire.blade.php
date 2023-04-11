@@ -1,4 +1,4 @@
-<div wire:ignore>
+<div>
     <form class="form" wire:submit.prevent="save" enctype="multipart/form-data">
         <div class="row">
 
@@ -138,7 +138,7 @@
 
 
             <div class="col-12" style="text-align:end;">
-                <button type="submit" class="btn btn-primary me-1">{{__('Edit')}}</button>
+                <button type="submit" class="btn btn-primary me-1"  wire:loading.attr="disabled">{{__('Edit')}}</button>
             </div>
         </div>
     </form>

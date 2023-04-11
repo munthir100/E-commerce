@@ -1,4 +1,4 @@
-<div wire:ignore>
+<div>
     <form id="checkout-address" class="list-view" wire:submit.prevent="save">
         <!-- Checkout Customer Address Left starts -->
         <div class="card">
