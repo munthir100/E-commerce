@@ -109,12 +109,12 @@
                                                     <i data-feather="more-vertical"></i>
                                                 </button>
                                                 <div class="dropdown-menu dropdown-menu-end">
-                                                    <a class="dropdown-item" href="{{route('admin.orders.show',$order->client->id)}}">
+                                                    <a class="dropdown-item" href="{{route('admin.orders.show',$order->id)}}">
                                                         <i data-feather="eye" class="me-50"></i>
                                                         <span>{{__('Show')}}</span>
                                                     </a>
 
-                                                    <a class="dropdown-item" href="#">
+                                                    <a class="dropdown-item" href="{{route('admin.orders.destroy',$order->id)}}">
                                                         <i data-feather="trash" class="me-50"></i>
                                                         <span>{{__('Delete')}}</span>
                                                     </a>
