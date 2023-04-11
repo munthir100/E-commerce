@@ -13,8 +13,8 @@ class StoreCity extends Component
 
     public function mount()
     {
-        $this->cities = City::all();
-        $this->city_id = Auth::user()->admin->store->city_id;
+        $this->cities = City::where('country_id', Auth::user()->country_id)->get();
+        $this->city_id = Auth::user()->city_id;
     }
 
     protected function rules()
@@ -33,12 +33,10 @@ class StoreCity extends Component
     {
         $this->validate();
 
-        $userId = Auth::id();
-        Store::whereHas('admin.user', function ($query) use ($userId) {
-            $query->where('user_id', $userId);
-        })->update([
+        Auth::user()->admin->store->update([
             'city_id' => $this->city_id,
         ]);
+
 
         session()->flash('success', 'Store location updated successfully');
 

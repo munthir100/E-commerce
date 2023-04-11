@@ -16,9 +16,20 @@
         <div class="row">
             <div class="col-lg-6 mb-1">
                 <label class="form-label" for="phone">{{__('phone')}}</label>
-                <input class="form-control" id="phone" type="number" wire:model.lazy="phone" placeholder="+96612345678" aria-describedby="phone" autofocus="" tabindex="1" />
+                <div class="input-group">
+
+                    <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" wire:model.lazy="phone">
+                    <select class="form-select" aria-label="Select Country Code" wire:model="country_id">
+                        @foreach($countries as $country)
+                        <option value="{{$country->id}}" data-phoneDigits="{{$country->phone_digits_number}}">{{__($country->name)}}</option>
+                        @endforeach
+                        <!-- add more options here -->
+                    </select>
+
+                </div>
                 @error('phone') <small class="text-danger">{{$message}}</small>@enderror
             </div>
+
 
             <div class="col-lg-6 mb-1">
                 <label class="form-label" for="store_link">{{__('Store Link')}}</label>

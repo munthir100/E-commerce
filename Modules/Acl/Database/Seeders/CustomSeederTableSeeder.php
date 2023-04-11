@@ -25,6 +25,7 @@ class CustomSeederTableSeeder extends Seeder
             'email' => 'a@a.a',
             'phone' => '1',
             'password' => Hash::make('aaa'),
+            'country_id' => 1,
         ]);
         Admin::create([
             'user_id' => 1

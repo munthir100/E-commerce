@@ -31,6 +31,19 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
 
+            $table->foreignId('country_id')
+                ->references('id')
+                ->on('countries')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
+            $table->foreignId('city_id')
+                ->nullable()
+                ->references('id')
+                ->on('cities')
+                ->cascadeOnDelete()
+                ->cascadeOnUpdate();
+
             $table->timestamps();
             $table->softDeletes();
         });

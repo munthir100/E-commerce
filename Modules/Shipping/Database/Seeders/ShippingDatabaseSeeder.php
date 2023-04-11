@@ -16,21 +16,6 @@ class ShippingDatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // Country::create([
-        //     'name' => 'Sudan',
-        // ]);
-
-        // City::create([
-        //     'name' => 'khartoum',
-        //     'country_id' => 1,
-        // ]);
-        // City::create([
-        //     'name' => 'edduiem',
-        //     'country_id' => 1,
-        // ]);
-        // City::create([
-        //     'name' => 'kosti',
-        //     'country_id' => 1,
-        // ]);
+        $this->call(CitiesSeederTableSeeder::class);
     }
 }

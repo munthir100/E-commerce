@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('capital_city');
             $table->string('currency_name');
             $table->string('code');
+            $table->string('phone_code');
+            $table->integer('phone_digits_number');
             $table->string('symbol');
             $table->timestamps();
             $table->softDeletes();
