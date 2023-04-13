@@ -8,7 +8,7 @@
             </div>
             <div class="col-lg-6 mb-1">
                 <label class="form-label" for="email">{{__('Email')}}</label>
-                <input class="form-control" id="email" type="text" wire:model.lazy="email" placeholder="john@example.com" aria-describedby="email" tabindex="2" />
+                <input class="form-control" id="email" type="text" wire:model.lazy="email" placeholder="user@email.com" aria-describedby="email" tabindex="2" />
                 @error('email') <small class="text-danger">{{$message}}</small>@enderror
             </div>
         </div>
@@ -18,7 +18,7 @@
                 <label class="form-label" for="phone">{{__('phone')}}</label>
                 <div class="input-group">
 
-                    <input type="number" class="form-control" id="phoneNumber" placeholder="Phone Number" wire:model.lazy="phone">
+                    <input type="number" class="form-control" id="phoneNumber" placeholder="{{__('phone')}}" wire:model.lazy="phone">
                     <select class="form-select" aria-label="Select Country Code" wire:model="country_id">
                         @foreach($countries as $country)
                         <option value="{{$country->id}}" data-phoneDigits="{{$country->phone_digits_number}}">{{__($country->name)}}</option>
@@ -34,7 +34,7 @@
             <div class="col-lg-6 mb-1">
                 <label class="form-label" for="store_link">{{__('Store Link')}}</label>
                 <div class="input-group input-group-merge form-password-toggle">
-                    <input class="form-control form-control-merge" id="store_link" type="text" wire:model.lazy="store_link" placeholder="abcdef" aria-describedby="store_link" tabindex="3" />
+                    <input class="form-control form-control-merge" id="store_link" type="text" wire:model.lazy="store_link" placeholder="{{__('Store Link')}}" aria-describedby="store_link" tabindex="3" />
                 </div>
                 @error('store_link') <small class="text-danger">{{$message}}</small>@enderror
             </div>
@@ -46,7 +46,7 @@
         <div class="row">
             <div class="col-lg-6 mb-1">
                 <label class="form-label" for="store_name">{{__('Store Name')}}</label>
-                <input class="form-control" id="store_name" type="text" wire:model.lazy="store_name" placeholder="abcdefg" aria-describedby="store_name" autofocus="" tabindex="1" />
+                <input class="form-control" id="store_name" type="text" wire:model.lazy="store_name" placeholder="{{__('Store Name')}}" aria-describedby="store_name" autofocus="" tabindex="1" />
                 @error('store_name') <small class="text-danger">{{$message}}</small>@enderror
             </div>
             <div class="col-lg-6 mb-1">
