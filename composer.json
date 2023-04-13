@@ -5,7 +5,7 @@
     "keywords": ["framework", "laravel"],
     "license": "MIT",
     "require": {
-        "php": "^8.2.0",
+        "php": "^8.1.16",
         "dyrynda/laravel-cascade-soft-deletes": "^4.2",
         "fedeisas/laravel-mail-css-inliner": "^5.2",
         "guzzlehttp/guzzle": "^7.2",
