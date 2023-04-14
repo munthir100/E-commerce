@@ -185,16 +185,16 @@
 @endsection
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../../app-assets/fonts/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/jstree.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-tree.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/fonts/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/jstree.min.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-tree.css">
 
 @endsection
 
 @section('scripts')
-<script src="../../../app-assets/vendors/js/extensions/jstree.min.js"></script>
-<script src="../../../app-assets/js/scripts/extensions/ext-component-tree.js"></script>
+<script src="../../app-assets/vendors/js/extensions/jstree.min.js"></script>
+<script src="../../app-assets/js/scripts/extensions/ext-component-tree.js"></script>
 
-<script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
-<script src="../../../app-assets/js/scripts/forms/form-select2.js"></script>
+<script src="../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+<script src="../../app-assets/js/scripts/forms/form-select2.js"></script>
 @endsection

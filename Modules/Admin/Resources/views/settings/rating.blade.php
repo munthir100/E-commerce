@@ -107,5 +107,5 @@
 @endsection
 
 @section('scripts')
-<script src="../../../app-assets/js/scripts/extensions/ext-component-clipboard.js"></script>
+<script src="../../app-assets/js/scripts/extensions/ext-component-clipboard.js"></script>
 @endsection

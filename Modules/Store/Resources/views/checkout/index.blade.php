@@ -227,23 +227,23 @@ $wishlist = session()->get('wishlist', []);
 @endsection
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/maps/map-leaflet.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/maps/leaflet.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/app-ecommerce.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/pickers/form-pickadate.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-wizard.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-number-input.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/wizard/bs-stepper.min.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/maps/map-leaflet.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/maps/leaflet.min.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/forms/spinner/jquery.bootstrap-touchspin.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/pages/app-ecommerce.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/forms/pickers/form-pickadate.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/forms/form-wizard.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/forms/form-number-input.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/forms/wizard/bs-stepper.min.css">
 @endsection
 @section('scripts')
-<script src="../../../app-assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
-<script src="../../../app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
-<script src="../../../app-assets/js/scripts/pages/app-ecommerce-checkout.js"></script>
+<script src="../../app-assets/vendors/js/forms/wizard/bs-stepper.min.js"></script>
+<script src="../../app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
+<script src="../../app-assets/js/scripts/pages/app-ecommerce-checkout.js"></script>
 
 
 
-<script src="../../../app-assets/vendors/js/maps/leaflet.min.js"></script>
-<script src="../../../app-assets/js/scripts/maps/map-leaflet.js"></script>
+<script src="../../app-assets/vendors/js/maps/leaflet.min.js"></script>
+<script src="../../app-assets/js/scripts/maps/map-leaflet.js"></script>
 @endsection

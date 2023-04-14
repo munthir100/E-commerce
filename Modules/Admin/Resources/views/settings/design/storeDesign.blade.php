@@ -1,4 +1,4 @@
-@extends('admin::Layouts.adminlayout')
+@extends('admin::Layouts.adminLayout')
 @section('title',translate('Settings'))
 
 @section('content')
@@ -122,7 +122,7 @@
 
 
 @section('styles')
-<link rel="stylesheet" href="{{asset('frontend/assets/fonts/fontawesome/css/all.min.css')}}" />
+<link rel="stylesheet" href="{{asset('frontend/assets/fonts/fontawesome/css/all.min.css"" />
 
 @endsection
 

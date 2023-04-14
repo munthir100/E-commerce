@@ -10,25 +10,25 @@
     <link rel="shortcut icon" href="{{asset('frontend/assets/img/favicon.png')}}" type="img/png"/>
     <!--====== Bootstrap css ======-->
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/bootstrap.min.css""/>
     <!--====== Slick Slider ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/slick.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/slick.min.css""/>
     <!--====== Magnific ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/magnific-popup.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/magnific-popup.min.css""/>
     <!--====== Nice Select ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/nice-select.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/nice-select.min.css""/>
     <!--====== Animate CSS ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/animate.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/animate.min.css""/>
     <!--====== Font Awesome ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/fonts/fontawesome/css/all.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/fonts/fontawesome/css/all.min.css""/>
     <!--====== Flaticon ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/fonts/flaticon/flaticon.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/fonts/flaticon/flaticon.css""/>
     <!--====== Spacing Css ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/spacing.min.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/spacing.min.css""/>
     <!--====== Main Css ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/style.css""/>
     <!--====== Responsive CSS ======-->
-    <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css')}}"/>
+    <link rel="stylesheet" href="{{asset('frontend/assets/css/responsive.css""/>
 </head>
 
 <body class="software-landing-page">

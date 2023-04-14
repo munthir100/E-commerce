@@ -48,14 +48,14 @@
 
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors-rtl.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/core/menu/menu-types/vertical-menu.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/vendors-rtl.min.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/forms/select/select2.min.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/core/menu/menu-types/vertical-menu.css">
 
 @endsection
 
 @section('scripts')
-<script src="../../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
-<script src="../../../app-assets/js/scripts/forms/form-select2.js"></script>
+<script src="../../app-assets/vendors/js/forms/select/select2.full.min.js"></script>
+<script src="../../app-assets/js/scripts/forms/form-select2.js"></script>
 
 @endsection

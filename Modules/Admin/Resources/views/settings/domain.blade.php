@@ -1,4 +1,4 @@
-@extends('admin::Layouts.adminlayout')
+@extends('admin::Layouts.adminLayout')
 @section('title',translate('Settings'))
 
 @section('content')
