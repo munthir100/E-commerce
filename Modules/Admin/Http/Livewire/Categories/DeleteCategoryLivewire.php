@@ -12,7 +12,7 @@ class DeleteCategoryLivewire extends Component
 
     public function render()
     {
-        return view('admin::livewire.categories.delete-category-livewire');
+        return view('admin::livewire.Categories.delete-category-livewire');
     }
 
 
