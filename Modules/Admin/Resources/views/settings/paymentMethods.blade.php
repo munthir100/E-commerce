@@ -1,5 +1,6 @@
-@extends('admin::Layouts.adminLayout')
-@section('title', __('Settings'))
+@extends('admin::Layouts.adminlayout')
+@section('title',translate('Settings'))
+
 @section('content')
 <div class="app-content content ">
     <div class="content-overlay"></div>
