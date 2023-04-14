@@ -27,7 +27,7 @@ class UpdateCategoryLivewire extends Component
 
     public function render()
     {
-        return view('admin::livewire.categories.update-category-livewire');
+        return view('admin::livewire.Categories.update-category-livewire');
     }
 
     public function save()
