@@ -156,14 +156,14 @@
 
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/animate/animate.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/sweetalert2.min.css">
+<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
 @endsection
 @section('scripts')
-<script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-<script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
-<script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+<script src="../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+<script src="../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
+<script src="../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
 <script>
     var warning = $('#new-order');
     if (warning.length) {

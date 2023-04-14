@@ -16,31 +16,31 @@
             font-family: 'Tajawal', sans-serif;
         }
     </style>
-    <link rel="apple-touch-icon" href="../../../app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../../app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="../../app-assets/images/ico/apple-icon-120.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../../app-assets/images/ico/favicon.ico">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
 
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/vendors-rtl.min.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/vendors-rtl.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/colors.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/components.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/themes/semi-dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/bootstrap-extended.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/colors.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/components.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/themes/dark-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/themes/bordered-layout.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/themes/semi-dark-layout.css">
 
     <!-- BEGIN: Page CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/core/menu/menu-types/vertical-menu.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/forms/form-validation.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/authentication.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/core/menu/menu-types/vertical-menu.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/pages/authentication.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/custom-rtl.css">
+    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/custom-rtl.css">
     <link rel="stylesheet" type="text/css" href="../../../assets/css/style-rtl.css">
     <!-- END: Custom CSS-->
     @livewireStyles
@@ -68,7 +68,7 @@
                         <!-- /Brand logo-->
                         <!-- Left Text-->
                         <div class="d-none d-lg-flex col-lg-6 align-items-center p-5">
-                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="../../../app-assets/images/pages/register-v2.svg" alt="Register V2" /></div>
+                            <div class="w-100 d-lg-flex align-items-center justify-content-center px-5"><img class="img-fluid" src="../../app-assets/images/pages/register-v2.svg" alt="Register V2" /></div>
                         </div>
                         <!-- /Left Text-->
                         <!-- Register-->
@@ -106,20 +106,20 @@
 
 
     <!-- BEGIN: Vendor JS-->
-    <script src="../../../app-assets/vendors/js/vendors.min.js"></script>
+    <script src="../../app-assets/vendors/js/vendors.min.js"></script>
     <!-- BEGIN Vendor JS-->
 
     <!-- BEGIN: Page Vendor JS-->
-    <script src="../../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
+    <script src="../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
     <!-- END: Page Vendor JS-->
 
     <!-- BEGIN: Theme JS-->
-    <script src="../../../app-assets/js/core/app-menu.js"></script>
-    <script src="../../../app-assets/js/core/app.js"></script>
+    <script src="../../app-assets/js/core/app-menu.js"></script>
+    <script src="../../app-assets/js/core/app.js"></script>
     <!-- END: Theme JS-->
 
     <!-- BEGIN: Page JS-->
-    <script src="../../../app-assets/js/scripts/pages/auth-register.js"></script>
+    <script src="../../app-assets/js/scripts/pages/auth-register.js"></script>
     <!-- END: Page JS-->
 
     <script>

@@ -57,7 +57,7 @@
                     <div class="col-md-4 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <img class="rounded-circle" src="../../app-assets/images/custom/image-user.png" alt="Generic placeholder image" height="64" width="64">
+                                <img class="rounded-circle" src="{{asset('app-assets/images/custom/image-user.png" alt="Generic placeholder image" height="64" width="64">
                             </div>
                             <div class="card-body">
 
@@ -166,14 +166,14 @@
 
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/animate/animate.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/extensions/sweetalert2.min.css">
-<link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
+<link rel="stylesheet" type="text/css" href="../{{asset('app-assets/vendors/css/animate/animate.min.css">
+<link rel="stylesheet" type="text/css" href="../{{asset('app-assets/vendors/css/extensions/sweetalert2.min.css">
+<link rel="stylesheet" type="text/css" href="../{{asset('app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
 @endsection
 @section('scripts')
-<script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-<script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
-<script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+<script src="../{{asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
+<script src="../{{asset('app-assets/vendors/js/extensions/polyfill.min.js"></script>
+<script src="../{{asset('app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
 <script>
     var warning = $('#new-order');
     if (warning.length) {
