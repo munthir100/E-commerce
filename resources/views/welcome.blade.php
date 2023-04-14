@@ -87,7 +87,7 @@
                                         تسجيل خروج
                                     </a>
                                 </li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                <form id="logout-form" action="{{ route('adminLogout') }}" method="POST"
                                       style="display: none;">
                                     @csrf
                                 </form>
@@ -101,7 +101,7 @@
                                         تسجيل خروج
                                     </a>
                                 </li>
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                <form id="logout-form" action="{{ route('adminLogout') }}" method="POST"
                                       style="display: none;">
                                     @csrf
                                 </form>

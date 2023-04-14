@@ -31,7 +31,7 @@ Route::get('register', [AuthController::class, 'adminRegisterForm'])->name('regi
 Route::post('logout', function () {
     Auth::logout();
     return redirect()->back();
-})->name('logout');
+})->name('adminLogout');
 Route::get('logout', function () {
     Auth::logout();
     return redirect()->back();
