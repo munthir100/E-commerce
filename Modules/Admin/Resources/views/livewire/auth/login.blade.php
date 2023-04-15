@@ -4,7 +4,7 @@
         <div class="mb-1">
             <label class="form-label" for="username">{{__('Email/Phone')}}</label>
             <input class="form-control" id="username" type="text" wire:model.defer="username" placeholder="{{__('Email/Phone')}}" aria-describedby="username" autofocus="" tabindex="1" />
-            @error('username') <small class="text-danger">{{translate($message)}}</small>@enderror
+            @error('username') <small class="text-danger">{{__($message)}}</small>@enderror
         </div>
         <div class="mb-1">
             <div class="d-flex justify-content-between">
@@ -19,7 +19,7 @@
                     </svg>
                 </span>
             </div>
-            @error('password') <small class="text-danger">{{translate($message)}}</small>@enderror
+            @error('password') <small class="text-danger">{{__($message)}}</small>@enderror
         </div>
         <div class="mb-1">
             <div class="form-check">

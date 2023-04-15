@@ -179,8 +179,8 @@
     if (warning.length) {
         warning.on('click', function() {
             Swal.fire({
-                title: '{{translate("Warning!")}}',
-                text: ' {{translate("Please upgrade your package becouse this feature is not available in your package!")}}',
+                title: '{{__("Warning!")}}',
+                text: ' {{__("Please upgrade your package becouse this feature is not available in your package!")}}',
                 icon: 'warning',
                 customClass: {
                     confirmButton: 'btn btn-primary'
