@@ -3,7 +3,7 @@
         @csrf
         <div class="mb-1">
             <label class="form-label" for="username">{{__('Email/Phone')}}</label>
-            <input class="form-control" id="username" type="text" wire:model.defer="username" placeholder="{{__('Email/Phone')}}" aria-describedby="username" autofocus="" tabindex="1" />
+            <input class="form-control" id="username" type="text" wire:model.defer="username" placeholder="{{__('Email/Phone')}}" aria-describedby="username" tabindex="1" />
             @error('username') <small class="text-danger">{{__($message)}}</small>@enderror
         </div>
         <div class="mb-1">
