@@ -41,6 +41,6 @@ class ForgetPasswordform extends Component
                 ]
             );
         Mail::to($credentials['email'])->send(new PasswordResetToken($token,$credentials['email']));
-        return redirect()->route('login')->with('status', 'Password reset token sent!');
+        return redirect()->route('admin.login')->with('status', 'Password reset token sent!');
     }
 }

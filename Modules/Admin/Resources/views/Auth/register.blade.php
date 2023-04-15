@@ -87,7 +87,7 @@
                                 <p class="text-center mt-2"><span>
                                     {{__('Already have an account?')}}
                                 </span>
-                                    <a href="{{route('login')}}">
+                                    <a href="{{route('admin.login')}}">
                                         <span>&nbsp;
                                             {{__('Sign in instead')}}
                                         </span>

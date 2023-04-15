@@ -26,6 +26,6 @@ class ResetPasswordform extends Component
             'password' => Hash::make($this->new_password),
         ]);
         DB::table('password_resets')->where('email', $this->email)->delete();
-        return to_route('login');
+        return to_route('admin.login');
     }
 }
