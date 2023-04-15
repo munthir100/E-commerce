@@ -1,5 +1,5 @@
 <div>
-    <form method="POST" wire:submit.prevent="save">
+    <form wire:submit.prevent="save">
         @csrf
         <div class="mb-1">
             <label class="form-label" for="username">{{__('Email/Phone')}}</label>
