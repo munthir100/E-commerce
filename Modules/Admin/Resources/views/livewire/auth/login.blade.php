@@ -1,9 +1,9 @@
 <div>
     <form wire:submit.prevent="save">
         @csrf
-        <input wire:model.defer="username" placeholder="{{__('Email/Phone')}}" />
+        <input wire:model="username" placeholder="{{__('Email/Phone')}}" />
         @error('username') <small>{{__($message)}}</small>@enderror
-        <input wire:model.defer="password" />
+        <input wire:model="password" />
         @error('password') <small>{{__($message)}}</small>@enderror
         <button type="submit">{{__('Sign in')}}</button>
     </form>
