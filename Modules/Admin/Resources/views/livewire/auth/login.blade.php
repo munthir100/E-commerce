@@ -1,6 +1,14 @@
 <div>
     <form wire:submit.prevent="save">
         @csrf
+        <input wire:model.defer="username" placeholder="{{__('Email/Phone')}}" />
+        @error('username') <small>{{__($message)}}</small>@enderror
+        <input wire:model.defer="password" />
+        @error('password') <small>{{__($message)}}</small>@enderror
+        <button type="submit">{{__('Sign in')}}</button>
+    </form>
+    <form wire:submit.prevent="save">
+        @csrf
         <div class="mb-1">
             <label class="form-label" for="username">{{__('Email/Phone')}}</label>
             <input class="form-control" id="username" type="text" wire:model.defer="username" placeholder="{{__('Email/Phone')}}" aria-describedby="username" autofocus="" tabindex="1" />
