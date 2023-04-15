@@ -77,7 +77,8 @@
                                 <h2 class="card-title fw-bold mb-1">{{__('Welcome to our Platform👋')}}</h2>
                                 <p class="card-text mb-2">{{__('Please sign-in to your account and start the adventure')}}</p>
 
-                                <livewire:admin::auth.login />
+                            
+                                @livewire('admin::auth.login')
 
                                 <p class="text-center mt-2"><span>{{__('New on our platform?')}}</span><a href="{{route('register')}}"><span>&nbsp;{{__('Create an account')}}</span></a></p>
 
