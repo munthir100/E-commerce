@@ -3,14 +3,12 @@
 namespace Modules\Client\Http\Livewire;
 
 use Livewire\Component;
-use Modules\Client\Entities\Order;
-use Modules\Client\Entities\OrderDetail;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Auth;
 
 class AddClientLocation extends Component
 {
-
+    public $user;
     public $store;
     public $name;
     public $email;
@@ -31,13 +29,11 @@ class AddClientLocation extends Component
     ];
     function mount()
     {
-        $user = Auth::user();
-        if (!$user || !$user->hasRole('client')) {
-            abort(401);
-        }
-        $this->name = $user->name;
-        $this->email = $user->email;
-        $this->phone = $user->phone;
+        $this->user = Auth::user();
+
+        $this->name = $this->user->name;
+        $this->email = $this->user->email;
+        $this->phone = $this->user->phone;
     }
 
     public function render()
@@ -47,9 +43,12 @@ class AddClientLocation extends Component
 
     public function save()
     {
+        if (!$this->user || !$this->user->hasRole('client')) {
+            abort(401);
+        }
         $this->validate();
 
-        $client = Auth::user()->client;
+        $client = $this->user->client;
 
 
         $order = $client->orders()->create([
@@ -59,7 +58,7 @@ class AddClientLocation extends Component
             'price' => Cart::total(),
             'status' => 'new',
         ]);
-        $location = $client->locations()->create([
+        $client->locations()->create([
             'longitude' => $this->longitude,
             'latitude' => $this->latitude,
             'address' => $this->address,
@@ -83,7 +82,7 @@ class AddClientLocation extends Component
     }
 
     public function markerDragged($data)
-    {
+`    {
         $this->latitude = $data['latitude'];
         $this->longitude = $data['longitude'];
     }
