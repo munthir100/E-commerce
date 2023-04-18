@@ -82,7 +82,7 @@ class AddClientLocation extends Component
     }
 
     public function markerDragged($data)
-`    {
+    {
         $this->latitude = $data['latitude'];
         $this->longitude = $data['longitude'];
     }

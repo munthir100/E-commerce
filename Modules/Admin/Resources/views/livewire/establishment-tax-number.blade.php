@@ -5,7 +5,7 @@
 
             <div class="mb-1">
                 <label class="form-label" for="basicInput">Establishment Tax Number</label>
-                <input type="text" wire:model="number" class="form-control" id="basicInput" placeholder="establishment tax number">
+                <input type="text" wire:model.defer="number" class="form-control" id="basicInput" placeholder="establishment tax number">
             </div>
             @error('number')<small class="text-danger">{{$message}}</small>@enderror
 

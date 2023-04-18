@@ -1,7 +1,7 @@
 <div>
     <form wire:submit.prevent="save">
         <div class="text-center">
-            <input type="file" wire:model="logo" id="logo" hidden />
+            <input type="file" wire:model.defer="logo" id="logo" hidden />
             <label for="logo">
                 <div class="profile-img">
                     <img src="{{ $logo ? $logo->temporaryUrl() : ($store->logo ? asset('storage/' . $store->logo) : asset('app-assets/images/custom/image-icon.png')) }}" class="rounded img-fluid" alt="Card image" style="width: 212px;height:212px;" wire:loading.class.add="opacity-25">

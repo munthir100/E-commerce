@@ -1,4 +1,4 @@
-<div>
+<div wire:ignore>
     <form id="checkout-address" class="list-view" wire:submit.prevent="save">
         <!-- Checkout Customer Address Left starts -->
         <div class="card">
@@ -11,26 +11,26 @@
                     <div class="col-md-6 col-sm-12">
                         <div class="mb-2">
                             <label class="form-label" cfor="checkout-name">Full Name:</label>
-                            <input type="text" id="checkout-name" class="form-control" wire:model.lazy="name" readonly placeholder="John Doe">
+                            <input type="text" id="checkout-name" class="form-control" wire:model.defer="name" readonly placeholder="John Doe">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="mb-2">
                             <label class="form-label" cfor="checkout-number">Mobile Number:</label>
-                            <input type="number" id="checkout-number" class="form-control" wire:model.lazy="phone" readonly placeholder="0123456789">
+                            <input type="number" id="checkout-number" class="form-control" wire:model.defer="phone" readonly placeholder="0123456789">
                         </div>
                     </div>
                     <div class="col-md-6 col-sm-12">
                         <div class="mb-2">
                             <label class="form-label" cfor="checkout-city">Full Adress:</label>
-                            <input type="text" id="checkout-city" class="form-control" wire:model.lazy="address" placeholder="Tokyo">
+                            <input type="text" id="checkout-city" class="form-control" wire:model.defer="address" placeholder="Tokyo">
                         </div>
                     </div>
 
                     <div class="col-md-6 col-sm-12">
                         <div class="mb-2">
                             <label class="form-label" cfor="add-type">Address Type:</label>
-                            <select class="form-select" id="add-type" wire:model.lazy="address_type">
+                            <select class="form-select" id="add-type" wire:model.defer="address_type">
                                 <option value="">Select address type</option>
                                 <option value="home">Home</option>
                                 <option value="work">Work</option>
@@ -38,8 +38,8 @@
                             </select>
                         </div>
                     </div>
-                    <input type="hidden" id="latitude" name="latitude" wire:model="latitude">
-                    <input type="hidden" id="longitude" name="longitude" wire:model="longitude">
+                    <input type="hidden" id="latitude" name="latitude" wire:model.defer="latitude">
+                    <input type="hidden" id="longitude" name="longitude" wire:model.defer="longitude">
                     <div class="col-12">
                         <button class="btn btn-primary btn-next delivery-address">Save And Deliver Here</button>
                     </div>

@@ -25,7 +25,7 @@ class DeleteClientLivewire extends Component
         }
 
         $this->dispatchBrowserEvent('confirmDelete', [
-            'message' => 'Are you sure?',
+            'message' => __('?Are you sure'),
             'id' => $this->client->id,
             'callback' => 'deleteclientConfirmed',
         ]);

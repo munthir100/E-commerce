@@ -18,7 +18,7 @@ class DeleteBrandLivewire extends Component
     public function confirmDelete()
     {
         $this->dispatchBrowserEvent('confirmDelete', [
-            'message' => 'Are you sure?',
+            'message' => __('?Are you sure'),
             'id' => $this->brand->id,
             'callback' => 'deleteBrandConfirmed',
         ]);

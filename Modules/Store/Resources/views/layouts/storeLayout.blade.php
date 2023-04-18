@@ -6,8 +6,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=0,minimal-ui">
-    <meta name="description" content="{{('Restone')}} admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
-    <meta name="keywords" content="admin template, {{('Restone')}} admin template, dashboard template, flat admin template, responsive admin template, web app">
+    <meta name="description" content="{{__('Restone')}} admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+    <meta name="keywords" content="admin template, {{__('Restone')}} admin template, dashboard template, flat admin template, responsive admin template, web app">
     <link rel="shortcut icon" href="{{ $store->browser_icon ? asset('storage/' . $store->browser_icon) : asset('app-assets/images/custom/image-icon.png') }}" type="image/x-icon">
     <title>@yield('title')</title>
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500&display=swap" rel="stylesheet">
@@ -26,34 +26,34 @@
             width: 408px !important;
         }
     </style>
-        <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/sweetalert2.min.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
+        <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/sweetalert2.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css')}}">
 
-    <link rel="apple-touch-icon" href="../../app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="../../app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="{{asset('app-assets/images/ico/apple-icon-120.png')}}">
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('app-assets/images/ico/favicon.ico')}}">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600" rel="stylesheet">
     <!-- BEGIN: Vendor CSS-->
-    <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/vendors-rtl.min.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/charts/apexcharts.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/toastr.min.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/vendors-rtl.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/charts/apexcharts.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/toastr.min.css')}}">
     <!-- END: Vendor CSS-->
     <!-- BEGIN: Theme CSS-->
-    <link rel="stylesheet" type="text/css" href="../../app-assets/fonts/font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/bootstrap.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/bootstrap-extended.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/colors.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/components.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/themes/dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/themes/bordered-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/themes/semi-dark-layout.css">
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/bootstrap.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/bootstrap-extended.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/colors.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/components.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/themes/dark-layout.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/themes/bordered-layout.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/themes/semi-dark-layout.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-toastr.css')}}">
 
     <!-- BEGIN: Page CSS-->
     @yield('styles')
     <!-- END: Page CSS-->
     <!-- BEGIN: Custom CSS-->
-    <link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/custom-rtl.css">
-    <link rel="stylesheet" type="text/css" href="../../../assets/css/style-rtl.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/custom-rtl.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/css/style-rtl.css')}}">
     <!-- END: Custom CSS-->
 </head>
 <!-- END: Head-->
@@ -311,11 +311,11 @@
     <button class="btn btn-primary btn-icon scroll-top" type="button"><i data-feather="arrow-up"></i></button>
     <!-- END: Footer-->
     <!-- BEGIN: Vendor JS-->
-    <script src="../../app-assets/vendors/js/vendors.min.js"></script>
+    <script src="{{asset('app-assets/vendors/js/vendors.min.js')}}"></script>
     <!-- BEGIN Vendor JS-->
-    <script src="../../app-assets/js/scripts/extensions/ext-component-blockui.js"></script>
-    <script src="../../app-assets/vendors/js/extensions/toastr.min.js"></script>
-    <script src="../../app-assets/js/scripts/extensions/ext-component-toastr.js"></script>
+    <script src="{{asset('app-assets/js/scripts/extensions/ext-component-blockui.js')}}"></script>
+    <script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js')}}"></script>
+    <script src="{{asset('app-assets/js/scripts/extensions/ext-component-toastr.js')}}"></script>
     <!-- BEGIN: Page Vendor JS-->
     @yield('scripts')
     <!-- END: Page Vendor JS-->
@@ -325,11 +325,11 @@
     @extends('store::layouts.authModalsLayout',['storeLink' => $store->store_link,'store' => $store])
     @endsection
     <!-- BEGIN: Theme JS-->
-    <script src="../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-    <script src="../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+    <script src="{{asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js')}}"></script>
+    <script src="{{asset('app-assets/js/scripts/extensions/ext-component-sweet-alerts.js')}}"></script>
 
-    <script src="../../app-assets/js/core/app-menu.js"></script>
-    <script src="../../app-assets/js/core/app.js"></script>
+    <script src="{{asset('app-assets/js/core/app-menu.js')}}"></script>
+    <script src="{{asset('app-assets/js/core/app.js')}}"></script>
     <!-- END: Theme JS-->
 </body>
 <!-- END: Body-->

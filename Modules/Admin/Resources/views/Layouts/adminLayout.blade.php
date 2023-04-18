@@ -56,7 +56,7 @@
 
 <!-- BEGIN: Body-->
 
-<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col=')}}">
+<body class="vertical-layout vertical-menu-modern  navbar-floating footer-static  " data-open="click" data-menu="vertical-menu-modern" data-col="">
     @livewireScripts
     <!-- BEGIN: Header-->
     <nav class="header-navbar navbar navbar-expand-lg align-items-center floating-nav navbar-light navbar-shadow container-xxl">
@@ -102,7 +102,7 @@
                 @endif
 
                 <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
-                
+
 
                 <li class="nav-item dropdown dropdown-notification me-25"><a class="nav-link" href="#" data-bs-toggle="dropdown"><i class="ficon" data-feather="bell"></i><span class="badge rounded-pill bg-danger badge-up">0</span></a>
                     <ul class="dropdown-menu dropdown-menu-media dropdown-menu-end">
@@ -139,7 +139,7 @@
             </ul>
         </div>
     </nav>
-    
+
     <!-- END: Header-->
 
 
@@ -150,7 +150,7 @@
                 <li class="nav-item me-auto">
                     <div class="d-flex mt-2">
                         <div class="flex-shrink-0">
-                        <img src="{{ Auth::user()->admin->store->logo ? asset('storage/' . Auth::user()->admin->store->logo) : asset('app-assets/images/custom/image-icon.png')}}" height="57" width="57" style="border-radius: 50%;" alt="Logo">
+                            <img src="{{ Auth::user()->admin->store->logo ? asset('storage/' . Auth::user()->admin->store->logo) : asset('app-assets/images/custom/image-icon.png')}}" height="57" width="57" style="border-radius: 50%;" alt="Logo">
                         </div>
                         <div class="d-flex align-item-center justify-content-between flex-grow-1">
                             <div class="me-1">

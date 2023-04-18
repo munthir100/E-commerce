@@ -10,21 +10,21 @@
             <div class="col-md-12">
                 <div class="mb-1">
                     <label class="form-label" for="basicInput">{{__('Name')}}</label>
-                    <input type="text" class="form-control" id="basicInput" placeholder="{{__('Enter name')}}" wire:model="name">
+                    <input type="text" class="form-control" id="basicInput" placeholder="{{__('Enter name')}}" wire:model.defer="name">
                     @error('name')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-1">
                     <label class="form-label" for="basicInput1">{{__('Email')}}</label>
-                    <input type="text" class="form-control" id="basicInput1" placeholder="{{__('Enter email')}}" wire:model="email">
+                    <input type="text" class="form-control" id="basicInput1" placeholder="{{__('Enter email')}}" wire:model.defer="email">
                     @error('email')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="mb-1">
                     <label class="form-label" for="basicInput2">{{__('Phone')}}</label>
-                    <input type="text" class="form-control" id="basicInput2" placeholder="{{__('Enter phone')}}" wire:model="phone">
+                    <input type="text" class="form-control" id="basicInput2" placeholder="{{__('Enter phone')}}" wire:model.defer="phone">
                     @error('phone')<small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>

@@ -93,8 +93,8 @@
                                         <tr>
                                             <th>{{__('name')}}</th>
                                             <th>{{__('number of products')}}</th>
-                                            <th>{{__('category')}}</th>
-                                            <th>{{__('status')}}</th>
+                                            <th>{{__('Category')}}</th>
+                                            <th>{{__('Status')}}</th>
                                             <th>{{__('Actions')}}</th>
                                         </tr>
                                     </thead>
@@ -105,9 +105,9 @@
                                             <td>{{$brand->number_of_products}}</td>
                                             <td>{{$brand->category->title}}</td>
                                             @if($brand->is_active == true)
-                                            <td><span class="badge rounded-pill badge-light-primary me-1">Active</span></td>
+                                            <td><span class="badge rounded-pill badge-light-primary me-1">{{__('Active')}}</span></td>
                                             @else
-                                            <td><span class="badge rounded-pill badge-light-secondary me-1">Not Active</span></td>
+                                            <td><span class="badge rounded-pill badge-light-secondary me-1">{{__('Not Active')}}</span></td>
                                             @endif
                                             <td>
                                                 <div class="dropdown">
@@ -127,7 +127,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
-                                <div class="col-2 mb-2 mt-2">
+                                <div class="col-2 mb-2 mt-4">
                                     <form method="GET" action="{{ route('admin.brands.index') }}" class="mr-10">
                                         <select class="form-select" name="per_page" onchange="this.form.submit()">
                                             <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{__('10 items')}}</option>

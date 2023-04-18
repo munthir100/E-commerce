@@ -17,15 +17,15 @@ class DeleteProductLivewire extends Component
 
     public function confirmDelete()
     {
-        if (count($this->product->orders) > 0) {
+        if (count($this->product->orderDetails) > 0) {
             $this->dispatchBrowserEvent('addWarning', [
-                'message' => 'this product contain an orders!.',
+                'message' => __('this product contain an orders'),
             ]);
             return;
         }
 
         $this->dispatchBrowserEvent('confirmDelete', [
-            'message' => 'Are you sure?',
+            'message' => __('?Are you sure'),
             'id' => $this->product->id,
             'callback' => 'deleteProductConfirmed',
         ]);

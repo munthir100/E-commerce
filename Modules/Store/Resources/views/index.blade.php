@@ -55,7 +55,7 @@
                         <div class="col-sm-12">
                             <form action="{{route('store.index',$store->store_link)}}">
                                 <div class="input-group input-group-merge">
-                                    <input name="searchTerm" type="text" class="form-control search-product" id="shop-search" placeholder="{{__('Search Product')}}" aria-label="Search..." aria-describedby="shop-search" wire:model="searchTerm" />
+                                    <input name="searchTerm" type="text" class="form-control search-product" id="shop-search" placeholder="{{__('Search Product')}}" aria-label="Search..." aria-describedby="shop-search" wire:model.defer="searchTerm" />
                                     <button class="input-group-text"><i data-feather="search" class="text-muted"></i></button>
                                 </div>
                             </form>

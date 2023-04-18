@@ -3,7 +3,7 @@
         <div class="col-12">
             <label class="form-label" for="modalAddCardNumber">{{(translate('Title'))}}</label>
             <div class="input-group input-group-merge">
-                <input wire:model="title" class="form-control add-credit-card-mask" type="text" placeholder="{{(translate('Title'))}}" />
+                <input wire:model.defer="title" class="form-control add-credit-card-mask" type="text" placeholder="{{(translate('Title'))}}" />
                 
                 <span class="input-group-text cursor-pointer p-25" id="modalAddCard2">
                     <span class="add-card-type"></span>
@@ -16,7 +16,7 @@
             <label class="form-label" for="modalAddCardName">{{(translate('Description'))}}</label>
 
 
-            <textarea class="form-control" wire:model="description" placeholder="{{(translate('description'))}}"></textarea>
+            <textarea class="form-control" wire:model.defer="description" placeholder="{{(translate('description'))}}"></textarea>
 
             @error('description') <small class="text-danger">{{$message}}</small>@enderror
 
@@ -27,7 +27,7 @@
                 <div class="form-check form-switch form-check-primary me-25">
 
 
-                    <input type="checkbox" class="form-check-input" id="saveCard" wire:model="is_active" />
+                    <input type="checkbox" class="form-check-input" id="saveCard" wire:model.defer="is_active" />
 
                 </div>
                 <label class="form-check-label fw-bolder" for="saveCard">{{(translate('Save in store'))}}</label>

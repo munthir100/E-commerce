@@ -21,19 +21,6 @@
                     </div>
                 </div>
             </div>
-            <div class="content-header-right text-md-end col-md-3 col-12 d-md-block d-none">
-                <div class="mb-1 breadcrumb-right">
-                    <div class="dropdown">
-                        <button class="btn-icon btn btn-primary btn-round btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <i data-feather="grid"></i></button>
-                        <div class="dropdown-menu dropdown-menu-end"><a class="dropdown-item" href="app-todo.html">
-                                <i class="me-1" data-feather="check-square"></i><span class="align-middle">{{__('Todo') }}</span></a><a class="dropdown-item" href="app-chat.html">
-                                <i class="me-1" data-feather="message-square"></i><span class="align-middle">{{__('Chat') }}</span></a><a class="dropdown-item" href="app-email.html">
-                                <i class="me-1" data-feather="mail"></i><span class="align-middle">{{__('Email') }}</span></a><a class="dropdown-item" href="app-calendar.html">
-                                <i class="me-1" data-feather="calendar"></i><span class="align-middle">{{__('Calendar') }}</span></a></div>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <div class="content-body">
@@ -100,7 +87,7 @@
                                                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2 me-50">
                                                                     <path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path>
                                                                 </svg>
-                                                                <span>Edit</span>
+                                                                <span>{{__('Edit')}}</span>
                                                             </a>
                                                             <livewire:admin::categories.delete-category-livewire :category="$category" />
                                                         </div>

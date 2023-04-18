@@ -3,7 +3,7 @@
     <form id="storeAddressValidation" class="row" wire:submit.prevent="save">
         <div class="col-md-12 mb-1">
             <label class="form-label" for="selectLarge">{{__('Select city')}}</label>
-            <select class="form-select form-select-lg" id="select2-basic" wire:model="city_id">
+            <select class="form-select form-select-lg" id="select2-basic" wire:model.defer="city_id">
                 <option>{{__('Select city')}}</option>
                 @foreach($cities as $city)
                 <option value="{{$city->id}}">{{$city->name}}</option>

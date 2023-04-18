@@ -1,5 +1,5 @@
 @extends('admin::Layouts.adminLayout')
-@section('title','My store | Orders')
+@section('title',__('Orders'))
 
 @section('content')
 <div class="app-content content ">

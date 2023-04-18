@@ -1,4 +1,4 @@
-`@extends('store::layouts.storeLayout')
+@extends('store::layouts.storeLayout')
 @section('title',"$store->store_name | $product->title")
 @section('content')
 <div class="app-content content ecommerce-application">
@@ -180,21 +180,21 @@
 
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../app-assets/fonts/font-awesome/css/font-awesome.min.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/swiper.min.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/pages/app-ecommerce-details.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/forms/form-number-input.css">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/fonts/font-awesome/css/font-awesome.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/swiper.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/pages/app-ecommerce-details.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/forms/form-number-input.css')}}">
 
-<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/swiper.min.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-swiper.css">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/swiper.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-swiper.css')}}">
 @endsection
 @section('scripts')
-<script src="../../app-assets/vendors/js/ui/jquery.sticky.js"></script>
-<script src="../../app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js"></script>
-<script src="../../app-assets/vendors/js/extensions/swiper.min.js"></script>
-<script src="../../app-assets/js/scripts/pages/app-ecommerce-details.js"></script>
-<script src="../../app-assets/js/scripts/forms/form-number-input.js"></script>
+<script src="{{asset('app-assets/vendors/js/ui/jquery.sticky.js')}}"></script>
+<script src="{{asset('app-assets/vendors/js/forms/spinner/jquery.bootstrap-touchspin.js')}}"></script>
+<script src="{{asset('app-assets/vendors/js/extensions/swiper.min.js')}}"></script>
+<script src="{{asset('app-assets/js/scripts/pages/app-ecommerce-details.js')}}"></script>
+<script src="{{asset('app-assets/js/scripts/forms/form-number-input.js')}}"></script>
 
-<script src="../../app-assets/js/scripts/extensions/ext-component-swiper.js"></script>
+<script src="{{asset('app-assets/js/scripts/extensions/ext-component-swiper.js')}}"></script>
 @endsection

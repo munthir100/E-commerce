@@ -18,12 +18,12 @@
             </div>
 
             <div class="col-12 mb-1">
-                <input class="form-control" placeholder="title" wire:model="title1" type="text" id="formFile">
+                <input class="form-control" placeholder="title" wire:model.defer="title1" type="text" id="formFile">
                 @error('title1') <small class="text-danger">{{$message}}</small> @enderror
             </div>
 
             <div class="col-12 mb-2">
-                <input class="form-control" placeholder="description" wire:model="sub_title1" type="text" id="formFileMultiple">
+                <input class="form-control" placeholder="description" wire:model.defer="sub_title1" type="text" id="formFileMultiple">
                 @error('sub_title1') <small class="text-danger">{{$message}}</small> @enderror
             </div>
         </div>
@@ -46,12 +46,12 @@
             </div>
 
             <div class="col-12 mb-1">
-                <input class="form-control" placeholder="title" wire:model="title2" type="text" id="formFile">
+                <input class="form-control" placeholder="title" wire:model.defer="title2" type="text" id="formFile">
                 @error('title2') <small class="text-danger">{{$message}}</small> @enderror
             </div>
 
             <div class="col-12 mb-2">
-                <input class="form-control" placeholder="description" wire:model="sub_title2" type="text" id="formFileMultiple">
+                <input class="form-control" placeholder="description" wire:model.defer="sub_title2" type="text" id="formFileMultiple">
                 @error('sub_title2') <small class="text-danger">{{$message}}</small> @enderror
             </div>
         </div>
@@ -74,11 +74,11 @@
             </div>
 
             <div class="col-12 mb-1">
-                <input class="form-control" placeholder="title" wire:model="title3" type="text" id="formFile">
+                <input class="form-control" placeholder="title" wire:model.defer="title3" type="text" id="formFile">
                 @error('title2') <small class="text-danger">{{$message}}</small> @enderror
             </div>
             <div class="col-12 mb-2">
-                <input class="form-control" placeholder="description" wire:model="sub_title3" type="text" id="formFileMultiple">
+                <input class="form-control" placeholder="description" wire:model.defer="sub_title3" type="text" id="formFileMultiple">
                 @error('sub_title3') <small class="text-danger">{{$message}}</small> @enderror
             </div>
         </div>

@@ -5,7 +5,7 @@
             <div class="col-md-6 col-12">
                 <div class="mb-1">
                     <label class="form-label" for="first-name-column">{{__('product title')}} <span class="text-danger">*</span> </label>
-                    <input type="text" id="first-name-column" class="form-control" placeholder="{{__('title')}}" wire:model="title" />
+                    <input type="text" id="first-name-column" class="form-control" placeholder="{{__('title')}}" wire:model.defer="title" />
                     @error('title') <small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
@@ -21,14 +21,14 @@
                                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
                             </svg>
                         </label>
-                        <input type="number" class="form-control" placeholder="{{__('product sku')}}" wire:model="sku" />
+                        <input type="number" class="form-control" placeholder="{{__('product sku')}}" wire:model.defer="sku" />
                         @error('sku') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                 </div>
                 <div class="col-md-4 col-6">
                     <div class="mb-1">
                         <label class="form-label" for="city-column">{{__('quantity')}}</label>
-                        <input type="number" id="city-column" class="form-control" placeholder="{{__('quantity')}}" wire:model="quantity" />
+                        <input type="number" id="city-column" class="form-control" placeholder="{{__('quantity')}}" wire:model.defer="quantity" />
                         @error('quantity') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                                 <line x1="12" y1="16" x2="12.01" y2="16"></line>
                             </svg>
                         </label>
-                        <input type="number" id="country-floating" class="form-control" wire:model="wheight" placeholder="{{__('wheight')}}" />
+                        <input type="number" id="country-floating" class="form-control" wire:model.defer="wheight" placeholder="{{__('wheight')}}" />
                         @error('wheight') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                 </div>
@@ -52,14 +52,14 @@
                 <div class="col-md-6 col-6">
                     <div class="mb-1">
                         <label class="form-label" for="city-column">{{__('price')}}<span class="text-danger">*</span></label>
-                        <input type="number" id="city-column" class="form-control" placeholder="{{__('price')}}" wire:model="price" />
+                        <input type="number" id="city-column" class="form-control" placeholder="{{__('price')}}" wire:model.defer="price" />
                         @error('price') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                 </div>
                 <div class="col-md-6 col-6">
                     <div class="mb-1">
                         <label class="form-label" for="country-floating">{{__('product cost')}}</label>
-                        <input type="number" id="country-floating" class="form-control" wire:model="cost" placeholder="{{__('hidden field from clients')}}" />
+                        <input type="number" id="country-floating" class="form-control" wire:model.defer="cost" placeholder="{{__('hidden field from clients')}}" />
                         @error('cost') <small class="text-danger">{{$message}}</small>@enderror
                     </div>
                 </div>
@@ -71,7 +71,7 @@
                 <label class="form-label" for="select2-multiple">{{__('Category')}}</label>
                 <div class="input-group mb-1">
 
-                    <select class="form-select form-select-lg" id="selectLarge" wire:model="category_id">
+                    <select class="form-select form-select-lg" id="selectLarge" wire:model.defer="category_id">
                         <option value="">{{__('No Category')}}</option>
                         @forelse($categories as $category)
                         <option value="{{$category->id}}">{{$category->title}}</option>
@@ -96,7 +96,7 @@
                             <line x1="12" y1="16" x2="12.01" y2="16"></line>
                         </svg>
                     </label>
-                    <input type="text" id="city-column" class="form-control" placeholder="{{__('short description e.g: discount of 40%')}}" wire:model="short_description" maxlength="20" />
+                    <input type="text" id="city-column" class="form-control" placeholder="{{__('short description e.g: discount of 40%')}}" wire:model.defer="short_description" maxlength="20" />
                     @error('short_description') <small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
@@ -104,20 +104,20 @@
 
             <div class="col-md-6 col-xs-12">
                 <label for="formFile" class="form-label">{{__('Add image')}} ( {{__('Main')}} )</label>
-                <input class="form-control" type="file" wire:model="image">
+                <input class="form-control" type="file" wire:model.defer="image">
                 @error('image') <small class="text-danger">{{$message}}</small>@enderror
             </div>
 
             <div class="col-md-6 col-xs-12">
                 <label for="formFileMultiple" class="form-label">{{__('Add sub images')}}</label>
-                <input class="form-control" type="file" wire:model="sub_images" id="formFileMultiple" multiple>
+                <input class="form-control" type="file" wire:model.defer="sub_images" id="formFileMultiple" multiple>
                 @error('sub_images') <small class="text-danger">{{$message}}</small>@enderror
             </div>
 
             <div class="col-md-12">
                 <div class="mb-1">
                     <label class="form-label" for="exampleFormControlTextarea1">{{__('description')}}</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{__('Description')}}" wire:model="description"></textarea>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="{{__('Description')}}" wire:model.defer="description"></textarea>
                     @error('description') <small class="text-danger">{{$message}}</small>@enderror
                 </div>
             </div>
@@ -129,7 +129,7 @@
 
             <div class="col-md-12 mb-1">
                 <div class="form-check form-check-primary form-switch">
-                    <input type="checkbox" class="form-check-input" id="customSwitch3" wire:model="is_active">
+                    <input type="checkbox" class="form-check-input" id="customSwitch3" wire:model.defer="is_active">
                     <label class="form-check-label" for="customSwitch3">{{__('publish in store')}}</label>
                     @error('is_active') <span class="text-danger"> {{$message}} </span>@enderror
                 </div>

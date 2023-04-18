@@ -19,7 +19,7 @@
                 <div class="input-group">
 
                     <input type="number" class="form-control" id="phoneNumber" placeholder="{{__('phone')}}" wire:model.lazy="phone">
-                    <select class="form-select" aria-label="Select Country Code" wire:model="country_id">
+                    <select class="form-select" aria-label="Select Country Code" wire:model.defer="country_id">
                         @foreach($countries as $country)
                         <option value="{{$country->id}}" data-phoneDigits="{{$country->phone_digits_number}}">{{__($country->name)}}</option>
                         @endforeach

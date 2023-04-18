@@ -1,7 +1,7 @@
 <div>
     <div class="row mb-2">
         <div class="col-xl-6 col-12">
-            <select wire:model="selectedType" id="type" class="form-select">
+            <select wire:model.defer="selectedType" id="type" class="form-select">
                 <option value="">select option</option>
                 <option value="category">Category link</option>
                 <option value="most_sales">most sales</option>
@@ -11,7 +11,7 @@
         </div>
         @if ($selectedType)
         <div class="col-xl-6 col-12">
-            <select wire:model="selectedItem" id="item" class="form-select">
+            <select wire:model.defer="selectedItem" id="item" class="form-select">
                 <option value="">Select Item</option>
                 @foreach ($options as $value => $label)
                 <option value="{{ $value }}">{{ $label }}</option>

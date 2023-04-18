@@ -34,7 +34,7 @@ class Profile extends Component
         Auth::user()->update($validatedData);
 
         $this->dispatchBrowserEvent('addSuccess', [
-            'message' => 'Profile updated',
+            'message' => __('Profile updated'),
         ]);
     }
 }

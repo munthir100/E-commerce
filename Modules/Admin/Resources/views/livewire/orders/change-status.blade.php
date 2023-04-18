@@ -1,5 +1,5 @@
 <div>
-    <select class="form-select" id="basicSelect" wire:model="status" wire:change="setStatus">
+    <select class="form-select" id="basicSelect" wire:model.defer="status" wire:change="setStatus">
         <option value="new">{{__('New')}}</option>
         <option value="processing">{{__('Processing')}}</option>
         <option value="ready">{{__('Ready')}}</option>

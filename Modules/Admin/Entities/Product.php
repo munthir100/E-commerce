@@ -12,6 +12,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Dyrynda\Database\Support\CascadeSoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Client\Entities\OrderDetail;
 
 class Product extends Model implements HasMedia
 {
@@ -42,6 +43,10 @@ class Product extends Model implements HasMedia
     public function orders()
     {
         return $this->hasMany(Order::class);
+    }
+    public function orderDetails()
+    {
+        return $this->hasMany(OrderDetail::class);
     }
 
     function category()

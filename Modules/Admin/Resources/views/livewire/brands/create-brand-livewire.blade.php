@@ -4,7 +4,7 @@
         <div class="modal-body">
             <div class="mb-1">
                 <label class="form-label" for="selectLarge">{{__('Select Category')}}</label>
-                <select class="form-select form-select-lg" id="selectLarge" wire:model="category_id">
+                <select class="form-select form-select-lg" id="selectLarge" wire:model.defer="category_id">
                     <option>{{__('Select Category')}}</option>
                     @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->title}}</option>
@@ -14,7 +14,7 @@
             </div>
             <div class="mb-1">
                 <label class="form-label" for="basicInput">{{__('brand name')}}</label>
-                <input type="text" wire:model="name" class="form-control" id="basicInput" placeholder="{{__('Brand name')}}">
+                <input type="text" wire:model.defer="name" class="form-control" id="basicInput" placeholder="{{__('Brand name')}}">
                 @error('name')<small class="text-danger">{{$message}}</small>@enderror
             </div>
             <div class="col-12">

@@ -20,18 +20,18 @@ class DeleteCategoryLivewire extends Component
     {
         if (count($this->category->children) > 0) {
             $this->dispatchBrowserEvent('addWarning', [
-                'message' => 'You must delete the subcategories first.',
+                'message' => __('You must delete the subcategories first'),
             ]);
             return;
         } elseif (count($this->category->products) > 0) {
             $this->dispatchBrowserEvent('addWarning', [
-                'message' => 'Please delete products related to this category first.',
+                'message' => __('Please delete products related to this category first'),
             ]);
             return;
         }
 
         $this->dispatchBrowserEvent('confirmDelete', [
-            'message' => 'Are you sure?',
+            'message' => __('?Are you sure'),
             'id' => $this->category->id,
             'callback' => 'deleteCategoryConfirmed',
         ]);

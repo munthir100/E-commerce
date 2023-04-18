@@ -49,7 +49,7 @@
             Swal.fire({
                 title: event.detail.message,
                 icon: 'warning',
-                showCancelButton: true,
+                // showCancelButton: true,
                 confirmButtonText: '{{__("Confirm")}}',
                 customClass: {
                     confirmButton: 'btn btn-primary',
