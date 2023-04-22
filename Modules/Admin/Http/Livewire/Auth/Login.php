@@ -16,7 +16,9 @@ class Login extends Component
         'username' => 'required',
         'password' => 'required'
     ];
-
+    function ss(){
+        dd('ss');
+    }
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);

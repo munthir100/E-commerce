@@ -1,5 +1,6 @@
 <div>
     <form wire:submit.prevent="save">
+        <span wire:click="ss">ssss</span>
         @csrf
         <div class="mb-1">
             <label class="form-label" for="username">{{__('Email/Phone')}}</label>
