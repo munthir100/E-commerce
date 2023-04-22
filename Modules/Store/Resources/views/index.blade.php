@@ -100,39 +100,39 @@
 
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-sliders.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/pages/app-ecommerce.css">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-sliders.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/pages/app-ecommerce.css')}}">
 
-<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/toastr.min.css">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/toastr.min.css')}}">
 
-<link rel="stylesheet" type="text/css" href="../../app-assets/vendors/css/extensions/swiper.min.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-swiper.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/pages/app-ecommerce-details.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/forms/form-number-input.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/forms/form-validation.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/pages/authentication.css">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/swiper.min.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-swiper.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/pages/app-ecommerce-details.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/forms/form-number-input.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-toastr.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/forms/form-validation.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/pages/authentication.css')}}">
 
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css')}}">
 
 
 @endsection
 @section('scripts')
 
-<script src="../../app-assets/vendors/js/ui/jquery.sticky.js"></script>
-<script src="../../app-assets/vendors/js/extensions/wNumb.min.js"></script>
-<script src="../../app-assets/vendors/js/extensions/nouislider.min.js"></script>
-<script src="../../app-assets/js/scripts/pages/app-ecommerce.js"></script>
-<script src="../../app-assets/vendors/js/extensions/toastr.min.js"></script>
+<script src="{{asset('app-assets/vendors/js/ui/jquery.sticky.js')}}"></script>
+<script src="{{asset('app-assets/vendors/js/extensions/wNumb.min.js')}}"></script>
+<script src="{{asset('app-assets/vendors/js/extensions/nouislider.min.js')}}"></script>
+<script src="{{asset('app-assets/js/scripts/pages/app-ecommerce.js')}}"></script>
+<script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js')}}"></script>
 
 
 
-<script src="../../app-assets/vendors/js/extensions/swiper.min.js"></script>
+<script src="{{asset('app-assets/vendors/js/extensions/swiper.min.js')}}"></script>
 
-<script src="../../app-assets/js/scripts/extensions/ext-component-swiper.js"></script>
-<script src="../../app-assets/vendors/js/forms/validation/jquery.validate.min.js"></script>
-<script src="../../app-assets/js/scripts/pages/auth-login.js"></script>
+<script src="{{asset('app-assets/js/scripts/extensions/ext-component-swiper.js')}}"></script>
+<script src="{{asset('app-assets/vendors/js/forms/validation/jquery.validate.min.js')}}"></script>
+<script src="{{asset('app-assets/js/scripts/pages/auth-login.js')}}"></script>
 
 <script>
     window.addEventListener('added_to_cart', function(event) {

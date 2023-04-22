@@ -82,14 +82,14 @@
 
 
 @section('styles')
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-sliders.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/pages/app-ecommerce.css">
-<link rel="stylesheet" type="text/css" href="../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/core/menu/menu-types/horizontal-menu.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-sliders.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/pages/app-ecommerce.css')}}">
+<link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-toastr.css')}}">
 @endsection
 @section('scripts')
-<script src="../../app-assets/vendors/js/ui/jquery.sticky.js"></script>
-<script src="../../app-assets/vendors/js/extensions/wNumb.min.js"></script>
-<script src="../../app-assets/vendors/js/extensions/nouislider.min.js"></script>
-<script src="../../app-assets/js/scripts/pages/app-ecommerce.js"></script>
+<script src="{{asset('app-assets/vendors/js/ui/jquery.sticky.js')}}"></script>
+<script src="{{asset('app-assets/vendors/js/extensions/wNumb.min.js')}}"></script>
+<script src="{{asset('app-assets/vendors/js/extensions/nouislider.min.js')}}"></script>
+<script src="{{asset('app-assets/js/scripts/pages/app-ecommerce.js')}}"></script>
 @endsection
