@@ -50,7 +50,7 @@ class CreateSocialMediaLinks extends Component
     {
         $data = $this->validate();
         $this->store->update($data);
-        $this->dispatchBrowserEvent('addSuccess',['message' => __("social media links updated successfully")]);
+        $this->dispatchBrowserEvent('addSuccess', ['message' => __("social media links updated successfully")]);
     }
 
     public function render()
