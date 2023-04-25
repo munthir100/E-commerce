@@ -16,9 +16,6 @@ class Login extends Component
         'username' => 'required',
         'password' => 'required'
     ];
-    function ss(){
-        dd('ss');
-    }
     public function updated($propertyName)
     {
         $this->validateOnly($propertyName);
@@ -47,7 +44,7 @@ class Login extends Component
             $this->addError('username', 'Email or phone number not found');
             return;
         }
-    
+
         if (!Hash::check($data['password'], $user->password)) {
             $this->addError('password', 'Password is incorrect');
             return;
