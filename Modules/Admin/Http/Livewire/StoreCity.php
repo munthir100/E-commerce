@@ -14,15 +14,12 @@ class StoreCity extends Component
     public function mount()
     {
         $this->cities = City::where('country_id', Auth::user()->country_id)->get();
-        $this->city_id = Auth::user()->city_id;
+        $this->city_id = Auth::user()->admin->store->city_id;
     }
 
-    protected function rules()
-    {
-        return [
-            'city_id' => 'required|exists:cities,id',
-        ];
-    }
+    protected $rules = [
+        'city_id' => 'required|exists:cities,id',
+    ];
 
     public function render()
     {
@@ -31,10 +28,10 @@ class StoreCity extends Component
 
     public function save()
     {
-        $this->validate();
+        $data = $this->validate();
 
         Auth::user()->admin->store->update([
-            'city_id' => $this->city_id,
+            'city_id' => $data['city_id'],
         ]);
 
 

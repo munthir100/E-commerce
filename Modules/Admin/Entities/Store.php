@@ -33,7 +33,7 @@ class Store extends Model
         'apple_store_link',
         'logo',
         'browser_icon',
-        //        'store_city'
+        'city_id'
     ];
 
     public function storeThemes()

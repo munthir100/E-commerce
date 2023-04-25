@@ -6,7 +6,7 @@
             <select class="form-select form-select-lg" id="select2-basic" wire:model.defer="city_id">
                 <option>{{__('Select city')}}</option>
                 @foreach($cities as $city)
-                <option value="{{$city->id}}">{{$city->name}}</option>
+                <option value="{{$city->id}}">{{__($city->name)}}</option>
                 @endforeach
             </select>
             @error('city_id')<small class="text-danger">{{$message}}</small>@enderror
