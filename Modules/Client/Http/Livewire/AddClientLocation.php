@@ -43,9 +43,19 @@ class AddClientLocation extends Component
 
     public function save()
     {
-        if (!$this->user || !$this->user->hasRole('client')) {
-            abort(401);
+        if (!$this->user) {
+            $this->dispatchBrowserEvent('addWarning', [
+                'message' => __('please login first'),
+            ]);
+            return;
         }
+        if (!$this->user->hasRole('client')) {
+            $this->dispatchBrowserEvent('addWarning', [
+                'message' => __('the admins can not place the orders'),
+            ]);
+            return;
+        }
+
         $this->validate();
 
         $client = $this->user->client;

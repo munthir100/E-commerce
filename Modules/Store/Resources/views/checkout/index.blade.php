@@ -1,5 +1,5 @@
 @extends('store::layouts.storeLayout')
-@section('title',"$store->store_name | checkout")
+@section('title', $store->store_name . ' | ' . __('Checkout'))
 
 @section('content')
 @php

@@ -72,4 +72,14 @@ class SettingsController extends Controller
     {
         return view('admin::settings.additionalSetting');
     }
+
+    function archive()
+    {
+        return view('admin::settings.archive');
+    }
+
+    function clientsArchive()
+    {
+        return view('admin::settings.clientsArchive');
+    }
 }

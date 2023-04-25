@@ -4622,5 +4622,18 @@
   "Saudi Arabia": "السعودية",
   "Sudan": "السودان",
   "United Arab Emirates": "الإمارات العربية المتحدة",
-  "Egypt": "مصر"
+  "Egypt": "مصر",
+  "Clients Archive": "أرشيف العملاء",
+  "Add New Address": "أضف عنوان جديد",
+  "Full Name:": ":الاسم بالكامل",
+  "Mobile Number:": ":رقم الهاتف",
+  "Full Adress:": ":العنوان الكامل",
+  "Address Type:": ":نوع العنوان",
+  "Select address type": "اختر نوع العنوان",
+  "Work": "العمل",
+  "House": "المنزل",
+  "Other Address": "عنوان اخر",
+  "Save And Deliver Here": "حفظ العنوان واكمال الطلب",
+  "the admins can not place the orders":"لا يمكن لملاك المتجر انشاء الطلبات",
+  "please login first":"الرجاء تسجيل الدخول أولا"
 }

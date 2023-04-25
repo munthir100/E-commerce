@@ -291,7 +291,7 @@
                         </a>
                     </div>
                     <div class="col-md-6 col-md-4 col-sm-6">
-                        <a href="#" class="text-muted">
+                        <a href="{{route('admin.settings.archive')}}" class="text-muted">
                             <div class="card text-center">
                                 <div class="card-body">
                                     <div class="avatar bg-light-primary p-50 mb-1">

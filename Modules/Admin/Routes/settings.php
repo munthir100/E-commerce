@@ -36,6 +36,10 @@ Route::prefix('admin')->middleware(['auth', 'role:admin'])->name('admin.settings
 
     Route::get('/additionalSetting', [SettingsController::class, 'additionalSetting'])->name('additionalSetting');
 
+    Route::get('/archive', [SettingsController::class, 'archive'])->name('archive');
+    
+    Route::get('/archive/clients', [SettingsController::class, 'clientsArchive'])->name('clientsArchive');
+
     Route::get('/vat', [VATController::class, 'index'])->name('vat.index');
 
     Route::resource('/taxNumber', TaxNumberController::class);
