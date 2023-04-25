@@ -1,5 +1,5 @@
 <div>
-    <form class="auth-register-form mt-2" method="POST" wire:submit.prevent="save">
+    <form class="auth-register-form mt-2" wire:submit.prevent="save">
         <div class="row">
             <div class="col-lg-6 mb-1">
                 <label class="form-label" for="name">{{__('name')}}</label>
