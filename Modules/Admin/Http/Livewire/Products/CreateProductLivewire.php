@@ -31,7 +31,7 @@ class CreateProductLivewire extends Component
         'discount'          => 'sometimes',
         'free_shipping'     => 'sometimes',
         'is_active'         => 'required|boolean',
-        'category_id'       => 'sometimes',
+        'category_id'       => 'nullable|integer',
     ];
 
     public function mount()
@@ -46,6 +46,9 @@ class CreateProductLivewire extends Component
     public function save()
     {
         $validatedData = $this->validate();
+        if ($validatedData['category_id'] === '') {
+            $validatedData['category_id'] = null;
+        }
         $validatedData['sku']       = $validatedData['sku'] ?? mt_rand(100000, 999999);
         $validatedData['user_id']   = Auth::id();
         $validatedData['store_id']  = auth()->user()->admin->store->id;

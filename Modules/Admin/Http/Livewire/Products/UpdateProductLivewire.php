@@ -53,10 +53,6 @@ class UpdateProductLivewire extends Component
         'category_id'       => 'sometimes',
     ];
 
-    public function updated($data)
-    {
-        $this->validateOnly($data);
-    }
 
     public function render()
     {
@@ -65,7 +61,11 @@ class UpdateProductLivewire extends Component
 
     function save()
     {
-        $this->product->fill($this->validate());
+        $validatedData = $this->validate();
+        if ($validatedData['category_id'] === '') {
+            $validatedData['category_id'] = null;
+        }
+        $this->product->fill($validatedData);
         if ($this->product->is_active == '') {
             $this->product->is_active = false;
         }

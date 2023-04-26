@@ -71,7 +71,7 @@
                 <label class="form-label" for="select2-multiple">{{__('Category')}}</label>
                 <div class="input-group">
 
-                    <select class="form-select form-select-lg" id="selectLarge" wire:model.defer="category_id">
+                    <select class="form-select form-select-lg" id="selectLarge" wire:model="category_id">
                         <option value="">{{__('select category')}}</option>
                         @forelse($categories as $category)
                         <option value="{{$category->id}}">{{$category->title}}</option>
