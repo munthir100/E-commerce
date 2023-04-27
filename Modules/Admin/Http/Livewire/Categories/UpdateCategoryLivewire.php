@@ -33,7 +33,7 @@ class UpdateCategoryLivewire extends Component
     public function save()
     {
         $this->category->fill($this->validate());
-        if ($this->category->parent_id == '') {
+        if ($this->category->parent_id === '') {
             $this->category->parent_id = null;
         }
         $this->category->save();

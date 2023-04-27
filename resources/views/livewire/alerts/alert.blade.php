@@ -64,7 +64,7 @@
                     Swal.fire({
                         icon: '{{__("success")}}',
                         title: '{{__("Deleted")}}',
-                        text: '{{__("Your file has been deleted.")}}',
+                        text: '{{__("The item has been deleted.")}}',
                         customClass: {
                             confirmButton: 'btn btn-success'
                         }

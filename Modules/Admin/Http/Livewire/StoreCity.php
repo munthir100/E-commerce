@@ -29,7 +29,9 @@ class StoreCity extends Component
     public function save()
     {
         $data = $this->validate();
-
+        if ($data['city_id'] === '') {
+            $data['city_id'] = null;
+        }
         Auth::user()->admin->store->update([
             'city_id' => $data['city_id'],
         ]);

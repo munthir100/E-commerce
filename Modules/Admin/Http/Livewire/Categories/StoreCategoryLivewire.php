@@ -33,6 +33,9 @@ class StoreCategoryLivewire extends Component
     {
         $data = $this->validate();
         $data['store_id'] = Auth::id();
+        if ($data['parent_id'] === '') {
+            $data['parent_id'] = null;
+        }
         Category::create($data);
         $this->dispatchBrowserEvent('closeModal');
         session()->flash('success', 'category created successfull');
