@@ -34,6 +34,8 @@
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/pages/dashboard-ecommerce.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/charts/chart-apex.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-toastr.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/vendors/css/extensions/sweetalert2.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css')}}">
     @yield('styles')
     <!-- END: Page CSS-->
 
@@ -58,39 +60,7 @@
                 </ul>
             </div>
             <ul class="nav navbar-nav align-items-center ms-auto">
-                @if(Session::get('locale') != 'en')
-                <li class="nav-item dropdown dropdown-language">
-                    <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="flag-icon flag-icon-sa"></i>
-                        <span class="selected-language">اللغة العربية</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-flag">
-                        <form method="POST" action="{{ route('admin.change.language') }}">
-                            @csrf
-                            <button type="submit" name="locale" value="en" class="dropdown-item" style="width:100%">
-                                <i class="flag-icon flag-icon-us"></i>
-                                English
-                            </button>
-                        </form>
-                    </div>
-                </li>
-                @else
-                <li class="nav-item dropdown dropdown-language">
-                    <a class="nav-link dropdown-toggle" id="dropdown-flag" href="#" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="flag-icon flag-icon-us"></i>
-                        <span class="selected-language">{{__('English') }}</span>
-                    </a>
-                    <div class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-flag">
-                        <form method="POST" action="{{ route('admin.change.language') }}">
-                            @csrf
-                            <button type="submit" name="locale" value="ar" class="dropdown-item" style="width:100%">
-                                <i class="flag-icon flag-icon-sa"></i>
-                                {{__('اللغة العربية') }}
-                            </button>
-                        </form>
-                    </div>
-                </li>
-                @endif
+
 
                 <li class="nav-item d-none d-lg-block"><a class="nav-link nav-link-style"><i class="ficon" data-feather="moon"></i></a></li>
 
@@ -163,32 +133,32 @@
 
             <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation">
                 <li class=" nav-item">
-                    <a class="d-flex align-items-center text-muted" href="{{route('client.orders.index',$storeLink->store_link)}}">
+                    <a class="d-flex align-items-center" href="{{route('client.orders.index',$store->store_link)}}">
                         <i data-feather='shopping-bag'></i>
-                        <span class="menu-title text-truncate" data-i18n="orders">{{__('orders')}}</span>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Orders')}}">{{__('Orders')}}</span>
                     </a>
                 </li>
 
                 <li class=" nav-item">
-                    <a class="d-flex align-items-center text-muted" href="#">
-                        <i data-feather='truck'></i>
-                        <span class="menu-title text-truncate" data-i18n="clients">{{__('Shipping')}}</span>
+                    <a class="d-flex align-items-center" href="{{route('client.shipping.index',$store->store_link)}}">
+                        <i data-feather='map-pin'></i>
+                        <span class="menu-title text-truncate" data-i18n="{{__('Shipping Addresses')}}"> {{__('Shipping Addresses')}} </span>
                     </a>
                 </li>
 
-                <li class=" nav-item">
-                    <a class="d-flex align-items-center text-muted" href="#">
+                <!-- <li class=" nav-item">
+                    <a class="d-flex align-items-center" href="#">
                         <i data-feather='star'></i>
                         <span class="menu-title text-truncate" data-i18n="marketing">{{__('Ratings')}}</span>
                     </a>
-                </li>
+                </li> -->
 
-                <li class=" nav-item">
-                    <a class="d-flex align-items-center text-muted" href="#">
-                        <i data-feather='settings'></i>
-                        <span class="menu-title text-truncate" data-i18n="settings">{{__('Settings')}}</span>
+                <!-- <li class=" nav-item">
+                    <a class="d-flex align-items-center" href="#">
+                        <i data-feather='power'></i>
+                        <span class="menu-title text-truncate" data-i18n="Logout">{{__('Logout')}}</span>
                     </a>
-                </li>
+                </li> -->
 
             </ul>
         </div>
@@ -221,12 +191,25 @@
     <!-- BEGIN: Theme JS-->
     <script src="../../../app-assets/js/core/app-menu.js"></script>
     <script src="../../../app-assets/js/core/app.js"></script>
+    <script src="{{asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js')}}"></script>
+    <script src="{{asset('app-assets/js/scripts/extensions/ext-component-sweet-alerts.js')}}"></script>
     <!-- END: Theme JS-->
 
     <script>
         window.addEventListener('closeModal', event => {
             $('.modal').modal('hide');
         })
+    </script>
+
+    <script>
+        window.addEventListener('hideRow', event => {
+            const id = event.detail;
+            let rows = document.querySelectorAll(`#row-${id}`);
+            rows.forEach(row => {
+                row.remove();
+                row.style.display = "none";
+            });
+        });
     </script>
 
     <script>

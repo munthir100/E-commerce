@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\Admin\Http\Controllers\ClientController;
 use Modules\Client\Http\Controllers\OrderController;
 use Modules\Client\Http\Controllers\ShippingController;
-use Modules\Store\Http\Controllers\StoreController;
 
 
 

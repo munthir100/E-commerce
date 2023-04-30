@@ -9,7 +9,7 @@ use Modules\Acl\Entities\User;
 
 class ClientRegister extends Component
 {
-    public $name, $email, $phone, $password, $store;
+    public $name, $email, $phone, $password, $store,$country_id;
 
     protected $rules = [
         'name' => 'required',
@@ -36,6 +36,7 @@ class ClientRegister extends Component
             $this->addError('email', 'you can not use this email');
             return;
         }
+        $data['country_id'] = $this->store->admin->user->country_id;
         $data['store_id'] = $this->store->id;
         $data['user_type_id'] = 3;
         $data['password'] = Hash::make($data['password']);

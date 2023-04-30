@@ -125,6 +125,17 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="col-2 mb-2 mt-4">
+                                <form method="GET" action="#" class="mr-10">
+                                    <select class="form-select" name="per_page" onchange="this.form.submit()">
+                                        <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{__('10 items')}}</option>
+                                        <option value="25" {{ Request::get('per_page') == 25 ? 'selected' : '' }}>{{__('25 item')}}</option>
+                                        <option value="50" {{ Request::get('per_page') == 50 ? 'selected' : '' }}>{{__('50 item')}}</option>
+                                        <option value="100" {{ Request::get('per_page') == 100 ? 'selected' : '' }}>{{__('100 item')}}</option>
+                                    </select>
+                                </form>
+                            </div>
+
                             @endif
                         </div>
                     </div>

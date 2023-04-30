@@ -17,16 +17,17 @@ return new class extends Migration
             $table->id();
             $table->string('longitude');
             $table->string('latitude');
+            $table->string('phone');
             $table->string('address');
-            $table->foreignId('client_id')->references('id')->on('clients')->cascadeOnDelete()->cascadeOnUpdate();
             $table->string('address_type');
-
-            $table->foreignId('order_id')
+            
+            $table->foreignId('client_id')
                 ->references('id')
-                ->on('orders')
+                ->on('clients')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
-            $table->timestamps();
+
+                $table->timestamps();
         });
     }
 

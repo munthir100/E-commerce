@@ -29,197 +29,180 @@ $wishlist = session()->get('wishlist', []);
 
         </div>
         <div class="content-body">
-        <livewire:alerts.alert>
+            <livewire:alerts.alert>
 
-            @if(!$products->isEmpty())
-            <div class="bs-stepper checkout-tab-steps">
-                <!-- Wizard starts -->
-                <div class="bs-stepper-header">
-                    <div class="step" data-target="#step-cart" role="tab" id="step-cart-trigger">
-                        <button type="button" class="step-trigger">
-                            <span class="bs-stepper-box">
-                                <i data-feather="shopping-cart" class="font-medium-3"></i>
-                            </span>
-                            <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">{{__('Cart')}}</span>
-                                <span class="bs-stepper-subtitle">{{__('Your Cart Items')}}</span>
-                            </span>
-                        </button>
-                    </div>
-                    @if(Auth::check())
-                    <div class="line">
-                        <i data-feather="chevron-right" class="font-medium-2"></i>
-                    </div>
-                    <div class="step" data-target="#step-address" role="tab" id="step-address-trigger">
-                        <button type="button" class="step-trigger">
-                            <span class="bs-stepper-box">
-                                <i data-feather="home" class="font-medium-3"></i>
-                            </span>
-                            <span class="bs-stepper-label">
-                                <span class="bs-stepper-title">{{__('Address')}}</span>
-                                <span class="bs-stepper-subtitle">{{__('Enter Your Address')}}</span>
-                            </span>
-                        </button>
-                    </div>
-                    
-                    @endif
+                @if(!$products->isEmpty())
+                <div class="bs-stepper checkout-tab-steps">
+                    <!-- Wizard starts -->
+                    <div class="bs-stepper-header">
+                        <div class="step" data-target="#step-cart" role="tab" id="step-cart-trigger">
+                            <button type="button" class="step-trigger">
+                                <span class="bs-stepper-box">
+                                    <i data-feather="shopping-cart" class="font-medium-3"></i>
+                                </span>
+                                <span class="bs-stepper-label">
+                                    <span class="bs-stepper-title">{{__('Cart')}}</span>
+                                    <span class="bs-stepper-subtitle">{{__('Your Cart Items')}}</span>
+                                </span>
+                            </button>
+                        </div>
+                        @if(Auth::check())
+                        <div class="line">
+                            <i data-feather="chevron-right" class="font-medium-2"></i>
+                        </div>
+                        <div class="step" data-target="#step-address" role="tab" id="step-address-trigger">
+                            <button type="button" class="step-trigger">
+                                <span class="bs-stepper-box">
+                                    <i data-feather="home" class="font-medium-3"></i>
+                                </span>
+                                <span class="bs-stepper-label">
+                                    <span class="bs-stepper-title">{{__('Address')}}</span>
+                                    <span class="bs-stepper-subtitle">{{__('Enter Your Address')}}</span>
+                                </span>
+                            </button>
+                        </div>
 
-                </div>
-                <!-- Wizard ends -->
+                        @endif
 
-                <div class="bs-stepper-content">
-                    <!-- Checkout Place order starts -->
-                    <div id="step-cart" class="content" role="tabpanel" aria-labelledby="step-cart-trigger">
-                        <div id="place-order" class="list-view product-checkout">
-                            <!-- Checkout Place Order Left starts -->
-                            <div class="checkout-items">
-                                @php
-                                $itemsById = $items->keyBy('id');
-                                @endphp
-                                @foreach($products as $product)
-                                <div class="card ecommerce-card">
-                                    <div class="item-img">
-                                        <a href="app-ecommerce-details.html">
-                                            <img src="{{ asset('storage/' . $product->image) }}" alt="img-placeholder" />
-                                        </a>
-                                    </div>
-                                    <div class="card-body">
-                                        <div class="item-name">
-                                            <h6 class="mb-0">
-                                                <a href="app-ecommerce-details.html" class="text-body">{{$product->title}}</a>
-                                            </h6>
-                                            <div class="item-rating">
-                                                <ul class="unstyled-list list-inline">
-                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                    <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
-                                                </ul>
-                                            </div>
+                    </div>
+                    <!-- Wizard ends -->
+
+                    <div class="bs-stepper-content">
+                        <!-- Checkout Place order starts -->
+                        <div id="step-cart" class="content" role="tabpanel" aria-labelledby="step-cart-trigger">
+                            <div id="place-order" class="list-view product-checkout">
+                                <!-- Checkout Place Order Left starts -->
+                                <div class="checkout-items">
+                                    @php
+                                    $itemsById = $items->keyBy('id');
+                                    @endphp
+                                    @foreach($products as $product)
+                                    <div class="card ecommerce-card">
+                                        <div class="item-img">
+                                            <a href="app-ecommerce-details.html">
+                                                <img src="{{ asset('storage/' . $product->image) }}" alt="img-placeholder" />
+                                            </a>
                                         </div>
-                                        <span class="text-success mb-1">{{__('Available')}}</span>
-
-                                        <livewire:store::cart.update-quantity :productId="$product->id" :quantity="$itemsById[$product->id]->qty" />
-
-
-
-
-                                        <span class="delivery-date text-muted">{{__('Date of creation')}}, {{$product->created_at->diffForHumans()}}</span>
-                                        <span class="text-success">{{$product->short_description}}</span>
-                                    </div>
-                                    <div class="item-options text-center">
-                                        <div class="item-wrapper">
-                                            <div class="item-cost">
-                                                <h4 class="item-price">{{$product->price}} S.R</h4>
+                                        <div class="card-body">
+                                            <div class="item-name">
+                                                <h6 class="mb-0">
+                                                    <a href="app-ecommerce-details.html" class="text-body">{{$product->title}}</a>
+                                                </h6>
+                                                <div class="item-rating">
+                                                    <ul class="unstyled-list list-inline">
+                                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                        <li class="ratings-list-item"><i data-feather="star" class="filled-star"></i></li>
+                                                    </ul>
+                                                </div>
                                             </div>
+                                            <span class="text-success mb-1">{{__('Available')}}</span>
+
+                                            <livewire:store::cart.update-quantity :productId="$product->id" :quantity="$itemsById[$product->id]->qty" />
+
+
+
+
+                                            <span class="delivery-date text-muted">{{__('Date of creation')}}, {{$product->created_at->diffForHumans()}}</span>
+                                            <span class="text-success">{{$product->short_description}}</span>
                                         </div>
-                                        <livewire:store::cart.remove-from-cart :productId="$product->id" />
+                                        <div class="item-options text-center">
+                                            <div class="item-wrapper">
+                                                <div class="item-cost">
+                                                    <h4 class="item-price">{{$product->price}} S.R</h4>
+                                                </div>
+                                            </div>
+                                            <livewire:store::cart.remove-from-cart :productId="$product->id" />
 
 
 
-                                        <livewire:store::wishlist.wishlist :product="$product" source="checkout" />
+                                            <livewire:store::wishlist.wishlist :product="$product" source="checkout" />
 
+                                        </div>
                                     </div>
+                                    @endforeach
                                 </div>
-                                @endforeach
-                            </div>
-                            <!-- Checkout Place Order Left ends -->
+                                <!-- Checkout Place Order Left ends -->
 
-                            <!-- Checkout Place Order Right starts -->
-                            <div class="checkout-options">
-                                <div class="card">
-                                    <div class="card-body">
-                                        <label class="section-label form-label mb-1">{{__('Options')}}</label>
-                                        <div class="coupons input-group input-group-merge">
-                                            <input type="text" class="form-control" placeholder="{{__('Coupons')}}" aria-label="Coupons" aria-describedby="input-coupons" />
-                                            <span class="input-group-text text-primary ps-1" id="input-coupons">{{__('Apply')}}</span>
-                                        </div>
-                                        <hr />
-                                        <div class="price-details">
-                                            <h6 class="price-title">{{__('Price Details')}}</h6>
-                                            <ul class="list-unstyled">
-                                                <li class="price-detail">
-                                                    <div class="detail-title">{{__('Products Cost')}}</div>
-                                                    <div class="detail-amt">
-                                                        <livewire:client::cart.total />
-                                                    </div>
-                                                </li>
-                                                <li class="price-detail">
-                                                    <div class="detail-title">{{__('Shipping Cost')}}</div>
-                                                    <div class="detail-amt discount-amt text-success">0</div>
-                                                </li>
-                                                <li class="price-detail">
-                                                    <div class="detail-title">{{__('Cash on Delivary')}}</div>
-                                                    <div class="detail-amt">0</div>
-                                                </li>
-                                                <li class="price-detail">
-                                                    <div class="detail-title">{{__('Delivery Charges')}}</div>
-                                                    <div class="detail-amt discount-amt text-success">{{__('Free')}}</div>
-                                                </li>
-                                            </ul>
+                                <!-- Checkout Place Order Right starts -->
+                                <div class="checkout-options">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <label class="section-label form-label mb-1">{{__('Options')}}</label>
+                                            <div class="coupons input-group input-group-merge">
+                                                <input type="text" class="form-control" placeholder="{{__('Coupons')}}" aria-label="Coupons" aria-describedby="input-coupons" />
+                                                <span class="input-group-text text-primary ps-1" id="input-coupons">{{__('Apply')}}</span>
+                                            </div>
                                             <hr />
-                                            <ul class="list-unstyled">
-                                                <li class="price-detail">
-                                                    <div class="detail-title detail-total">{{__('Total')}}</div>
-                                                    <div class="detail-amt fw-bolder">
-                                                        <livewire:client::cart.total />
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                            @if (Auth::check() && $products)
-                                            <button type="button" class="btn btn-primary w-100 btn-next place-order">{{__('Place Order')}}</button>
-                                            @else
-                                            <button data-bs-toggle="modal" data-bs-target="#userLoginModal" type="button" class="btn btn-primary w-100">{{__('Place Order')}}</button>
-                                            @endif
+                                            <div class="price-details">
+                                                <h6 class="price-title">{{__('Price Details')}}</h6>
+                                                <ul class="list-unstyled">
+                                                    <li class="price-detail">
+                                                        <div class="detail-title">{{__('Products Cost')}}</div>
+                                                        <div class="detail-amt">
+                                                            <livewire:client::cart.total />
+                                                        </div>
+                                                    </li>
+                                                    <li class="price-detail">
+                                                        <div class="detail-title">{{__('Shipping Cost')}}</div>
+                                                        <div class="detail-amt discount-amt text-success">0</div>
+                                                    </li>
+                                                    <li class="price-detail">
+                                                        <div class="detail-title">{{__('Cash on Delivary')}}</div>
+                                                        <div class="detail-amt">0</div>
+                                                    </li>
+                                                    <li class="price-detail">
+                                                        <div class="detail-title">{{__('Delivery Charges')}}</div>
+                                                        <div class="detail-amt discount-amt text-success">{{__('Free')}}</div>
+                                                    </li>
+                                                </ul>
+                                                <hr />
+                                                <ul class="list-unstyled">
+                                                    <li class="price-detail">
+                                                        <div class="detail-title detail-total">{{__('Total')}}</div>
+                                                        <div class="detail-amt fw-bolder">
+                                                            <livewire:client::cart.total />
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                                @if (Auth::check() && $products)
+                                                <button type="button" class="btn btn-primary w-100 btn-next place-order">{{__('Place Order')}}</button>
+                                                @else
+                                                <button data-bs-toggle="modal" data-bs-target="#userLoginModal" type="button" class="btn btn-primary w-100">{{__('Place Order')}}</button>
+                                                @endif
+                                            </div>
                                         </div>
                                     </div>
+                                    <!-- Checkout Place Order Right ends -->
                                 </div>
-                                <!-- Checkout Place Order Right ends -->
                             </div>
+                            <!-- Checkout Place order Ends -->
                         </div>
-                        <!-- Checkout Place order Ends -->
-                    </div>
-                    <!-- Checkout Customer Address Starts -->
-                    <div id="step-address" class="content" role="tabpanel" aria-labelledby="step-address-trigger">
-                        <div id="map" style="height: 270px;"></div>
-
-                        <!-- Checkout Customer Address Left starts -->
-                        <livewire:client::add-client-location :store="$store"/>
-
-                        <!-- Checkout Customer Address Left ends -->
-
-                        <!-- Checkout Customer Address Right starts -->
-                        <div class="customer-card">
-
+                        <!-- Checkout Customer Address Starts -->
+                        <div id="step-address" class="content" role="tabpanel" aria-labelledby="step-address-trigger">
+                            <livewire:client::add-client-location :store="$store" />
                         </div>
-                        <!-- Checkout Customer Address Right ends -->
-
-                    </div>
-                    <!-- Checkout Customer Address Ends -->
-                    <!-- Checkout Payment Starts -->
-                    
-                    <!-- Checkout Payment Ends -->
-                    <!-- </div> -->
-                </div>
-            </div>
-            @else
-            <div class="col-12">
-                <div class="card text-center mb-3">
-                    <div class="card-body">
-                        <h4 class="card-title">{{__('Empty Cart')}}</h4>
-                        <p class="card-text">{{__('Your shopping cart is empty , plesde select your items first')}}</p>
-                        <a href="{{route('store.index',$store->store_link)}}" type="button" class="btn btn-outline-primary waves-effect">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home me-25">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
-                                <polyline points="9 22 9 12 15 12 15 22"></polyline>
-                            </svg>
-                            <span>{{__('Continue Shopping')}}</span>
-                        </a>
                     </div>
                 </div>
-            </div>
-            @endif
+                @else
+                <div class="col-12">
+                    <div class="card text-center mb-3">
+                        <div class="card-body">
+                            <h4 class="card-title">{{__('Empty Cart')}}</h4>
+                            <p class="card-text">{{__('Your shopping cart is empty , plesde select your items first')}}</p>
+                            <a href="{{route('store.index',$store->store_link)}}" type="button" class="btn btn-outline-primary waves-effect">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-home me-25">
+                                    <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                                    <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                                </svg>
+                                <span>{{__('Continue Shopping')}}</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                @endif
         </div>
     </div>
 </div>

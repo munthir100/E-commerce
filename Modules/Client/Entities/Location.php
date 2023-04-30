@@ -12,9 +12,9 @@ class Location extends Model
     protected $fillable = [
         'longitude',
         'latitude',
+        'phone',
         'address',
-        'client_id',
         'address_type',
-        'order_id',
+        'client_id',
     ];
 }

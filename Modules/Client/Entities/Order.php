@@ -18,6 +18,7 @@ class Order extends Model
         'price',
         'client_id',
         'store_id',
+        'location_id',
     ];
 
     function store()
@@ -36,6 +37,6 @@ class Order extends Model
 
     function location()
     {
-        return $this->hasOne(Location::class);
+        return $this->belongsTo(Location::class);
     }
 }

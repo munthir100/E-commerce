@@ -54,10 +54,11 @@ class ClientController extends Controller
      */
     public function show(Client $client)
     {
-        $perPage = request()->query('per_page', 25);
-        $orders = $client->load('orders')->paginate($perPage);
-        return view('admin::Clients.show', compact('client','orders'));
+        $perPage = request()->query('per_page', 10);
+        $orders = $client->orders()->paginate($perPage);
+        return view('admin::Clients.show', compact('client', 'orders'));
     }
+
 
 
     /**

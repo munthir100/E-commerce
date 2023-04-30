@@ -5,6 +5,8 @@ namespace Modules\Client\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Entities\Store;
+use Modules\Client\Entities\Location;
 
 class ShippingController extends Controller
 {
@@ -12,9 +14,10 @@ class ShippingController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
+    public function index(Store $store)
     {
-        return view('client::index');
+        $locations = Location::where('client_id', auth()->user()->client->id)->get();
+        return view('client::shipping.index', compact('locations', 'store'));
     }
 
     /**
@@ -72,8 +75,9 @@ class ShippingController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function destroy(Location $location)
     {
-        //
+        $location->delete();
+        return redirect()->route('client.shipping.index')->with('success',__('location deleted'));
     }
 }

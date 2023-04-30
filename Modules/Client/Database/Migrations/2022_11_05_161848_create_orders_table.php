@@ -18,7 +18,7 @@ return new class extends Migration
             $table->enum('status', ['new', 'processing', 'ready', 'delivering', 'completed', 'rejected'])->default('new');
             $table->string('shipping');
             $table->decimal('price', 8, 2);
-            
+
             $table->foreignId('client_id')
                 ->references('id')
                 ->on('clients')
@@ -30,6 +30,13 @@ return new class extends Migration
                 ->on('stores')
                 ->cascadeOnDelete()
                 ->cascadeOnUpdate();
+
+            $table->foreignId('location_id')
+                ->nullable()
+                ->references('id')
+                ->on('locations')
+                ->nullOnDelete();
+
             $table->timestamps();
             $table->softDeletes();
         });

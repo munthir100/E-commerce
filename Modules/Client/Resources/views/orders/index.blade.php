@@ -30,7 +30,7 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="table-responsive">
-                            @if(!$orders)
+                            @if($orders->isEmpty())
                             <div class="demo-spacing-0 mb-2">
                                 <div class="alert alert-danger mt-1 alert-validation-msg" role="alert">
                                     <div class="alert-body d-flex align-items-center">
@@ -44,8 +44,46 @@
                                 </div>
                             </div>
                             @else
-                            
-                            <div class="col-2 mb-2">
+                            <table class="table table-striped table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>{{__('Date')}}</th>
+                                        <th>{{__('Payment')}}</th>
+                                        <th>{{__('Shipping')}}</th>
+                                        <th>{{__('Number Of Products')}}</th>
+                                        <th>{{__('Total')}}</th>
+                                        <th>{{__('Status')}}</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($orders as $order)
+                                    <tr>
+                                        <td>{{$order->created_at->diffForhumans()}}</td>
+                                        <td>{{__('Cash on delivery')}}</td>
+                                        <td> <i data-feather="truck"></i> </td>
+                                        <td>{{$order->order_details_count}}</td>
+                                        <td>{{$order->price}}</td>
+                                        <td>
+                                            @if($order->status == 'new')
+                                            {{__('new')}}
+                                            @elseif($order->status == 'processing')
+                                            {{__('processing')}}
+                                            @elseif($order->status == 'ready')
+                                            {{__('ready')}}
+                                            @elseif($order->status == 'delivering')
+                                            {{__('delivering')}}
+                                            @elseif($order->status == 'completed')
+                                            {{__('completed')}}
+                                            @else($order->status == 'rejected')
+                                            {{__('rejected')}}
+                                            @endif
+                                        </td>
+
+                                        @endforeach
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="col-8 col-sm-2  mb-2 mt-4">
                                 <form method="GET" action="#" class="mr-10">
                                     <select class="form-select" name="per_page" onchange="this.form.submit()">
                                         <option value="10" {{ Request::get('per_page') == 10 ? 'selected' : '' }}>{{__('10 items')}}</option>

@@ -52,7 +52,7 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        $order = $order->load('client');
+        $order = $order->load('client','location');
         return view('admin::orders.show',compact('order'));
     }
 

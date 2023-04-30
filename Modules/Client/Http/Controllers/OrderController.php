@@ -3,16 +3,17 @@
 namespace Modules\Client\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Modules\Admin\Entities\Store;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class OrderController extends Controller
 {
     
-    public function index($storeLink)
+    public function index(Store $store)
     {
-        $orders = null;
-        return view('client::orders.index',compact('storeLink','orders'));
+        $orders = auth()->user()->client->orders()->withCount('orderDetails')->get();
+        return view('client::orders.index',compact('store','orders'));
     }
 
     
