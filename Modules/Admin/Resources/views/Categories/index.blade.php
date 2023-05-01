@@ -179,7 +179,7 @@
 @endsection
 
 @section('scripts')
-<script src="{{asset('app-assets/vendors/js/extensions/jstree.min.js')}}"></script>
+<script type="text/javascript" src="{{asset('app-assets/vendors/js/extensions/jstree.min.js')}}"></script>
 <script src="{{asset('app-assets/js/scripts/extensions/ext-component-tree.js')}}"></script>
 
 <script src="{{asset('app-assets/vendors/js/forms/select/select2.full.min.js')}}"></script>
