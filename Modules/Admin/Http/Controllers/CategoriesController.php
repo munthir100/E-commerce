@@ -21,7 +21,7 @@ class CategoriesController extends Controller
 
         $categories = Category::buildCategoryTree($allCategories);
 
-        return view('admin::Categories.index', compact('categories', 'allCategories'));
+        return view('admin::categories.index', compact('categories', 'allCategories'));
     }
 
 
@@ -32,7 +32,7 @@ class CategoriesController extends Controller
      */
     public function show(Category $category)
     {
-        return view('admin::Categories.show');
+        return view('admin::categories.show');
     }
 
     /**
@@ -53,7 +53,7 @@ class CategoriesController extends Controller
             })
             ->get();
 
-        return view('admin::Categories.edit', compact('category', 'categories'));
+        return view('admin::categories.edit', compact('category', 'categories'));
     }
 
     /**
