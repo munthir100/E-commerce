@@ -294,14 +294,15 @@
     <script src="{{asset('app-assets/js/core/app.js')}}"></script>
     <!-- END: Theme JS-->
     <script src="{{asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js')}}"></script>
-    <script src="{{asset('app-assets/vendors/js/extensions/polyfill.min.js')}}"></script>
     <script src="{{asset('app-assets/js/scripts/extensions/ext-component-sweet-alerts.js')}}"></script>
+
+    <script src="{{asset('app-assets/vendors/js/extensions/toastr.min.js')}}"></script>
     <script>
         function notAvailable() {
 
             Swal.fire({
-                title: '{{ translate("Warning!") }}',
-                text: '{{ translate("Please upgrade your package becouse this fddeature is not available in your package!") }}',
+                title: '{{ __("Warning!") }}',
+                text: '{{ __("Please upgrade your package becouse this fddeature is not available in your package!") }}',
                 icon: 'warning',
                 customClass: {
                     confirmButton: 'btn btn-primary'

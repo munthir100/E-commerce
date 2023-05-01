@@ -3817,7 +3817,7 @@ textarea {
 .preview-galley-v3::after {
     position: absolute;
     content: "";
-    background-image: url(../img/preview-gallery/preview-two-line.png);
+    /* background-image: url(../img/preview-gallery/preview-two-line.png); */
     background-repeat: no-repeat;
     background-size: 90% 100%;
     top: -95px;

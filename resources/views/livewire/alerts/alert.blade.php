@@ -35,13 +35,14 @@
 
     @push('styles')
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/extensions/sweetalert2.min.css') }}">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/animate/animate.min.css">
-    <link rel="stylesheet" type="text/css" href="../../../app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/animate/animate.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css-rtl/plugins/extensions/ext-component-sweet-alerts.css')}}">
     @endpush
     @push('scripts')
-    <script src="../../../app-assets/vendors/js/extensions/sweetalert2.all.min.js"></script>
-    <script src="../../../app-assets/vendors/js/extensions/polyfill.min.js"></script>
-    <script src="../../../app-assets/js/scripts/extensions/ext-component-sweet-alerts.js"></script>
+    <script src="{{ asset('app-assets/vendors/js/extensions/sweetalert2.all.min.js')}}"></script>
+    <script src="{{ asset('app-assets/vendors/js/extensions/polyfill.min.js')}}"></script>
+    <script src="{{ asset('app-assets/js/scripts/extensions/ext-component-sweet-alerts.js')}}"></script>
+
     @endpush
 
     <script>
@@ -105,6 +106,7 @@
             })
         });
     </script>
+    <script src="{{asset('frontend/assets/js/jquery-3.6.0.min.js')}}"></script>
 
     <script>
         $('#notAvailable').on('click', function() {
