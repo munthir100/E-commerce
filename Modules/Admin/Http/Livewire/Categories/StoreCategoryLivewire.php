@@ -19,11 +19,6 @@ class StoreCategoryLivewire extends Component
         'is_active' => 'boolean|sometimes'
     ];
 
-    public function updated($data)
-    {
-        $this->validateOnly($data);
-    }
-
     public function render()
     {
         return view('admin::livewire.Categories.store-category-livewire');
@@ -32,7 +27,7 @@ class StoreCategoryLivewire extends Component
     public function save()
     {
         $data = $this->validate();
-        $data['store_id'] = Auth::id();
+        $data['store_id'] = Auth::user()->admin->store->id;
         if ($data['parent_id'] === '') {
             $data['parent_id'] = null;
         }
