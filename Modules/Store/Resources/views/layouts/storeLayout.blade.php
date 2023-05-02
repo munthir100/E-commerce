@@ -182,6 +182,7 @@
             <!-- Horizontal menu content-->
             <div class="navbar-container main-menu-content" data-menu="menu-container">
                 <!-- include ../../../includes/mixins-->
+                
                 <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
                     <li class="dropdown nav-item">
                         <a class="nav-link d-flex align-items-center" href="{{ route('store.index', $store->store_link) }}">
