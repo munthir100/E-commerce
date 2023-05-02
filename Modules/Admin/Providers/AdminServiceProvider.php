@@ -2,9 +2,10 @@
 
 namespace Modules\Admin\Providers;
 
+use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Illuminate\Support\Facades\Route;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -32,8 +33,9 @@ class AdminServiceProvider extends ServiceProvider
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
 
         Route::middleware(['web'])
-             ->namespace($this->namespace)
-             ->group(module_path($this->moduleName, 'Routes/settings.php'));
+            ->namespace($this->namespace)
+            ->group(module_path($this->moduleName, 'Routes/settings.php'));
+        Blade::componentNamespace('Modules\\Admin\\View\\Components', 'admin');
     }
 
     /**
@@ -57,7 +59,8 @@ class AdminServiceProvider extends ServiceProvider
             module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
+            module_path($this->moduleName, 'Config/config.php'),
+            $this->moduleNameLower
         );
     }
 
