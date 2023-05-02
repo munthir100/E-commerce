@@ -184,30 +184,56 @@
                 <!-- include ../../../includes/mixins-->
                 <ul class="nav navbar-nav" id="main-menu-navigation" data-menu="menu-navigation">
                     <li class="dropdown nav-item">
-                        <a class="nav-link d-flex align-items-center" href="{{route('store.index',$store->store_link)}}">
+                        <a class="nav-link d-flex align-items-center" href="{{ route('store.index', $store->store_link) }}">
                             <i data-feather="home"></i>
-                            <span data-i18n="Home">{{__('Home')}}</span>
+                            <span data-i18n="Home">{{ __('Home') }}</span>
                         </a>
                     </li>
                     @foreach($categories as $category)
-                    @if(count($category->children) > 0 )
                     <li class="dropdown nav-item" data-menu="dropdown">
-                        <a class="dropdown-toggle  nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$store->store_link,$category->id])}}">
-                            <i data-feather='circle'></i>
-                            <span data-i18n="Apps">{{$category->title}}</span>
-                        </a>
-                        @include('store::Categories.subcategories', ['subcategories' => $category->children])
+                        @if(count($category->children) > 0 )
+                        <a class="dropdown-toggle  nav-link d-flex align-items-center" href="{{ route('store.shopCategory', [$store->store_link, $category->id]) }}">
+                            @else
+                            <a class="nav-link d-flex align-items-center" href="{{ route('store.shopCategory', [$store->store_link, $category->id]) }}">
+                                @endif
+                                <i data-feather='circle'></i>
+                                <span data-i18n="Apps">{{ $category->title }}</span>
+                            </a>
+                            @if(count($category->children) > 0)
+                            <ul class="dropdown-menu" data-bs-popper="none">
+                                @foreach($category->children as $subcategory)
+                                @if(!$subcategory->children->count())
+                                <li>
+                                    <a class="dropdown-item d-flex align-items-center" href="{{ route('store.shopCategory', [$store->store_link, $subcategory->id]) }}">
+                                        <i data-feather="circle"></i>
+                                        <span>{{ $subcategory->title }}</span>
+                                    </a>
+                                </li>
+                                @else
+                                <li class="dropdown dropdown-submenu" data-menu="dropdown-submenu">
+                                    <a class="dropdown-item d-flex align-items-center dropdown-toggle" href="{{ route('store.shopCategory', [$store->store_link, $subcategory->id]) }}">
+                                        <i data-feather='circle'></i>
+                                        <span>{{ $subcategory->title }}</span>
+                                    </a>
+                                    <ul class="dropdown-menu" data-bs-popper="none">
+                                        @foreach($subcategory->children as $child)
+                                        <li>
+                                            <a class="dropdown-item d-flex align-items-center" href="{{ route('store.shopCategory', [$store->store_link, $child->id]) }}">
+                                                <i data-feather="circle"></i>
+                                                <span>{{ $child->title }}</span>
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                @endif
+                                @endforeach
+                            </ul>
+                            @endif
                     </li>
-                    @else
-                    <li class="nav-item">
-                        <a class="nav-link d-flex align-items-center" href="{{route('store.shopCategory',[$store->store_link,$category->id])}}">
-                            <i data-feather='circle'></i>
-                            <span data-i18n="Apps">{{$category->title}}</span>
-                        </a>
-                    </li>
-                    @endif
                     @endforeach
                 </ul>
+
             </div>
         </div>
     </div>
