@@ -138,6 +138,7 @@
                                             <?php
                                             function recursiveCategoryRender($categories)
                                             {
+                                                dd($categories);
                                                 echo '<ul>';
                                                 foreach ($categories as $category) {
                                                     echo '<li data-jstree=\'{"icon" : "far fa-folder" }\' id="row-' . $category->id . '">';
