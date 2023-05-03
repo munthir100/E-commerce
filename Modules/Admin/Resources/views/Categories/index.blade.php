@@ -135,7 +135,7 @@
                                                 @endforelse
                                         
 
-                                            @php
+                                            <?php
                                             function recursiveCategoryRender($categories) {
                                             echo '<ul>';
                                                 foreach ($categories as $category) {
@@ -148,7 +148,7 @@
                                                 }
                                                 echo '</ul>';
                                             }
-                                            @endphp
+                                            ?>
 
                                         </ul>
 
