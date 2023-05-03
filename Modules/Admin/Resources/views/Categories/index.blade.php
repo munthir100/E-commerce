@@ -32,7 +32,7 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{__('Important Note') }} ...... </h4>
+                                    <h4 class="card-title">{{__('Important Note') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text">
@@ -122,10 +122,10 @@
                                                 <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                     {{ $category->title }}
                                                     @if(count($category->children) > 0)
-                                                    <?php
+                                                    @php
                                                     $subcategories = $category->children;
                                                     recursiveCategoryRender($subcategories);
-                                                    ?>
+                                                    @endphp
                                                     @endif
                                                 </li>
                                                 @empty
@@ -135,9 +135,8 @@
                                                 @endforelse
                                         
 
-                                            <?php
+                                            @php
                                             function recursiveCategoryRender($categories) {
-                                                dd($categories);
                                             echo '<ul>';
                                                 foreach ($categories as $category) {
                                                 echo '<li data-jstree=\'{"icon" : "far fa-folder" }\' id="row-'.$category->id.'">';
@@ -149,7 +148,7 @@
                                                 }
                                                 echo '</ul>';
                                             }
-                                            ?>
+                                           @endphp
 
                                         </ul>
 
