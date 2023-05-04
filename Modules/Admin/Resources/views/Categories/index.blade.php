@@ -32,7 +32,7 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">{{__('Important Note') }} ...</h4>
+                                    <h4 class="card-title">{{__('Important Note') }}</h4>
                                 </div>
                                 <div class="card-body">
                                     <p class="card-text">
@@ -135,7 +135,7 @@
                                                 @endforelse
                                         
 
-                                            @php
+                                            <?php
                                             function recursiveCategoryRender($categories) {
                                             echo '<ul>';
                                                 foreach ($categories as $category) {
@@ -148,7 +148,7 @@
                                                 }
                                                 echo '</ul>';
                                             }
-                                           @endphp
+                                            ?>
 
                                         </ul>
 

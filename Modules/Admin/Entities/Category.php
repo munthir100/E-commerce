@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Entities;
 
+use Modules\Admin\Entities\Category;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletes;
