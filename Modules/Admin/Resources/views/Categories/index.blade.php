@@ -121,7 +121,7 @@
                                                 @forelse($categories as $category)
                                                 <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                     {{ $category->title }}
-                                                    @if(count($category->children) > 0)
+                                                    @if(!empty($category->children))
                                                     {{dd($category->children)}}
                                                     @php
                                                     $subcategories = $category->children;
