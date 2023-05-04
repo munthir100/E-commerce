@@ -117,37 +117,18 @@
                                 <div class="card-body">
                                     <div id="jstree-basic">
                                         <ul role="group" class="jstree-children">
-
                                             @forelse($categories as $category)
                                             <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                 {{ $category->title }}
                                                 @if($category->children->isNotEmpty())
-                                                <?php $subcategories = $category->children; ?>
-                                                @php recursiveCategoryRender($subcategories); @endphp
+                                                @include('admin::categories.subcategories', ['subcategories' => $category->children])
                                                 @endif
                                             </li>
                                             @empty
-                                            <li>{{__('no categories yet')}}</li>
+                                            <li>
+                                                {{__('no categories yet')}}
+                                            </li>
                                             @endforelse
-
-                                            <?php
-                                            function recursiveCategoryRender($subcategories)
-                                            {
-                                                echo '<ul>';
-                                                foreach ($subcategories as $category) {
-                                                    echo '<li data-jstree=\'{"icon" : "far fa-folder" }\' id="row-' . $category->id . '">';
-                                                    echo $category->title;
-                                                    if ($category->children->isNotEmpty()) {
-                                                        recursiveCategoryRender($category->children);
-                                                    }
-                                                    echo '</li>';
-                                                }
-                                                echo '</ul>';
-                                            }
-                                            ?>
-
-
-
                                         </ul>
 
                                     </div>
