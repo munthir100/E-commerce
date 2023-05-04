@@ -122,12 +122,10 @@
                                             <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                 {{ $category->title }}
                                                 @if(!empty($category->children))
-{{dd('test has a children',$category,$category->getRelation('children'))}}
+                                                <?php $subcategories = $category->getRelation('children'); ?>
                                                 @php
-                                                $subcategories = $category->children;
                                                 recursiveCategoryRender($subcategories);
                                                 @endphp
-
                                                 @endif
                                             </li>
                                             @empty
@@ -136,7 +134,6 @@
                                             </li>
                                             @endforelse
 
-
                                             <?php
                                             function recursiveCategoryRender($subcategories)
                                             {
@@ -144,14 +141,15 @@
                                                 foreach ($subcategories as $category) {
                                                     echo '<li data-jstree=\'{"icon" : "far fa-folder" }\' id="row-' . $category->id . '">';
                                                     echo $category->title;
-                                                    if ($category->children->isNotEmpty()) {
-                                                        recursiveCategoryRender($category->children);
+                                                    if (!empty($category->children)) {
+                                                        recursiveCategoryRender($category->getRelation('children'));
                                                     }
                                                     echo '</li>';
                                                 }
                                                 echo '</ul>';
                                             }
                                             ?>
+
 
                                         </ul>
 
