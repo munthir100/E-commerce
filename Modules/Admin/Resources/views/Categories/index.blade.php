@@ -121,17 +121,13 @@
                                             @forelse($categories as $category)
                                             <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                 {{ $category->title }}
-                                                @if(!empty($category->children))
-                                                <?php $subcategories = $category->getRelation('children'); ?>
-                                                @php
-                                                recursiveCategoryRender($subcategories);
-                                                @endphp
+                                                @if($category->children->isNotEmpty())
+                                                <?php $subcategories = $category->children; ?>
+                                                @php recursiveCategoryRender($subcategories); @endphp
                                                 @endif
                                             </li>
                                             @empty
-                                            <li>
-                                                {{__('no categories yet')}}
-                                            </li>
+                                            <li>{{__('no categories yet')}}</li>
                                             @endforelse
 
                                             <?php
@@ -141,14 +137,15 @@
                                                 foreach ($subcategories as $category) {
                                                     echo '<li data-jstree=\'{"icon" : "far fa-folder" }\' id="row-' . $category->id . '">';
                                                     echo $category->title;
-                                                    if (!empty($category->children)) {
-                                                        recursiveCategoryRender($category->getRelation('children'));
+                                                    if ($category->children->isNotEmpty()) {
+                                                        recursiveCategoryRender($category->children);
                                                     }
                                                     echo '</li>';
                                                 }
                                                 echo '</ul>';
                                             }
                                             ?>
+
 
 
                                         </ul>
