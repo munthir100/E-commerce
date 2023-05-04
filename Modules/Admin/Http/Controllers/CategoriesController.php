@@ -20,7 +20,6 @@ class CategoriesController extends Controller
         $allCategories = Category::forAdmin($user->id)->get();
 
         $categories = Category::buildCategoryTree($allCategories);
-
         return view('admin::Categories.index', compact('categories', 'allCategories'));
     }
 

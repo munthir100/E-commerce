@@ -121,10 +121,10 @@
                                             @forelse($categories as $category)
                                             <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                 {{ $category->title }}
-                                                @if(!empty($category['children']))
-
+                                                @if($category->children->isNotEmpty())
+{{dd('test has a children',$category,$category->children)}}
                                                 @php
-                                                $subcategories = $category['children'];
+                                                $subcategories = $category->children;
                                                 recursiveCategoryRender($subcategories);
                                                 @endphp
 
@@ -138,14 +138,14 @@
 
 
                                             <?php
-                                            function recursiveCategoryRender($categories)
+                                            function recursiveCategoryRender($subcategories)
                                             {
                                                 echo '<ul>';
-                                                foreach ($categories as $category) {
+                                                foreach ($subcategories as $category) {
                                                     echo '<li data-jstree=\'{"icon" : "far fa-folder" }\' id="row-' . $category->id . '">';
                                                     echo $category->title;
-                                                    if (!empty($category['children'])) {
-                                                        recursiveCategoryRender($category['children']);
+                                                    if ($category->children->isNotEmpty()) {
+                                                        recursiveCategoryRender($category->children);
                                                     }
                                                     echo '</li>';
                                                 }
