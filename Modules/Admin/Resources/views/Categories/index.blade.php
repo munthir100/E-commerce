@@ -120,7 +120,8 @@
                                             @forelse($categories as $category)
                                             <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                 {{ $category->title }}
-                                                @if($category->children->isNotEmpty())
+                                                @if(!empty($category->children))
+                                                {{dd($category)}}
                                                 @include('admin::categories.subcategories', ['subcategories' => $category->children])
                                                 @endif
                                             </li>
