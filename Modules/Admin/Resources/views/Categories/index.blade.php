@@ -122,7 +122,7 @@
                                             <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                 {{ $category->title }}
                                                 @if(!empty($category->children))
-{{dd('test has a children',$category,$category->children)}}
+{{dd('test has a children',$category,$category->children())}}
                                                 @php
                                                 $subcategories = $category->children;
                                                 recursiveCategoryRender($subcategories);
