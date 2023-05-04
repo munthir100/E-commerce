@@ -117,35 +117,35 @@
                                 <div class="card-body">
                                     <div id="jstree-basic">
                                         <ul role="group" class="jstree-children">
-                            
-                                                @forelse($categories as $category)
-                                                <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
-                                                    {{ $category->title }}
-                                                    @if(!empty($category->children))
-                                                    {{dd($category->children)}}
-                                                    @php
-                                                    $subcategories = $category->children;
-                                                    recursiveCategoryRender($subcategories);
-                                                    @endphp
-                                                    @else
-                                                    {{dd('else')}}
-                                                    @endif
-                                                </li>
-                                                @empty
-                                                <li>
-                                                    {{__('no categories yet')}}
-                                                </li>
-                                                @endforelse
-                                        
+
+                                            @forelse($categories as $category)
+                                            <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
+                                                {{ $category->title }}
+                                                @if(!empty($category['children']))
+
+                                                @php
+                                                $subcategories = $category['children'];
+                                                recursiveCategoryRender($subcategories);
+                                                @endphp
+
+                                                @endif
+                                            </li>
+                                            @empty
+                                            <li>
+                                                {{__('no categories yet')}}
+                                            </li>
+                                            @endforelse
+
 
                                             <?php
-                                            function recursiveCategoryRender($categories) {
-                                            echo '<ul>';
+                                            function recursiveCategoryRender($categories)
+                                            {
+                                                echo '<ul>';
                                                 foreach ($categories as $category) {
-                                                echo '<li data-jstree=\'{"icon" : "far fa-folder" }\' id="row-'.$category->id.'">';
+                                                    echo '<li data-jstree=\'{"icon" : "far fa-folder" }\' id="row-' . $category->id . '">';
                                                     echo $category->title;
-                                                    if (count($category->children) > 0) {
-                                                    recursiveCategoryRender($category->children);
+                                                    if (!empty($category['children'])) {
+                                                        recursiveCategoryRender($category['children']);
                                                     }
                                                     echo '</li>';
                                                 }
