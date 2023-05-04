@@ -121,7 +121,6 @@
                                             <li data-jstree='{"icon" : "far fa-folder"}' id="row-{{$category->id}}">
                                                 {{ $category->title }}
                                                 @if(!empty($category->children))
-                                                {{dd($category)}}
                                                 @include('admin::categories.subcategories', ['subcategories' => $category->children])
                                                 @endif
                                             </li>
