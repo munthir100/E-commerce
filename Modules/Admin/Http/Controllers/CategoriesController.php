@@ -17,7 +17,7 @@ class CategoriesController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $allCategories = Category::forAdmin($user->id)->get();
+        $allCategories = Category::forAdmin($user->id)->with('children')->get();
 
         $categories = Category::buildCategoryTree($allCategories);
         return view('admin::Categories.index', compact('categories', 'allCategories'));
