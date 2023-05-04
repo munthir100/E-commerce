@@ -127,6 +127,8 @@
                                                     $subcategories = $category->children;
                                                     recursiveCategoryRender($subcategories);
                                                     @endphp
+                                                    @else
+                                                    {{dd('else')}}
                                                     @endif
                                                 </li>
                                                 @empty
