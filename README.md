@@ -1,6 +1,6 @@
-# Laravel E-Commerce Project
+ Laravel E-Commerce Project
 
-Welcome to the Laravel E-Commerce project! This platform allows you to effortlessly create and manage your online store, providing features for product creation, order management, and seamless communication with your clients.
+Welcome to the Laravel E-Commerce project! powered by Laravel Livewire for a dynamic single-page experience. This platform allows you to effortlessly create and manage your online store, providing features for product creation, order management, and seamless communication with your clients.
 
 ## Prerequisites
 
@@ -16,13 +16,13 @@ Before you begin, ensure that you have the following installed:
 ### 1. Clone the Repository:
 
 ```bash
-git clone https://github.com/munthir100/api-SAAS.git
+git clone https://github.com/munthir100/E-commerce.git
 ```
 
 ### 2. Navigate to the Project Directory:
 
 ```bash
-cd api-SAAS
+cd E-commerce
 ```
 
 ### 3. Install Dependencies:
@@ -44,10 +44,13 @@ php artisan key:generate
 ```
 
 ### 6. Run Migrations:
+
 ```bash
 php artisan migrate
 ```
+
 ### 7. Run Seeders:
+
 ```bash
 php artisan module:seed Shipping
 ```
@@ -62,7 +65,6 @@ php artisan module:seed Store
 ```
 ```bash
 php artisan module:seed Customer
-```bash
 ```
 
 ### 8. Run the Development Server:
@@ -98,8 +100,7 @@ This e-commerce project empowers you to create your online store with ease, prov
 
 ## Contributors
 
-- [Your Name]
-- [Other Contributors]
+- Monzer Omer
 
 Feel free to contribute to the project and make it even better!
 
